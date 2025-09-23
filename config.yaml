@@ -279,7 +279,7 @@ rules:
     - DOMAIN-SUFFIX,auth0.com,PROXY_AI
     - DOMAIN-SUFFIX,cloudflare.com,PROXY_AI
     # Android 进程
-    - 'PROCESS-NAME,com.sohu.inputmethod.sogou.xiaomi,DIRECT'
+    - 'PROCESS-NAME,com.sohu.inputmethod.sogou.xiaomi,REJECT'
     # mac 进程
     - 'PROCESS-NAME,Docker Desktop Helper,trojan'
     - 'PROCESS-NAME,com.docker.backend,trojan'
