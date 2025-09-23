@@ -278,6 +278,8 @@ rules:
     - 'PROCESS-NAME,com.deepl.mobiletranslator,PROXY_AI'
     - DOMAIN-SUFFIX,auth0.com,PROXY_AI
     - DOMAIN-SUFFIX,cloudflare.com,PROXY_AI
+    # Android 进程
+    - 'PROCESS-NAME,com.sohu.inputmethod.sogou.xiaomi,DIRECT'
     # mac 进程
     - 'PROCESS-NAME,Docker Desktop Helper,trojan'
     - 'PROCESS-NAME,com.docker.backend,trojan'
