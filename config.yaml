@@ -1,0 +1,317 @@
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+# 此功能仅在 allow-lan 设置为 true 时生效，支持三种参数：
+# "*"                           绑定所有的 IP 地址
+# 192.168.122.11                绑定一个的 IPv4 地址
+# "[aaaa::a8aa:ff:fe09:57d8]"   绑定一个 IPv6 地址
+mode: rule
+log-level: info
+clash-for-android:
+    append-system-dns: false
+unified-delay: true
+keep-alive-interval: 15
+hosts:
+    mtalk.google.com: 108.177.125.188
+dns:
+    enable: true
+    ipv6: false
+    listen: '127.0.0.1:53'
+    # 启动时使用的DNS服务
+    default-nameserver: [system,223.5.5.5, 119.29.29.29, 180.184.1.1]
+    enhanced-mode: fake-ip
+    fake-ip-range: 198.20.0.1/16
+    use-hosts: true
+    nameserver-policy: {+.github.com: 'https://1.1.1.1/dns-query',+.pphimalayanrt.com: 223.5.5.5, st.dl.eccdnx.com: 223.5.5.5, +.tmall.com: 223.5.5.5, +.taobao.com: 223.5.5.5, +.alicdn.com: 223.5.5.5, +.aliyun.com: 223.5.5.5, +.alipay.com: 223.5.5.5, +.alibaba.com: 223.5.5.5, +.qq.com: 119.29.29.29, +.tencent.com: 119.29.29.29, +.weixin.com: 119.29.29.29, +.qpic.cn: 119.29.29.29, +.jd.com: 119.29.29.29, +.bilibili.com: 119.29.29.29, +.hdslb.com: 119.29.29.29, +.163.com: 119.29.29.29, +.126.com: 119.29.29.29, +.126.net: 119.29.29.29, +.127.net: 119.29.29.29, +.netease.com: 119.29.29.29, +.baidu.com: 223.5.5.5, +.bdstatic.com: 223.5.5.5, +.bilivideo.+: 119.29.29.29, +.iqiyi.com: 119.29.29.29, +.douyinvod.com: 180.184.1.1, +.douyin.com: 180.184.1.1, +.douyincdn.com: 180.184.1.1, +.douyinpic.com: 180.184.1.1, +.feishu.cn: 180.184.1.1 }
+    # DoH（DNS over HTTPS）/ DoT（DNS over TLS）
+    # 主用 DNS 服务器，用于 Rule, Global, Script 模式下的域名解析
+    nameserver: ['https://223.5.5.5/dns-query','https://119.29.29.29/dns-query','https://8.8.8.8/dns-query','tls://223.5.5.5:853', 'https://223.6.6.6/dns-query', 'https://120.53.53.53/dns-query']
+    fallback: ['https://1.1.1.1/dns-query','https://8.8.8.8/dns-query','https://101.101.101.101/dns-query', 'https://208.67.220.220/dns-query', 'https://doh.mullvad.net/dns-query']
+    fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32, 223.75.236.241/32, 182.43.124.6/32, 106.74.25.198/32, 183.192.65.101/32], domain: [+.google.cn, +.tagss01.pro, +.tagss02.pro, +.tagss03.pro, +.tagss04.pro, +.tagss05.pro, +.tagcdnsub.work, +.jsdelivr.net, +.proton.me] }
+    # 直连使用的DNS服务器
+    direct-nameserver:
+      - 223.5.5.5, 
+      - 119.29.29.29, 
+      - 180.184.1.1
+proxies:
+  - name: "trojan"
+    type: trojan
+    server: 43.132.197.237 # 服务器的IP地址
+    port: 4433
+    password: 141516 #密码
+    # udp: true
+    sni: test.xueshaobo.top # 用于trojan识别的二级域名
+# 定义多个订阅
+proxy-providers:
+  Nolock:
+    type: http
+    path: ./profiles/proxies/nolock.yaml
+    url: https://47.116.124.118:8090/sub/14581/xopinnjo/clashxpro
+    filter: '^(?!.*(2\.0x|3\.0x|5\.0x|2倍率|3倍率|5倍率)).*$'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 1800
+  
+  Nolock_Singapore:
+    type: http
+    path: ./profiles/proxies/nolock_Singapore.yaml
+    url: https://47.116.124.118:8090/sub/14581/xopinnjo/clashxpro
+    filter: '新加坡'
+    exclude-filter: '[235]\.0x|[235]倍率'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 1800
+
+  Nolock_Korea:
+    type: http
+    path: ./profiles/proxies/nolock_Korea.yaml
+    url: https://47.116.124.118:8090/sub/14581/xopinnjo/clashxpro
+    filter: '韩国'
+    exclude-filter: '[235]\.0x|[235]倍率'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 1800
+
+  Nolock_Japan:
+    type: http
+    path: ./profiles/proxies/nolock_Japan.yaml
+    url: https://47.116.124.118:8090/sub/14581/xopinnjo/clashxpro
+    filter: '日本'
+    exclude-filter: '[235]\.0x|[235]倍率'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 1800
+
+  V2Free:
+    type: http
+    path: ./profiles/proxies/v2free.yaml
+    url: https://v1.v2ai.top/link/s4hN3BbrL6wy0xVIsu0Txlv64sCsXTnFGPsY?clash=1
+    filter: '^(?!.*(2\.0x|3\.0x|5\.0x|2倍率|3倍率|5倍率)).*$'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 1800
+
+  V2Free_Japan:
+    type: http
+    path: ./profiles/proxies/v2free_Japan.yaml
+    url: https://v1.v2ai.top/link/s4hN3BbrL6wy0xVIsu0Txlv64sCsXTnFGPsY?clash=1
+    filter: "(?i)日本"
+    exclude-filter: '[235]\.0x|[235]倍率'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 1800
+
+  V2Free_Korea:
+    type: http
+    path: ./profiles/proxies/v2free_Korea.yaml
+    url: https://v1.v2ai.top/link/s4hN3BbrL6wy0xVIsu0Txlv64sCsXTnFGPsY?clash=1
+    filter: "(?i)韩国"
+    exclude-filter: '[235]\.0x|[235]倍率'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 1800
+
+  V2Free_Singapore:
+    type: http
+    path: ./profiles/proxies/v2free_Singapore.yaml
+    url: https://v1.v2ai.top/link/s4hN3BbrL6wy0xVIsu0Txlv64sCsXTnFGPsY?clash=1
+    filter: "(?i)新加坡"
+    exclude-filter: '[235]\.0x|[235]倍率'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 1800
+    
+proxy-groups:  
+  - name: PROXY
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    # 多久检测一次所有节点的延迟（测速）
+    interval: 300
+    # proxies 使用proxies声明的节点
+    proxies:
+      - trojan # ← 主节点（首选）
+    # use 使用providers中的配置
+    use:
+      - Nolock
+      #- TAG
+      - V2Free
+
+  # 一些不想使用trajon配置的逻辑，使用该组
+  - name: PROXY_COMMON
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 300
+    # use 使用providers中的配置
+    use:
+      - Nolock
+      - V2Free
+
+  - name: PROXY_AI
+    type: select
+    url: http://cp.cloudflare.com/generate_204
+    interval: 300
+    use:
+      - Nolock_Singapore
+      - Nolock_Korea
+      - Nolock_Japan
+      - V2Free_Singapore
+      - V2Free_Korea
+      - V2Free_Japan
+
+  - name: GLOBAL_USE
+    type: select
+    url: http://cp.cloudflare.com/generate_204
+    interval: 300
+    proxies:
+      - trojan # ← 主节点（首选）
+    use:
+      - Nolock
+      - V2Free
+
+rule-providers:
+  proxy: { type: http, behavior: domain, url: 'https://47.116.124.118:9090/rules/clash/proxy.txt', path: ./ruleset/proxy.yaml, interval: 86400 }
+  direct: { type: http, behavior: domain, url: 'https://47.116.124.118:9090/rules/clash/direct.txt', path: ./ruleset/direct.yaml, interval: 86400 }
+  apple: { type: http, behavior: domain, url: 'https://47.116.124.118:9090/rules/clash/apple.txt', path: ./ruleset/apple.yaml, interval: 86400 }
+  cncidr: { type: http, behavior: domain, url: 'https://47.116.124.118:9090/rules/clash/cncidr.txt', path: ./ruleset/cncidr.yaml, interval: 86400 }
+  gfw: { type: http, behavior: domain, url: 'https://47.116.124.118:9090/rules/clash/gfw.txt', path: ./ruleset/gfw.yaml, interval: 86400 }
+  telegram: { type: http, behavior: classical, url: 'https://47.116.124.118:9090/rules/clash/telegram.txt', path: ./ruleset/telegram.yaml, interval: 86400 }
+  customrule: { type: http, behavior: classical, url: 'https://47.116.124.118:9090/rules/clash/customrule.txt', path: ./ruleset/customrule.yaml, interval: 86400 }
+  localnetwork: { type: http, behavior: classical, url: 'https://47.116.124.118:9090/rules/clash/localnetwork.txt', path: ./ruleset/localnetwork.yaml, interval: 86400 }
+  # 广告规则
+  AD:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/AD.yaml"
+    path: ./rules/AD.yaml
+    interval: 86400
+    
+  EasyList:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/EasyList.yaml"
+    path: ./rules/EasyList.yaml
+    interval: 86400
+    
+  EasyListChina:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/EasyListChina.yaml"
+    path: ./rules/EasyListChina.yaml
+    interval: 86400
+
+  EasyPrivacy:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/EasyPrivacy.yaml"
+    path: ./rules/EasyPrivacy.yaml
+    interval: 86400
+
+  ProgramAD:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/ProgramAD.yaml"
+    path: ./rules/ProgramAD.yaml
+    interval: 86400
+
+rules:
+    # 高优先级
+    - DOMAIN,bugly.qq.com,DIRECT
+    - DOMAIN,cas.bugly.qq.com,DIRECT
+    - DOMAIN,dl.google.com,DIRECT
+    # 拒绝广告规则
+    - RULE-SET,AD,REJECT
+    - RULE-SET,EasyList,REJECT
+    - RULE-SET,EasyListChina,REJECT
+    - RULE-SET,EasyPrivacy,REJECT
+    - RULE-SET,ProgramAD,REJECT
+    # - IP-CIDR,111.229.197.250,DIRECT
+    # WPS 规则
+    - DOMAIN-KEYWORD,wps,REJECT
+    - 'PROCESS-NAME,wpsoffice,REJECT'
+    - 'PROCESS-NAME,wpscloudsvr,REJECT'
+    # git clone pull push等秘钥交换报错
+    # - DST-PORT,22,DIRECT
+    - DOMAIN,api.fast.com,PROXY_AI
+    - DOMAIN-KEYWORD,ubuntu,trojan
+    - DOMAIN-KEYWORD,docker,trojan
+    # - DOMAIN,ani.gamer.com.tw,PROXY_AI
+    # - DOMAIN,www.primevideo.com,PROXY_AI
+    # - DOMAIN-KEYWORD,disney,PROXY_AI
+    # - DOMAIN,www.youtube.com,PROXY_AI
+    # - DOMAIN-KEYWORD,google,PROXY_AI
+    - DOMAIN-SUFFIX,google.com,PROXY_COMMON
+    - DOMAIN-SUFFIX,wangchujiang.com,PROXY
+    - DOMAIN-SUFFIX,mvnrepository.com,PROXY_AI
+    - DOMAIN,www.anthropic.com,PROXY_AI
+    - DOMAIN-SUFFIX,ciciai.com,PROXY_AI
+    - DOMAIN-SUFFIX,deepl.com,PROXY_AI
+    - DOMAIN,cdn.usefathom.com,PROXY_AI
+    - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
+    - DOMAIN-SUFFIX,claude.ai,PROXY_AI
+    - DOMAIN-SUFFIX,openai.com,PROXY_AI
+    - DOMAIN-SUFFIX,sora.com,PROXY_AI
+    - DOMAIN-SUFFIX,codeium.com,PROXY_AI
+    - DOMAIN-SUFFIX,chatgpt.com,PROXY_AI
+    - 'PROCESS-NAME,ChatGPT,PROXY_AI'
+    - 'PROCESS-NAME,Cici,PROXY_AI'
+    - 'PROCESS-NAME,Cici Helper,PROXY_AI'
+    - 'PROCESS-NAME,studio,PROXY_COMMON'
+    - 'PROCESS-NAME,com.larus.wolf,PROXY_AI'
+    - 'PROCESS-NAME,com.openai.chatgpt,PROXY_AI'
+    - 'PROCESS-NAME,com.anthropic.claude,PROXY_AI'
+    - 'PROCESS-NAME,com.deepl.mobiletranslator,PROXY_AI'
+    - DOMAIN-SUFFIX,auth0.com,PROXY_AI
+    - DOMAIN-SUFFIX,cloudflare.com,PROXY_AI
+    # mac 进程
+    - 'PROCESS-NAME,Docker Desktop Helper,trojan'
+    - 'PROCESS-NAME,com.docker.backend,trojan'
+    - 'PROCESS-NAME,ollama,trojan'
+    - 'PROCESS-NAME,trustd,DIRECT'
+    - 'PROCESS-NAME,apsd,DIRECT'
+    - 'PROCESS-NAME,v2ray,DIRECT'
+    - 'PROCESS-NAME,Surge%203,DIRECT'
+    - 'PROCESS-NAME,ss-local,DIRECT'
+    - 'PROCESS-NAME,privoxy,DIRECT'
+    - 'PROCESS-NAME,trojan,DIRECT'
+    - 'PROCESS-NAME,trojan-go,DIRECT'
+    - 'PROCESS-NAME,WeChat,DIRECT'
+    - 'PROCESS-NAME,naive,DIRECT'
+    - 'PROCESS-NAME,Thunder,DIRECT'
+    - 'PROCESS-NAME,DownloadService,DIRECT'
+    - 'PROCESS-NAME,Adobe Photoshop 2025,REJECT'
+    - 'PROCESS-NAME,qBittorrent,DIRECT'
+    - 'PROCESS-NAME,Transmission,DIRECT'
+    - 'PROCESS-NAME,fdm,DIRECT'
+    - 'PROCESS-NAME,aria2c,DIRECT'
+    - 'PROCESS-NAME,Folx,DIRECT'
+    - 'PROCESS-NAME,NetTransport,DIRECT'
+    - 'PROCESS-NAME,uTorrent,DIRECT'
+    - 'PROCESS-NAME,WebTorrent,DIRECT'
+    # no-resolve 阻止 Clash 进行 DNS 解析
+    - 'RULE-SET,customrule,DIRECT'
+    - 'RULE-SET,apple,DIRECT'
+    - 'RULE-SET,direct,DIRECT'
+    - 'RULE-SET,cncidr,DIRECT'
+    - 'RULE-SET,localnetwork,DIRECT'
+    - 'RULE-SET,proxy,PROXY_COMMON'
+    - 'RULE-SET,gfw,PROXY_COMMON'
+    - 'RULE-SET,telegram,PROXY_COMMON'
+    - GEOIP,LAN,DIRECT
+    - GEOIP,CN,DIRECT
+    - 'MATCH,PROXY'
