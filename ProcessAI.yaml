@@ -1,0 +1,8 @@
+payload:
+  - PROCESS-NAME,ChatGPT
+  - PROCESS-NAME,Cici
+  - PROCESS-NAME,Cici Helper
+  - PROCESS-NAME,com.larus.wolf
+  - PROCESS-NAME,com.openai.chatgpt
+  - PROCESS-NAME,com.anthropic.claude
+  - PROCESS-NAME,com.deepl.mobiletranslator

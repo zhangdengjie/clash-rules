@@ -1,0 +1,7 @@
+payload:
+  # Android 进程
+  - PROCESS-NAME,com.sohu.inputmethod.sogou.xiaomi
+  # mac 进程
+  - PROCESS-NAME,Adobe Photoshop 2025
+  - PROCESS-NAME,wpsoffice
+  - PROCESS-NAME,wpscloudsvr
