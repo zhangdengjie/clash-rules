@@ -231,8 +231,8 @@ rule-providers:
 
   Process:
     type: http
-    behavior: domclassicalain
-    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/ProgramAD.yaml"
+    behavior: classical
+    url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/process.yaml"
     path: ./rules/ProgramAD.yaml
     interval: 86400
 
@@ -249,6 +249,8 @@ rules:
     - RULE-SET,EasyPrivacy,REJECT
     - RULE-SET,ProgramAD,REJECT
     # - IP-CIDR,111.229.197.250,DIRECT
+    # 进程相关
+    - RULE-SET,Process
     # WPS 规则
     - DOMAIN-KEYWORD,wps,REJECT
     # git clone pull push等秘钥交换报错
