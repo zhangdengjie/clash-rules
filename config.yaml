@@ -233,7 +233,7 @@ rule-providers:
     type: http
     behavior: classical
     url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/process.yaml"
-    path: ./rules/ProgramAD.yaml
+    path: ./rules/Process.yaml
     interval: 86400
 
 rules:
