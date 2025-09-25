@@ -229,6 +229,13 @@ rule-providers:
     path: ./rules/ProgramAD.yaml
     interval: 86400
 
+  Process:
+    type: http
+    behavior: domclassicalain
+    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/ProgramAD.yaml"
+    path: ./rules/ProgramAD.yaml
+    interval: 86400
+
 rules:
     # 高优先级
     - DOMAIN,bugly.qq.com,DIRECT
@@ -243,8 +250,6 @@ rules:
     # - IP-CIDR,111.229.197.250,DIRECT
     # WPS 规则
     - DOMAIN-KEYWORD,wps,REJECT
-    - 'PROCESS-NAME,wpsoffice,REJECT'
-    - 'PROCESS-NAME,wpscloudsvr,REJECT'
     # git clone pull push等秘钥交换报错
     # - DST-PORT,22,DIRECT
     - DOMAIN,api.fast.com,PROXY_AI
@@ -268,43 +273,8 @@ rules:
     - DOMAIN-SUFFIX,sora.com,PROXY_AI
     - DOMAIN-SUFFIX,codeium.com,PROXY_AI
     - DOMAIN-SUFFIX,chatgpt.com,PROXY_AI
-    - 'PROCESS-NAME,ChatGPT,PROXY_AI'
-    - 'PROCESS-NAME,Cici,PROXY_AI'
-    - 'PROCESS-NAME,Cici Helper,PROXY_AI'
-    - 'PROCESS-NAME,studio,PROXY_COMMON'
-    - 'PROCESS-NAME,com.larus.wolf,PROXY_AI'
-    - 'PROCESS-NAME,com.openai.chatgpt,PROXY_AI'
-    - 'PROCESS-NAME,com.anthropic.claude,PROXY_AI'
-    - 'PROCESS-NAME,com.deepl.mobiletranslator,PROXY_AI'
     - DOMAIN-SUFFIX,auth0.com,PROXY_AI
     - DOMAIN-SUFFIX,cloudflare.com,PROXY_AI
-    # Android 进程
-    - 'PROCESS-NAME,com.sohu.inputmethod.sogou.xiaomi,REJECT'
-    # mac 进程
-    - 'PROCESS-NAME,Docker Desktop Helper,trojan'
-    - 'PROCESS-NAME,com.docker.backend,trojan'
-    - 'PROCESS-NAME,ollama,trojan'
-    - 'PROCESS-NAME,trustd,DIRECT'
-    - 'PROCESS-NAME,apsd,DIRECT'
-    - 'PROCESS-NAME,v2ray,DIRECT'
-    - 'PROCESS-NAME,Surge%203,DIRECT'
-    - 'PROCESS-NAME,ss-local,DIRECT'
-    - 'PROCESS-NAME,privoxy,DIRECT'
-    - 'PROCESS-NAME,trojan,DIRECT'
-    - 'PROCESS-NAME,trojan-go,DIRECT'
-    - 'PROCESS-NAME,WeChat,DIRECT'
-    - 'PROCESS-NAME,naive,DIRECT'
-    - 'PROCESS-NAME,Thunder,DIRECT'
-    - 'PROCESS-NAME,DownloadService,DIRECT'
-    - 'PROCESS-NAME,Adobe Photoshop 2025,REJECT'
-    - 'PROCESS-NAME,qBittorrent,DIRECT'
-    - 'PROCESS-NAME,Transmission,DIRECT'
-    - 'PROCESS-NAME,fdm,DIRECT'
-    - 'PROCESS-NAME,aria2c,DIRECT'
-    - 'PROCESS-NAME,Folx,DIRECT'
-    - 'PROCESS-NAME,NetTransport,DIRECT'
-    - 'PROCESS-NAME,uTorrent,DIRECT'
-    - 'PROCESS-NAME,WebTorrent,DIRECT'
     # no-resolve 阻止 Clash 进行 DNS 解析
     - 'RULE-SET,customrule,DIRECT'
     - 'RULE-SET,apple,DIRECT'
