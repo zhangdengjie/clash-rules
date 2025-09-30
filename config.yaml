@@ -298,6 +298,7 @@ rules:
     - 'PROCESS-NAME,WebTorrent,DIRECT'
     - DOMAIN-SUFFIX,google.com,PROXY_COMMON
     - DOMAIN-SUFFIX,wangchujiang.com,PROXY
+    - DOMAIN-SUFFIX,cdn.oaistatic.com,PROXY_AI
     - DOMAIN-SUFFIX,mvnrepository.com,PROXY_AI
     - DOMAIN,www.anthropic.com,PROXY_AI
     - DOMAIN-SUFFIX,ciciai.com,PROXY_AI
