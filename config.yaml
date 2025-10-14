@@ -248,6 +248,7 @@ rules:
     - DOMAIN,bugly.qq.com,DIRECT
     - DOMAIN,cas.bugly.qq.com,DIRECT
     - DOMAIN,dl.google.com,DIRECT
+    - DOMAIN,gemini.google.com,PROXY_AI
     - DOMAIN,lcs1.gateway.tencent.com,REJECT
     # 拒绝广告规则
     - RULE-SET,AD,REJECT
