@@ -269,6 +269,7 @@ rules:
     - DOMAIN,api.fast.com,PROXY_AI
     - DOMAIN-KEYWORD,ubuntu,trojan
     - DOMAIN-KEYWORD,docker,trojan
+    - DOMAIN,18j.tv,V2Free
     # - DOMAIN,ani.gamer.com.tw,PROXY_AI
     # - DOMAIN,www.primevideo.com,PROXY_AI
     # - DOMAIN-KEYWORD,disney,PROXY_AI
