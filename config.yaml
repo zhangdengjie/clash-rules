@@ -139,10 +139,11 @@ proxy-providers:
     
 proxy-groups:  
   - name: PROXY
-    type: url-test
+    type: fallback
     url: http://cp.cloudflare.com/generate_204
     # 多久检测一次所有节点的延迟（测速）
-    interval: 300
+    interval: 180
+    lazy: true
     # proxies 使用proxies声明的节点
     proxies:
       - trojan # ← 主节点（首选）
@@ -151,24 +152,35 @@ proxy-groups:
       - Nolock
       #- TAG
       - V2Free
+    script:
+      code: |
+        #!lua
+        function main(ctx, proxies)
+          table.sort(proxies, function(a, b)
+            return (a.delay or 99999) < (b.delay or 99999)
+          end)
+          return proxies
+        end
 
   # 一些不想使用trajon配置的逻辑，使用该组
   - name: PROXY_COMMON
-    type: url-test
+    type: fallback
     url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    interval: 180
+    lazy: true
     # use 使用providers中的配置
     use:
       - Nolock
       - V2Free
-      
-  - name: PROXY_V2FREE
-    type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
-    # use 使用providers中的配置
-    use:
-      - V2Free
+    script:
+      code: |
+        #!lua
+        function main(ctx, proxies)
+          table.sort(proxies, function(a, b)
+            return (a.delay or 99999) < (b.delay or 99999)
+          end)
+          return proxies
+        end
 
   - name: PROXY_AI
     type: select
@@ -277,7 +289,6 @@ rules:
     - DOMAIN,api.fast.com,PROXY_AI
     - DOMAIN-KEYWORD,ubuntu,trojan
     - DOMAIN-KEYWORD,docker,trojan
-    - DOMAIN,18j.tv,PROXY_V2FREE
     # - DOMAIN,ani.gamer.com.tw,PROXY_AI
     # - DOMAIN,www.primevideo.com,PROXY_AI
     # - DOMAIN-KEYWORD,disney,PROXY_AI
