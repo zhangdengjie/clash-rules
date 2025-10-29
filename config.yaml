@@ -139,10 +139,10 @@ proxy-providers:
     
 proxy-groups:  
   - name: PROXY
-    type: fallback
+    type: url-test
     url: http://cp.cloudflare.com/generate_204
     # 多久检测一次所有节点的延迟（测速）
-    interval: 180
+    interval: 300
     lazy: true
     # proxies 使用proxies声明的节点
     proxies:
@@ -152,35 +152,17 @@ proxy-groups:
       - Nolock
       #- TAG
       - V2Free
-    script:
-      code: |
-        #!lua
-        function main(ctx, proxies)
-          table.sort(proxies, function(a, b)
-            return (a.delay or 99999) < (b.delay or 99999)
-          end)
-          return proxies
-        end
 
   # 一些不想使用trajon配置的逻辑，使用该组
   - name: PROXY_COMMON
-    type: fallback
+    type: url-test
     url: http://cp.cloudflare.com/generate_204
-    interval: 180
+    interval: 120
     lazy: true
     # use 使用providers中的配置
     use:
       - Nolock
       - V2Free
-    script:
-      code: |
-        #!lua
-        function main(ctx, proxies)
-          table.sort(proxies, function(a, b)
-            return (a.delay or 99999) < (b.delay or 99999)
-          end)
-          return proxies
-        end
 
   - name: PROXY_AI
     type: select
