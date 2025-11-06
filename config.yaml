@@ -145,8 +145,8 @@ proxy-groups:
     interval: 300
     lazy: true
     # proxies 使用proxies声明的节点
-    proxies:
-      - trojan # ← 主节点（首选）
+    # proxies:
+      # - trojan # ← 主节点（首选）
     # use 使用providers中的配置
     use:
       - Nolock
@@ -161,7 +161,7 @@ proxy-groups:
     lazy: true
     # use 使用providers中的配置
     use:
-      - Nolock
+      # - Nolock
       - V2Free
 
   - name: PROXY_AI
@@ -169,9 +169,9 @@ proxy-groups:
     url: http://cp.cloudflare.com/generate_204
     interval: 300
     use:
-      - Nolock_Singapore
-      - Nolock_Korea
-      - Nolock_Japan
+      # - Nolock_Singapore
+      # - Nolock_Korea
+      # - Nolock_Japan
       - V2Free_Singapore
       - V2Free_Korea
       - V2Free_Japan
@@ -180,8 +180,8 @@ proxy-groups:
     type: select
     url: http://cp.cloudflare.com/generate_204
     interval: 300
-    proxies:
-      - trojan # ← 主节点（首选）
+    # proxies:
+      # - trojan # ← 主节点（首选）
     use:
       - Nolock
       - V2Free
