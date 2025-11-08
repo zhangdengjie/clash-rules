@@ -251,6 +251,7 @@ rules:
     - DOMAIN,cas.bugly.qq.com,DIRECT
     - DOMAIN,dl.google.com,DIRECT
     - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
+    - DOMAIN-SUFFIX,gstatic.com,PROXY_COMMON
     - DOMAIN,gemini.google.com,PROXY_AI
     - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
     - DOMAIN,lcs1.gateway.tencent.com,REJECT
