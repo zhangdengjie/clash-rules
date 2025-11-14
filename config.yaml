@@ -139,6 +139,21 @@ proxy-providers:
       interval: 1800
     
 proxy-groups:  
+  - name: SERVER
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    # 多久检测一次所有节点的延迟（测速）
+    interval: 300
+    lazy: true
+    # proxies 使用proxies声明的节点
+    # proxies:
+      # - trojan # ← 主节点（首选）
+    # use 使用providers中的配置
+    use:
+      # - Nolock
+      #- TAG
+      - V2Free
+
   - name: PROXY
     type: url-test
     url: http://cp.cloudflare.com/generate_204
@@ -270,8 +285,8 @@ rules:
     # git clone pull push等秘钥交换报错
     # - DST-PORT,22,DIRECT
     - DOMAIN,api.fast.com,PROXY_AI
-    - DOMAIN-KEYWORD,ubuntu,trojan
-    - DOMAIN-KEYWORD,docker,trojan
+    - DOMAIN-KEYWORD,ubuntu,SERVER
+    - DOMAIN-KEYWORD,docker,SERVER
     # - DOMAIN,ani.gamer.com.tw,PROXY_AI
     # - DOMAIN,www.primevideo.com,PROXY_AI
     # - DOMAIN-KEYWORD,disney,PROXY_AI
@@ -279,9 +294,9 @@ rules:
     # - DOMAIN-KEYWORD,google,PROXY_AI
     # mac 进程
     - 'PROCESS-NAME,studio,PROXY_COMMON'
-    - 'PROCESS-NAME,Docker Desktop Helper,trojan'
-    - 'PROCESS-NAME,com.docker.backend,trojan'
-    - 'PROCESS-NAME,ollama,trojan'
+    - 'PROCESS-NAME,Docker Desktop Helper,SERVER'
+    - 'PROCESS-NAME,com.docker.backend,SERVER'
+    - 'PROCESS-NAME,ollama,SERVER'
     - 'PROCESS-NAME,trustd,DIRECT'
     - 'PROCESS-NAME,apsd,DIRECT'
     - 'PROCESS-NAME,v2ray,DIRECT'
