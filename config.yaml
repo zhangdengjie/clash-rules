@@ -292,6 +292,8 @@ rules:
     # - DOMAIN-KEYWORD,disney,PROXY_AI
     # - DOMAIN,www.youtube.com,PROXY_AI
     # - DOMAIN-KEYWORD,google,PROXY_AI
+    # Linux进程
+    - 'PROCESS-NAME,dockerd,SERVER'
     # mac 进程
     - 'PROCESS-NAME,studio,PROXY_COMMON'
     - 'PROCESS-NAME,Docker Desktop Helper,SERVER'
