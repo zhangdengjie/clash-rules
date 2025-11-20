@@ -269,6 +269,7 @@ rules:
     - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
     - DOMAIN,gemini.google.com,PROXY_AI
     - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
+    - DOMAIN-SUFFIX,dola.com,PROXY_AI
     - DOMAIN,lcs1.gateway.tencent.com,REJECT
     # 拒绝广告规则
     - RULE-SET,AD,REJECT
@@ -292,9 +293,9 @@ rules:
     # - DOMAIN-KEYWORD,disney,PROXY_AI
     # - DOMAIN,www.youtube.com,PROXY_AI
     # - DOMAIN-KEYWORD,google,PROXY_AI
-    # Linux进程
-    - 'PROCESS-NAME,dockerd,SERVER'
     # mac 进程
+    - 'PROCESS-NAME,Cici,PROXY_AI'
+    - 'PROCESS-NAME,Dola Helper,PROXY_AI'
     - 'PROCESS-NAME,studio,PROXY_COMMON'
     - 'PROCESS-NAME,Docker Desktop Helper,SERVER'
     - 'PROCESS-NAME,com.docker.backend,SERVER'
