@@ -100,7 +100,7 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 1800
   
   Nolock_Singapore:
@@ -112,7 +112,7 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 1800
 
   Nolock_Korea:
@@ -124,7 +124,7 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 1800
 
   Nolock_Japan:
@@ -136,7 +136,7 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 1800
 
   V2Free:
@@ -148,7 +148,7 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 1800
 
   V2Free_Japan:
@@ -160,7 +160,7 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 1800
 
   V2Free_Korea:
@@ -172,7 +172,7 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 1800
 
   V2Free_Singapore:
@@ -184,13 +184,13 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 1800
     
 proxy-groups:  
   - name: SERVER
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    url: http://www.gstatic.com/generate_204
     # 多久检测一次所有节点的延迟（测速）
     interval: 300
     lazy: true
@@ -205,7 +205,7 @@ proxy-groups:
 
   - name: PROXY
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    url: http://www.gstatic.com/generate_204
     # 多久检测一次所有节点的延迟（测速）
     interval: 300
     lazy: true
@@ -221,7 +221,7 @@ proxy-groups:
   # 一些不想使用trajon配置的逻辑，使用该组
   - name: PROXY_COMMON
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: true
     # use 使用providers中的配置
@@ -231,7 +231,7 @@ proxy-groups:
 
   - name: PROXY_AI
     type: select
-    url: http://cp.cloudflare.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 300
     use:
       - Nolock_Singapore
@@ -243,7 +243,7 @@ proxy-groups:
 
   - name: GLOBAL_USE
     type: select
-    url: http://cp.cloudflare.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 300
     # proxies:
       # - trojan # ← 主节点（首选）
