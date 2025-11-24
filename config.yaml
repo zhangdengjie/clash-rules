@@ -142,7 +142,7 @@ proxy-providers:
   V2Free:
     type: http
     path: ./profiles/proxies/v2free.yaml
-    url: https://v1.v2ai.top/link/s4hN3BbrL6wy0xVIsu0Txlv64sCsXTnFGPsY?clash=1
+    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
     filter: '^(?!.*(2\.0x|3\.0x|5\.0x|2倍率|3倍率|5倍率)).*$'
     exclude-filter: '学术|不保证可用'
     interval: 7200
@@ -154,7 +154,7 @@ proxy-providers:
   V2Free_Japan:
     type: http
     path: ./profiles/proxies/v2free_Japan.yaml
-    url: https://v1.v2ai.top/link/s4hN3BbrL6wy0xVIsu0Txlv64sCsXTnFGPsY?clash=1
+    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
     filter: "(?i)日本"
     exclude-filter: '[235]\.0x|[235]倍率'
     interval: 7200
@@ -166,7 +166,7 @@ proxy-providers:
   V2Free_Korea:
     type: http
     path: ./profiles/proxies/v2free_Korea.yaml
-    url: https://v1.v2ai.top/link/s4hN3BbrL6wy0xVIsu0Txlv64sCsXTnFGPsY?clash=1
+    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
     filter: "(?i)韩国"
     exclude-filter: '[235]\.0x|[235]倍率'
     interval: 7200
@@ -178,7 +178,7 @@ proxy-providers:
   V2Free_Singapore:
     type: http
     path: ./profiles/proxies/v2free_Singapore.yaml
-    url: https://v1.v2ai.top/link/s4hN3BbrL6wy0xVIsu0Txlv64sCsXTnFGPsY?clash=1
+    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
     filter: "(?i)新加坡"
     exclude-filter: '[235]\.0x|[235]倍率'
     interval: 7200
