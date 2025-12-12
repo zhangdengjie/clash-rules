@@ -375,6 +375,7 @@ rules:
     - DOMAIN-SUFFIX,mvnrepository.com,PROXY_AI
     - DOMAIN,www.anthropic.com,PROXY_AI
     - DOMAIN-SUFFIX,ciciai.com,PROXY_AI
+    - DOMAIN-SUFFIX,com.larus.wolf,PROXY_AI
     - DOMAIN-SUFFIX,deepl.com,PROXY_AI
     - DOMAIN,cdn.usefathom.com,PROXY_AI
     - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
