@@ -343,6 +343,8 @@ rules:
     # - DOMAIN,www.youtube.com,PROXY_AI
     # - DOMAIN-KEYWORD,google,PROXY_AI
     # mac 进程
+    - 'PROCESS-NAME,Xmind,REJECT'
+    - 'PROCESS-NAME,Xmind Helper,REJECT'
     - 'PROCESS-NAME,Cici,PROXY_AI'
     - 'PROCESS-NAME,Dola Helper,PROXY_AI'
     - 'PROCESS-NAME,studio,PROXY_COMMON'
