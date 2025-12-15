@@ -1,96 +1,77 @@
 mixed-port: 7890
 allow-lan: true
 bind-address: "*"
-# 此功能仅在 allow-lan 设置为 true 时生效，支持三种参数：
-# "*"                           绑定所有的 IP 地址
-# 192.168.122.11                绑定一个的 IPv4 地址
-# "[aaaa::a8aa:ff:fe09:57d8]"   绑定一个 IPv6 地址
 mode: rule
 log-level: info
 clash-for-android:
     append-system-dns: false
 unified-delay: true
 keep-alive-interval: 15
+
 hosts:
     mtalk.google.com: 108.177.125.188
+
 dns:
     enable: true
     ipv6: false
     listen: '127.0.0.1:53'
-    # 启动时使用的DNS服务
-    default-nameserver: [system,223.5.5.5, 119.29.29.29, 180.184.1.1]
+    default-nameserver: [223.5.5.5, 119.29.29.29]
     enhanced-mode: fake-ip
-    fake-ip-range: 198.20.0.1/16
+    fake-ip-range: 198.18.0.1/16
     use-hosts: true
-    # nameserver-policy 强制使用可信 DNS（可选）；即使本地 DNS 返回了假 IP，Clash 也会直接用 DoH 查询真实 IP
+    
+    # 强制使用可信 DNS
     nameserver-policy:
-    # 强制使用 DoH / 可信 DNS
       +.google.com: 'https://1.1.1.1/dns-query'
       +.googleapis.com: 'https://1.1.1.1/dns-query'
-      +.firebaseio.com: 'https://1.1.1.1/dns-query'
       +.gstatic.com: 'https://1.1.1.1/dns-query'
       +.googleusercontent.com: 'https://1.1.1.1/dns-query'
-      +.googlevideo.com: 'https://1.1.1.1/dns-query'
-      +.clients*.google.com: 'https://1.1.1.1/dns-query'
-      +.www.google.com.hk: 'https://1.1.1.1/dns-query'
-      +.optimizationguide-pa.googleapis.com: 'https://1.1.1.1/dns-query'
-      +.l.google.com: 'https://1.1.1.1/dns-query'
-      +.stun*.google.com: 'https://1.1.1.1/dns-query'
       +.github.com: 'https://1.1.1.1/dns-query'
-    # DoH（DNS over HTTPS）/ DoT（DNS over TLS）
-    # 主用 DNS 服务器，用于 Rule, Global, Script 模式下的域名解析
-    nameserver: ['https://223.5.5.5/dns-query','https://119.29.29.29/dns-query','https://8.8.8.8/dns-query','tls://223.5.5.5:853', 'https://223.6.6.6/dns-query', 'https://120.53.53.53/dns-query']
-    fallback: ['https://1.1.1.1/dns-query','https://8.8.8.8/dns-query','https://101.101.101.101/dns-query', 'https://208.67.220.220/dns-query', 'https://doh.mullvad.net/dns-query']
-    # fallback-filter.domain 白名单作用：前缀表示匹配该域名及子域名 Clash 会对这些域名 即使解析为国内IP，也会走 fallback
+      +.anthropic.com: 'https://1.1.1.1/dns-query'
+      +.openai.com: 'https://1.1.1.1/dns-query'
+    
+    # 主 DNS 服务器
+    nameserver: 
+      - 'https://223.5.5.5/dns-query'
+      - 'https://119.29.29.29/dns-query'
+      - 'https://223.6.6.6/dns-query'
+    
+    # 备用 DNS
+    fallback: 
+      - 'https://1.1.1.1/dns-query'
+      - 'https://8.8.8.8/dns-query'
+      - 'https://208.67.220.220/dns-query'
+    
     fallback-filter:
       geoip: true
+      geoip-code: CN
       ipcidr:
         - 240.0.0.0/4
         - 0.0.0.0/32
-        - 223.75.236.241/32
-        - 182.43.124.6/32
-        - 106.74.25.198/32
-        - 183.192.65.101/32
       domain:
-        # Google / Firebase / WebRTC / STUN / clients*
         - +.google.com
         - +.googleapis.com
-        - +.firebaseio.com
         - +.gstatic.com
         - +.googleusercontent.com
-        - +.googlevideo.com
-        - +.clients*.google.com
-        - +.www.google.com.hk
-        - +.optimizationguide-pa.googleapis.com
-        - +.l.google.com
-        - +.stun*.google.com
-        # Github
         - +.github.com
-        # 其他常用直连域名
-        - +.google.cn
-        - +.tagss01.pro
-        - +.tagss02.pro
-        - +.tagss03.pro
-        - +.tagss04.pro
-        - +.tagss05.pro
-        - +.tagcdnsub.work
+        - +.anthropic.com
+        - +.openai.com
         - +.jsdelivr.net
-        - +.proton.me
-
-    # 直连使用的DNS服务器
+    
+    # 直连 DNS
     direct-nameserver:
       - 223.5.5.5
       - 119.29.29.29
-      - 180.184.1.1
+
 proxies:
   - name: "trojan"
     type: trojan
-    server: 43.132.197.237 # 服务器的IP地址
+    server: 43.132.197.237
     port: 4433
-    password: 141516 #密码
-    # udp: true
-    sni: test.xueshaobo.top # 用于trojan识别的二级域名
-# 定义多个订阅
+    password: 141516
+    sni: test.xueshaobo.top
+
+# 订阅配置
 proxy-providers:
   Nolock:
     type: http
@@ -101,7 +82,9 @@ proxy-providers:
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
-      interval: 1800
+      interval: 300
+      timeout: 2000
+      lazy: false
   
   Nolock_Singapore:
     type: http
@@ -113,7 +96,9 @@ proxy-providers:
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
-      interval: 1800
+      interval: 300
+      timeout: 2000
+      lazy: false
 
   Nolock_Korea:
     type: http
@@ -125,7 +110,9 @@ proxy-providers:
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
-      interval: 1800
+      interval: 300
+      timeout: 2000
+      lazy: false
 
   Nolock_Japan:
     type: http
@@ -137,7 +124,9 @@ proxy-providers:
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
-      interval: 1800
+      interval: 300
+      timeout: 2000
+      lazy: false
 
   V2Free:
     type: http
@@ -149,7 +138,9 @@ proxy-providers:
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
-      interval: 1800
+      interval: 300
+      timeout: 2000
+      lazy: false
 
   V2Free_Japan:
     type: http
@@ -161,7 +152,9 @@ proxy-providers:
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
-      interval: 1800
+      interval: 300
+      timeout: 2000
+      lazy: false
 
   V2Free_Korea:
     type: http
@@ -173,7 +166,9 @@ proxy-providers:
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
-      interval: 1800
+      interval: 300
+      timeout: 2000
+      lazy: false
 
   V2Free_Singapore:
     type: http
@@ -185,82 +180,185 @@ proxy-providers:
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
-      interval: 1800
-    
-proxy-groups:  
-  - name: SERVER
-    type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    # 多久检测一次所有节点的延迟（测速）
-    interval: 300
-    lazy: false
-    # proxies 使用proxies声明的节点
-    # proxies:
-      # - trojan # ← 主节点（首选）
-    # use 使用providers中的配置
-    use:
-      # - Nolock
-      #- TAG
-      - V2Free
+      interval: 300
+      timeout: 2000
+      lazy: false
 
-  - name: PROXY
-    type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    # 多久检测一次所有节点的延迟（测速）
-    interval: 300
-    lazy: false
-    # proxies 使用proxies声明的节点
-    # proxies:
-      # - trojan # ← 主节点（首选）
-    # use 使用providers中的配置
-    use:
-      - Nolock
-      #- TAG
-      - V2Free
-
-  # 一些不想使用trajon配置的逻辑，使用该组
-  - name: PROXY_COMMON
+# 策略组配置 - 核心优化部分
+proxy-groups:
+  # ========== 主节点池(自动选择最快) ==========
+  - name: Auto-Nolock
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     interval: 120
+    tolerance: 50
+    timeout: 2000
     lazy: false
-    # use 使用providers中的配置
-    use:
-      # - Nolock
-      - V2Free
-
-  - name: PROXY_AI
-    type: select
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
-    use:
-      - Nolock_Singapore
-      - Nolock_Korea
-      - Nolock_Japan
-      - V2Free_Singapore
-      - V2Free_Korea
-      - V2Free_Japan
-
-  - name: GLOBAL_USE
-    type: select
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
-    # proxies:
-      # - trojan # ← 主节点（首选）
     use:
       - Nolock
+
+  - name: Auto-V2Free
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 120
+    tolerance: 50
+    timeout: 2000
+    lazy: false
+    use:
       - V2Free
 
+  # ========== 故障自动切换(主力代理) ==========
+  - name: PROXY
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 60
+    timeout: 2000
+    lazy: false
+    proxies:
+      - Auto-V2Free
+      - Auto-Nolock
+      - DIRECT
+
+  # ========== 服务器开发专用 ==========
+  - name: SERVER
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 120
+    timeout: 2000
+    lazy: false
+    proxies:
+      - Auto-Nolock
+      - Auto-V2Free
+
+  # ========== 通用代理(不使用 trojan) ==========
+  - name: PROXY_COMMON
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 90
+    timeout: 2000
+    lazy: false
+    proxies:
+      - Auto-Nolock
+      - Auto-V2Free
+
+  # ========== AI 服务专用(亚洲低延迟节点) ==========
+  - name: AI-Singapore
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 120
+    tolerance: 100
+    timeout: 3000
+    lazy: false
+    use:
+      - V2Free_Singapore
+      - Nolock_Singapore
+
+  - name: AI-Japan
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 120
+    tolerance: 100
+    timeout: 3000
+    lazy: false
+    use:
+      - V2Free_Japan
+      - Nolock_Japan
+
+  - name: AI-Korea
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 120
+    tolerance: 100
+    timeout: 3000
+    lazy: false
+    use:
+      - V2Free_Korea
+      - Nolock_Korea
+
+  # AI 服务故障转移组
+  - name: PROXY_AI
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 60
+    timeout: 3000
+    lazy: false
+    proxies:
+      - AI-Singapore
+      - AI-Japan
+      - AI-Korea
+      - Auto-V2Free
+
+  # ========== 全局手动选择(备用) ==========
+  - name: GLOBAL_USE
+    type: select
+    proxies:
+      - PROXY
+      - Auto-V2Free
+      - Auto-Nolock
+      - DIRECT
+    use:
+      - V2Free
+      - Nolock
+
+# 规则集配置
 rule-providers:
-  proxy: { type: http, behavior: domain, url: 'https://47.116.124.118:9090/rules/clash/proxy.txt', path: ./ruleset/proxy.yaml, interval: 86400 }
-  direct: { type: http, behavior: domain, url: 'https://47.116.124.118:9090/rules/clash/direct.txt', path: ./ruleset/direct.yaml, interval: 86400 }
-  apple: { type: http, behavior: domain, url: 'https://47.116.124.118:9090/rules/clash/apple.txt', path: ./ruleset/apple.yaml, interval: 86400 }
-  cncidr: { type: http, behavior: domain, url: 'https://47.116.124.118:9090/rules/clash/cncidr.txt', path: ./ruleset/cncidr.yaml, interval: 86400 }
-  gfw: { type: http, behavior: domain, url: 'https://47.116.124.118:9090/rules/clash/gfw.txt', path: ./ruleset/gfw.yaml, interval: 86400 }
-  telegram: { type: http, behavior: classical, url: 'https://47.116.124.118:9090/rules/clash/telegram.txt', path: ./ruleset/telegram.yaml, interval: 86400 }
-  customrule: { type: http, behavior: classical, url: 'https://47.116.124.118:9090/rules/clash/customrule.txt', path: ./ruleset/customrule.yaml, interval: 86400 }
-  localnetwork: { type: http, behavior: classical, url: 'https://47.116.124.118:9090/rules/clash/localnetwork.txt', path: ./ruleset/localnetwork.yaml, interval: 86400 }
-  # 广告规则
+  proxy: 
+    type: http
+    behavior: domain
+    url: 'https://47.116.124.118:9090/rules/clash/proxy.txt'
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+  
+  direct: 
+    type: http
+    behavior: domain
+    url: 'https://47.116.124.118:9090/rules/clash/direct.txt'
+    path: ./ruleset/direct.yaml
+    interval: 86400
+  
+  apple: 
+    type: http
+    behavior: domain
+    url: 'https://47.116.124.118:9090/rules/clash/apple.txt'
+    path: ./ruleset/apple.yaml
+    interval: 86400
+  
+  cncidr: 
+    type: http
+    behavior: domain
+    url: 'https://47.116.124.118:9090/rules/clash/cncidr.txt'
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+  
+  gfw: 
+    type: http
+    behavior: domain
+    url: 'https://47.116.124.118:9090/rules/clash/gfw.txt'
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+  
+  telegram: 
+    type: http
+    behavior: classical
+    url: 'https://47.116.124.118:9090/rules/clash/telegram.txt'
+    path: ./ruleset/telegram.yaml
+    interval: 86400
+  
+  customrule: 
+    type: http
+    behavior: classical
+    url: 'https://47.116.124.118:9090/rules/clash/customrule.txt'
+    path: ./ruleset/customrule.yaml
+    interval: 86400
+  
+  localnetwork: 
+    type: http
+    behavior: classical
+    url: 'https://47.116.124.118:9090/rules/clash/localnetwork.txt'
+    path: ./ruleset/localnetwork.yaml
+    interval: 86400
+
+  # 广告拦截规则
   AD:
     type: http
     behavior: domain
@@ -310,93 +408,100 @@ rule-providers:
     path: ./rules/ProcessAI.yaml
     interval: 86400
 
+# 路由规则
 rules:
-    # 高优先级
+    # ========== 高优先级直连 ==========
     - DOMAIN,bugly.qq.com,DIRECT
     - DOMAIN,cas.bugly.qq.com,DIRECT
     - DOMAIN,dl.google.com,DIRECT
+    
+    # ========== AI 服务(最高优先级) ==========
     - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
     - DOMAIN,gemini.google.com,PROXY_AI
     - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
+    - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
+    - DOMAIN-SUFFIX,claude.ai,PROXY_AI
+    - DOMAIN-SUFFIX,openai.com,PROXY_AI
+    - DOMAIN-SUFFIX,chatgpt.com,PROXY_AI
+    - DOMAIN-SUFFIX,sora.com,PROXY_AI
+    - DOMAIN-SUFFIX,auth0.com,PROXY_AI
     - DOMAIN-SUFFIX,dola.com,PROXY_AI
+    - DOMAIN-SUFFIX,ciciai.com,PROXY_AI
+    - DOMAIN-SUFFIX,deepl.com,PROXY_AI
+    - DOMAIN-SUFFIX,codeium.com,PROXY_AI
+    - DOMAIN-SUFFIX,cdn.oaistatic.com,PROXY_AI
+    - DOMAIN,cdn.usefathom.com,PROXY_AI
+    - DOMAIN,api.fast.com,PROXY_AI
+    
+    # ========== 广告拦截 ==========
     - DOMAIN,lcs1.gateway.tencent.com,REJECT
-    # 拒绝广告规则
+    - DOMAIN-KEYWORD,wps,REJECT
     - RULE-SET,AD,REJECT
     - RULE-SET,EasyList,REJECT
     - RULE-SET,EasyListChina,REJECT
     - RULE-SET,EasyPrivacy,REJECT
     - RULE-SET,ProgramAD,REJECT
-    # - IP-CIDR,111.229.197.250,DIRECT
-    # 进程相关
     - RULE-SET,ProcessReject,REJECT
-    - RULE-SET,ProcessReject,PROXY_AI
-    # WPS 规则
-    - DOMAIN-KEYWORD,wps,REJECT
-    # git clone pull push等秘钥交换报错
-    # - DST-PORT,22,DIRECT
-    - DOMAIN,api.fast.com,PROXY_AI
+    - DOMAIN-SUFFIX,vox.rocks,REJECT
+    
+    # ========== 开发工具相关 ==========
     - DOMAIN-KEYWORD,ubuntu,SERVER
     - DOMAIN-KEYWORD,docker,SERVER
-    # - DOMAIN,ani.gamer.com.tw,PROXY_AI
-    # - DOMAIN,www.primevideo.com,PROXY_AI
-    # - DOMAIN-KEYWORD,disney,PROXY_AI
-    # - DOMAIN,www.youtube.com,PROXY_AI
-    # - DOMAIN-KEYWORD,google,PROXY_AI
-    # mac 进程
-    - 'PROCESS-NAME,Xmind,REJECT'
-    - 'PROCESS-NAME,Xmind Helper,REJECT'
-    - 'PROCESS-NAME,Cici,PROXY_AI'
-    - 'PROCESS-NAME,Dola Helper,PROXY_AI'
-    - 'PROCESS-NAME,studio,PROXY_COMMON'
-    - 'PROCESS-NAME,Docker Desktop Helper,SERVER'
-    - 'PROCESS-NAME,com.docker.backend,SERVER'
-    - 'PROCESS-NAME,ollama,SERVER'
-    - 'PROCESS-NAME,trustd,DIRECT'
-    - 'PROCESS-NAME,apsd,DIRECT'
-    - 'PROCESS-NAME,v2ray,DIRECT'
-    - 'PROCESS-NAME,Surge%203,DIRECT'
-    - 'PROCESS-NAME,ss-local,DIRECT'
-    - 'PROCESS-NAME,privoxy,DIRECT'
-    - 'PROCESS-NAME,trojan,DIRECT'
-    - 'PROCESS-NAME,trojan-go,DIRECT'
-    - 'PROCESS-NAME,WeChat,DIRECT'
-    - 'PROCESS-NAME,naive,DIRECT'
-    - 'PROCESS-NAME,Thunder,DIRECT'
-    - 'PROCESS-NAME,DownloadService,DIRECT'
-    - 'PROCESS-NAME,qBittorrent,DIRECT'
-    - 'PROCESS-NAME,Transmission,DIRECT'
-    - 'PROCESS-NAME,fdm,DIRECT'
-    - 'PROCESS-NAME,aria2c,DIRECT'
-    - 'PROCESS-NAME,Folx,DIRECT'
-    - 'PROCESS-NAME,NetTransport,DIRECT'
-    - 'PROCESS-NAME,uTorrent,DIRECT'
-    - 'PROCESS-NAME,WebTorrent,DIRECT'
+    - DOMAIN-SUFFIX,mvnrepository.com,SERVER
+    
+    # ========== 进程规则(macOS) ==========
+    - PROCESS-NAME,Xmind,REJECT
+    - PROCESS-NAME,Xmind Helper,REJECT
+    - PROCESS-NAME,Cici,PROXY_AI
+    - PROCESS-NAME,Dola Helper,PROXY_AI
+    - PROCESS-NAME,studio,PROXY_COMMON
+    - PROCESS-NAME,Docker Desktop Helper,SERVER
+    - PROCESS-NAME,com.docker.backend,SERVER
+    - PROCESS-NAME,ollama,SERVER
+    
+    # 代理工具直连
+    - PROCESS-NAME,trustd,DIRECT
+    - PROCESS-NAME,apsd,DIRECT
+    - PROCESS-NAME,v2ray,DIRECT
+    - PROCESS-NAME,Surge%203,DIRECT
+    - PROCESS-NAME,ss-local,DIRECT
+    - PROCESS-NAME,privoxy,DIRECT
+    - PROCESS-NAME,trojan,DIRECT
+    - PROCESS-NAME,trojan-go,DIRECT
+    - PROCESS-NAME,naive,DIRECT
+    - PROCESS-NAME,WeChat,DIRECT
+    
+    # 下载工具直连
+    - PROCESS-NAME,Thunder,DIRECT
+    - PROCESS-NAME,DownloadService,DIRECT
+    - PROCESS-NAME,qBittorrent,DIRECT
+    - PROCESS-NAME,Transmission,DIRECT
+    - PROCESS-NAME,fdm,DIRECT
+    - PROCESS-NAME,aria2c,DIRECT
+    - PROCESS-NAME,Folx,DIRECT
+    - PROCESS-NAME,NetTransport,DIRECT
+    - PROCESS-NAME,uTorrent,DIRECT
+    - PROCESS-NAME,WebTorrent,DIRECT
+    
+    # ========== 常用域名 ==========
     - DOMAIN-SUFFIX,google.com,PROXY_COMMON
+    - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
     - DOMAIN-SUFFIX,wangchujiang.com,PROXY
-    - DOMAIN-SUFFIX,cdn.oaistatic.com,PROXY_AI
-    - DOMAIN-SUFFIX,mvnrepository.com,PROXY_AI
-    - DOMAIN,www.anthropic.com,PROXY_AI
-    - DOMAIN-SUFFIX,ciciai.com,PROXY_AI
     - DOMAIN-SUFFIX,com.larus.wolf,PROXY_AI
-    - DOMAIN-SUFFIX,deepl.com,PROXY_AI
-    - DOMAIN,cdn.usefathom.com,PROXY_AI
-    - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
-    - DOMAIN-SUFFIX,claude.ai,PROXY_AI
-    - DOMAIN-SUFFIX,openai.com,PROXY_AI
-    - DOMAIN-SUFFIX,sora.com,PROXY_AI
-    - DOMAIN-SUFFIX,codeium.com,PROXY_AI
-    - DOMAIN-SUFFIX,chatgpt.com,PROXY_AI
-    - DOMAIN-SUFFIX,auth0.com,PROXY_AI
-    - DOMAIN-SUFFIX,cloudflare.com,PROXY_AI
-    # no-resolve 阻止 Clash 进行 DNS 解析
-    - 'RULE-SET,customrule,DIRECT'
-    - 'RULE-SET,apple,DIRECT'
-    - 'RULE-SET,direct,DIRECT'
-    - 'RULE-SET,cncidr,DIRECT'
-    - 'RULE-SET,localnetwork,DIRECT'
-    - 'RULE-SET,proxy,PROXY_COMMON'
-    - 'RULE-SET,gfw,PROXY_COMMON'
-    - 'RULE-SET,telegram,PROXY_COMMON'
+    
+    # ========== 规则集匹配 ==========
+    - RULE-SET,customrule,DIRECT
+    - RULE-SET,apple,DIRECT
+    - RULE-SET,direct,DIRECT
+    - RULE-SET,cncidr,DIRECT
+    - RULE-SET,localnetwork,DIRECT
+    - RULE-SET,proxy,PROXY_COMMON
+    - RULE-SET,gfw,PROXY_COMMON
+    - RULE-SET,telegram,PROXY_COMMON
+    
+    # ========== 地理位置匹配 ==========
     - GEOIP,LAN,DIRECT
     - GEOIP,CN,DIRECT
-    - 'MATCH,PROXY'
+    
+    # ========== 兜底规则 ==========
+    - MATCH,PROXY
