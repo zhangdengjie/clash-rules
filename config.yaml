@@ -227,8 +227,8 @@ proxy-groups:
     timeout: 2000
     lazy: false
     proxies:
-      - Auto-Nolock
       - Auto-V2Free
+      - Auto-Nolock
 
   # ========== 通用代理(不使用 trojan) ==========
   - name: PROXY_COMMON
@@ -238,8 +238,8 @@ proxy-groups:
     timeout: 2000
     lazy: false
     proxies:
-      - Auto-Nolock
       - Auto-V2Free
+      - Auto-Nolock
 
   # ========== AI 服务专用(亚洲低延迟节点) ==========
   - name: AI-Singapore
