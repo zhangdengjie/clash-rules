@@ -193,7 +193,7 @@ proxy-groups:
     url: http://cp.cloudflare.com/generate_204
     # 多久检测一次所有节点的延迟（测速）
     interval: 300
-    lazy: true
+    lazy: false
     # proxies 使用proxies声明的节点
     # proxies:
       # - trojan # ← 主节点（首选）
@@ -208,7 +208,7 @@ proxy-groups:
     url: http://cp.cloudflare.com/generate_204
     # 多久检测一次所有节点的延迟（测速）
     interval: 300
-    lazy: true
+    lazy: false
     # proxies 使用proxies声明的节点
     # proxies:
       # - trojan # ← 主节点（首选）
@@ -223,7 +223,7 @@ proxy-groups:
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     interval: 120
-    lazy: true
+    lazy: false
     # use 使用providers中的配置
     use:
       # - Nolock
