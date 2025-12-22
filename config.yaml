@@ -132,7 +132,8 @@ proxy-providers:
     type: http
     path: ./profiles/proxies/v2free.yaml
     url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
-    filter: '^(?!.*(2\.0x|3\.0x|5\.0x|2倍率|3倍率|5倍率)).*$'
+    # filter: '^(?!.*(2\.0x|3\.0x|5\.0x|2倍率|3倍率|5倍率)).*$'
+    filter: '(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北)'
     exclude-filter: '学术|不保证可用'
     interval: 7200
     health-check:
