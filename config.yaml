@@ -282,8 +282,9 @@ proxy-groups:
     timeout: 2000
     lazy: false
     proxies:
+      - Auto-FeiniaoYun
       - Auto-V2Free
-      - Auto-Nolock
+      # - Auto-Nolock
       - DIRECT
 
   # ========== 服务器开发专用 ==========
@@ -295,7 +296,8 @@ proxy-groups:
     lazy: false
     proxies:
       - Auto-V2Free
-      - Auto-Nolock
+      # - Auto-Nolock
+      - Auto-FeiniaoYun
 
   # ========== 通用代理(不使用 trojan) ==========
   - name: PROXY_COMMON
@@ -307,7 +309,7 @@ proxy-groups:
     proxies:
       - Auto-FeiniaoYun
       - Auto-V2Free
-      - Auto-Nolock
+      # - Auto-Nolock
 
   # ========== AI 服务专用(亚洲低延迟节点) ==========
   - name: AI-Singapore
@@ -320,7 +322,7 @@ proxy-groups:
     use:
       - FeiniaoYun_Singapore
       - V2Free_Singapore
-      - Nolock_Singapore
+      # - Nolock_Singapore
 
   - name: AI-Japan
     type: url-test
@@ -332,7 +334,7 @@ proxy-groups:
     use:
       - FeiniaoYun_Japan
       - V2Free_Japan
-      - Nolock_Japan
+      # - Nolock_Japan
 
   - name: AI-Korea
     type: url-test
@@ -344,7 +346,7 @@ proxy-groups:
     use:
       - FeiniaoYun_Korea
       - V2Free_Korea
-      - Nolock_Korea
+      # - Nolock_Korea
 
   # AI 服务故障转移组
   - name: PROXY_AI
@@ -366,12 +368,12 @@ proxy-groups:
       - PROXY
       - Auto-FeiniaoYun
       - Auto-V2Free
-      - Auto-Nolock
+      # - Auto-Nolock
       - DIRECT
     use:
       - FeiniaoYun
       - V2Free
-      - Nolock
+      # - Nolock
 
 # 规则集配置
 rule-providers:
