@@ -73,6 +73,62 @@ proxies:
 
 # 订阅配置
 proxy-providers:
+  FeiniaoYun:
+    type: http
+    path: ./profiles/proxies/feiniaoyun.yaml
+    url: https://x1.344211.cc/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    filter: '(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北)'
+    exclude-filter: '学术|不保证可用'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 2000
+      lazy: false
+
+  FeiniaoYun_Japan:
+    type: http
+    path: ./profiles/proxies/feiniaoyun_Japan.yaml
+    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
+    filter: "(?i)日本"
+    exclude-filter: '[235]\.0x|[235]倍率'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 2000
+      lazy: false
+
+  FeiniaoYun_Korea:
+    type: http
+    path: ./profiles/proxies/feiniaoyun_Korea.yaml
+    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
+    filter: "(?i)韩国"
+    exclude-filter: '[235]\.0x|[235]倍率'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 2000
+      lazy: false
+
+  FeiniaoYun_Singapore:
+    type: http
+    path: ./profiles/proxies/feiniaoyun_Singapore.yaml
+    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
+    filter: "(?i)新加坡"
+    exclude-filter: '[235]\.0x|[235]倍率'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 2000
+      lazy: false
+
   Nolock:
     type: http
     path: ./profiles/proxies/nolock.yaml
@@ -188,6 +244,16 @@ proxy-providers:
 # 策略组配置 - 核心优化部分
 proxy-groups:
   # ========== 主节点池(自动选择最快) ==========
+  - name: Auto-FeiniaoYun
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 120
+    tolerance: 50
+    timeout: 2000
+    lazy: false
+    use:
+      - FeiniaoYun
+
   - name: Auto-Nolock
     type: url-test
     url: http://cp.cloudflare.com/generate_204
@@ -239,6 +305,7 @@ proxy-groups:
     timeout: 2000
     lazy: false
     proxies:
+      - Auto-FeiniaoYun
       - Auto-V2Free
       - Auto-Nolock
 
@@ -251,6 +318,7 @@ proxy-groups:
     timeout: 3000
     lazy: false
     use:
+      - FeiniaoYun_Singapore
       - V2Free_Singapore
       - Nolock_Singapore
 
@@ -262,6 +330,7 @@ proxy-groups:
     timeout: 3000
     lazy: false
     use:
+      - FeiniaoYun_Japan
       - V2Free_Japan
       - Nolock_Japan
 
@@ -273,6 +342,7 @@ proxy-groups:
     timeout: 3000
     lazy: false
     use:
+      - FeiniaoYun_Korea
       - V2Free_Korea
       - Nolock_Korea
 
@@ -294,10 +364,12 @@ proxy-groups:
     type: select
     proxies:
       - PROXY
+      - Auto-FeiniaoYun
       - Auto-V2Free
       - Auto-Nolock
       - DIRECT
     use:
+      - FeiniaoYun
       - V2Free
       - Nolock
 
@@ -415,6 +487,10 @@ rules:
     - DOMAIN,bugly.qq.com,DIRECT
     - DOMAIN,cas.bugly.qq.com,DIRECT
     - DOMAIN,dl.google.com,DIRECT
+    - DOMAIN,x1.344211.cc,DIRECT
+    - DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
+    - DOMAIN,safebrowsing.googleapis.com,DIRECT
+
     
     # ========== AI 服务(最高优先级) ==========
     - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
