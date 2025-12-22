@@ -20,7 +20,6 @@ dns:
     fake-ip-range: 198.18.0.1/16
     use-hosts: true
     
-    # 强制使用可信 DNS
     nameserver-policy:
       +.google.com: 'https://1.1.1.1/dns-query'
       +.googleapis.com: 'https://1.1.1.1/dns-query'
@@ -30,13 +29,11 @@ dns:
       +.anthropic.com: 'https://1.1.1.1/dns-query'
       +.openai.com: 'https://1.1.1.1/dns-query'
     
-    # 主 DNS 服务器
     nameserver: 
       - 'https://223.5.5.5/dns-query'
       - 'https://119.29.29.29/dns-query'
       - 'https://223.6.6.6/dns-query'
     
-    # 备用 DNS
     fallback: 
       - 'https://1.1.1.1/dns-query'
       - 'https://8.8.8.8/dns-query'
@@ -58,17 +55,17 @@ dns:
         - +.openai.com
         - +.jsdelivr.net
     
-    # 直连 DNS
     direct-nameserver:
       - 223.5.5.5
       - 119.29.29.29
 
-# 订阅配置
+# 订阅配置 - 关键修复
 proxy-providers:
+  # 使用订阅转换服务，只提取节点部分
   FeiniaoYun:
     type: http
     path: ./profiles/proxies/feiniaoyun.yaml
-    url: https://x1.344211.cc/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c&flag=clash
+    url: https://sub.xeton.dev/sub?target=clash&url=https%3A%2F%2Fx1.344211.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D97d6d41bdc126c7d14c39558ee2a5b3c&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini.ini&emoji=true&list=false&tfo=false&scv=false&fdn=false&sort=false&new_name=true
     filter: '(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北)'
     exclude-filter: '学术|不保证可用'
     interval: 7200
@@ -76,56 +73,13 @@ proxy-providers:
       enable: true
       url: http://cp.cloudflare.com/generate_204
       interval: 300
-      timeout: 5000
-      lazy: false
-
-  FeiniaoYun_Japan:
-    type: http
-    path: ./profiles/proxies/feiniaoyun_Japan.yaml
-    url: https://x1.344211.cc/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c&flag=clash
-    filter: "(?i)日本"
-    exclude-filter: '[235]\.0x|[235]倍率'
-    interval: 7200
-    health-check:
-      enable: true
-      url: http://cp.cloudflare.com/generate_204
-      interval: 300
-      timeout: 5000
-      lazy: false
-
-  FeiniaoYun_Korea:
-    type: http
-    path: ./profiles/proxies/feiniaoyun_Korea.yaml
-    url: https://x1.344211.cc/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c&flag=clash
-    filter: "(?i)韩国"
-    exclude-filter: '[235]\.0x|[235]倍率'
-    interval: 7200
-    health-check:
-      enable: true
-      url: http://cp.cloudflare.com/generate_204
-      interval: 300
-      timeout: 5000
-      lazy: false
-
-  FeiniaoYun_Singapore:
-    type: http
-    path: ./profiles/proxies/feiniaoyun_Singapore.yaml
-    url: https://x1.344211.cc/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c&flag=clash
-    filter: "(?i)新加坡"
-    exclude-filter: '[235]\.0x|[235]倍率'
-    interval: 7200
-    health-check:
-      enable: true
-      url: http://cp.cloudflare.com/generate_204
-      interval: 300
-      timeout: 5000
+      timeout: 2000
       lazy: false
 
   V2Free:
     type: http
     path: ./profiles/proxies/v2free.yaml
     url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
-    # filter: '^(?!.*(2\.0x|3\.0x|5\.0x|2倍率|3倍率|5倍率)).*$'
     filter: '(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北)'
     exclude-filter: '学术|不保证可用'
     interval: 7200
@@ -178,119 +132,94 @@ proxy-providers:
       timeout: 2000
       lazy: false
 
-# 策略组配置 - 核心优化部分
+# 策略组配置
 proxy-groups:
-  # ========== 主节点池(自动选择最快) ==========
-  - name: Auto-FeiniaoYun
-    type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    interval: 120
-    tolerance: 50
-    timeout: 5000
-    lazy: false
-    use:
-      - FeiniaoYun
-
   - name: Auto-V2Free
     type: url-test
     url: http://cp.cloudflare.com/generate_204
-    interval: 120
-    tolerance: 50
+    interval: 300
+    tolerance: 100
     timeout: 2000
     lazy: false
     use:
       - V2Free
 
-  # ========== 故障自动切换(主力代理) ==========
   - name: PROXY
     type: fallback
     url: http://cp.cloudflare.com/generate_204
-    interval: 60
+    interval: 180
     timeout: 2000
     lazy: false
     proxies:
-      - Auto-FeiniaoYun
       - Auto-V2Free
       - DIRECT
 
-  # ========== 服务器开发专用 ==========
   - name: SERVER
     type: fallback
     url: http://cp.cloudflare.com/generate_204
-    interval: 120
+    interval: 300
     timeout: 2000
     lazy: false
     proxies:
       - Auto-V2Free
-      - Auto-FeiniaoYun
 
-  # ========== 通用代理(不使用 trojan) ==========
   - name: PROXY_COMMON
     type: fallback
     url: http://cp.cloudflare.com/generate_204
-    interval: 90
+    interval: 180
     timeout: 2000
     lazy: false
     proxies:
-      # - Auto-FeiniaoYun
       - Auto-V2Free
 
-  # ========== AI 服务专用(亚洲低延迟节点) ==========
   - name: AI-Singapore
     type: url-test
     url: http://cp.cloudflare.com/generate_204
-    interval: 120
-    tolerance: 100
-    timeout: 3000
+    interval: 300
+    tolerance: 150
+    timeout: 2000
     lazy: false
     use:
-      # - FeiniaoYun_Singapore
       - V2Free_Singapore
 
   - name: AI-Japan
     type: url-test
     url: http://cp.cloudflare.com/generate_204
-    interval: 120
-    tolerance: 100
-    timeout: 3000
+    interval: 300
+    tolerance: 150
+    timeout: 2000
     lazy: false
     use:
-      # - FeiniaoYun_Japan
       - V2Free_Japan
 
   - name: AI-Korea
     type: url-test
     url: http://cp.cloudflare.com/generate_204
-    interval: 120
-    tolerance: 100
-    timeout: 3000
+    interval: 300
+    tolerance: 150
+    timeout: 2000
     lazy: false
     use:
-      # - FeiniaoYun_Korea
       - V2Free_Korea
 
-  # AI 服务故障转移组
   - name: PROXY_AI
     type: fallback
     url: http://cp.cloudflare.com/generate_204
-    interval: 60
-    timeout: 3000
+    interval: 180
+    timeout: 2000
     lazy: false
     proxies:
       - AI-Singapore
       - AI-Japan
       - AI-Korea
 
-  # ========== 全局手动选择(备用) ==========
   - name: GLOBAL_USE
     type: select
     proxies:
       - PROXY
-      # - Auto-FeiniaoYun
       - Auto-V2Free
       - DIRECT
     use:
-      # - FeiniaoYun
       - V2Free
 
 # 规则集配置
@@ -351,7 +280,6 @@ rule-providers:
     path: ./ruleset/localnetwork.yaml
     interval: 86400
 
-  # 广告拦截规则
   AD:
     type: http
     behavior: domain
@@ -401,15 +329,14 @@ rule-providers:
     path: ./rules/ProcessAI.yaml
     interval: 86400
 
-# 路由规则
 rules:
-    # ========== 高优先级直连 ==========
     - DOMAIN,bugly.qq.com,DIRECT
     - DOMAIN,cas.bugly.qq.com,DIRECT
     - DOMAIN,dl.google.com,DIRECT
+    - DOMAIN,x1.344211.cc,DIRECT
+    - DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
+    - DOMAIN,safebrowsing.googleapis.com,DIRECT
 
-    
-    # ========== AI 服务(最高优先级) ==========
     - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
     - DOMAIN,gemini.google.com,PROXY_AI
     - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
@@ -427,7 +354,6 @@ rules:
     - DOMAIN,cdn.usefathom.com,PROXY_AI
     - DOMAIN,api.fast.com,PROXY_AI
     
-    # ========== 广告拦截 ==========
     - DOMAIN,lcs1.gateway.tencent.com,REJECT
     - DOMAIN-KEYWORD,wps,REJECT
     - RULE-SET,AD,REJECT
@@ -438,12 +364,10 @@ rules:
     - RULE-SET,ProcessReject,REJECT
     - DOMAIN-SUFFIX,vox.rocks,REJECT
     
-    # ========== 开发工具相关 ==========
     - DOMAIN-KEYWORD,ubuntu,SERVER
     - DOMAIN-KEYWORD,docker,SERVER
     - DOMAIN-SUFFIX,mvnrepository.com,SERVER
     
-    # ========== 进程规则(macOS) ==========
     - PROCESS-NAME,Xmind,REJECT
     - PROCESS-NAME,Xmind Helper,REJECT
     - PROCESS-NAME,Cici,PROXY_AI
@@ -453,7 +377,6 @@ rules:
     - PROCESS-NAME,com.docker.backend,SERVER
     - PROCESS-NAME,ollama,SERVER
     
-    # 代理工具直连
     - PROCESS-NAME,trustd,DIRECT
     - PROCESS-NAME,apsd,DIRECT
     - PROCESS-NAME,v2ray,DIRECT
@@ -465,7 +388,6 @@ rules:
     - PROCESS-NAME,naive,DIRECT
     - PROCESS-NAME,WeChat,DIRECT
     
-    # 下载工具直连
     - PROCESS-NAME,Thunder,DIRECT
     - PROCESS-NAME,DownloadService,DIRECT
     - PROCESS-NAME,qBittorrent,DIRECT
@@ -477,13 +399,11 @@ rules:
     - PROCESS-NAME,uTorrent,DIRECT
     - PROCESS-NAME,WebTorrent,DIRECT
     
-    # ========== 常用域名 ==========
     - DOMAIN-SUFFIX,google.com,PROXY_COMMON
     - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
     - DOMAIN-SUFFIX,wangchujiang.com,PROXY
     - DOMAIN-SUFFIX,com.larus.wolf,PROXY_AI
     
-    # ========== 规则集匹配 ==========
     - RULE-SET,customrule,DIRECT
     - RULE-SET,apple,DIRECT
     - RULE-SET,direct,DIRECT
@@ -493,9 +413,7 @@ rules:
     - RULE-SET,gfw,PROXY_COMMON
     - RULE-SET,telegram,PROXY_COMMON
     
-    # ========== 地理位置匹配 ==========
     - GEOIP,LAN,DIRECT
     - GEOIP,CN,DIRECT
     
-    # ========== 兜底规则 ==========
     - MATCH,PROXY
