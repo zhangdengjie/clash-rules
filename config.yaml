@@ -16,6 +16,8 @@ dns:
     ipv6: false
     listen: '127.0.0.1:53'
     default-nameserver: [223.5.5.5, 119.29.29.29]
+    # 代理服务器（节点 IP）本身，是用谁来解析的
+    proxy-server-nameserver: ['https://dns.alidns.com/dns-query', 'https://doh.pub/dns-query', 'tls://dot.pub']
     enhanced-mode: fake-ip
     fake-ip-range: 198.18.0.1/16
     use-hosts: true
@@ -64,13 +66,14 @@ proxy-providers:
   # 使用订阅转换服务，只提取节点部分
   FeiniaoYun:
     type: http
-    path: ./profiles/proxies/feiniaoyun.yaml
-    url: https://sub.xeton.dev/sub?target=clash&url=https%3A%2F%2Fx1.344211.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D97d6d41bdc126c7d14c39558ee2a5b3c&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini.ini&emoji=true&list=false&tfo=false&scv=false&fdn=false&sort=false&new_name=true
+    # base64 类型，转换链接
+    url: https://sub.xeton.dev/sub?target=clash&url=https://x1.344211.cc/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c&insert=false&emoji=false&udp=true&list=false
+    interval: 3600
+    path: ./providers/feiniaoyun.yaml
     filter: '(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北)'
     exclude-filter: '学术|不保证可用'
-    interval: 7200
     health-check:
-      enable: true
+      enable: false
       url: http://cp.cloudflare.com/generate_204
       interval: 300
       timeout: 2000
@@ -134,6 +137,17 @@ proxy-providers:
 
 # 策略组配置
 proxy-groups:
+
+  - name: Auto-Feiniaoyun
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 100
+    timeout: 2000
+    lazy: false
+    use:
+      - FeiniaoYun
+
   - name: Auto-V2Free
     type: url-test
     url: http://cp.cloudflare.com/generate_204
