@@ -61,7 +61,7 @@ dns:
       - 223.5.5.5
       - 119.29.29.29
 
-# 订阅配置 - 关键修复
+# 订阅配置
 proxy-providers:
   # 使用订阅转换服务，只提取节点部分
   FeiniaoYun:
@@ -137,7 +137,6 @@ proxy-providers:
 
 # 策略组配置
 proxy-groups:
-
   - name: Auto-Feiniaoyun
     type: url-test
     url: http://cp.cloudflare.com/generate_204
@@ -158,16 +157,6 @@ proxy-groups:
     use:
       - V2Free
 
-  - name: PROXY
-    type: fallback
-    url: http://cp.cloudflare.com/generate_204
-    interval: 180
-    timeout: 2000
-    lazy: false
-    proxies:
-      - Auto-V2Free
-      - DIRECT
-
   - name: SERVER
     type: fallback
     url: http://cp.cloudflare.com/generate_204
@@ -176,6 +165,7 @@ proxy-groups:
     lazy: false
     proxies:
       - Auto-V2Free
+      - Auto-Feiniaoyun
 
   - name: PROXY_COMMON
     type: fallback
@@ -185,6 +175,7 @@ proxy-groups:
     lazy: false
     proxies:
       - Auto-V2Free
+      - Auto-Feiniaoyun
 
   - name: AI-Singapore
     type: url-test
@@ -195,6 +186,7 @@ proxy-groups:
     lazy: false
     use:
       - V2Free_Singapore
+      - Auto-Feiniaoyun
 
   - name: AI-Japan
     type: url-test
@@ -205,6 +197,7 @@ proxy-groups:
     lazy: false
     use:
       - V2Free_Japan
+      - Auto-Feiniaoyun
 
   - name: AI-Korea
     type: url-test
@@ -215,6 +208,7 @@ proxy-groups:
     lazy: false
     use:
       - V2Free_Korea
+      - Auto-Feiniaoyun
 
   - name: PROXY_AI
     type: fallback
@@ -226,15 +220,18 @@ proxy-groups:
       - AI-Singapore
       - AI-Japan
       - AI-Korea
+      - Auto-Feiniaoyun
 
   - name: GLOBAL_USE
     type: select
     proxies:
-      - PROXY
+      - PROXY_COMMON
       - Auto-V2Free
+      - Auto-Feiniaoyun
       - DIRECT
     use:
       - V2Free
+      - Feiniaoyun
 
 # 规则集配置
 rule-providers:
@@ -415,7 +412,7 @@ rules:
     
     - DOMAIN-SUFFIX,google.com,PROXY_COMMON
     - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
-    - DOMAIN-SUFFIX,wangchujiang.com,PROXY
+    - DOMAIN-SUFFIX,wangchujiang.com,PROXY_COMMON
     - DOMAIN-SUFFIX,com.larus.wolf,PROXY_AI
     
     - RULE-SET,customrule,DIRECT
@@ -430,4 +427,4 @@ rules:
     - GEOIP,LAN,DIRECT
     - GEOIP,CN,DIRECT
     
-    - MATCH,PROXY
+    - MATCH,PROXY_COMMON
