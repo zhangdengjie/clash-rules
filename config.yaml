@@ -90,7 +90,7 @@ proxy-providers:
   FeiniaoYun_Japan:
     type: http
     path: ./profiles/proxies/feiniaoyun_Japan.yaml
-    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
+    url: https://x1.344211.cc/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
     filter: "(?i)日本"
     exclude-filter: '[235]\.0x|[235]倍率'
     interval: 7200
@@ -104,7 +104,7 @@ proxy-providers:
   FeiniaoYun_Korea:
     type: http
     path: ./profiles/proxies/feiniaoyun_Korea.yaml
-    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
+    url: hhttps://x1.344211.cc/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
     filter: "(?i)韩国"
     exclude-filter: '[235]\.0x|[235]倍率'
     interval: 7200
@@ -118,7 +118,7 @@ proxy-providers:
   FeiniaoYun_Singapore:
     type: http
     path: ./profiles/proxies/feiniaoyun_Singapore.yaml
-    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
+    url: https://x1.344211.cc/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
     filter: "(?i)新加坡"
     exclude-filter: '[235]\.0x|[235]倍率'
     interval: 7200
