@@ -135,6 +135,8 @@ proxy-providers:
       timeout: 2000
       lazy: false
 
+# use → 只能接 provider
+# proxies → 只能接 proxy / proxy-group
 # 策略组配置
 proxy-groups:
   - name: Auto-Feiniaoyun
@@ -186,6 +188,7 @@ proxy-groups:
     lazy: false
     use:
       - V2Free_Singapore
+    proxies:
       - Auto-Feiniaoyun
 
   - name: AI-Japan
@@ -197,6 +200,7 @@ proxy-groups:
     lazy: false
     use:
       - V2Free_Japan
+    proxies:
       - Auto-Feiniaoyun
 
   - name: AI-Korea
@@ -208,6 +212,7 @@ proxy-groups:
     lazy: false
     use:
       - V2Free_Korea
+    proxies:
       - Auto-Feiniaoyun
 
   - name: PROXY_AI
@@ -231,7 +236,7 @@ proxy-groups:
       - DIRECT
     use:
       - V2Free
-      - Feiniaoyun
+      - FeiniaoYun
 
 # 规则集配置
 rule-providers:
