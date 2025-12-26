@@ -70,7 +70,7 @@ proxy-providers:
     url: https://sub.xeton.dev/sub?target=clash&url=https://x1.344211.cc/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c&insert=false&emoji=false&udp=true&list=false
     interval: 3600
     path: ./providers/feiniaoyun.yaml
-    filter: '(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北)'
+    filter: '(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北|香港)'
     exclude-filter: '学术|不保证可用'
     health-check:
       enable: false
@@ -83,7 +83,7 @@ proxy-providers:
     type: http
     path: ./profiles/proxies/v2free.yaml
     url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
-    filter: '(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北)'
+    filter: '(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北|香港)'
     exclude-filter: '学术|不保证可用'
     interval: 7200
     health-check:
@@ -371,6 +371,7 @@ rules:
     - DOMAIN,api.fast.com,PROXY_AI
     
     - DOMAIN,lcs1.gateway.tencent.com,REJECT
+    - DOMAIN-SUFFIX,proxyman.com,REJECT
     - DOMAIN-KEYWORD,wps,REJECT
     - RULE-SET,AD,REJECT
     - RULE-SET,EasyList,REJECT
@@ -384,6 +385,8 @@ rules:
     - DOMAIN-KEYWORD,docker,SERVER
     - DOMAIN-SUFFIX,mvnrepository.com,SERVER
     
+    # 进程拒绝规则
+    - PROCESS-NAME,QuickRecorder,REJECT
     - PROCESS-NAME,Xmind,REJECT
     - PROCESS-NAME,Xmind Helper,REJECT
     - PROCESS-NAME,Cici,PROXY_AI
@@ -393,6 +396,7 @@ rules:
     - PROCESS-NAME,com.docker.backend,SERVER
     - PROCESS-NAME,ollama,SERVER
     
+    # 进程直连规则
     - PROCESS-NAME,trustd,DIRECT
     - PROCESS-NAME,apsd,DIRECT
     - PROCESS-NAME,v2ray,DIRECT
@@ -403,7 +407,6 @@ rules:
     - PROCESS-NAME,trojan-go,DIRECT
     - PROCESS-NAME,naive,DIRECT
     - PROCESS-NAME,WeChat,DIRECT
-    
     - PROCESS-NAME,Thunder,DIRECT
     - PROCESS-NAME,DownloadService,DIRECT
     - PROCESS-NAME,qBittorrent,DIRECT
