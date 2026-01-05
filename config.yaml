@@ -355,6 +355,8 @@ rules:
     - DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
     - DOMAIN,safebrowsing.googleapis.com,DIRECT
 
+    - DOMAIN,aistudio.google.com,PROXY_AI
+    - DOMAIN,ai.google.dev,PROXY_AI
     - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
     - DOMAIN,gemini.google.com,PROXY_AI
     - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
@@ -420,7 +422,7 @@ rules:
     - PROCESS-NAME,uTorrent,DIRECT
     - PROCESS-NAME,WebTorrent,DIRECT
     
-    - DOMAIN-SUFFIX,google.com,PROXY_COMMON
+    - DOMAIN-SUFFIX,google.com,PROXY_AI
     - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
     - DOMAIN-SUFFIX,wangchujiang.com,PROXY_COMMON
     - DOMAIN-SUFFIX,com.larus.wolf,PROXY_AI
