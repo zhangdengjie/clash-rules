@@ -80,7 +80,6 @@ proxy-providers:
     interval: 3600
     path: ./providers/feiniaoyun.yaml
     filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北|香港|HK)'
-    exclude-filter: '学术|不保证可用'
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量)'
     health-check:
       enable: true
