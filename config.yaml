@@ -84,7 +84,7 @@ proxy-providers:
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量)'
     health-check:
       enable: true
-      url: url: http://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 300
       timeout: 5000
       lazy: true
@@ -98,7 +98,7 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: url: http://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 300
       timeout: 5000
       lazy: true
@@ -112,7 +112,7 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: url: http://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 300
       timeout: 5000
       lazy: true
@@ -126,7 +126,7 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: url: http://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 300
       timeout: 5000
       lazy: true
@@ -140,7 +140,7 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: url: http://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 300
       timeout: 5000
       lazy: true
@@ -151,7 +151,7 @@ proxy-providers:
 proxy-groups:
   - name: Auto-Feiniaoyun
     type: url-test
-    url: url: http://www.gstatic.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     timeout: 5000
@@ -161,7 +161,7 @@ proxy-groups:
 
   - name: Auto-V2Free
     type: url-test
-    url: url: http://www.gstatic.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     timeout: 5000
@@ -171,7 +171,7 @@ proxy-groups:
 
   - name: SERVER
     type: fallback
-    url: url: http://www.gstatic.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 300
     timeout: 5000
     tolerance: 100
@@ -182,7 +182,7 @@ proxy-groups:
 
   - name: PROXY_COMMON
     type: url-test
-    url: url: http://www.gstatic.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 180
     timeout: 5000
     tolerance: 100
@@ -193,7 +193,7 @@ proxy-groups:
 
   - name: AI-Singapore
     type: url-test
-    url: url: http://www.gstatic.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     timeout: 5000
@@ -205,7 +205,7 @@ proxy-groups:
 
   - name: AI-Japan
     type: url-test
-    url: url: http://www.gstatic.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     timeout: 5000
@@ -217,7 +217,7 @@ proxy-groups:
 
   - name: AI-Korea
     type: url-test
-    url: url: http://www.gstatic.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     timeout: 5000
@@ -229,7 +229,7 @@ proxy-groups:
 
   - name: PROXY_AI
     type: select
-    url: url: http://www.gstatic.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 180
     timeout: 5000
     lazy: true
