@@ -3,10 +3,11 @@ allow-lan: true
 bind-address: "*"
 mode: rule
 log-level: info
+ipv6: false # 建议关闭 IPv6，防止国内环境下的路由黑洞和DNS泄露问题
 clash-for-android:
     append-system-dns: false
 unified-delay: true
-keep-alive-interval: 15
+keep-alive-interval: 30 # 延长保活时间，减少移动端断连
 
 hosts:
     mtalk.google.com: 108.177.125.188
@@ -15,9 +16,14 @@ dns:
     enable: true
     ipv6: false
     listen: '127.0.0.1:53'
-    default-nameserver: [223.5.5.5, 119.29.29.29]
-    # 代理服务器（节点 IP）本身，是用谁来解析的
-    proxy-server-nameserver: ['https://dns.alidns.com/dns-query', 'https://doh.pub/dns-query', 'tls://dot.pub']
+    # 默认国内解析：加入 UDP 协议以提高首次启动速度
+    default-nameserver: 
+      - 223.5.5.5
+      - 119.29.29.29
+    # 解析节点域名的 DNS
+    proxy-server-nameserver: 
+      - 223.5.5.5
+      - 119.29.29.29
     enhanced-mode: fake-ip
     fake-ip-range: 198.18.0.1/16
     use-hosts: true
@@ -32,14 +38,18 @@ dns:
       +.openai.com: 'https://1.1.1.1/dns-query'
     
     nameserver: 
+      # 混合使用 UDP 和 DoH，解决冷启动慢的问题
+      - 223.5.5.5
+      - 119.29.29.29
+      - 'https://223.5.5.5/dns-query'
       - 'https://223.5.5.5/dns-query'
       - 'https://119.29.29.29/dns-query'
-      - 'https://223.6.6.6/dns-query'
+      - 'https://1.12.12.12/dns-query'
     
     fallback: 
       - 'https://1.1.1.1/dns-query'
       - 'https://8.8.8.8/dns-query'
-      - 'https://208.67.220.220/dns-query'
+      - 'tcp://208.67.220.220:443'
     
     fallback-filter:
       geoip: true
@@ -55,7 +65,6 @@ dns:
         - +.github.com
         - +.anthropic.com
         - +.openai.com
-        - +.jsdelivr.net
     
     direct-nameserver:
       - 223.5.5.5
@@ -70,28 +79,29 @@ proxy-providers:
     url: https://sub.xeton.dev/sub?target=clash&url=https://x1.344211.cc/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c&insert=false&emoji=false&udp=true&list=false
     interval: 3600
     path: ./providers/feiniaoyun.yaml
-    filter: '(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北|香港)'
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北|香港|HK)'
     exclude-filter: '学术|不保证可用'
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量)'
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: url: http://www.gstatic.com/generate_204
       interval: 300
-      timeout: 2000
-      lazy: false
+      timeout: 5000
+      lazy: true
 
   V2Free:
     type: http
     path: ./profiles/proxies/v2free.yaml
     url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
-    filter: '(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北)'
-    exclude-filter: '学术|不保证可用'
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北)'
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量)'
     interval: 7200
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: url: http://www.gstatic.com/generate_204
       interval: 300
-      timeout: 2000
-      lazy: false
+      timeout: 5000
+      lazy: true
 
   V2Free_Japan:
     type: http
@@ -102,10 +112,10 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: url: http://www.gstatic.com/generate_204
       interval: 300
-      timeout: 2000
-      lazy: false
+      timeout: 5000
+      lazy: true
 
   V2Free_Korea:
     type: http
@@ -116,10 +126,10 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: url: http://www.gstatic.com/generate_204
       interval: 300
-      timeout: 2000
-      lazy: false
+      timeout: 5000
+      lazy: true
 
   V2Free_Singapore:
     type: http
@@ -130,10 +140,10 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: url: http://www.gstatic.com/generate_204
       interval: 300
-      timeout: 2000
-      lazy: false
+      timeout: 5000
+      lazy: true
 
 # use → 只能接 provider
 # proxies → 只能接 proxy / proxy-group
@@ -141,53 +151,53 @@ proxy-providers:
 proxy-groups:
   - name: Auto-Feiniaoyun
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    url: url: http://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
-    timeout: 2000
-    lazy: false
+    tolerance: 100
+    timeout: 5000
+    lazy: true
     use:
       - FeiniaoYun
 
   - name: Auto-V2Free
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    url: url: http://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
-    timeout: 2000
-    lazy: false
+    tolerance: 100
+    timeout: 5000
+    lazy: true
     use:
       - V2Free
 
   - name: SERVER
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
+    url: url: http://www.gstatic.com/generate_204
     interval: 300
-    timeout: 2000
-    tolerance: 50
-    lazy: false
+    timeout: 5000
+    tolerance: 100
+    lazy: true
     proxies:
       - Auto-V2Free
       - Auto-Feiniaoyun
 
   - name: PROXY_COMMON
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    url: url: http://www.gstatic.com/generate_204
     interval: 180
-    timeout: 2000
-    tolerance: 50
-    lazy: false
+    timeout: 5000
+    tolerance: 100
+    lazy: true
     proxies:
       - Auto-V2Free
       - Auto-Feiniaoyun
 
   - name: AI-Singapore
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    url: url: http://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
-    timeout: 2000
-    lazy: false
+    tolerance: 100
+    timeout: 5000
+    lazy: true
     use:
       - V2Free_Singapore
     proxies:
@@ -195,11 +205,11 @@ proxy-groups:
 
   - name: AI-Japan
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    url: url: http://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
-    timeout: 2000
-    lazy: false
+    tolerance: 100
+    timeout: 5000
+    lazy: true
     use:
       - V2Free_Japan
     proxies:
@@ -207,27 +217,28 @@ proxy-groups:
 
   - name: AI-Korea
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    url: url: http://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
-    timeout: 2000
-    lazy: false
+    tolerance: 100
+    timeout: 5000
+    lazy: true
     use:
       - V2Free_Korea
     proxies:
       - Auto-Feiniaoyun
 
   - name: PROXY_AI
-    type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    type: select
+    url: url: http://www.gstatic.com/generate_204
     interval: 180
-    timeout: 2000
-    lazy: false
+    timeout: 5000
+    lazy: true
     proxies:
       - AI-Singapore
       - AI-Japan
       - AI-Korea
       - Auto-Feiniaoyun
+      - Auto-V2Free
 
   - name: GLOBAL_USE
     type: select
@@ -245,42 +256,42 @@ rule-providers:
   proxy: 
     type: http
     behavior: domain
-    url: 'https://47.116.124.118:9090/rules/clash/proxy.txt'
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt'
     path: ./ruleset/proxy.yaml
     interval: 86400
   
   direct: 
     type: http
     behavior: domain
-    url: 'https://47.116.124.118:9090/rules/clash/direct.txt'
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt'
     path: ./ruleset/direct.yaml
     interval: 86400
   
   apple: 
     type: http
     behavior: domain
-    url: 'https://47.116.124.118:9090/rules/clash/apple.txt'
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt'
     path: ./ruleset/apple.yaml
     interval: 86400
   
   cncidr: 
     type: http
-    behavior: domain
-    url: 'https://47.116.124.118:9090/rules/clash/cncidr.txt'
+    behavior: ipcidr
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt'
     path: ./ruleset/cncidr.yaml
     interval: 86400
   
   gfw: 
     type: http
     behavior: domain
-    url: 'https://47.116.124.118:9090/rules/clash/gfw.txt'
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt'
     path: ./ruleset/gfw.yaml
     interval: 86400
   
   telegram: 
     type: http
     behavior: classical
-    url: 'https://47.116.124.118:9090/rules/clash/telegram.txt'
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt'
     path: ./ruleset/telegram.yaml
     interval: 86400
   
@@ -294,7 +305,7 @@ rule-providers:
   localnetwork: 
     type: http
     behavior: classical
-    url: 'https://47.116.124.118:9090/rules/clash/localnetwork.txt'
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt'
     path: ./ruleset/localnetwork.yaml
     interval: 86400
 
@@ -348,6 +359,10 @@ rule-providers:
     interval: 86400
 
 rules:
+    # 强制直连
+    - DOMAIN,sub.xeton.dev,DIRECT # 确保订阅转换地址直连
+    - DOMAIN,v1.tlsa.top,DIRECT   # 确保订阅地址直连
+    - DOMAIN-SUFFIX,cn,DIRECT     # 所有 .cn 域名直连，减少规则匹配开销
     - DOMAIN,bugly.qq.com,DIRECT
     - DOMAIN,cas.bugly.qq.com,DIRECT
     - DOMAIN,dl.google.com,DIRECT
@@ -355,6 +370,7 @@ rules:
     - DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
     - DOMAIN,safebrowsing.googleapis.com,DIRECT
 
+    # AI 规则
     - DOMAIN,aistudio.google.com,PROXY_AI
     - DOMAIN,ai.google.dev,PROXY_AI
     - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
@@ -373,6 +389,8 @@ rules:
     - DOMAIN-SUFFIX,cdn.oaistatic.com,PROXY_AI
     - DOMAIN,cdn.usefathom.com,PROXY_AI
     - DOMAIN,api.fast.com,PROXY_AI
+    - DOMAIN-SUFFIX,x.ai,PROXY_AI
+    - DOMAIN-SUFFIX,grok.com,PROXY_AI
     
     - DOMAIN,lcs1.gateway.tencent.com,REJECT
     - DOMAIN-SUFFIX,proxyman.com,REJECT
