@@ -76,7 +76,7 @@ proxy-providers:
   FeiniaoYun:
     type: http
     # base64 类型，转换链接
-    url: https://sub.xeton.dev/sub?target=clash&url=https://x1.344211.cc/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c&insert=false&emoji=false&udp=true&list=false
+    url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
     interval: 3600
     path: ./providers/feiniaoyun.yaml
     filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北|香港|HK)'
