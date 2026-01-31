@@ -197,6 +197,7 @@ proxy-groups:
     tolerance: 100
     timeout: 5000
     lazy: true
+    hidden: true
     use:
       - V2Free_Singapore
     proxies:
@@ -209,6 +210,7 @@ proxy-groups:
     tolerance: 100
     timeout: 5000
     lazy: true
+    hidden: true
     use:
       - V2Free_Japan
     proxies:
@@ -221,6 +223,7 @@ proxy-groups:
     tolerance: 100
     timeout: 5000
     lazy: true
+    hidden: true
     use:
       - V2Free_Korea
     proxies:
