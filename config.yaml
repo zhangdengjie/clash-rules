@@ -3,11 +3,11 @@ allow-lan: true
 bind-address: "*"
 mode: rule
 log-level: info
-ipv6: false # 建议关闭 IPv6，防止国内环境下的路由黑洞和DNS泄露问题
+ipv6: false
 clash-for-android:
     append-system-dns: false
 unified-delay: true
-keep-alive-interval: 30 # 延长保活时间，减少移动端断连
+keep-alive-interval: 30
 
 hosts:
     mtalk.google.com: 108.177.125.188
@@ -16,11 +16,9 @@ dns:
     enable: true
     ipv6: false
     listen: '127.0.0.1:53'
-    # 默认国内解析：加入 UDP 协议以提高首次启动速度
     default-nameserver: 
       - 223.5.5.5
       - 119.29.29.29
-    # 解析节点域名的 DNS
     proxy-server-nameserver: 
       - 223.5.5.5
       - 119.29.29.29
@@ -38,7 +36,6 @@ dns:
       +.openai.com: 'https://1.1.1.1/dns-query'
     
     nameserver: 
-      # 混合使用 UDP 和 DoH，解决冷启动慢的问题
       - 223.5.5.5
       - 119.29.29.29
       - 'https://223.5.5.5/dns-query'
@@ -47,7 +44,7 @@ dns:
     fallback: 
       - 'https://1.1.1.1/dns-query'
       - 'https://8.8.8.8/dns-query'
-      - 'tcp://8.8.8.8:53'        # 新增
+      - 'tcp://8.8.8.8:53'
       - 'tcp://208.67.220.220:443'
     
     fallback-filter:
@@ -70,20 +67,20 @@ dns:
       - 119.29.29.29
 
 # 订阅配置
+# 【优化点1】所有 interval 缩短为 120秒，加快坏节点剔除速度
 proxy-providers:
-  # 使用订阅转换服务，只提取节点部分
   FeiniaoYun:
     type: http
-    # base64 类型，转换链接
     url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
     interval: 3600
     path: ./providers/feiniaoyun.yaml
     filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北|香港|HK)'
-    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量)'
+    # 加强过滤，排除可能有问题的节点
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 300
+      interval: 120 # 缩短检测间隔
       timeout: 5000
       lazy: true
 
@@ -92,15 +89,16 @@ proxy-providers:
     path: ./profiles/proxies/v2free.yaml
     url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
     filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北)'
-    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量)'
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     interval: 7200
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 300
+      interval: 120 # 缩短检测间隔
       timeout: 5000
       lazy: true
 
+  # 区域子订阅同样缩短间隔
   V2Free_Japan:
     type: http
     path: ./profiles/proxies/v2free_Japan.yaml
@@ -111,7 +109,7 @@ proxy-providers:
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 300
+      interval: 120
       timeout: 5000
       lazy: true
 
@@ -125,7 +123,7 @@ proxy-providers:
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 300
+      interval: 120
       timeout: 5000
       lazy: true
 
@@ -139,61 +137,54 @@ proxy-providers:
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 300
+      interval: 120
       timeout: 5000
       lazy: true
 
-# use → 只能接 provider
-# proxies → 只能接 proxy / proxy-group
 # 策略组配置
+# 【优化点2】Auto 组 interval 缩短到 60秒，快速切换
 proxy-groups:
   - name: Auto-Feiniaoyun
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 100
+    interval: 60 # 60秒测速一次
+    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 5000
     lazy: true
+    hidden: true
     use:
       - FeiniaoYun
 
   - name: Auto-V2Free
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 100
+    interval: 60 # 60秒测速一次
+    tolerance: 50
     timeout: 5000
     lazy: true
+    hidden: true
     use:
       - V2Free
 
-  - name: SERVER
-    type: fallback
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    timeout: 5000
-    tolerance: 100
-    lazy: true
-    proxies:
-      - Auto-V2Free
-      - Auto-Feiniaoyun
-
+  # 【优化点3】PROXY_COMMON 改为 fallback
+  # 逻辑：优先尝试 V2Free 的自动选择，如果挂了/超时，自动降级到 Feiniaoyun
+  # 这比 url-test 更稳定，不会因为两个都慢而选不出来
   - name: PROXY_COMMON
-    type: url-test
+    type: fallback 
     url: http://www.gstatic.com/generate_204
-    interval: 180
-    timeout: 5000
-    tolerance: 100
+    interval: 60
+    timeout: 3000 # 3秒不通就切换到下一个
     lazy: true
     proxies:
-      - Auto-V2Free
-      - Auto-Feiniaoyun
+      - Auto-V2Free     # 主力
+      - Auto-Feiniaoyun # 备用
 
+  # AI 区域组保持 url-test，但加快频率
   - name: AI-Singapore
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 100
+    interval: 60
+    tolerance: 50
     timeout: 5000
     lazy: true
     hidden: true
@@ -205,8 +196,8 @@ proxy-groups:
   - name: AI-Japan
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 100
+    interval: 60
+    tolerance: 50
     timeout: 5000
     lazy: true
     hidden: true
@@ -218,8 +209,8 @@ proxy-groups:
   - name: AI-Korea
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 100
+    interval: 60
+    tolerance: 50
     timeout: 5000
     lazy: true
     hidden: true
@@ -231,7 +222,7 @@ proxy-groups:
   - name: PROXY_AI
     type: select
     url: http://www.gstatic.com/generate_204
-    interval: 180
+    interval: 60
     timeout: 5000
     lazy: true
     proxies:
@@ -251,6 +242,17 @@ proxy-groups:
     use:
       - V2Free
       - FeiniaoYun
+    
+  - name: SERVER
+    type: fallback
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    timeout: 5000
+    tolerance: 100
+    lazy: true
+    proxies:
+      - Auto-V2Free
+      - Auto-Feiniaoyun
 
 # 规则集配置
 rule-providers:
@@ -360,13 +362,12 @@ rule-providers:
     interval: 86400
 
 rules:
-    # 阻断 QUIC，强制 Chrome 瞬间切换到 TCP，解决 YouTube 首次加载转圈问题
+    - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
     - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
     
-    # 强制直连
-    - DOMAIN,sub.xeton.dev,DIRECT # 确保订阅转换地址直连
-    - DOMAIN,v1.tlsa.top,DIRECT   # 确保订阅地址直连
-    - DOMAIN-SUFFIX,cn,DIRECT     # 所有 .cn 域名直连，减少规则匹配开销
+    - DOMAIN,sub.xeton.dev,DIRECT
+    - DOMAIN,v1.tlsa.top,DIRECT
+    - DOMAIN-SUFFIX,cn,DIRECT
     - DOMAIN,bugly.qq.com,DIRECT
     - DOMAIN,cas.bugly.qq.com,DIRECT
     - DOMAIN,dl.google.com,DIRECT
@@ -374,7 +375,6 @@ rules:
     - DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
     - DOMAIN,safebrowsing.googleapis.com,DIRECT
 
-    # AI 规则
     - DOMAIN,aistudio.google.com,PROXY_AI
     - DOMAIN,ai.google.dev,PROXY_AI
     - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
@@ -411,7 +411,6 @@ rules:
     - DOMAIN-KEYWORD,docker,SERVER
     - DOMAIN-SUFFIX,mvnrepository.com,SERVER
     
-    # 进程拒绝规则
     - PROCESS-NAME,QuickRecorder,REJECT
     - PROCESS-NAME,Xmind,REJECT
     - PROCESS-NAME,Xmind Helper,REJECT
@@ -422,7 +421,6 @@ rules:
     - PROCESS-NAME,com.docker.backend,SERVER
     - PROCESS-NAME,ollama,SERVER
     
-    # 进程直连规则
     - PROCESS-NAME,trustd,DIRECT
     - PROCESS-NAME,apsd,DIRECT
     - PROCESS-NAME,v2ray,DIRECT
