@@ -441,7 +441,6 @@ rules:
     - PROCESS-NAME,NetTransport,DIRECT
     - PROCESS-NAME,uTorrent,DIRECT
     - PROCESS-NAME,WebTorrent,DIRECT
-    - PROCESS-NAME,com.sohu.inputmethod.sogou.xiaomi,REJECT
     
     - DOMAIN-SUFFIX,google.com,PROXY_AI
     - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
