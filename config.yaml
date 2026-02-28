@@ -88,7 +88,7 @@ proxy-providers:
     type: http
     path: ./profiles/proxies/v2free.yaml
     url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
-    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北)'
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore)'
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     interval: 7200
     health-check:
@@ -190,8 +190,6 @@ proxy-groups:
     hidden: true
     use:
       - V2Free_Singapore
-    proxies:
-      - Auto-Feiniaoyun
 
   - name: AI-Japan
     type: url-test
@@ -203,8 +201,6 @@ proxy-groups:
     hidden: true
     use:
       - V2Free_Japan
-    proxies:
-      - Auto-Feiniaoyun
 
   - name: AI-Korea
     type: url-test
@@ -216,8 +212,6 @@ proxy-groups:
     hidden: true
     use:
       - V2Free_Korea
-    proxies:
-      - Auto-Feiniaoyun
 
   - name: PROXY_AI
     type: select
@@ -229,9 +223,6 @@ proxy-groups:
       - AI-Singapore
       - AI-Japan
       - AI-Korea
-      - Auto-Feiniaoyun
-      - Auto-V2Free
-
   - name: GLOBAL_USE
     type: select
     proxies:
