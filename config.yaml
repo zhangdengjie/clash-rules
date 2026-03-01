@@ -272,9 +272,10 @@ proxy-groups:
     type: select
     proxies:
       - PROXY_COMMON
-      - Auto-V2Free
-      - Auto-Feiniaoyun
       - DIRECT
+    use:
+      - V2Free
+      - FeiniaoYun
     
   - name: SERVER
     type: fallback
