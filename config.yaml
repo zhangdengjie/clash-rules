@@ -88,7 +88,7 @@ proxy-providers:
     type: http
     path: ./profiles/proxies/v2free.yaml
     url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
-    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore)'
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北|香港|HK)'
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     interval: 7200
     health-check:
@@ -141,6 +141,48 @@ proxy-providers:
       timeout: 5000
       lazy: true
 
+  FeiniaoYun_Japan:
+    type: http
+    path: ./profiles/proxies/feiniaoyun_Japan.yaml
+    url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    filter: "(?i)日本"
+    exclude-filter: '[235]\.0x|[235]倍率'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 120
+      timeout: 5000
+      lazy: true
+
+  FeiniaoYun_Korea:
+    type: http
+    path: ./profiles/proxies/feiniaoyun_Korea.yaml
+    url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    filter: "(?i)韩国"
+    exclude-filter: '[235]\.0x|[235]倍率'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 120
+      timeout: 5000
+      lazy: true
+
+  FeiniaoYun_Singapore:
+    type: http
+    path: ./profiles/proxies/feiniaoyun_Singapore.yaml
+    url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    filter: "(?i)新加坡"
+    exclude-filter: '[235]\.0x|[235]倍率'
+    interval: 7200
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 120
+      timeout: 5000
+      lazy: true
+
 # 策略组配置
 # 【优化点2】Auto 组 interval 缩短到 60秒，快速切换
 proxy-groups:
@@ -170,7 +212,7 @@ proxy-groups:
   # 逻辑：优先尝试 V2Free 的自动选择，如果挂了/超时，自动降级到 Feiniaoyun
   # 这比 url-test 更稳定，不会因为两个都慢而选不出来
   - name: PROXY_COMMON
-    type: fallback 
+    type: fallback
     url: http://www.gstatic.com/generate_204
     interval: 60
     timeout: 3000 # 3秒不通就切换到下一个
@@ -190,6 +232,7 @@ proxy-groups:
     hidden: true
     use:
       - V2Free_Singapore
+      - FeiniaoYun_Singapore
 
   - name: AI-Japan
     type: url-test
@@ -201,6 +244,7 @@ proxy-groups:
     hidden: true
     use:
       - V2Free_Japan
+      - FeiniaoYun_Japan
 
   - name: AI-Korea
     type: url-test
@@ -212,6 +256,7 @@ proxy-groups:
     hidden: true
     use:
       - V2Free_Korea
+      - FeiniaoYun_Korea
 
   - name: PROXY_AI
     type: select
@@ -227,12 +272,7 @@ proxy-groups:
     type: select
     proxies:
       - PROXY_COMMON
-      - Auto-V2Free
-      - Auto-Feiniaoyun
       - DIRECT
-    use:
-      - V2Free
-      - FeiniaoYun
     
   - name: SERVER
     type: fallback
