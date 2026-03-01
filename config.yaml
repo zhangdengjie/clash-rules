@@ -272,6 +272,8 @@ proxy-groups:
     type: select
     proxies:
       - PROXY_COMMON
+      - Auto-V2Free
+      - Auto-Feiniaoyun
       - DIRECT
     
   - name: SERVER
