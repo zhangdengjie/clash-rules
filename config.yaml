@@ -75,7 +75,7 @@ proxy-providers:
     url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
     interval: 3600
     path: ./providers/feiniaoyun.yaml
-    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北|香港|HK)'
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|香港|HK)'
     # 加强过滤，排除可能有问题的节点
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     health-check:
@@ -104,7 +104,7 @@ proxy-providers:
     type: http
     path: ./profiles/proxies/v2free.yaml
     url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
-    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|台湾|TW|Taiwan|台北|香港|HK)'
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|香港|HK)'
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     interval: 7200
     health-check:
