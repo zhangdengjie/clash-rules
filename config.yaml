@@ -181,7 +181,6 @@ proxy-groups:
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 5000
     lazy: true
-    hidden: true
     use:
       - FeiniaoYun-AI
 
@@ -192,7 +191,6 @@ proxy-groups:
     tolerance: 50
     timeout: 5000
     lazy: true
-    hidden: true
     use:
       - V2Free-AI
 
