@@ -371,6 +371,7 @@ rules:
     - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
     - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
     - DOMAIN-SUFFIX,claude.ai,PROXY_AI
+    - DOMAIN-SUFFIX,claude.ai,PROXY_AI
     - DOMAIN-SUFFIX,openai.com,PROXY_AI
     - DOMAIN-SUFFIX,chatgpt.com,PROXY_AI
     - DOMAIN-SUFFIX,sora.com,PROXY_AI
