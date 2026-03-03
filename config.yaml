@@ -4,6 +4,8 @@ bind-address: "*"
 mode: rule
 log-level: info
 ipv6: false
+# 开启 TCP 并发，显著降低握手延迟 (Meta内核特性)
+tcp-concurrent: true 
 clash-for-android:
     append-system-dns: false
 unified-delay: true
@@ -27,19 +29,18 @@ dns:
     use-hosts: true
     
     nameserver-policy:
+      geosite:google,youtube,telegram,gfw,openai,anthropic: 'https://1.1.1.1/dns-query'
       +.google.com: 'https://1.1.1.1/dns-query'
-      +.googleapis.com: 'https://1.1.1.1/dns-query'
       +.gstatic.com: 'https://1.1.1.1/dns-query'
+      +.googleapis.com: 'https://1.1.1.1/dns-query'
       +.googleusercontent.com: 'https://1.1.1.1/dns-query'
       +.github.com: 'https://1.1.1.1/dns-query'
-      +.anthropic.com: 'https://1.1.1.1/dns-query'
-      +.openai.com: 'https://1.1.1.1/dns-query'
     
     nameserver: 
       - 223.5.5.5
       - 119.29.29.29
-      - 'https://223.5.5.5/dns-query'
-      - 'https://1.12.12.12/dns-query'
+      # 备用，防止阿里挂了
+      - 114.114.114.114
     
     fallback: 
       - 'https://1.1.1.1/dns-query'
@@ -84,6 +85,21 @@ proxy-providers:
       timeout: 5000
       lazy: true
 
+  FeiniaoYun-AI:
+    type: http
+    url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    interval: 3600
+    path: ./providers/feiniaoyun.yaml
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore)'
+    # 加强过滤，排除可能有问题的节点
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 120 # 缩短检测间隔
+      timeout: 5000
+      lazy: true
+
   V2Free:
     type: http
     path: ./profiles/proxies/v2free.yaml
@@ -98,88 +114,17 @@ proxy-providers:
       timeout: 5000
       lazy: true
 
-  # 区域子订阅同样缩短间隔
-  V2Free_Japan:
+  V2Free-AI:
     type: http
-    path: ./profiles/proxies/v2free_Japan.yaml
+    path: ./profiles/proxies/v2free.yaml
     url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
-    filter: "(?i)日本"
-    exclude-filter: '[235]\.0x|[235]倍率'
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore)'
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     interval: 7200
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 120
-      timeout: 5000
-      lazy: true
-
-  V2Free_Korea:
-    type: http
-    path: ./profiles/proxies/v2free_Korea.yaml
-    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
-    filter: "(?i)韩国"
-    exclude-filter: '[235]\.0x|[235]倍率'
-    interval: 7200
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 120
-      timeout: 5000
-      lazy: true
-
-  V2Free_Singapore:
-    type: http
-    path: ./profiles/proxies/v2free_Singapore.yaml
-    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
-    filter: "(?i)新加坡"
-    exclude-filter: '[235]\.0x|[235]倍率'
-    interval: 7200
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 120
-      timeout: 5000
-      lazy: true
-
-  FeiniaoYun_Japan:
-    type: http
-    path: ./profiles/proxies/feiniaoyun_Japan.yaml
-    url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
-    filter: "(?i)日本"
-    exclude-filter: '[235]\.0x|[235]倍率'
-    interval: 7200
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 120
-      timeout: 5000
-      lazy: true
-
-  FeiniaoYun_Korea:
-    type: http
-    path: ./profiles/proxies/feiniaoyun_Korea.yaml
-    url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
-    filter: "(?i)韩国"
-    exclude-filter: '[235]\.0x|[235]倍率'
-    interval: 7200
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 120
-      timeout: 5000
-      lazy: true
-
-  FeiniaoYun_Singapore:
-    type: http
-    path: ./profiles/proxies/feiniaoyun_Singapore.yaml
-    url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
-    filter: "(?i)新加坡"
-    exclude-filter: '[235]\.0x|[235]倍率'
-    interval: 7200
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 120
+      interval: 120 # 缩短检测间隔
       timeout: 5000
       lazy: true
 
@@ -207,6 +152,50 @@ proxy-groups:
     use:
       - V2Free
 
+  - name: Auto-Feiniaoyun-AI
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 60 # 60秒测速一次
+    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
+    timeout: 5000
+    lazy: true
+    hidden: true
+    use:
+      - FeiniaoYun-AI
+
+  - name: Auto-V2Free-AI
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 60 # 60秒测速一次
+    tolerance: 50
+    timeout: 5000
+    lazy: true
+    hidden: true
+    use:
+      - V2Free-AI
+
+  - name: Select-Feiniaoyun-AI
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 60 # 60秒测速一次
+    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
+    timeout: 5000
+    lazy: true
+    hidden: true
+    use:
+      - FeiniaoYun-AI
+
+  - name: Select-V2Free-AI
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 60 # 60秒测速一次
+    tolerance: 50
+    timeout: 5000
+    lazy: true
+    hidden: true
+    use:
+      - V2Free-AI
+
   # 【优化点3】PROXY_COMMON 改为 fallback
   # 逻辑：优先尝试 V2Free 的自动选择，如果挂了/超时，自动降级到 Feiniaoyun
   # 这比 url-test 更稳定，不会因为两个都慢而选不出来
@@ -220,43 +209,6 @@ proxy-groups:
       - Auto-V2Free     # 主力
       - Auto-Feiniaoyun # 备用
 
-  # AI 区域组保持 url-test，但加快频率
-  - name: AI-Singapore
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 60
-    tolerance: 50
-    timeout: 5000
-    lazy: true
-    hidden: true
-    use:
-      - V2Free_Singapore
-      - FeiniaoYun_Singapore
-
-  - name: AI-Japan
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 60
-    tolerance: 50
-    timeout: 5000
-    lazy: true
-    hidden: true
-    use:
-      - V2Free_Japan
-      - FeiniaoYun_Japan
-
-  - name: AI-Korea
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 60
-    tolerance: 50
-    timeout: 5000
-    lazy: true
-    hidden: true
-    use:
-      - V2Free_Korea
-      - FeiniaoYun_Korea
-
   - name: PROXY_AI
     type: select
     url: http://www.gstatic.com/generate_204
@@ -264,10 +216,10 @@ proxy-groups:
     timeout: 5000
     lazy: true
     proxies:
-      - Auto-Feiniaoyun
-      - AI-Singapore
-      - AI-Japan
-      - AI-Korea
+      - Auto-Feiniaoyun-AI
+      - Auto-V2Free-AI
+      - Select-Feiniaoyun-AI
+      - Select-V2Free-AI
       
   - name: GLOBAL_USE
     type: select
@@ -403,6 +355,10 @@ rules:
     - DOMAIN,sub.xeton.dev,DIRECT
     - DOMAIN,v1.tlsa.top,DIRECT
     - DOMAIN-SUFFIX,cn,DIRECT
+    # 自动识别中国内地网站，不解析 IP 直接直连
+    - GEOSITE,CN,DIRECT
+    # 自动识别常见国外非中国网站，不解析 IP 直接代理 (解决"灰度域名"卡顿的核心)
+    - GEOSITE,geolocation-!cn,PROXY_COMMON
     - DOMAIN,bugly.qq.com,DIRECT
     - DOMAIN,cas.bugly.qq.com,DIRECT
     - DOMAIN,dl.google.com,DIRECT
