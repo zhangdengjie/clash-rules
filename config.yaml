@@ -184,7 +184,6 @@ proxy-providers:
       lazy: true
 
 # 策略组配置
-# 【优化点2】Auto 组 interval 缩短到 60秒，快速切换
 proxy-groups:
   - name: Auto-Feiniaoyun
     type: url-test
@@ -265,9 +264,11 @@ proxy-groups:
     timeout: 5000
     lazy: true
     proxies:
+      - Auto-Feiniaoyun
       - AI-Singapore
       - AI-Japan
       - AI-Korea
+      
   - name: GLOBAL_USE
     type: select
     proxies:
