@@ -353,10 +353,6 @@ rules:
     - DOMAIN,sub.xeton.dev,DIRECT
     - DOMAIN,v1.tlsa.top,DIRECT
     - DOMAIN-SUFFIX,cn,DIRECT
-    # 自动识别中国内地网站，不解析 IP 直接直连
-    - GEOSITE,CN,DIRECT
-    # 自动识别常见国外非中国网站，不解析 IP 直接代理 (解决"灰度域名"卡顿的核心)
-    - GEOSITE,geolocation-!cn,PROXY_COMMON
     - DOMAIN,bugly.qq.com,DIRECT
     - DOMAIN,cas.bugly.qq.com,DIRECT
     - DOMAIN,dl.google.com,DIRECT
@@ -436,6 +432,10 @@ rules:
     - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
     - DOMAIN-SUFFIX,wangchujiang.com,PROXY_COMMON
     - DOMAIN-SUFFIX,com.larus.wolf,PROXY_AI
+    # 自动识别中国内地网站，不解析 IP 直接直连
+    - GEOSITE,CN,DIRECT
+    # 自动识别常见国外非中国网站，不解析 IP 直接代理 (解决"灰度域名"卡顿的核心)
+    - GEOSITE,geolocation-!cn,PROXY_COMMON
     
     - RULE-SET,customrule,DIRECT
     - RULE-SET,apple,DIRECT
