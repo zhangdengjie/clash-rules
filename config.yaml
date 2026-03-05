@@ -80,7 +80,7 @@ proxy-providers:
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 120 # 缩短检测间隔
       timeout: 5000
       lazy: true
@@ -95,7 +95,7 @@ proxy-providers:
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 120 # 缩短检测间隔
       timeout: 5000
       lazy: true
@@ -109,7 +109,7 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 120 # 缩短检测间隔
       timeout: 5000
       lazy: true
@@ -123,7 +123,7 @@ proxy-providers:
     interval: 7200
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 120 # 缩短检测间隔
       timeout: 5000
       lazy: true
@@ -132,7 +132,7 @@ proxy-providers:
 proxy-groups:
   - name: Auto-Feiniaoyun
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 5000
@@ -143,7 +143,7 @@ proxy-groups:
 
   - name: Auto-V2Free
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50
     timeout: 5000
@@ -154,7 +154,7 @@ proxy-groups:
 
   - name: Auto-Feiniaoyun-AI
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 5000
@@ -165,7 +165,7 @@ proxy-groups:
 
   - name: Auto-V2Free-AI
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50
     timeout: 5000
@@ -176,7 +176,7 @@ proxy-groups:
 
   - name: Select-Feiniaoyun-AI
     type: select
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 5000
@@ -186,7 +186,7 @@ proxy-groups:
 
   - name: Select-V2Free-AI
     type: select
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50
     timeout: 5000
@@ -199,7 +199,7 @@ proxy-groups:
   # 这比 url-test 更稳定，不会因为两个都慢而选不出来
   - name: PROXY_COMMON
     type: fallback
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 60
     timeout: 3000 # 3秒不通就切换到下一个
     lazy: true
@@ -209,7 +209,7 @@ proxy-groups:
 
   - name: PROXY_AI
     type: select
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 60
     timeout: 5000
     lazy: true
@@ -230,7 +230,7 @@ proxy-groups:
     
   - name: SERVER
     type: fallback
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     timeout: 5000
     tolerance: 100
