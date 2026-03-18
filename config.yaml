@@ -245,17 +245,30 @@ proxy-groups:
       - FeiniaoYun-JP
       - V2Free-KR
       - FeiniaoYun-KR
+    
+  - name: Select-Common
+    type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 60 # 60秒测速一次
+    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
+    timeout: 3000
+    lazy: false
+    hidden: false
+    use:
+      - FeiniaoYun
+      - V2Free
 
   # 【优化点3】PROXY_COMMON 改为 fallback
   # 逻辑：优先尝试 V2Free 的自动选择，如果挂了/超时，自动降级到 Feiniaoyun
   # 这比 url-test 更稳定，不会因为两个都慢而选不出来
   - name: PROXY_COMMON
-    type: fallback
+    type: select
     url: https://www.gstatic.com/generate_204
     interval: 60
     timeout: 3000 # 3秒不通就切换到下一个
     lazy: false
     proxies:
+      - Select-Common
       - Auto-V2Free     # 主力
       - Auto-Feiniaoyun # 备用
 
@@ -274,9 +287,6 @@ proxy-groups:
     proxies:
       - PROXY_COMMON
       - DIRECT
-    use:
-      - V2Free
-      - FeiniaoYun
     
   - name: SERVER
     type: fallback
