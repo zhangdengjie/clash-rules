@@ -81,9 +81,9 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 120 # 缩短检测间隔
-      timeout: 5000
-      lazy: true
+      interval: 60 # 缩短检测间隔
+      timeout: 3000
+      lazy: false
 
   FeiniaoYun-AI:
     type: http
@@ -96,9 +96,9 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 120 # 缩短检测间隔
-      timeout: 5000
-      lazy: true
+      interval: 60 # 缩短检测间隔
+      timeout: 3000
+      lazy: false
 
   V2Free:
     type: http
@@ -110,9 +110,9 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 120 # 缩短检测间隔
-      timeout: 5000
-      lazy: true
+      interval: 60 # 缩短检测间隔
+      timeout: 3000
+      lazy: false
 
   V2Free-AI:
     type: http
@@ -124,52 +124,52 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 120 # 缩短检测间隔
-      timeout: 5000
-      lazy: true
+      interval: 60 # 缩短检测间隔
+      timeout: 3000
+      lazy: false
 
 # 策略组配置
 proxy-groups:
   - name: Auto-Feiniaoyun
-    type: url-test
+    type: fallback
     url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
-    timeout: 5000
-    lazy: true
+    timeout: 3000
+    lazy: false
     hidden: true
     use:
       - FeiniaoYun
 
   - name: Auto-V2Free
-    type: url-test
+    type: fallback
     url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50
-    timeout: 5000
-    lazy: true
+    timeout: 3000
+    lazy: false
     hidden: true
     use:
       - V2Free
 
   - name: Auto-Feiniaoyun-AI
-    type: url-test
+    type: fallback
     url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
-    timeout: 5000
-    lazy: true
+    timeout: 3000
+    lazy: false
     hidden: true
     use:
       - FeiniaoYun-AI
 
   - name: Auto-V2Free-AI
-    type: url-test
+    type: fallback
     url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50
-    timeout: 5000
-    lazy: true
+    timeout: 3000
+    lazy: false
     hidden: true
     use:
       - V2Free-AI
@@ -179,8 +179,8 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
-    timeout: 5000
-    lazy: true
+    timeout: 3000
+    lazy: false
     use:
       - FeiniaoYun-AI
 
@@ -189,8 +189,8 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50
-    timeout: 5000
-    lazy: true
+    timeout: 3000
+    lazy: false
     use:
       - V2Free-AI
 
@@ -202,7 +202,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 60
     timeout: 3000 # 3秒不通就切换到下一个
-    lazy: true
+    lazy: false
     proxies:
       - Auto-V2Free     # 主力
       - Auto-Feiniaoyun # 备用
@@ -211,8 +211,8 @@ proxy-groups:
     type: select
     url: https://www.gstatic.com/generate_204
     interval: 60
-    timeout: 5000
-    lazy: true
+    timeout: 3000
+    lazy: false
     proxies:
       - Auto-Feiniaoyun-AI
       - Auto-V2Free-AI
@@ -232,9 +232,9 @@ proxy-groups:
     type: fallback
     url: https://www.gstatic.com/generate_204
     interval: 300
-    timeout: 5000
+    timeout: 3000
     tolerance: 100
-    lazy: true
+    lazy: false
     proxies:
       - Auto-V2Free
       - Auto-Feiniaoyun
