@@ -84,13 +84,44 @@ proxy-providers:
       interval: 60 # 缩短检测间隔
       timeout: 3000
       lazy: false
-
-  FeiniaoYun-AI:
+    
+  # 飞鸟云国家
+  FeiniaoYun-SG:
     type: http
     url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
     interval: 3600
-    path: ./providers/feiniaoyun.yaml
-    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore)'
+    path: ./providers/feiniaoyun_sg.yaml
+    filter: '(?i)(新加坡|SG|Singapore)'
+    # 加强过滤，排除可能有问题的节点
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 60 # 缩短检测间隔
+      timeout: 3000
+      lazy: false
+
+  FeiniaoYun-JP:
+    type: http
+    url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    interval: 3600
+    path: ./providers/feiniaoyun_jp.yaml
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka)'
+    # 加强过滤，排除可能有问题的节点
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 60 # 缩短检测间隔
+      timeout: 3000
+      lazy: false
+
+  FeiniaoYun-KR:
+    type: http
+    url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    interval: 3600
+    path: ./providers/feiniaoyun_kr.yaml
+    filter: '(?i)(韩国|KR|Korea|Seoul)'
     # 加强过滤，排除可能有问题的节点
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     health-check:
@@ -114,13 +145,45 @@ proxy-providers:
       timeout: 3000
       lazy: false
 
-  V2Free-AI:
+# V2Free国家
+  V2Free-SG:
     type: http
-    path: ./profiles/proxies/v2free.yaml
     url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
-    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore)'
+    interval: 3600
+    path: ./providers/v2free_sg.yaml
+    filter: '(?i)(新加坡|SG|Singapore)'
+    # 加强过滤，排除可能有问题的节点
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
-    interval: 7200
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 60 # 缩短检测间隔
+      timeout: 3000
+      lazy: false
+
+  V2Free-JP:
+    type: http
+    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
+    interval: 3600
+    path: ./providers/v2free_jp.yaml
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka)'
+    # 加强过滤，排除可能有问题的节点
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 60 # 缩短检测间隔
+      timeout: 3000
+      lazy: false
+
+  V2Free-KR:
+    type: http
+    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
+    interval: 3600
+    path: ./providers/v2free_kr.yaml
+    filter: '(?i)(韩国|KR|Korea|Seoul)'
+    # 加强过滤，排除可能有问题的节点
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -152,7 +215,7 @@ proxy-groups:
     use:
       - V2Free
 
-  - name: Auto-Feiniaoyun-AI
+  - name: Auto-AI
     type: fallback
     url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
@@ -161,20 +224,14 @@ proxy-groups:
     lazy: false
     hidden: true
     use:
-      - FeiniaoYun-AI
+      - V2Free-SG
+      - FeiniaoYun-SG
+      - V2Free-JP
+      - FeiniaoYun-JP
+      - V2Free-KR
+      - FeiniaoYun-KR
 
-  - name: Auto-V2Free-AI
-    type: fallback
-    url: https://www.gstatic.com/generate_204
-    interval: 60 # 60秒测速一次
-    tolerance: 50
-    timeout: 3000
-    lazy: false
-    hidden: true
-    use:
-      - V2Free-AI
-
-  - name: Select-Feiniaoyun-AI
+  - name: Select-AI
     type: select
     url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
@@ -182,17 +239,12 @@ proxy-groups:
     timeout: 3000
     lazy: false
     use:
-      - FeiniaoYun-AI
-
-  - name: Select-V2Free-AI
-    type: select
-    url: https://www.gstatic.com/generate_204
-    interval: 60 # 60秒测速一次
-    tolerance: 50
-    timeout: 3000
-    lazy: false
-    use:
-      - V2Free-AI
+      - V2Free-SG
+      - FeiniaoYun-SG
+      - V2Free-JP
+      - FeiniaoYun-JP
+      - V2Free-KR
+      - FeiniaoYun-KR
 
   # 【优化点3】PROXY_COMMON 改为 fallback
   # 逻辑：优先尝试 V2Free 的自动选择，如果挂了/超时，自动降级到 Feiniaoyun
@@ -214,10 +266,8 @@ proxy-groups:
     timeout: 3000
     lazy: false
     proxies:
-      - Auto-Feiniaoyun-AI
-      - Auto-V2Free-AI
-      - Select-Feiniaoyun-AI
-      - Select-V2Free-AI
+      - Auto-AI
+      - Select-AI
       
   - name: GLOBAL_USE
     type: select
