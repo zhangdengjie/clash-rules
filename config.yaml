@@ -407,12 +407,15 @@ rule-providers:
     interval: 86400
 
 rules:
+    # 1. 最高优先级：特殊阻断和指定直连
     - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
+    - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
+    - DOMAIN-SUFFIX,wangchujiang.com,PROXY_COMMON
     - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
-    
+    - DOMAIN-SUFFIX,cn,DIRECT
+    # 强制直连的域名
     - DOMAIN,sub.xeton.dev,DIRECT
     - DOMAIN,v1.tlsa.top,DIRECT
-    - DOMAIN-SUFFIX,cn,DIRECT
     - DOMAIN,bugly.qq.com,DIRECT
     - DOMAIN,cas.bugly.qq.com,DIRECT
     - DOMAIN,dl.google.com,DIRECT
@@ -420,6 +423,7 @@ rules:
     - DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
     - DOMAIN,safebrowsing.googleapis.com,DIRECT
 
+    # 2. AI 网站强制走 AI 策略组
     - DOMAIN,aistudio.google.com,PROXY_AI
     - DOMAIN,ai.google.dev,PROXY_AI
     - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
@@ -441,7 +445,10 @@ rules:
     - DOMAIN,api.fast.com,PROXY_AI
     - DOMAIN-SUFFIX,x.ai,PROXY_AI
     - DOMAIN-SUFFIX,grok.com,PROXY_AI
+    - DOMAIN-SUFFIX,google.com,PROXY_AI
+    - DOMAIN-SUFFIX,com.larus.wolf,PROXY_AI
     
+    # 3. 广告拦截与进程拒绝
     - DOMAIN,lcs1.gateway.tencent.com,REJECT
     - DOMAIN-SUFFIX,proxyman.com,REJECT
     - DOMAIN-KEYWORD,wps,REJECT
@@ -453,6 +460,7 @@ rules:
     - RULE-SET,ProcessReject,REJECT
     - DOMAIN-SUFFIX,vox.rocks,REJECT
     
+    # 4. 指定走 SERVER 或 PROXY_COMMON 的进程和域名
     - DOMAIN-KEYWORD,ubuntu,SERVER
     - DOMAIN-KEYWORD,docker,SERVER
     - DOMAIN-SUFFIX,mvnrepository.com,SERVER
@@ -466,7 +474,8 @@ rules:
     - PROCESS-NAME,Docker Desktop Helper,SERVER
     - PROCESS-NAME,com.docker.backend,SERVER
     - PROCESS-NAME,ollama,SERVER
-    
+
+    # 5. 指定直连的进程
     - PROCESS-NAME,trustd,DIRECT
     - PROCESS-NAME,apsd,DIRECT
     - PROCESS-NAME,v2ray,DIRECT
@@ -488,24 +497,29 @@ rules:
     - PROCESS-NAME,uTorrent,DIRECT
     - PROCESS-NAME,WebTorrent,DIRECT
     
-    - DOMAIN-SUFFIX,google.com,PROXY_AI
-    - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
-    - DOMAIN-SUFFIX,wangchujiang.com,PROXY_COMMON
-    - DOMAIN-SUFFIX,com.larus.wolf,PROXY_AI
+    # =========================================================
+    # 6. 【关键修改】RULE-SET 规则集必须放在 GEOSITE 之前！
+    # 这样可以保证 Apple、本地网络、明确的直连规则优先命中，不会被误判为国外代理
+    # =========================================================
+    - RULE-SET,customrule,DIRECT
+    - RULE-SET,apple,DIRECT # 苹果服务专属分流，确保它在国内有 CDN 就直连
+    - RULE-SET,direct,DIRECT # 其他确定的直连白名单
+    - RULE-SET,cncidr,DIRECT
+    - RULE-SET,localnetwork,DIRECT # 局域网白名单
+    - RULE-SET,proxy,PROXY_COMMON
+    - RULE-SET,gfw,PROXY_COMMON
+    - RULE-SET,telegram,PROXY_COMMON
+
+    # =========================================================
+    # 7. 广泛模糊匹配：基于内置数据库识别
+    # 当上面所有的明确规则都没命中时，再用大网兜底
+    # =========================================================
     # 自动识别中国内地网站，不解析 IP 直接直连
     - GEOSITE,CN,DIRECT
     # 自动识别常见国外非中国网站，不解析 IP 直接代理 (解决"灰度域名"卡顿的核心)
     - GEOSITE,geolocation-!cn,PROXY_COMMON
-    
-    - RULE-SET,customrule,DIRECT
-    - RULE-SET,apple,DIRECT
-    - RULE-SET,direct,DIRECT
-    - RULE-SET,cncidr,DIRECT
-    - RULE-SET,localnetwork,DIRECT
-    - RULE-SET,proxy,PROXY_COMMON
-    - RULE-SET,gfw,PROXY_COMMON
-    - RULE-SET,telegram,PROXY_COMMON
-    
+
+    # 8. 最后兜底：基于 IP 的判断（前面域名没拦截住，只能靠 IP 认了）
     - GEOIP,LAN,DIRECT
     - GEOIP,CN,DIRECT
     
