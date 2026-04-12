@@ -407,6 +407,7 @@ rule-providers:
     interval: 86400
 
 rules:
+
     # 1. 最高优先级：特殊阻断和指定直连
     - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
     - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
@@ -492,14 +493,13 @@ rules:
     - PROCESS-NAME,WebTorrent,DIRECT
     
     # =========================================================
-    # 6. 【关键修改】RULE-SET 规则集必须放在 GEOSITE 之前！
+    # 6. RULE-SET 规则集必须放在 GEOSITE 之前！
+    #【域名类规则】必须放在 IP 规则之前！(不需要解析IP，不卡顿)
     # 这样可以保证 Apple、本地网络、明确的直连规则优先命中，不会被误判为国外代理
     # =========================================================
     - RULE-SET,customrule,DIRECT
     - RULE-SET,apple,DIRECT # 苹果服务专属分流，确保它在国内有 CDN 就直连
     - RULE-SET,direct,DIRECT # 其他确定的直连白名单
-    - RULE-SET,cncidr,DIRECT
-    - RULE-SET,localnetwork,DIRECT # 局域网白名单
     - RULE-SET,proxy,PROXY_COMMON
     - RULE-SET,gfw,PROXY_COMMON
     - RULE-SET,telegram,PROXY_COMMON
@@ -519,16 +519,23 @@ rules:
     # 自动识别常见国外非中国网站，不解析 IP 直接代理 (解决"灰度域名"卡顿的核心)
     - GEOSITE,geolocation-!cn,PROXY_COMMON
 
-    # 8. 最后兜底：基于 IP 的判断（前面域名没拦截住，只能靠 IP 认了）
+    # =========================================================
+    # 8. 【IP 类规则】必须放在最后面！(会触发本地 DNS 解析，极易卡 5 秒)
+    # 只有当上面所有的已知域名都没查到，才会走到这里解析 IP
+    # =========================================================
+    - RULE-SET,cncidr,DIRECT
+    - RULE-SET,localnetwork,DIRECT
+
+    # 9. 最后兜底：基于 IP 的判断（前面域名没拦截住，只能靠 IP 认了）
     - GEOIP,LAN,DIRECT
     - GEOIP,CN,DIRECT
+
     # ==========================================================
-    # 禁用 QUIC / HTTP3，让流量回退到 TCP（HTTPS）
+    # 10. 禁用 QUIC / HTTP3，让流量回退到 TCP（HTTPS）
     # 推展：# - AND,((NETWORK,UDP),(DST-PORT,443),(GEOIP,CN)),REJECT
     # 只拦截中国 IP 的 UDP 443
     # 国外走代理的 QUIC 不受影响
     # ==========================================================
-    
     - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
     
     - MATCH,PROXY_COMMON
