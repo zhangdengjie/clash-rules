@@ -411,7 +411,6 @@ rules:
     - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
     - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
     - DOMAIN-SUFFIX,wangchujiang.com,PROXY_COMMON
-    - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
     - DOMAIN-SUFFIX,cn,DIRECT
     # 强制直连的域名
     - DOMAIN,sub.xeton.dev,DIRECT
@@ -423,7 +422,16 @@ rules:
     - DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
     - DOMAIN,safebrowsing.googleapis.com,DIRECT
 
-    # 2. AI 网站强制走 AI 策略组
+    # 2. 广告拦截与进程拒绝
+    - DOMAIN,lcs1.gateway.tencent.com,REJECT
+    - DOMAIN-SUFFIX,proxyman.com,REJECT
+    - DOMAIN-KEYWORD,wps,REJECT
+    - DOMAIN-SUFFIX,vox.rocks,REJECT
+    - PROCESS-NAME,QuickRecorder,REJECT
+    - PROCESS-NAME,Xmind,REJECT
+    - PROCESS-NAME,Xmind Helper,REJECT
+
+    # 3. AI 网站强制走 AI 策略组
     - DOMAIN,aistudio.google.com,PROXY_AI
     - DOMAIN,ai.google.dev,PROXY_AI
     - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
@@ -448,26 +456,12 @@ rules:
     - DOMAIN-SUFFIX,google.com,PROXY_AI
     - DOMAIN-SUFFIX,com.larus.wolf,PROXY_AI
     
-    # 3. 广告拦截与进程拒绝
-    - DOMAIN,lcs1.gateway.tencent.com,REJECT
-    - DOMAIN-SUFFIX,proxyman.com,REJECT
-    - DOMAIN-KEYWORD,wps,REJECT
-    - RULE-SET,AD,REJECT
-    - RULE-SET,EasyList,REJECT
-    - RULE-SET,EasyListChina,REJECT
-    - RULE-SET,EasyPrivacy,REJECT
-    - RULE-SET,ProgramAD,REJECT
-    - RULE-SET,ProcessReject,REJECT
-    - DOMAIN-SUFFIX,vox.rocks,REJECT
+    
     
     # 4. 指定走 SERVER 或 PROXY_COMMON 的进程和域名
     - DOMAIN-KEYWORD,ubuntu,SERVER
     - DOMAIN-KEYWORD,docker,SERVER
     - DOMAIN-SUFFIX,mvnrepository.com,SERVER
-    
-    - PROCESS-NAME,QuickRecorder,REJECT
-    - PROCESS-NAME,Xmind,REJECT
-    - PROCESS-NAME,Xmind Helper,REJECT
     - PROCESS-NAME,Cici,PROXY_AI
     - PROCESS-NAME,Dola Helper,PROXY_AI
     - PROCESS-NAME,studio,PROXY_COMMON
@@ -509,6 +503,12 @@ rules:
     - RULE-SET,proxy,PROXY_COMMON
     - RULE-SET,gfw,PROXY_COMMON
     - RULE-SET,telegram,PROXY_COMMON
+    - RULE-SET,AD,REJECT
+    - RULE-SET,EasyList,REJECT
+    - RULE-SET,EasyListChina,REJECT
+    - RULE-SET,EasyPrivacy,REJECT
+    - RULE-SET,ProgramAD,REJECT
+    - RULE-SET,ProcessReject,REJECT
 
     # =========================================================
     # 7. 广泛模糊匹配：基于内置数据库识别
@@ -522,5 +522,13 @@ rules:
     # 8. 最后兜底：基于 IP 的判断（前面域名没拦截住，只能靠 IP 认了）
     - GEOIP,LAN,DIRECT
     - GEOIP,CN,DIRECT
+    # ==========================================================
+    # 禁用 QUIC / HTTP3，让流量回退到 TCP（HTTPS）
+    # 推展：# - AND,((NETWORK,UDP),(DST-PORT,443),(GEOIP,CN)),REJECT
+    # 只拦截中国 IP 的 UDP 443
+    # 国外走代理的 QUIC 不受影响
+    # ==========================================================
+    
+    - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
     
     - MATCH,PROXY_COMMON
