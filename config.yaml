@@ -425,6 +425,7 @@ rules:
 
     # 2. 广告拦截与进程拒绝
     - DOMAIN,lcs1.gateway.tencent.com,REJECT
+    - DOMAIN,otheve.beacon.qq.com,REJECT
     - DOMAIN-SUFFIX,proxyman.com,REJECT
     - DOMAIN-KEYWORD,wps,REJECT
     - DOMAIN-SUFFIX,vox.rocks,REJECT
@@ -491,6 +492,7 @@ rules:
     - PROCESS-NAME,NetTransport,DIRECT
     - PROCESS-NAME,uTorrent,DIRECT
     - PROCESS-NAME,WebTorrent,DIRECT
+    - PROCESS-NAME,抖音 Helper,DIRECT
     
     # =========================================================
     # 6. RULE-SET 规则集必须放在 GEOSITE 之前！
