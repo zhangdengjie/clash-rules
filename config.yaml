@@ -26,6 +26,14 @@ dns:
       - 119.29.29.29
     enhanced-mode: fake-ip
     fake-ip-range: 198.18.0.1/16
+    #  STUN 服务器走真实 IP 解析，不进入 Fake-IP 池
+    fake-ip-filter:
+      - "stun.*.*"
+      - "stun.*"
+      - "+.stun.*.*"
+      - "+.stun.*"
+      - "+.chat.bilibili.com"
+      - "address.video.blive.com"
     use-hosts: true
     
     nameserver-policy:
@@ -409,11 +417,16 @@ rule-providers:
 rules:
 
     # 1. 最高优先级：特殊阻断和指定直连
+    # 优先放行 STUN (UDP 3478)
+    - DST-PORT,3478,DIRECT,no-resolve
+    - DOMAIN-SUFFIX,chat.bilibili.com,DIRECT
     - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
     - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
     - DOMAIN-SUFFIX,wangchujiang.com,PROXY_COMMON
     - DOMAIN-SUFFIX,cn,DIRECT
     # 强制直连的域名
+    - DOMAIN,play.sportsteam368.com,DIRECT
+    - DOMAIN-SUFFIX,sense-u.com,DIRECT
     - DOMAIN,sub.xeton.dev,DIRECT
     - DOMAIN,v1.tlsa.top,DIRECT
     - DOMAIN,bugly.qq.com,DIRECT
@@ -424,6 +437,7 @@ rules:
     - DOMAIN,safebrowsing.googleapis.com,DIRECT
 
     # 2. 广告拦截与进程拒绝
+    - DOMAIN-KEYWORD,adobe,REJECT
     - DOMAIN,lcs1.gateway.tencent.com,REJECT
     - DOMAIN,otheve.beacon.qq.com,REJECT
     - DOMAIN-SUFFIX,proxyman.com,REJECT
@@ -493,6 +507,15 @@ rules:
     - PROCESS-NAME,uTorrent,DIRECT
     - PROCESS-NAME,WebTorrent,DIRECT
     - PROCESS-NAME,抖音 Helper,DIRECT
+
+    # ==========================================================
+    #【高阶魔法：纯 IP 的极速分流】
+    # 只要是直接用 IP 访问国内服务器，瞬间直连！
+    # 纯国外的 IP 会漏下去走代理。域名会直接无视这两行跳过去。
+    # ==========================================================
+    - RULE-SET,cncidr,DIRECT,no-resolve
+    - GEOIP,CN,DIRECT,no-resolve
+    - GEOIP,LAN,DIRECT,no-resolve # 顺手把局域网真实 IP 也极速直连了
     
     # =========================================================
     # 6. RULE-SET 规则集必须放在 GEOSITE 之前！
