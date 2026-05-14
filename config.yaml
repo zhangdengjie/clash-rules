@@ -2,7 +2,7 @@ mixed-port: 7890
 allow-lan: true
 bind-address: "*"
 mode: rule
-log-level: info
+log-level: warning
 ipv6: false
 # 开启 TCP 并发，显著降低握手延迟 (Meta内核特性)
 tcp-concurrent: true 
@@ -76,12 +76,11 @@ dns:
       - 119.29.29.29
 
 # 订阅配置
-# 【优化点1】所有 interval 缩短为 120秒，加快坏节点剔除速度
 proxy-providers:
   FeiniaoYun:
     type: http
     url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
-    interval: 3600
+    interval: 305
     path: ./providers/feiniaoyun.yaml
     filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|香港|HK)'
     # 加强过滤，排除可能有问题的节点
@@ -89,7 +88,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60 # 缩短检测间隔
+      interval: 300
       timeout: 3000
       lazy: false
     
@@ -97,7 +96,7 @@ proxy-providers:
   FeiniaoYun-SG:
     type: http
     url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
-    interval: 3600
+    interval: 305
     path: ./providers/feiniaoyun_sg.yaml
     filter: '(?i)(新加坡|SG|Singapore)'
     # 加强过滤，排除可能有问题的节点
@@ -105,14 +104,14 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60 # 缩短检测间隔
+      interval: 300
       timeout: 3000
       lazy: false
 
   FeiniaoYun-JP:
     type: http
     url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
-    interval: 3600
+    interval: 305
     path: ./providers/feiniaoyun_jp.yaml
     filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka)'
     # 加强过滤，排除可能有问题的节点
@@ -120,14 +119,14 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60 # 缩短检测间隔
+      interval: 300
       timeout: 3000
       lazy: false
 
   FeiniaoYun-KR:
     type: http
     url: https://x1.332244.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
-    interval: 3600
+    interval: 305
     path: ./providers/feiniaoyun_kr.yaml
     filter: '(?i)(韩国|KR|Korea|Seoul)'
     # 加强过滤，排除可能有问题的节点
@@ -135,7 +134,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60 # 缩短检测间隔
+      interval: 300
       timeout: 3000
       lazy: false
 
@@ -145,11 +144,11 @@ proxy-providers:
     url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
     filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|香港|HK)'
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
-    interval: 7200
+    interval: 305
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60 # 缩短检测间隔
+      interval: 300
       timeout: 3000
       lazy: false
 
@@ -172,7 +171,7 @@ proxy-providers:
   V2Free-JP:
     type: http
     url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
-    interval: 3600
+    interval: 305
     path: ./providers/v2free_jp.yaml
     filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka)'
     # 加强过滤，排除可能有问题的节点
@@ -180,14 +179,14 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60 # 缩短检测间隔
+      interval: 300
       timeout: 3000
       lazy: false
 
   V2Free-KR:
     type: http
     url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
-    interval: 3600
+    interval: 305 # 单位 s
     path: ./providers/v2free_kr.yaml
     filter: '(?i)(韩国|KR|Korea|Seoul)'
     # 加强过滤，排除可能有问题的节点
@@ -195,8 +194,8 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60 # 缩短检测间隔
-      timeout: 3000
+      interval: 300 # 单位 s
+      timeout: 3000 # 单位 ms
       lazy: false
 
 # 策略组配置
@@ -245,7 +244,7 @@ proxy-groups:
     interval: 60 # 60秒测速一次
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
-    lazy: false
+    lazy: true
     use:
       - V2Free-SG
       - FeiniaoYun-SG
@@ -260,7 +259,7 @@ proxy-groups:
     interval: 60 # 60秒测速一次
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
-    lazy: false
+    lazy: true
     hidden: false
     use:
       - FeiniaoYun
@@ -274,7 +273,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 60
     timeout: 3000 # 3秒不通就切换到下一个
-    lazy: false
+    lazy: true
     proxies:
       - Select-Common
       - Auto-V2Free     # 主力
@@ -285,7 +284,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 60
     timeout: 3000
-    lazy: false
+    lazy: true
     proxies:
       - Auto-AI
       - Select-AI
