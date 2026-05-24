@@ -560,6 +560,6 @@ rules:
     # 只拦截中国 IP 的 UDP 443
     # 国外走代理的 QUIC 不受影响
     # ==========================================================
-    - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
+    # - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
     
     - MATCH,PROXY_COMMON
