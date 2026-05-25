@@ -90,7 +90,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60
       timeout: 3000
-      lazy: false
+      lazy: true
     
   # 飞鸟云国家
   FeiniaoYun-SG:
@@ -106,7 +106,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60
       timeout: 3000
-      lazy: false
+      lazy: true
 
   FeiniaoYun-JP:
     type: http
@@ -121,7 +121,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60
       timeout: 3000
-      lazy: false
+      lazy: true
 
   FeiniaoYun-KR:
     type: http
@@ -136,7 +136,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60
       timeout: 3000
-      lazy: false
+      lazy: true
 
   V2Free:
     type: http
@@ -150,7 +150,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60
       timeout: 3000
-      lazy: false
+      lazy: true
 
 # V2Free国家
   V2Free-SG:
@@ -166,7 +166,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60 # 缩短检测间隔
       timeout: 3000
-      lazy: false
+      lazy: true
 
   V2Free-JP:
     type: http
@@ -181,7 +181,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60
       timeout: 3000
-      lazy: false
+      lazy: true
 
   V2Free-KR:
     type: http
@@ -196,7 +196,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60 # 单位 s
       timeout: 3000 # 单位 ms
-      lazy: false
+      lazy: true
 
 # 策略组配置
 proxy-groups:
@@ -206,7 +206,7 @@ proxy-groups:
     interval: 60 # 60秒测速一次
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
-    lazy: false
+    lazy: true
     hidden: true
     use:
       - FeiniaoYun
@@ -217,7 +217,7 @@ proxy-groups:
     interval: 60 # 60秒测速一次
     tolerance: 50
     timeout: 3000
-    lazy: false
+    lazy: true
     hidden: true
     use:
       - V2Free
@@ -228,7 +228,7 @@ proxy-groups:
     interval: 30
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
-    lazy: false
+    lazy: true
     hidden: true
     use:
       - V2Free-SG
@@ -273,7 +273,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 60
     timeout: 3000 # 3秒不通就切换到下一个
-    lazy: false
+    lazy: true
     proxies:
       - Select-Common
       - Auto-V2Free     # 主力
@@ -284,7 +284,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 60
     timeout: 3000
-    lazy: false
+    lazy: true
     proxies:
       - Auto-AI
       - Select-AI
@@ -301,7 +301,7 @@ proxy-groups:
     interval: 300
     timeout: 3000
     tolerance: 100
-    lazy: false
+    lazy: true
     proxies:
       - Auto-V2Free
       - Auto-Feiniaoyun
