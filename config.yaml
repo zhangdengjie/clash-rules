@@ -206,7 +206,7 @@ proxy-groups:
     interval: 60 # 60秒测速一次
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
-    lazy: true
+    lazy: false
     hidden: true
     use:
       - FeiniaoYun
@@ -217,7 +217,7 @@ proxy-groups:
     interval: 60 # 60秒测速一次
     tolerance: 50
     timeout: 3000
-    lazy: true
+    lazy: false
     hidden: true
     use:
       - V2Free
@@ -228,7 +228,7 @@ proxy-groups:
     interval: 30
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
-    lazy: true
+    lazy: false
     hidden: true
     use:
       - V2Free-SG
@@ -301,7 +301,7 @@ proxy-groups:
     interval: 300
     timeout: 3000
     tolerance: 100
-    lazy: true
+    lazy: false
     proxies:
       - Auto-V2Free
       - Auto-Feiniaoyun
