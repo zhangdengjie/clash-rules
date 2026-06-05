@@ -90,7 +90,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60
       timeout: 3000
-      lazy: true
+      lazy: false
     
   # 飞鸟云国家
   FeiniaoYun-SG:
@@ -106,7 +106,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60
       timeout: 3000
-      lazy: true
+      lazy: false
 
   FeiniaoYun-JP:
     type: http
@@ -121,7 +121,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60
       timeout: 3000
-      lazy: true
+      lazy: false
 
   FeiniaoYun-KR:
     type: http
@@ -136,7 +136,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60
       timeout: 3000
-      lazy: true
+      lazy: false
 
   V2Free:
     type: http
@@ -150,7 +150,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60
       timeout: 3000
-      lazy: true
+      lazy: false
 
 # V2Free国家
   V2Free-SG:
@@ -166,7 +166,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60 # 缩短检测间隔
       timeout: 3000
-      lazy: true
+      lazy: false
 
   V2Free-JP:
     type: http
@@ -181,7 +181,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60
       timeout: 3000
-      lazy: true
+      lazy: false
 
   V2Free-KR:
     type: http
@@ -196,7 +196,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60 # 单位 s
       timeout: 3000 # 单位 ms
-      lazy: true
+      lazy: false
 
 # 策略组配置
 proxy-groups:
@@ -244,7 +244,7 @@ proxy-groups:
     interval: 60 # 60秒测速一次
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
-    lazy: true
+    lazy: false
     use:
       - V2Free-SG
       - FeiniaoYun-SG
@@ -259,7 +259,7 @@ proxy-groups:
     interval: 60
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
-    lazy: true
+    lazy: false
     hidden: false
     use:
       - FeiniaoYun
@@ -273,7 +273,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 60
     timeout: 3000 # 3秒不通就切换到下一个
-    lazy: true
+    lazy: false
     proxies:
       - Select-Common
       - Auto-V2Free     # 主力
@@ -284,7 +284,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 60
     timeout: 3000
-    lazy: true
+    lazy: false
     proxies:
       - Auto-AI
       - Select-AI
@@ -417,7 +417,7 @@ rules:
 
     # 1. 最高优先级：特殊阻断和指定直连
     # 优先放行 STUN (UDP 3478)
-    - DST-PORT,3478,DIRECT,no-resolve
+    - DST-PORT,3478,DIRECT
     - DOMAIN-SUFFIX,chat.bilibili.com,DIRECT
     - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
     - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
