@@ -207,7 +207,7 @@ proxy-groups:
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
     lazy: false
-    hidden: true
+    hidden: false
     use:
       - FeiniaoYun
 
@@ -218,7 +218,7 @@ proxy-groups:
     tolerance: 50
     timeout: 3000
     lazy: false
-    hidden: true
+    hidden: false
     use:
       - V2Free
 
@@ -229,7 +229,7 @@ proxy-groups:
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
     lazy: false
-    hidden: true
+    hidden: false
     use:
       - V2Free-SG
       - FeiniaoYun-SG
