@@ -200,8 +200,8 @@ proxy-providers:
 
 # 策略组配置
 proxy-groups:
-  - name: Auto-Feiniaoyun
-    type: fallback
+  - name: Fast-Feiniaoyun
+    type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
@@ -211,8 +211,8 @@ proxy-groups:
     use:
       - FeiniaoYun
 
-  - name: Auto-V2Free
-    type: fallback
+  - name: Fast-V2Free
+    type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 60 # 60秒测速一次
     tolerance: 50
@@ -265,19 +265,18 @@ proxy-groups:
       - FeiniaoYun
       - V2Free
 
-  # 【优化点3】PROXY_COMMON 改为 fallback
   # 逻辑：优先尝试 V2Free 的自动选择，如果挂了/超时，自动降级到 Feiniaoyun
   # 这比 url-test 更稳定，不会因为两个都慢而选不出来
   - name: PROXY_COMMON
-    type: select
+    type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 60
     timeout: 3000 # 3秒不通就切换到下一个
     lazy: false
     proxies:
       - Select-Common
-      - Auto-V2Free     # 主力
-      - Auto-Feiniaoyun # 备用
+      - Fast-V2Free     # 主力
+      - Fast-Feiniaoyun # 备用
 
   - name: PROXY_AI
     type: select
@@ -303,8 +302,8 @@ proxy-groups:
     tolerance: 100
     lazy: false
     proxies:
-      - Auto-V2Free
-      - Auto-Feiniaoyun
+      - Fast-V2Free
+      - Fast-Feiniaoyun
 
 # 规则集配置
 rule-providers:
