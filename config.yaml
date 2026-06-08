@@ -141,7 +141,7 @@ proxy-providers:
   V2Free:
     type: http
     path: ./profiles/proxies/v2free.yaml
-    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
+    url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/v2free.yaml
     filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|香港|HK)'
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     interval: 86400
@@ -155,7 +155,7 @@ proxy-providers:
 # V2Free国家
   V2Free-SG:
     type: http
-    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
+    url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/v2free.yaml
     interval: 86400
     path: ./providers/v2free_sg.yaml
     filter: '(?i)(新加坡|SG|Singapore)'
@@ -170,7 +170,7 @@ proxy-providers:
 
   V2Free-JP:
     type: http
-    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
+    url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/v2free.yaml
     interval: 86400
     path: ./providers/v2free_jp.yaml
     filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka)'
@@ -185,7 +185,7 @@ proxy-providers:
 
   V2Free-KR:
     type: http
-    url: https://v1.tlsa.top/link/ifxzP3nhohe3KP2T1vak4vW1ju9UyybXhk01?clash=1
+    url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/v2free.yaml
     interval: 86400 # 单位 s
     path: ./providers/v2free_kr.yaml
     filter: '(?i)(韩国|KR|Korea|Seoul)'
