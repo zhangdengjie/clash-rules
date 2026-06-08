@@ -79,7 +79,7 @@ dns:
 proxy-providers:
   FeiniaoYun:
     type: http
-    url: https://sf.342242.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    url: https://b.592851.xyz/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
     interval: 86400
     path: ./providers/feiniaoyun.yaml
     filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|香港|HK)'
@@ -95,7 +95,7 @@ proxy-providers:
   # 飞鸟云国家
   FeiniaoYun-SG:
     type: http
-    url: https://sf.342242.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    url: https://b.592851.xyz/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
     interval: 86400
     path: ./providers/feiniaoyun_sg.yaml
     filter: '(?i)(新加坡|SG|Singapore)'
@@ -110,7 +110,7 @@ proxy-providers:
 
   FeiniaoYun-JP:
     type: http
-    url: https://sf.342242.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    url: https://b.592851.xyz/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
     interval: 86400
     path: ./providers/feiniaoyun_jp.yaml
     filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka)'
@@ -125,7 +125,7 @@ proxy-providers:
 
   FeiniaoYun-KR:
     type: http
-    url: https://sf.342242.icu/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    url: https://b.592851.xyz/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
     interval: 86400
     path: ./providers/feiniaoyun_kr.yaml
     filter: '(?i)(韩国|KR|Korea|Seoul)'
