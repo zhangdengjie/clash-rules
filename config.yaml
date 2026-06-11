@@ -222,6 +222,21 @@ proxy-groups:
     use:
       - V2Free
 
+  - name: Fast-AI
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 120
+    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
+    timeout: 3000
+    lazy: false
+    use:
+      - V2Free-SG
+      - FeiniaoYun-SG
+      - V2Free-JP
+      - FeiniaoYun-JP
+      - V2Free-KR
+      - FeiniaoYun-KR
+
   - name: Auto-AI
     type: fallback
     url: https://www.gstatic.com/generate_204
@@ -252,6 +267,18 @@ proxy-groups:
       - FeiniaoYun-JP
       - V2Free-KR
       - FeiniaoYun-KR
+
+  - name: Fast-Common
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 60
+    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
+    timeout: 3000
+    lazy: false
+    hidden: false
+    use:
+      - FeiniaoYun
+      - V2Free
     
   - name: Select-Common
     type: select
@@ -275,6 +302,7 @@ proxy-groups:
     lazy: false
     proxies:
       - Select-Common
+      - Fast-Common
       - Fast-V2Free     # 主力
       - Fast-Feiniaoyun # 备用
 
@@ -286,6 +314,7 @@ proxy-groups:
     lazy: false
     proxies:
       - Auto-AI
+      - Fast-AI
       - Select-AI
       
   - name: GLOBAL_USE
