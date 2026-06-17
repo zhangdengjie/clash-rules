@@ -1,0 +1,508 @@
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+mode: rule
+log-level: warning
+ipv6: false
+# 开启 TCP 并发，显著降低握手延迟 (Meta内核特性)
+tcp-concurrent: false 
+clash-for-android:
+    append-system-dns: false
+unified-delay: true
+keep-alive-interval: 30
+
+hosts:
+    mtalk.google.com: 108.177.125.188
+
+dns:
+    enable: true
+    ipv6: false
+    listen: '127.0.0.1:53'
+    default-nameserver: 
+      - 223.5.5.5
+      - 119.29.29.29
+    proxy-server-nameserver: 
+      - 223.5.5.5
+      - 119.29.29.29
+    enhanced-mode: fake-ip
+    fake-ip-range: 198.18.0.1/16
+    #  STUN 服务器走真实 IP 解析，不进入 Fake-IP 池
+    fake-ip-filter:
+      - "stun.*.*"
+      - "stun.*"
+      - "+.stun.*.*"
+      - "+.stun.*"
+      - "+.chat.bilibili.com"
+      - "address.video.blive.com"
+    use-hosts: true
+    
+    nameserver-policy:
+      geosite:google,youtube,telegram,gfw,openai,anthropic: 'https://1.1.1.1/dns-query'
+      +.google.com: 'https://1.1.1.1/dns-query'
+      +.gstatic.com: 'https://1.1.1.1/dns-query'
+      +.googleapis.com: 'https://1.1.1.1/dns-query'
+      +.googleusercontent.com: 'https://1.1.1.1/dns-query'
+      +.github.com: 'https://1.1.1.1/dns-query'
+    
+    nameserver: 
+      - 223.5.5.5
+      - 119.29.29.29
+      # 备用，防止阿里挂了
+      - 114.114.114.114
+    
+    fallback: 
+      - 'https://1.1.1.1/dns-query'
+      - 'https://8.8.8.8/dns-query'
+      - 'tcp://8.8.8.8:53'
+      - 'tcp://208.67.220.220:443'
+    
+    fallback-filter:
+      geoip: true
+      geoip-code: CN
+      ipcidr:
+        - 240.0.0.0/4
+        - 0.0.0.0/32
+      domain:
+        - +.google.com
+        - +.googleapis.com
+        - +.gstatic.com
+        - +.googleusercontent.com
+        - +.github.com
+        - +.anthropic.com
+        - +.openai.com
+    
+    direct-nameserver:
+      - 223.5.5.5
+      - 119.29.29.29
+
+# 订阅配置
+proxy-providers:
+  FeiniaoYun:
+    type: http
+    url: https://b.592851.xyz/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    interval: 86400
+    path: ./providers/feiniaoyun.yaml
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|香港|HK)'
+    # 加强过滤，排除可能有问题的节点
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 60
+      timeout: 3000
+      lazy: true
+    
+  # 飞鸟云国家
+  FeiniaoYun-SG:
+    type: http
+    url: https://b.592851.xyz/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    interval: 86400
+    path: ./providers/feiniaoyun_sg.yaml
+    filter: '(?i)(新加坡|SG|Singapore)'
+    # 加强过滤，排除可能有问题的节点
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 60
+      timeout: 3000
+      lazy: true
+
+  FeiniaoYun-JP:
+    type: http
+    url: https://b.592851.xyz/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    interval: 86400
+    path: ./providers/feiniaoyun_jp.yaml
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka)'
+    # 加强过滤，排除可能有问题的节点
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 60
+      timeout: 3000
+      lazy: true
+
+  FeiniaoYun-KR:
+    type: http
+    url: https://b.592851.xyz/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    interval: 86400
+    path: ./providers/feiniaoyun_kr.yaml
+    filter: '(?i)(韩国|KR|Korea|Seoul)'
+    # 加强过滤，排除可能有问题的节点
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 60
+      timeout: 3000
+      lazy: true
+
+# 策略组配置
+proxy-groups:
+  - name: Fast-Feiniaoyun
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 60 # 60秒测速一次
+    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
+    timeout: 3000
+    lazy: true
+    hidden: false
+    use:
+      - FeiniaoYun
+
+  - name: Fast-AI
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 120
+    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
+    timeout: 3000
+    lazy: false
+    use:
+      - FeiniaoYun-SG
+      - FeiniaoYun-JP
+      - FeiniaoYun-KR
+
+  - name: Auto-AI
+    type: fallback
+    url: https://www.gstatic.com/generate_204
+    interval: 30
+    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
+    timeout: 3000
+    lazy: true
+    hidden: false
+    use:
+      - FeiniaoYun-SG
+      - FeiniaoYun-JP
+      - FeiniaoYun-KR
+
+  - name: Select-AI
+    type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 60 # 60秒测速一次
+    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
+    timeout: 3000
+    lazy: true
+    use:
+      - FeiniaoYun-SG
+      - FeiniaoYun-JP
+      - FeiniaoYun-KR
+
+  - name: Fast-Common
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 60
+    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
+    timeout: 3000
+    lazy: false
+    hidden: false
+    use:
+      - FeiniaoYun
+    
+  - name: Select-Common
+    type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 60
+    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
+    timeout: 3000
+    lazy: true
+    hidden: false
+    use:
+      - FeiniaoYun
+
+  # 这比 url-test 更稳定，不会因为两个都慢而选不出来
+  - name: PROXY_COMMON
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 60
+    timeout: 3000 # 3秒不通就切换到下一个
+    lazy: true
+    proxies:
+      - Select-Common
+      - Fast-Common
+      - Fast-Feiniaoyun # 备用
+
+  - name: PROXY_AI
+    type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 60
+    timeout: 3000
+    lazy: true
+    proxies:
+      - Auto-AI
+      - Fast-AI
+      - Select-AI
+      
+  - name: GLOBAL_USE
+    type: select
+    proxies:
+      - PROXY_COMMON
+      - DIRECT
+    
+  - name: SERVER
+    type: fallback
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    timeout: 3000
+    tolerance: 100
+    lazy: false
+    proxies:
+      - Fast-Feiniaoyun
+
+# 规则集配置
+rule-providers:
+  proxy: 
+    type: http
+    behavior: domain
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt'
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+  
+  direct: 
+    type: http
+    behavior: domain
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt'
+    path: ./ruleset/direct.yaml
+    interval: 86400
+  
+  apple: 
+    type: http
+    behavior: domain
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt'
+    path: ./ruleset/apple.yaml
+    interval: 86400
+  
+  cncidr: 
+    type: http
+    behavior: ipcidr
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt'
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+  
+  gfw: 
+    type: http
+    behavior: domain
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt'
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+  
+  telegram: 
+    type: http
+    behavior: classical
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt'
+    path: ./ruleset/telegram.yaml
+    interval: 86400
+  
+  customrule: 
+    type: http
+    behavior: classical
+    url: 'https://47.116.124.118:9090/rules/clash/customrule.txt'
+    path: ./ruleset/customrule.yaml
+    interval: 86400
+  
+  localnetwork: 
+    type: http
+    behavior: classical
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt'
+    path: ./ruleset/localnetwork.yaml
+    interval: 86400
+
+  AD:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/AD.yaml"
+    path: ./rules/AD.yaml
+    interval: 86400
+    
+  EasyList:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/EasyList.yaml"
+    path: ./rules/EasyList.yaml
+    interval: 86400
+    
+  EasyListChina:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/EasyListChina.yaml"
+    path: ./rules/EasyListChina.yaml
+    interval: 86400
+
+  EasyPrivacy:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/EasyPrivacy.yaml"
+    path: ./rules/EasyPrivacy.yaml
+    interval: 86400
+
+  ProgramAD:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/ProgramAD.yaml"
+    path: ./rules/ProgramAD.yaml
+    interval: 86400
+
+  ProcessReject:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/ProcessReject.yaml"
+    path: ./rules/ProcessReject.yaml
+    interval: 86400
+
+  ProcessAI:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/ProcessAI.yaml"
+    path: ./rules/ProcessAI.yaml
+    interval: 86400
+
+rules:
+
+    # 1. 最高优先级：特殊阻断和指定直连
+    # 优先放行 STUN (UDP 3478)
+    - DST-PORT,3478,DIRECT
+    - DOMAIN-SUFFIX,chat.bilibili.com,DIRECT
+    - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
+    - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
+    - DOMAIN-SUFFIX,wangchujiang.com,PROXY_COMMON
+    - DOMAIN-SUFFIX,cn,DIRECT
+    # 强制直连的域名
+    - DOMAIN,play.sportsteam368.com,DIRECT
+    - DOMAIN-SUFFIX,sense-u.com,DIRECT
+    - DOMAIN,sub.xeton.dev,DIRECT
+    - DOMAIN,v1.tlsa.top,DIRECT
+    - DOMAIN,bugly.qq.com,DIRECT
+    - DOMAIN,cas.bugly.qq.com,DIRECT
+    - DOMAIN,dl.google.com,DIRECT
+    - DOMAIN,x1.344211.cc,DIRECT
+    - DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
+    - DOMAIN,safebrowsing.googleapis.com,DIRECT
+
+    # 2. 广告拦截与进程拒绝
+    - DOMAIN-KEYWORD,adobe,REJECT
+    - DOMAIN,lcs1.gateway.tencent.com,REJECT
+    - DOMAIN,otheve.beacon.qq.com,REJECT
+    - DOMAIN-SUFFIX,proxyman.com,REJECT
+    - DOMAIN-KEYWORD,wps,REJECT
+    - DOMAIN-SUFFIX,vox.rocks,REJECT
+    - PROCESS-NAME,QuickRecorder,REJECT
+    - PROCESS-NAME,Xmind,REJECT
+    - PROCESS-NAME,Xmind Helper,REJECT
+
+    # 3. AI 网站强制走 AI 策略组
+    - DOMAIN,aistudio.google.com,PROXY_AI
+    - DOMAIN,ai.google.dev,PROXY_AI
+    - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
+    - DOMAIN,gemini.google.com,PROXY_AI
+    - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
+    - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
+    - DOMAIN-SUFFIX,claude.ai,PROXY_AI
+    - DOMAIN-SUFFIX,claude.com,PROXY_AI
+    - DOMAIN-SUFFIX,openai.com,PROXY_AI
+    - DOMAIN-SUFFIX,chatgpt.com,PROXY_AI
+    - DOMAIN-SUFFIX,sora.com,PROXY_AI
+    - DOMAIN-SUFFIX,auth0.com,PROXY_AI
+    - DOMAIN-SUFFIX,dola.com,PROXY_AI
+    - DOMAIN-SUFFIX,ciciai.com,PROXY_AI
+    - DOMAIN-SUFFIX,deepl.com,PROXY_AI
+    - DOMAIN-SUFFIX,codeium.com,PROXY_AI
+    - DOMAIN-SUFFIX,cdn.oaistatic.com,PROXY_AI
+    - DOMAIN,cdn.usefathom.com,PROXY_AI
+    - DOMAIN,api.fast.com,PROXY_AI
+    - DOMAIN-SUFFIX,x.ai,PROXY_AI
+    - DOMAIN-SUFFIX,grok.com,PROXY_AI
+    - DOMAIN-SUFFIX,google.com,PROXY_AI
+    - DOMAIN-SUFFIX,com.larus.wolf,PROXY_AI
+    
+    
+    
+    # 4. 指定走 SERVER 或 PROXY_COMMON 的进程和域名
+    - DOMAIN-KEYWORD,ubuntu,SERVER
+    - DOMAIN-KEYWORD,docker,SERVER
+    - DOMAIN-SUFFIX,mvnrepository.com,SERVER
+    - PROCESS-NAME,Cici,PROXY_AI
+    - PROCESS-NAME,Dola Helper,PROXY_AI
+    - PROCESS-NAME,studio,PROXY_COMMON
+    - PROCESS-NAME,Docker Desktop Helper,SERVER
+    - PROCESS-NAME,com.docker.backend,SERVER
+    - PROCESS-NAME,ollama,SERVER
+
+    # 5. 指定直连的进程
+    - PROCESS-NAME,trustd,DIRECT
+    - PROCESS-NAME,apsd,DIRECT
+    - PROCESS-NAME,v2ray,DIRECT
+    - PROCESS-NAME,Surge%203,DIRECT
+    - PROCESS-NAME,ss-local,DIRECT
+    - PROCESS-NAME,privoxy,DIRECT
+    - PROCESS-NAME,trojan,DIRECT
+    - PROCESS-NAME,trojan-go,DIRECT
+    - PROCESS-NAME,naive,DIRECT
+    - PROCESS-NAME,WeChat,DIRECT
+    - PROCESS-NAME,Thunder,DIRECT
+    - PROCESS-NAME,DownloadService,DIRECT
+    - PROCESS-NAME,qBittorrent,DIRECT
+    - PROCESS-NAME,Transmission,DIRECT
+    - PROCESS-NAME,fdm,DIRECT
+    - PROCESS-NAME,aria2c,DIRECT
+    - PROCESS-NAME,Folx,DIRECT
+    - PROCESS-NAME,NetTransport,DIRECT
+    - PROCESS-NAME,uTorrent,DIRECT
+    - PROCESS-NAME,WebTorrent,DIRECT
+    - PROCESS-NAME,抖音 Helper,DIRECT
+
+    # ==========================================================
+    #【高阶魔法：纯 IP 的极速分流】
+    # 只要是直接用 IP 访问国内服务器，瞬间直连！
+    # 纯国外的 IP 会漏下去走代理。域名会直接无视这两行跳过去。
+    # ==========================================================
+    - RULE-SET,cncidr,DIRECT,no-resolve
+    - GEOIP,CN,DIRECT,no-resolve
+    - GEOIP,LAN,DIRECT,no-resolve # 顺手把局域网真实 IP 也极速直连了
+    
+    # =========================================================
+    # 6. RULE-SET 规则集必须放在 GEOSITE 之前！
+    #【域名类规则】必须放在 IP 规则之前！(不需要解析IP，不卡顿)
+    # 这样可以保证 Apple、本地网络、明确的直连规则优先命中，不会被误判为国外代理
+    # =========================================================
+    - RULE-SET,customrule,DIRECT
+    - RULE-SET,apple,DIRECT # 苹果服务专属分流，确保它在国内有 CDN 就直连
+    - RULE-SET,direct,DIRECT # 其他确定的直连白名单
+    - RULE-SET,proxy,PROXY_COMMON
+    - RULE-SET,gfw,PROXY_COMMON
+    - RULE-SET,telegram,PROXY_COMMON
+    - RULE-SET,AD,REJECT
+    - RULE-SET,EasyList,REJECT
+    - RULE-SET,EasyListChina,REJECT
+    - RULE-SET,EasyPrivacy,REJECT
+    - RULE-SET,ProgramAD,REJECT
+    - RULE-SET,ProcessReject,REJECT
+
+    # =========================================================
+    # 7. 广泛模糊匹配：基于内置数据库识别
+    # 当上面所有的明确规则都没命中时，再用大网兜底
+    # =========================================================
+    # 自动识别中国内地网站，不解析 IP 直接直连
+    - GEOSITE,CN,DIRECT
+    # 自动识别常见国外非中国网站，不解析 IP 直接代理 (解决"灰度域名"卡顿的核心)
+    - GEOSITE,geolocation-!cn,PROXY_COMMON
+
+    # =========================================================
+    # 8. 【IP 类规则】必须放在最后面！(会触发本地 DNS 解析，极易卡 5 秒)
+    # 只有当上面所有的已知域名都没查到，才会走到这里解析 IP
+    # =========================================================
+    - RULE-SET,cncidr,DIRECT
+    - RULE-SET,localnetwork,DIRECT
+
+    # 9. 最后兜底：基于 IP 的判断（前面域名没拦截住，只能靠 IP 认了）
+    - GEOIP,LAN,DIRECT
+    - GEOIP,CN,DIRECT
+
+    # ==========================================================
+    # 10. 禁用 QUIC / HTTP3，让流量回退到 TCP（HTTPS）
+    # 推展：# - AND,((NETWORK,UDP),(DST-PORT,443),(GEOIP,CN)),REJECT
+    # 只拦截中国 IP 的 UDP 443
+    # 国外走代理的 QUIC 不受影响
+    # ==========================================================
+    # - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
+    
+    - MATCH,PROXY_COMMON
