@@ -2,7 +2,7 @@ mixed-port: 7890
 allow-lan: true
 bind-address: "*"
 mode: rule
-log-level: warning
+log-level: info
 ipv6: false
 # 开启 TCP 并发，显著降低握手延迟 (Meta内核特性)
 tcp-concurrent: false 
@@ -295,7 +295,7 @@ proxy-groups:
   # 逻辑：优先尝试 V2Free 的自动选择，如果挂了/超时，自动降级到 Feiniaoyun
   # 这比 url-test 更稳定，不会因为两个都慢而选不出来
   - name: PROXY_COMMON
-    type: url-test
+    type: select
     url: https://www.gstatic.com/generate_204
     interval: 60
     timeout: 3000 # 3秒不通就切换到下一个
