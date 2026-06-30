@@ -82,7 +82,7 @@ proxy-providers:
     url: https://b.592851.xyz/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
     interval: 86400
     path: ./providers/feiniaoyun.yaml
-    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|香港|HK)'
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|香港|HK|美国)'
     # 加强过滤，排除可能有问题的节点
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     health-check:
@@ -142,7 +142,7 @@ proxy-providers:
     type: http
     path: ./profiles/proxies/v2free.yaml
     url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/v2free.yaml
-    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|香港|HK)'
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|香港|HK|美国)'
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新)'
     interval: 86400
     health-check:
@@ -256,8 +256,6 @@ proxy-groups:
   - name: Select-AI
     type: select
     url: https://www.gstatic.com/generate_204
-    interval: 60 # 60秒测速一次
-    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
     lazy: true
     use:
@@ -276,9 +274,9 @@ proxy-groups:
     timeout: 3000
     lazy: false
     hidden: false
-    use:
-      - FeiniaoYun
-      - V2Free
+    proxies:
+      - Fast-V2Free
+      - Fast-Feiniaoyun
     
   - name: Select-Common
     type: select
@@ -303,8 +301,6 @@ proxy-groups:
     proxies:
       - Select-Common
       - Fast-Common
-      - Fast-V2Free     # 主力
-      - Fast-Feiniaoyun # 备用
 
   - name: PROXY_AI
     type: select
@@ -320,7 +316,8 @@ proxy-groups:
   - name: GLOBAL_USE
     type: select
     proxies:
-      - PROXY_COMMON
+      - Select-Common
+      - Select-AI
       - DIRECT
     
   - name: SERVER
@@ -498,8 +495,6 @@ rules:
     - DOMAIN-SUFFIX,grok.com,PROXY_AI
     - DOMAIN-SUFFIX,google.com,PROXY_AI
     - DOMAIN-SUFFIX,com.larus.wolf,PROXY_AI
-    
-    
     
     # 4. 指定走 SERVER 或 PROXY_COMMON 的进程和域名
     - DOMAIN-KEYWORD,ubuntu,SERVER
