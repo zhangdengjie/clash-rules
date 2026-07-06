@@ -352,6 +352,13 @@ rule-providers:
     path: ./rules/ProcessAI.yaml
     interval: 86400
 
+ DomainRule:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/domain.yaml"
+    path: ./rules/domain_custom_company.yaml
+    interval: 86400
+
 rules:
 
     # 1. 最高优先级：特殊阻断和指定直连
