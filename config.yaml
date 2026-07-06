@@ -437,7 +437,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/ProcessAI.yaml"
     path: ./rules/ProcessAI.yaml
     interval: 86400
-
+  
   DomainRule:
     type: http
     behavior: classical
