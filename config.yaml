@@ -5,11 +5,11 @@ mode: rule
 log-level: info
 ipv6: false
 # 开启 TCP 并发，显著降低握手延迟 (Meta内核特性)
-tcp-concurrent: false 
+tcp-concurrent: true 
 clash-for-android:
     append-system-dns: false
 unified-delay: true
-keep-alive-interval: 30
+keep-alive-interval: 60
 
 hosts:
     mtalk.google.com: 108.177.125.188
@@ -17,13 +17,8 @@ hosts:
 dns:
     enable: true
     ipv6: false
-    listen: '127.0.0.1:53'
-    default-nameserver: 
-      - 223.5.5.5
-      - 119.29.29.29
-    proxy-server-nameserver: 
-      - 223.5.5.5
-      - 119.29.29.29
+    listen: 127.0.0.1:53
+    respect-rules: true
     enhanced-mode: fake-ip
     fake-ip-range: 198.18.0.1/16
     #  STUN 服务器走真实 IP 解析，不进入 Fake-IP 池
@@ -35,45 +30,110 @@ dns:
       - "+.chat.bilibili.com"
       - "address.video.blive.com"
     use-hosts: true
-    
-    nameserver-policy:
-      geosite:google,youtube,telegram,gfw,openai,anthropic: 'https://1.1.1.1/dns-query'
-      +.google.com: 'https://1.1.1.1/dns-query'
-      +.gstatic.com: 'https://1.1.1.1/dns-query'
-      +.googleapis.com: 'https://1.1.1.1/dns-query'
-      +.googleusercontent.com: 'https://1.1.1.1/dns-query'
-      +.github.com: 'https://1.1.1.1/dns-query'
-    
-    nameserver: 
+
+    #################################################################
+    # Bootstrap DNS
+    #
+    # 仅用于解析 DoH 本身
+    #################################################################
+
+    default-nameserver:
+      - 223.5.5.5
+      - 119.29.29.29
+
+    #################################################################
+    # 国内 DNS
+    #
+    # 国内网站默认使用
+    #################################################################
+
+    nameserver:
       - 223.5.5.5
       - 119.29.29.29
       # 备用，防止阿里挂了
       - 114.114.114.114
-    
-    fallback: 
-      - 'https://1.1.1.1/dns-query'
-      - 'https://8.8.8.8/dns-query'
-      - 'tcp://8.8.8.8:53'
-      - 'tcp://208.67.220.220:443'
-    
+
+    #################################################################
+    # 国外 DNS
+    #
+    # 只有需要代理的网站才使用
+    #################################################################
+
+    fallback:
+      - https://1.1.1.1/dns-query
+      - https://8.8.8.8/dns-query
+
+    #################################################################
+    # 国内 IP 使用国内 DNS
+    # 国外 IP 自动切 fallback
+    #################################################################
+
     fallback-filter:
       geoip: true
       geoip-code: CN
+
       ipcidr:
         - 240.0.0.0/4
         - 0.0.0.0/32
-      domain:
-        - +.google.com
-        - +.googleapis.com
-        - +.gstatic.com
-        - +.googleusercontent.com
-        - +.github.com
-        - +.anthropic.com
-        - +.openai.com
     
+    #################################################################
+    # 指定域名强制国外 DNS
+    #################################################################
+
+    nameserver-policy:
+
+      geosite:google:
+        - https://1.1.1.1/dns-query
+
+      geosite:gfw:
+        - https://1.1.1.1/dns-query
+
+      geosite:openai:
+        - https://1.1.1.1/dns-query
+
+      geosite:anthropic:
+        - https://1.1.1.1/dns-query
+
+      +.github.com:
+        - https://1.1.1.1/dns-query
+
+      +.githubusercontent.com:
+        - https://1.1.1.1/dns-query
+
+      +.githubassets.com:
+        - https://1.1.1.1/dns-query
+
+      +.docker.io:
+        - https://1.1.1.1/dns-query
+
+      +.ghcr.io:
+        - https://1.1.1.1/dns-query
+
+      +.googleapis.com:
+        - https://1.1.1.1/dns-query
+
+      +.gstatic.com:
+        - https://1.1.1.1/dns-query
+
+      +.googleusercontent.com:
+        - https://1.1.1.1/dns-query
+      
+    
+    #################################################################
+    # 直连流量使用国内 DNS
+    #################################################################
+
     direct-nameserver:
       - 223.5.5.5
       - 119.29.29.29
+
+    #################################################################
+    # 解析代理节点域名
+    #################################################################
+
+    proxy-server-nameserver:
+      - https://1.1.1.1/dns-query
+      - https://8.8.8.8/dns-query
 
 # 订阅配置
 proxy-providers:
@@ -88,7 +148,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60
+      interval: 300
       timeout: 3000
       lazy: true
     
@@ -104,7 +164,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60
+      interval: 120
       timeout: 3000
       lazy: true
 
@@ -119,7 +179,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60
+      interval: 120
       timeout: 3000
       lazy: true
 
@@ -134,7 +194,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60
+      interval: 120
       timeout: 3000
       lazy: true
 
@@ -148,7 +208,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60
+      interval: 300
       timeout: 3000
       lazy: true
 
@@ -164,7 +224,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60 # 缩短检测间隔
+      interval: 120
       timeout: 3000
       lazy: true
 
@@ -179,7 +239,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60
+      interval: 120
       timeout: 3000
       lazy: true
 
@@ -194,7 +254,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 60 # 单位 s
+      interval: 120 # 单位 s
       timeout: 3000 # 单位 ms
       lazy: true
 
@@ -203,7 +263,7 @@ proxy-groups:
   - name: Fast-Feiniaoyun
     type: url-test
     url: https://www.gstatic.com/generate_204
-    interval: 60 # 60秒测速一次
+    interval: 300
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
     lazy: true
@@ -214,7 +274,7 @@ proxy-groups:
   - name: Fast-V2Free
     type: url-test
     url: https://www.gstatic.com/generate_204
-    interval: 60 # 60秒测速一次
+    interval: 300
     tolerance: 50
     timeout: 3000
     lazy: false
@@ -240,7 +300,7 @@ proxy-groups:
   - name: Auto-AI
     type: fallback
     url: https://www.gstatic.com/generate_204
-    interval: 30
+    interval: 120
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
     lazy: true
@@ -266,7 +326,7 @@ proxy-groups:
   - name: Fast-Common
     type: url-test
     url: https://www.gstatic.com/generate_204
-    interval: 60
+    interval: 300
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
     lazy: false
@@ -308,7 +368,7 @@ proxy-groups:
   - name: SERVER
     type: fallback
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 600
     timeout: 3000
     tolerance: 100
     lazy: false
@@ -535,7 +595,6 @@ rules:
     # 只要是直接用 IP 访问国内服务器，瞬间直连！
     # 纯国外的 IP 会漏下去走代理。域名会直接无视这两行跳过去。
     # ==========================================================
-    - RULE-SET,cncidr,DIRECT,no-resolve
     - GEOIP,CN,DIRECT,no-resolve
     - GEOIP,LAN,DIRECT,no-resolve # 顺手把局域网真实 IP 也极速直连了
     
