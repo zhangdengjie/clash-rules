@@ -255,9 +255,6 @@ proxy-groups:
 
   - name: Select-AI
     type: select
-    url: https://www.gstatic.com/generate_204
-    timeout: 3000
-    lazy: true
     use:
       - V2Free-SG
       - FeiniaoYun-SG
@@ -280,12 +277,6 @@ proxy-groups:
     
   - name: Select-Common
     type: select
-    url: https://www.gstatic.com/generate_204
-    interval: 60
-    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
-    timeout: 3000
-    lazy: true
-    hidden: false
     use:
       - FeiniaoYun
       - V2Free
@@ -294,20 +285,14 @@ proxy-groups:
   # 这比 url-test 更稳定，不会因为两个都慢而选不出来
   - name: PROXY_COMMON
     type: select
-    url: https://www.gstatic.com/generate_204
-    interval: 60
-    timeout: 3000 # 3秒不通就切换到下一个
-    lazy: true
     proxies:
       - Select-Common
       - Fast-Common
+      - Fast-V2Free
+      - Fast-Feiniaoyun
 
   - name: PROXY_AI
     type: select
-    url: https://www.gstatic.com/generate_204
-    interval: 60
-    timeout: 3000
-    lazy: true
     proxies:
       - Auto-AI
       - Fast-AI
@@ -447,11 +432,19 @@ rule-providers:
 
 rules:
 
+    - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
+    # ==========================================================
+    # 10. 禁用 QUIC / HTTP3，让流量回退到 TCP（HTTPS）
+    # 推展：# - AND,((NETWORK,UDP),(DST-PORT,443),(GEOIP,CN)),REJECT
+    # 只拦截中国 IP 的 UDP 443
+    # 国外走代理的 QUIC 不受影响
+    # ==========================================================
+    - AND,((NETWORK,UDP),(DST-PORT,443),(GEOIP,CN)),REJECT
+
     # 1. 最高优先级：特殊阻断和指定直连
     # 优先放行 STUN (UDP 3478)
     - DST-PORT,3478,DIRECT
     - DOMAIN-SUFFIX,chat.bilibili.com,DIRECT
-    - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
     - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
     - DOMAIN-SUFFIX,wangchujiang.com,PROXY_COMMON
     - DOMAIN-SUFFIX,cn,DIRECT
@@ -567,8 +560,7 @@ rules:
     # =========================================================
     # 7. 广泛模糊匹配：基于内置数据库识别
     # 当上面所有的明确规则都没命中时，再用大网兜底
-    # =========================================================
-    # 自动识别中国内地网站，不解析 IP 直接直连
+    # =========================================================    # 自动识别中国内地网站，不解析 IP 直接直连
     - GEOSITE,CN,DIRECT
     # 自动识别常见国外非中国网站，不解析 IP 直接代理 (解决"灰度域名"卡顿的核心)
     - GEOSITE,geolocation-!cn,PROXY_COMMON
@@ -583,13 +575,5 @@ rules:
     # 9. 最后兜底：基于 IP 的判断（前面域名没拦截住，只能靠 IP 认了）
     - GEOIP,LAN,DIRECT
     - GEOIP,CN,DIRECT
-
-    # ==========================================================
-    # 10. 禁用 QUIC / HTTP3，让流量回退到 TCP（HTTPS）
-    # 推展：# - AND,((NETWORK,UDP),(DST-PORT,443),(GEOIP,CN)),REJECT
-    # 只拦截中国 IP 的 UDP 443
-    # 国外走代理的 QUIC 不受影响
-    # ==========================================================
-    # - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
     
     - MATCH,PROXY_COMMON
