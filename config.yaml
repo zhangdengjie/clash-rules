@@ -501,6 +501,9 @@ rule-providers:
 rules:
 
     - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
+    - RULE-SET,ProcessReject,REJECT
+    - RULE-SET,ProcessAI,PROXY_AI
+    - RULE-SET,DomainRule,DIRECT
     # ==========================================================
     # 10. 禁用 QUIC / HTTP3，让流量回退到 TCP（HTTPS）
     # 推展：# - AND,((NETWORK,UDP),(DST-PORT,443),(GEOIP,CN)),REJECT
@@ -622,7 +625,6 @@ rules:
     - RULE-SET,EasyListChina,REJECT
     - RULE-SET,EasyPrivacy,REJECT
     - RULE-SET,ProgramAD,REJECT
-    - RULE-SET,ProcessReject,REJECT
 
     # =========================================================
     # 7. 广泛模糊匹配：基于内置数据库识别
