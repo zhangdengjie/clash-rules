@@ -129,13 +129,19 @@ dns:
 
     #################################################################
     # 解析代理节点域名
+    # https://1.1.1.1/dns-query 这样的配置走外网解析节点，会导致大面积TIMEOUT
+    # - 223.5.5.5 UDP 53，明文传输
+    # https://doh.pub/dns-query DOH
     #################################################################
 
     proxy-server-nameserver:
       # - https://1.1.1.1/dns-query
       # - https://8.8.8.8/dns-query
-      - 223.5.5.5
-      - 119.29.29.29
+      # - 223.5.5.5
+      # - 119.29.29.29
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+      - https://223.5.5.5/dns-query
 
 # 订阅配置
 proxy-providers:
