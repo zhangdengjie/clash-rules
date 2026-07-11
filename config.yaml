@@ -156,7 +156,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 300
+      interval: 60
       timeout: 3000
       lazy: true
     
@@ -172,7 +172,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 120
+      interval: 60
       timeout: 3000
       lazy: true
 
@@ -187,7 +187,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 120
+      interval: 60
       timeout: 3000
       lazy: true
 
@@ -202,7 +202,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 120
+      interval: 60
       timeout: 3000
       lazy: true
 
@@ -216,7 +216,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 300
+      interval: 60
       timeout: 3000
       lazy: true
 
@@ -232,7 +232,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 120
+      interval: 60
       timeout: 3000
       lazy: true
 
@@ -247,7 +247,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 120
+      interval: 60 # 极其消耗 CPU 和网络资源（因为如果有 100 个节点，它就要发 100 个请求）
       timeout: 3000
       lazy: true
 
@@ -262,7 +262,7 @@ proxy-providers:
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 120 # 单位 s
+      interval: 60 # 单位 s
       timeout: 3000 # 单位 ms
       lazy: true
 
@@ -271,7 +271,7 @@ proxy-groups:
   - name: Fast-Feiniaoyun
     type: url-test
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 30 # 基本不耗 CPU，只是一个逻辑判断
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
     lazy: true
@@ -282,7 +282,7 @@ proxy-groups:
   - name: Fast-V2Free
     type: url-test
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 30
     tolerance: 50
     timeout: 3000
     lazy: false
@@ -293,7 +293,7 @@ proxy-groups:
   - name: Fast-AI
     type: url-test
     url: https://www.gstatic.com/generate_204
-    interval: 120
+    interval: 30
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
     lazy: false
@@ -308,7 +308,7 @@ proxy-groups:
   - name: Auto-AI
     type: fallback
     url: https://www.gstatic.com/generate_204
-    interval: 120
+    interval: 30
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
     lazy: true
@@ -334,7 +334,7 @@ proxy-groups:
   - name: Fast-Common
     type: url-test
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 30
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
     lazy: false
@@ -376,10 +376,10 @@ proxy-groups:
   - name: SERVER
     type: fallback
     url: https://www.gstatic.com/generate_204
-    interval: 600
+    interval: 30
     timeout: 3000
     tolerance: 100
-    lazy: false
+    lazy: true
     proxies:
       - Fast-V2Free
       - Fast-Feiniaoyun
