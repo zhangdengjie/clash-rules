@@ -412,7 +412,7 @@ rule-providers:
 
   DomainRule:
     type: http
-    behavior: classical
+    behavior: domain
     url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/domain.yaml"
     path: ./rules/domain_custom_company.yaml
     interval: 86400

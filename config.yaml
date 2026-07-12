@@ -532,7 +532,7 @@ rules:
     # 只拦截中国 IP 的 UDP 443
     # 国外走代理的 QUIC 不受影响
     # ==========================================================
-    - AND,((NETWORK,UDP),(DST-PORT,443),(GEOIP,CN)),REJECT
+    # - AND,((NETWORK,UDP),(DST-PORT,443),(GEOIP,CN)),REJECT
 
     # 1. 最高优先级：特殊阻断和指定直连
     # 优先放行 STUN (UDP 3478)
