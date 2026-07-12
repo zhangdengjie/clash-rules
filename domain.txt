@@ -1,0 +1,3 @@
+payload:
+  - 'hf-mirror.com'
+  - '+.xethub.hf.co'

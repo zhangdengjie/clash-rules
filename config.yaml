@@ -494,14 +494,14 @@ rule-providers:
   DomainRule:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/domain.yaml"
+    url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/domain.txt"
     path: ./rules/domain_custom.yaml
     interval: 86400
     
   CustomAd:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/ad_ext.yaml"
+    url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/ad_ext.txt"
     path: ./rules/ad_custom.yaml
     interval: 86400
 
