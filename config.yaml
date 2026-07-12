@@ -220,7 +220,7 @@ proxy-providers:
       timeout: 3000
       lazy: true
 
-# V2Free国家
+  # V2Free国家
   V2Free-SG:
     type: http
     url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/v2free.yaml
@@ -496,6 +496,13 @@ rule-providers:
     behavior: classical
     url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/domain.yaml"
     path: ./rules/domain_custom.yaml
+    interval: 86400
+    
+  CustomAd:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/ad_ext.yaml"
+    path: ./rules/ad_custom.yaml
     interval: 86400
 
 rules:
