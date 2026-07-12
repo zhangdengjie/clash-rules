@@ -509,7 +509,6 @@ rules:
 
     - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
     - RULE-SET,ProcessReject,REJECT
-    - RULE-SET,ProcessAI,PROXY_AI
     - RULE-SET,DomainRule,DIRECT
     - RULE-SET,CustomAd,REJECT
     - RULE-SET,AD,REJECT
@@ -517,6 +516,16 @@ rules:
     - RULE-SET,EasyListChina,REJECT
     - RULE-SET,EasyPrivacy,REJECT
     - RULE-SET,ProgramAD,REJECT
+    - DOMAIN-KEYWORD,adobe,REJECT
+    - DOMAIN,lcs1.gateway.tencent.com,REJECT
+    - DOMAIN,otheve.beacon.qq.com,REJECT
+    - DOMAIN-SUFFIX,proxyman.com,REJECT
+    - DOMAIN-KEYWORD,wps,REJECT
+    - DOMAIN-SUFFIX,vox.rocks,REJECT
+    - PROCESS-NAME,QuickRecorder,REJECT
+    - PROCESS-NAME,Xmind,REJECT
+    - PROCESS-NAME,Xmind Helper,REJECT
+    - RULE-SET,ProcessAI,PROXY_AI
     # ==========================================================
     # 10. 禁用 QUIC / HTTP3，让流量回退到 TCP（HTTPS）
     # 推展：# - AND,((NETWORK,UDP),(DST-PORT,443),(GEOIP,CN)),REJECT
@@ -543,17 +552,6 @@ rules:
     - DOMAIN,x1.344211.cc,DIRECT
     - DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
     - DOMAIN,safebrowsing.googleapis.com,DIRECT
-
-    # 2. 广告拦截与进程拒绝
-    - DOMAIN-KEYWORD,adobe,REJECT
-    - DOMAIN,lcs1.gateway.tencent.com,REJECT
-    - DOMAIN,otheve.beacon.qq.com,REJECT
-    - DOMAIN-SUFFIX,proxyman.com,REJECT
-    - DOMAIN-KEYWORD,wps,REJECT
-    - DOMAIN-SUFFIX,vox.rocks,REJECT
-    - PROCESS-NAME,QuickRecorder,REJECT
-    - PROCESS-NAME,Xmind,REJECT
-    - PROCESS-NAME,Xmind Helper,REJECT
 
     # 3. AI 网站强制走 AI 策略组
     - DOMAIN,aistudio.google.com,PROXY_AI
