@@ -422,7 +422,7 @@ rules:
     - RULE-SET,ProcessReject,REJECT
     - RULE-SET,ProcessAI,PROXY_AI
     - RULE-SET,DomainRule,DIRECT
-    - AND,((NETWORK,UDP),(DST-PORT,443),(GEOIP,CN)),REJECT
+    # - AND,((NETWORK,UDP),(DST-PORT,443),(GEOIP,CN)),REJECT
     # 1. 最高优先级：特殊阻断和指定直连
     # 优先放行 STUN (UDP 3478)
     - DST-PORT,3478,DIRECT
