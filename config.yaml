@@ -150,7 +150,7 @@ proxy-providers:
     url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/feiniaoyun.yaml
     interval: 86400
     path: ./providers/feiniaoyun.yaml
-    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|香港|HK|美国)'
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|美国)'
     # 加强过滤，排除可能有问题的节点
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(5|10)\.?0?\s*[x倍])'
     health-check:
@@ -210,7 +210,7 @@ proxy-providers:
     type: http
     path: ./providers/v2free.yaml
     url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/v2free.yaml
-    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|香港|HK|美国)'
+    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka|韩国|KR|Korea|Seoul|新加坡|SG|Singapore|美国)'
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(5|10)\.?0?\s*[x倍])'
     interval: 86400
     health-check:
