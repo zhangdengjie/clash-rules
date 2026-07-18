@@ -1,3 +1,4 @@
 payload:
   - 'hf-mirror.com'
   - '+.xethub.hf.co'
+  - '+.tradingview.com'
