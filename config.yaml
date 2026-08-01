@@ -575,6 +575,7 @@ rules:
     - DOMAIN,aistudio.google.com,PROXY_AI
     - DOMAIN,ai.google.dev,PROXY_AI
     - DOMAIN,play.google.com,CHK
+    - DOMAIN,www.google.com,CHK
     - DOMAIN,console.firebase.google.com,CHK
     - DOMAIN,playconsoleapps-pa.clients6.google.com,CHK
     - DOMAIN,gemini.google.com,CHK
