@@ -572,12 +572,14 @@ rules:
     - DOMAIN,safebrowsing.googleapis.com,DIRECT
 
     # 3. AI 网站强制走 AI 策略组
-    - DOMAIN-SUFFIX,google.com,CHK
-    - DOMAIN,aistudio.google.com,CHK
-    - DOMAIN,ai.google.dev,CHK
+    - DOMAIN,aistudio.google.com,PROXY_AI
+    - DOMAIN,ai.google.dev,PROXY_AI
+    - DOMAIN,play.google.com,CHK
+    - DOMAIN,console.firebase.google.com,CHK
     - DOMAIN,playconsoleapps-pa.clients6.google.com,CHK
     - DOMAIN,gemini.google.com,CHK
     - DOMAIN-SUFFIX,googleapis.com,CHK
+    - DOMAIN-SUFFIX,google.com,PROXY_AI
     - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
     - DOMAIN-SUFFIX,claude.ai,PROXY_AI
     - DOMAIN-SUFFIX,claude.com,PROXY_AI
