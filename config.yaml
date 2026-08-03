@@ -579,7 +579,7 @@ rules:
     - DOMAIN,console.firebase.google.com,CHK
     - DOMAIN,playconsoleapps-pa.clients6.google.com,CHK
     - DOMAIN,gemini.google.com,CHK
-    - DOMAIN-SUFFIX,googleapis.com,CHK
+    - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
     - DOMAIN-SUFFIX,google.com,PROXY_AI
     - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
     - DOMAIN-SUFFIX,claude.ai,PROXY_AI
@@ -605,7 +605,7 @@ rules:
     - DOMAIN-SUFFIX,mvnrepository.com,SERVER
     - PROCESS-NAME,Cici,PROXY_AI
     - PROCESS-NAME,Dola Helper,PROXY_AI
-    - PROCESS-NAME,studio,CHK
+    - PROCESS-NAME,studio,PROXY_AI
     - PROCESS-NAME,Docker Desktop Helper,SERVER
     - PROCESS-NAME,com.docker.backend,SERVER
     - PROCESS-NAME,ollama,SERVER
