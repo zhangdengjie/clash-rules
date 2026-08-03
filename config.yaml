@@ -527,7 +527,7 @@ rules:
     - IP-CIDR,43.161.254.214/32,DIRECT
     - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
     - RULE-SET,ProcessReject,REJECT
-    - RULE-SET,DomainRule,DIRECT
+    - RULE-SET,DomainRule,CHK
     - RULE-SET,CustomAd,REJECT
     - RULE-SET,AD,REJECT
     - RULE-SET,EasyList,REJECT
