@@ -160,6 +160,24 @@ proxies:
       public-key: RED22pCEfISPAkdeFbbJRHWMNtf9USIwsc1iwmXTSn4
       short-id: c8d1
       spider-x: /91a82607bcd9d79
+
+  - name: "CSG"
+    type: vless
+    server: 47.84.58.248
+    port: 23302
+    uuid: f6372ca9-ebc9-4342-b92e-a3e6dce376be
+    network: tcp
+    tls: true
+    udp: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    servername: www.cloudflare.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: xh7I-_azp9_bPpFdoLgICuFRV-L3LPbm2UmlqdYLXnU
+      short-id: 1198
+      spider-x: /mkk0sDk3wzFLsmh
+
 # 订阅配置
 proxy-providers:
   FeiniaoYun:
@@ -330,6 +348,8 @@ proxy-groups:
     timeout: 3000
     lazy: true
     hidden: false
+    proxies:
+      - CSG
     use:
       - V2Free-SG
       - FeiniaoYun-SG
@@ -340,6 +360,8 @@ proxy-groups:
 
   - name: Select-AI
     type: select
+    proxies:
+      - CSG
     use:
       - V2Free-SG
       - FeiniaoYun-SG
@@ -354,6 +376,8 @@ proxy-groups:
     interval: 60
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
+    proxies:
+      - CSG
     use:
       - FeiniaoYun
       - V2Free
@@ -362,6 +386,7 @@ proxy-groups:
     type: select
     proxies:
       - CHK
+      - CSG
     use:
       - FeiniaoYun
       - V2Free
@@ -371,6 +396,7 @@ proxy-groups:
   - name: PROXY_COMMON
     type: select
     proxies:
+      - CSG
       - Select-Common
       - Fast-Common
 
@@ -380,6 +406,7 @@ proxy-groups:
       - Auto-AI
       - Fast-AI
       - Select-AI
+      - CSG
       
   - name: GLOBAL_USE
     type: select
@@ -387,6 +414,7 @@ proxy-groups:
       - Select-Common
       - Select-AI
       - CHK
+      - CSG
       - DIRECT
     
   - name: SERVER
@@ -400,6 +428,7 @@ proxy-groups:
       - Fast-V2Free
       - Fast-Feiniaoyun
       - CHK
+      - CSG
 
 # 规则集配置
 rule-providers:
