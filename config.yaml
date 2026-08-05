@@ -144,26 +144,9 @@ dns:
       - https://doh.pub/dns-query
 
 proxies:
-  - name: "CHK"
+  - name: "CJP"
     type: vless
-    server: 43.161.254.214
-    port: 23302
-    uuid: 6c3935da-4b35-40c6-a38e-9188d80a2c96
-    network: tcp
-    tls: true
-    udp: true
-    skip-cert-verify: false
-    flow: xtls-rprx-vision
-    servername: www.cloudflare.com
-    client-fingerprint: chrome
-    reality-opts:
-      public-key: RED22pCEfISPAkdeFbbJRHWMNtf9USIwsc1iwmXTSn4
-      short-id: c8d1
-      spider-x: /91a82607bcd9d79
-
-  - name: "CSG"
-    type: vless
-    server: 47.84.58.248
+    server: 47.245.59.113
     port: 23302
     uuid: f6372ca9-ebc9-4342-b92e-a3e6dce376be
     network: tcp
@@ -349,7 +332,7 @@ proxy-groups:
     lazy: true
     hidden: false
     proxies:
-      - CSG
+      - CJP
     use:
       - V2Free-SG
       - FeiniaoYun-SG
@@ -361,7 +344,7 @@ proxy-groups:
   - name: Select-AI
     type: select
     proxies:
-      - CSG
+      - CJP
     use:
       - V2Free-SG
       - FeiniaoYun-SG
@@ -377,7 +360,7 @@ proxy-groups:
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
     proxies:
-      - CSG
+      - CJP
     use:
       - FeiniaoYun
       - V2Free
@@ -385,8 +368,7 @@ proxy-groups:
   - name: Select-Common
     type: select
     proxies:
-      - CHK
-      - CSG
+      - CJP
     use:
       - FeiniaoYun
       - V2Free
@@ -396,7 +378,7 @@ proxy-groups:
   - name: PROXY_COMMON
     type: select
     proxies:
-      - CSG
+      - CJP
       - Select-Common
       - Fast-Common
 
@@ -406,15 +388,14 @@ proxy-groups:
       - Auto-AI
       - Fast-AI
       - Select-AI
-      - CSG
+      - CJP
       
   - name: GLOBAL_USE
     type: select
     proxies:
       - Select-Common
       - Select-AI
-      - CHK
-      - CSG
+      - CJP
       - DIRECT
     
   - name: SERVER
@@ -425,10 +406,9 @@ proxy-groups:
     tolerance: 100
     lazy: true
     proxies:
+      - CJP
       - Fast-V2Free
       - Fast-Feiniaoyun
-      - CHK
-      - CSG
 
 # 规则集配置
 rule-providers:
@@ -554,9 +534,11 @@ rule-providers:
 rules:
 
     - IP-CIDR,43.161.254.214/32,DIRECT
+    - IP-CIDR,47.245.59.113/32,DIRECT
+    - IP-CIDR,47.84.58.248/32,DIRECT
     - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
     - RULE-SET,ProcessReject,REJECT
-    - RULE-SET,DomainRule,CHK
+    - RULE-SET,DomainRule,CJP
     - RULE-SET,CustomAd,REJECT
     - RULE-SET,AD,REJECT
     - RULE-SET,EasyList,REJECT
@@ -585,7 +567,7 @@ rules:
     # 优先放行 STUN (UDP 3478)
     - DST-PORT,3478,DIRECT
     - DOMAIN-SUFFIX,chat.bilibili.com,DIRECT
-    - DOMAIN-SUFFIX,cloudflare.com,CHK
+    - DOMAIN-SUFFIX,cloudflare.com,CJP
     - DOMAIN-SUFFIX,wangchujiang.com,PROXY_COMMON
     - DOMAIN-SUFFIX,cn,DIRECT
     # 强制直连的域名
@@ -601,15 +583,15 @@ rules:
     - DOMAIN,safebrowsing.googleapis.com,DIRECT
 
     # 3. AI 网站强制走 AI 策略组
-    - DOMAIN,aistudio.google.com,PROXY_AI
-    - DOMAIN,ai.google.dev,PROXY_AI
-    - DOMAIN,play.google.com,CHK
-    - DOMAIN,www.google.com,CHK
-    - DOMAIN,console.firebase.google.com,CHK
-    - DOMAIN,playconsoleapps-pa.clients6.google.com,CHK
-    - DOMAIN,gemini.google.com,CHK
-    - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
-    - DOMAIN-SUFFIX,google.com,PROXY_AI
+    - DOMAIN,aistudio.google.com,CJP
+    - DOMAIN,ai.google.dev,CJP
+    - DOMAIN,play.google.com,CJP
+    - DOMAIN,www.google.com,CJP
+    - DOMAIN,console.firebase.google.com,CJP
+    - DOMAIN,playconsoleapps-pa.clients6.google.com,CJP
+    - DOMAIN,gemini.google.com,CJP
+    - DOMAIN-SUFFIX,googleapis.com,CJP
+    - DOMAIN-SUFFIX,google.com,CJP
     - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
     - DOMAIN-SUFFIX,claude.ai,PROXY_AI
     - DOMAIN-SUFFIX,claude.com,PROXY_AI
