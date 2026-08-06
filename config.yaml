@@ -146,8 +146,8 @@ dns:
 proxies:
   - name: "CJP"
     type: vless
-    server: 47.245.59.113
-    port: 23302
+    server: 8.211.178.63
+    port: 443
     uuid: f6372ca9-ebc9-4342-b92e-a3e6dce376be
     network: tcp
     tls: true
@@ -538,7 +538,7 @@ rules:
     - IP-CIDR,47.84.58.248/32,DIRECT
     - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
     - RULE-SET,ProcessReject,REJECT
-    - RULE-SET,DomainRule,CJP
+    - RULE-SET,DomainRule,PROXY_COMMON
     - RULE-SET,CustomAd,REJECT
     - RULE-SET,AD,REJECT
     - RULE-SET,EasyList,REJECT
@@ -567,7 +567,7 @@ rules:
     # 优先放行 STUN (UDP 3478)
     - DST-PORT,3478,DIRECT
     - DOMAIN-SUFFIX,chat.bilibili.com,DIRECT
-    - DOMAIN-SUFFIX,cloudflare.com,CJP
+    - DOMAIN-SUFFIX,cloudflare.com,PROXY_COMMON
     - DOMAIN-SUFFIX,wangchujiang.com,PROXY_COMMON
     - DOMAIN-SUFFIX,cn,DIRECT
     # 强制直连的域名
@@ -583,15 +583,15 @@ rules:
     - DOMAIN,safebrowsing.googleapis.com,DIRECT
 
     # 3. AI 网站强制走 AI 策略组
-    - DOMAIN,aistudio.google.com,CJP
-    - DOMAIN,ai.google.dev,CJP
-    - DOMAIN,play.google.com,CJP
-    - DOMAIN,www.google.com,CJP
-    - DOMAIN,console.firebase.google.com,CJP
-    - DOMAIN,playconsoleapps-pa.clients6.google.com,CJP
-    - DOMAIN,gemini.google.com,CJP
-    - DOMAIN-SUFFIX,googleapis.com,CJP
-    - DOMAIN-SUFFIX,google.com,CJP
+    - DOMAIN,aistudio.google.com,PROXY_AI
+    - DOMAIN,ai.google.dev,PROXY_COMMON
+    - DOMAIN,play.google.com,PROXY_COMMON
+    - DOMAIN,www.google.com,PROXY_COMMON
+    - DOMAIN,console.firebase.google.com,PROXY_COMMON
+    - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
+    - DOMAIN,gemini.google.com,PROXY_COMMON
+    - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
+    - DOMAIN-SUFFIX,google.com,PROXY_AI
     - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
     - DOMAIN-SUFFIX,claude.ai,PROXY_AI
     - DOMAIN-SUFFIX,claude.com,PROXY_AI
