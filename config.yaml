@@ -164,7 +164,7 @@ proxies:
     udp: true
     skip-cert-verify: false
     flow: xtls-rprx-vision
-    servername: www.cloudflare.com
+    servername: intel.com
     client-fingerprint: chrome
     reality-opts:
       public-key: xh7I-_azp9_bPpFdoLgICuFRV-L3LPbm2UmlqdYLXnU
