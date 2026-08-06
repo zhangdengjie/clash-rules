@@ -14,6 +14,15 @@ keep-alive-interval: 60
 hosts:
     mtalk.google.com: 108.177.125.188
 
+tun:
+  enable: true
+  stack: mixed # 推荐系统栈（macOS 下表现最稳定）
+  auto-route: true
+  auto-detect-interface: true
+  # 彻底让域名绕过 TUN 虚拟网卡接管（Mihomo/Clash Meta 特有）
+  bypass-domain:
+    - '*.lanhuapp.com'
+
 dns:
     enable: true
     ipv6: false
@@ -29,6 +38,7 @@ dns:
       - "+.stun.*"
       - "+.chat.bilibili.com"
       - "address.video.blive.com"
+      - '*.lanhuapp.com'
     use-hosts: true
 
     #################################################################
@@ -536,6 +546,8 @@ rules:
     - IP-CIDR,43.161.254.214/32,DIRECT
     - IP-CIDR,47.245.59.113/32,DIRECT
     - IP-CIDR,47.84.58.248/32,DIRECT
+    # 强制蓝湖的所有子域名直接直连，且不进行 DNS 解析判断
+    - DOMAIN-SUFFIX,lanhuapp.com,DIRECT
     - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
     - RULE-SET,ProcessReject,REJECT
     - RULE-SET,DomainRule,PROXY_COMMON
