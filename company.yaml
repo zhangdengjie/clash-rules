@@ -14,6 +14,17 @@ keep-alive-interval: 60
 hosts:
     mtalk.google.com: 108.177.125.188
 
+tun:
+  enable: true
+  stack: mixed # 推荐系统栈（macOS 下表现最稳定）
+  auto-route: true
+  auto-detect-interface: true
+  ipv6: false
+  # 彻底让域名绕过 TUN 虚拟网卡接管（Mihomo/Clash Meta 特有）
+  bypass-domain:
+    - '*.lanhuapp.com'
+    - '*.douyin.com'
+
 dns:
     enable: true
     ipv6: false
