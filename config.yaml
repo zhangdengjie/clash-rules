@@ -526,7 +526,7 @@ rule-providers:
   ProgramAD:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/ProgramAD.yaml"
+    url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/ProgramAD.yaml"
     path: ./rules/ProgramAD.yaml
     interval: 86400
 
