@@ -20,6 +20,8 @@ tun:
   auto-route: true
   auto-detect-interface: true
   ipv6: false
+  dns-hijack:
+    - any:53
   # 彻底让域名绕过 TUN 虚拟网卡接管（Mihomo/Clash Meta 特有）
   bypass-domain:
     - '*.lanhuapp.com'
@@ -32,6 +34,10 @@ dns:
     respect-rules: true
     enhanced-mode: fake-ip
     fake-ip-range: 198.18.0.1/16
+    cache-algorithm: arc
+    prefer-h3: false
+    use-hosts: false
+    use-system-hosts: false
     #  STUN 服务器走真实 IP 解析，不进入 Fake-IP 池
     fake-ip-filter:
       - '*.lan'
@@ -50,7 +56,6 @@ dns:
       - "+.stun.*"
       - "+.chat.bilibili.com"
       - "address.video.blive.com"
-    use-hosts: true
 
     #################################################################
     # Bootstrap DNS
