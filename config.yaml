@@ -519,7 +519,7 @@ rule-providers:
   EasyPrivacy:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/EasyPrivacy.yaml"
+    url: "https://raw.githubusercontent.com/zhangdengjie/clash-rules/main/EasyPrivacy.yaml"
     path: ./rules/EasyPrivacy.yaml
     interval: 86400
 
