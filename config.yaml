@@ -613,12 +613,12 @@ rules:
 
   # 3. AI 网站强制走 AI 策略组
   - DOMAIN,aistudio.google.com,PROXY_AI
-  - DOMAIN,ai.google.dev,PROXY_COMMON
+  - DOMAIN,ai.google.dev,PROXY_AI
   - DOMAIN,play.google.com,PROXY_COMMON
   - DOMAIN,www.google.com,PROXY_COMMON
   - DOMAIN,console.firebase.google.com,PROXY_COMMON
   - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
-  - DOMAIN,gemini.google.com,PROXY_COMMON
+  - DOMAIN,gemini.google.com,PROXY_AI
   - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
   - DOMAIN-SUFFIX,google.com,PROXY_AI
   - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
