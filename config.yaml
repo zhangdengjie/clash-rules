@@ -189,7 +189,7 @@ dns:
 proxies:
   - name: "CJP"
     type: vless
-    server: 8.211.178.63
+    server: 8.209.235.108
     port: 443
     uuid: f6372ca9-ebc9-4342-b92e-a3e6dce376be
     network: tcp
