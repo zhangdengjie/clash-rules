@@ -404,8 +404,6 @@ proxy-groups:
     interval: 60
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
-    proxies:
-      - CJP
     use:
       - FeiniaoYun
       - V2Free
