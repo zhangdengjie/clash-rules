@@ -83,8 +83,6 @@ dns:
   nameserver:
     - 223.5.5.5
     - 119.29.29.29
-    # 备用，防止阿里挂了
-    - 114.114.114.114
 
   #################################################################
   # 国外 DNS
@@ -353,7 +351,8 @@ proxy-groups:
 
   - name: Fast-AI
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    # gpt https://chatgpt.com/cdn-cgi/trace
+    url: https://generativelanguage.googleapis.com/v1beta/models?key=AIzaSy
     interval: 60
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
@@ -368,7 +367,8 @@ proxy-groups:
 
   - name: Auto-AI
     type: fallback
-    url: https://www.gstatic.com/generate_204
+    # gpt https://chatgpt.com/cdn-cgi/trace
+    url: https://generativelanguage.googleapis.com/v1beta/models?key=AIzaSy
     interval: 30
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
@@ -386,6 +386,8 @@ proxy-groups:
 
   - name: Select-AI
     type: select
+    # gpt https://chatgpt.com/cdn-cgi/trace
+    url: https://generativelanguage.googleapis.com/v1beta/models?key=AIzaSy
     proxies:
       - CJP
     use:
@@ -579,6 +581,9 @@ rules:
   - IP-CIDR,43.161.254.214/32,DIRECT
   - IP-CIDR,47.245.59.113/32,DIRECT
   - IP-CIDR,47.84.58.248/32,DIRECT
+  - DOMAIN,scamalytics.com,PROXY_AI
+  - DOMAIN,ipinfo.io,PROXY_AI
+  - DOMAIN-SUFFIX,test-ipv6.com,PROXY_AI
   # 强制蓝湖的所有子域名直接直连，且不进行 DNS 解析判断
   - DOMAIN-SUFFIX,lanhuapp.com,DIRECT
   - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
