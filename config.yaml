@@ -45,6 +45,7 @@ dns:
     - 'geosite:cn'
     # 2. 过滤局域网及私有域名
     - 'geosite:private'
+    - "*.xixi2022.cc"
     - '*.lan'
     - '*.local'
     - '*.arpa'
@@ -631,13 +632,9 @@ rules:
   - DOMAIN,safebrowsing.googleapis.com,DIRECT
 
   # 3. AI 网站强制走 AI 策略组
-  - DOMAIN,aistudio.google.com,PROXY_AI
   - DOMAIN,ai.google.dev,PROXY_AI
-  - DOMAIN,play.google.com,PROXY_COMMON
-  - DOMAIN,www.google.com,PROXY_COMMON
-  - DOMAIN,console.firebase.google.com,PROXY_COMMON
-  - DOMAIN,playconsoleapps-pa.clients6.google.com,PROXY_AI
-  - DOMAIN,gemini.google.com,PROXY_AI
+  - DOMAIN-SUFFIX,gstatic.com,PROXY_AI
+  - DOMAIN,lh3.googleusercontent.com,PROXY_AI
   - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
   - DOMAIN-SUFFIX,google.com,PROXY_AI
   - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
