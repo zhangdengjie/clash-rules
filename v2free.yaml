@@ -14,249 +14,296 @@ dns:
   use-hosts: true
   nameserver: ['114.114.114.114', '223.5.5.5', 'https://dns.alidns.com/dns-query']
 proxies:
-  - { name: '🇯🇵 不限流量【不保证可用】日本', type: vless, server: payme-jp0421.groupgo.top, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.AWyewmdHZXSNBCjzc6XxupwfkEfjaz4VvF4zqfXiTzM, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: fast-service } }
+  - { name: '🇯🇵 不限流量【不保证可用】日本', type: vless, server: payme-jp0421.groupgo.top, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.5bigr3HsyTWHBbhCmsjlILFuyd5yypOYCw-c_jfZYl4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /fast-service } }
   - { name: '🇯🇵 不限流量【不保证可用】日本2', type: vless, server: anypayjp0.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.8GqsJToT6jA48y-ZP85mVeIOe9Cs8LbJUZDfKeSoqzs, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: jpytdk00 } }
-  - { name: '🇫🇷 不限流量【不保证可用】法国', server: payme-fr1.groupgo.top, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /frgamesdk1, headers: { Host: payme-fr1.groupgo.top }, v2ray-http-upgrade: true } }
-  - { name: '🇺🇸 不限流量【不保证可用】美国2', type: vless, server: payme-us2.groupgo.top, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.uldROicX3s6wZfurpTIaAXnMbW518sopZzz-l732pXc, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: fast-service } }
-  - { name: '🇺🇸 不限流量【不保证可用】美国3', type: vless, server: us326.18838006.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.dOUjl3ZeoGIwhTLMZ-1q5NPOeOhOdHQyXf2BRllU2F0, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: ws, ws-opts: { path: /usdk326, headers: { Host: us326.18838006.xyz }, v2ray-http-upgrade: true } }
-  - { name: '🇺🇦 bt下载-乌克兰-直连-0.5倍率', type: hysteria2, server: btsdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇷🇺 俄国-直连-0.5倍率', type: hysteria2, server: eurusdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇨🇦 加拿大-直连-0.5倍率', type: hysteria2, server: casdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇿🇦 南非-直连-0.5倍率', type: hysteria2, server: gamenfsdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇹🇼 台湾1-直连-0.5倍率', type: hysteria2, server: twsdk01.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇹🇼 台湾2-直连-0.5倍率', type: hysteria2, server: twsdk02.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇹🇼 台湾3-直连-0.5倍率', type: hysteria2, server: twsdk03.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇹🇷 土耳其-直连-0.5倍率', type: hysteria2, server: tksdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇩🇪 德国-直连-0.5倍率', type: hysteria2, server: eudesdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇮🇹 意大利-直连-0.5倍率', type: hysteria2, server: gameitsdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇸🇬 新加坡1-直连-0.5倍率', type: hysteria2, server: sgsdk01.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇸🇬 新加坡2-直连-0.5倍率', type: hysteria2, server: sgsdk02.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇸🇬 新加坡3-直连-0.5倍率', type: hysteria2, server: sgsdk03.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇸🇬 新加坡4-直连-0.5倍率', type: hysteria2, server: sgsdk04.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇫🇷 法国-直连-0.5倍率', type: hysteria2, server: gamesdkfr1.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇺🇸 美国01-直连-0.5倍率', type: hysteria2, server: usdk01.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇺🇸 美国02-直连-0.5倍率', type: hysteria2, server: usdk02.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇺🇸 美国03-直连-0.5倍率', type: hysteria2, server: usdk03.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇺🇸 美国05-直连-0.ipv6', type: hysteria2, server: usdk05.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇺🇸 美国06-直连-0.5倍率', type: hysteria2, server: usdk06.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇺🇸 美国07-直连-0.5倍率', type: hysteria2, server: usdk07.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇺🇸 美国08-直连-0.5倍率', type: hysteria2, server: usdk08.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇺🇸 美国10-直连-0.5倍率', type: hysteria2, server: usdk10.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇺🇸 美国11-直连-0.5倍率', type: hysteria2, server: usdk11.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇺🇸 美国15-直连-0.5倍率', type: hysteria2, server: gamesdkus15.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇬🇧 英国-直连-0.5倍率', type: hysteria2, server: euuksdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇦🇷 阿根廷-直连-0.5倍率', type: hysteria2, server: gamearsdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇲🇾 马来西亚2-直连-0.5倍率', type: hysteria2, server: gamema2sdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇺🇦 bt下载-乌克兰-VIP88', type: vless, server: team.bhcy.email, port: 11574, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.TR0Z7YY9G6Q_bU-ZRJ_ANsjZX3zb7FwYdgtQjwvKQHw, flow: xtls-rprx-vision }
-  - { name: '🇺🇦 bt下载-乌克兰-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11697, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇷🇺 俄国-VIP88', type: vless, server: team.bhcy.email, port: 11578, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.sX5Y08VXVgtAyor7-pXmVDV3BaNIvzOKrpkRNAtc2T4, flow: xtls-rprx-vision }
-  - { name: '🇷🇺 俄国-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11699, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇨🇦 加拿大-VIP88', type: vless, server: team.bhcy.email, port: 11545, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ALvjeJ6wAn5_Qaf0ojV9dTqfPuUR28XKIec4Be6IPBU, flow: xtls-rprx-vision }
+  - { name: '🇫🇷 不限流量【不保证可用】法国', type: vless, server: payme-fr1.groupgo.top, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.7sb5ZvCOeNgNVeU6kwdpGW8CkLo80mubqq6gaRiYh3w, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /frgamesdk1 } }
+  - { name: '🇺🇸 不限流量【不保证可用】美国', type: vless, server: us326.18838006.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.4SlSmjtnkH8iGECo-zuW8XdFzmX42IrzmMN_Axp_5EU, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /usdk326 } }
+  - { name: '🇺🇦 bt下载-乌克兰-VIP88-0.5倍率', type: hysteria2, server: btsdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇷🇺 俄国-VIP88-0.5倍率', type: hysteria2, server: eurusdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇨🇦 加拿大-VIP88-0.5倍率', type: hysteria2, server: casdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇹🇷 土耳其-VIP88-0.5倍率', type: hysteria2, server: tksdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇩🇪 德国-VIP88-0.5倍率', type: hysteria2, server: eudesdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇮🇹 意大利-VIP88-0.5倍率', type: hysteria2, server: gameitsdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇸🇬 新加坡1-VIP88-0.5倍率', type: hysteria2, server: sgsdk01.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇸🇬 新加坡2-VIP88-0.5倍率', type: hysteria2, server: sgsdk02.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇸🇬 新加坡3-VIP88-0.5倍率', type: hysteria2, server: sgsdk03.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇸🇬 新加坡4-VIP88-0.5倍率', type: hysteria2, server: sgsdk04.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇫🇷 法国-VIP88-0.5倍率', type: hysteria2, server: gamesdkfr1.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇺🇸 美国-VIP88-0.5倍率', type: vless, server: wto.org, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.DbC55hFeFNBp0eZ4sZzLnaJkN0VMxp8pA734DVYotg0, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /ust0-javasdk }, servername: payme-usdk.groupgo.top }
+  - { name: '🇺🇸 美国01-VIP88-0.5倍率', type: hysteria2, server: usdk01.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇺🇸 美国02-VIP88-0.5倍率', type: hysteria2, server: usdk02.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇺🇸 美国03-VIP88-0.5倍率', type: hysteria2, server: usdk03.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇺🇸 美国05-VIP88-0.5倍率', type: hysteria2, server: usdk05.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇺🇸 美国06-VIP88-0.5倍率', type: hysteria2, server: usdk06.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇺🇸 美国07-VIP88-0.5倍率', type: hysteria2, server: usdk07.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇺🇸 美国08-VIP88-0.5倍率', type: hysteria2, server: usdk08.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇺🇸 美国10-VIP88-0.5倍率', type: hysteria2, server: usdk10.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇺🇸 美国11-VIP88-0.5倍率', type: hysteria2, server: usdk11.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇺🇸 美国15-VIP88-0.5倍率', type: hysteria2, server: gamesdkus15.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇬🇧 英国-VIP88-0.5倍率', type: hysteria2, server: euuksdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇦🇷 阿根廷-VIP88-0.5倍率', type: hysteria2, server: gamearsdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇲🇾 马来西亚2-VIP88-0.5倍率', type: hysteria2, server: gamema2sdk.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇹🇼 台湾5-VIP88-0.8倍率-谷歌学术', type: hysteria2, server: twsdk05.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇹🇼 台湾6-VIP88-0.8倍率-谷歌学术', type: hysteria2, server: twsdk06.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇯🇵 日本1-VIP88-0.8倍率', type: hysteria2, server: jpsdk01.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇯🇵 日本2-VIP88-0.8倍率', type: hysteria2, server: jpsdk02.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇯🇵 日本3-VIP88-0.8倍率', type: hysteria2, server: jpsdk03.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇯🇵 日本4-VIP88-0.8倍率', type: hysteria2, server: jpsdk04.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇯🇵 日本5-VIP88-0.8倍率', type: hysteria2, server: jpsdk05.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇯🇵 日本6-VIP88-0.8倍率', type: hysteria2, server: jpsdk06.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇭🇰 香港1-VIP88-0.8倍率-谷歌学术', type: hysteria2, server: hksdk08.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇭🇰 香港2-VIP88-0.8倍率-谷歌学术', type: hysteria2, server: hksdk02.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇭🇰 香港3-VIP88-0.8倍率', type: hysteria2, server: hksdk03.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇭🇰 香港4-VIP88-0.8倍率', type: hysteria2, server: hksdk07.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇭🇰 香港5-VIP88-0.8倍率', type: hysteria2, server: hksdk05.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇭🇰 香港6-VIP88-0.8倍率', type: hysteria2, server: hksdk06.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇺🇦 bt下载-乌克兰-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11697, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇦 bt下载-乌克兰-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.-uqwg7-eoTkXyH087jTxFBGwfB457E1jkodoI2pzN2g, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-bt1 } }
+  - { name: '🇺🇦 bt下载-乌克兰-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.-uqwg7-eoTkXyH087jTxFBGwfB457E1jkodoI2pzN2g, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-bt1 } }
+  - { name: '🇷🇺 俄国-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11699, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇷🇺 俄国-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.XSRVWMlqwx0TPMVyeUiSdpXI5DJXM_wnPlgJuBVzL3E, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-ru1 } }
+  - { name: '🇷🇺 俄国-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.XSRVWMlqwx0TPMVyeUiSdpXI5DJXM_wnPlgJuBVzL3E, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-ru1 } }
   - { name: '🇨🇦 加拿大-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11844, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: www.bilibili.com, skip-cert-verify: true }
-  - { name: '🇿🇦 南非-VIP88', type: vless, server: team.bhcy.email, port: 11577, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.4sHK3HyQK9PYDswavw9-66WIdkBqZMplp931h5oQQhQ, flow: xtls-rprx-vision }
+  - { name: '🇨🇦 加拿大-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.d1H6F8gke23YDwl0gDZtrRaLeN6u3YYAeZNTxtGWjzc, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /ca-9b62b174cc } }
+  - { name: '🇿🇦 南非-VIP88', type: hysteria2, server: gamenfsdk1.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
   - { name: '🇿🇦 南非-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11857, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: www.bilibili.com, skip-cert-verify: true }
-  - { name: '🇹🇼 台湾1-VIP88', type: vless, server: team.bhcy.email, port: 11510, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.mim_YYUWoQ1c11d7WIPM62jLUTovccsSKTV0l_1LdWk, flow: xtls-rprx-vision }
-  - { name: '🇹🇼 台湾1-VIP88a', server: mime.bhcy.email, port: 11348, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇹🇼 台湾2-VIP88', type: vless, server: team.bhcy.email, port: 11511, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Rx82_vt4ZW7uzGCDFwGJsCNTu5v9rnwkZSWlIw681ik, flow: xtls-rprx-vision }
-  - { name: '🇹🇼 台湾2-VIP88a', server: mime.bhcy.email, port: 11812, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇹🇼 台湾3-VIP88', type: vless, server: team.bhcy.email, port: 11512, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.TIT3dKY88coWYZxjujJMsvsbzysduDN_Y9uLWAHMKw0, flow: xtls-rprx-vision }
-  - { name: '🇹🇼 台湾3-VIP88a', server: mime.bhcy.email, port: 11349, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇹🇼 台湾4-VIP88', type: vless, server: team.bhcy.email, port: 11513, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.7-v80JU68LGqAKkAKlBoAKI9VJLnSuTLuH1_UgVSBVU, flow: xtls-rprx-vision }
-  - { name: '🇹🇼 台湾4-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11801, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇹🇼 台湾4h', type: hysteria2, server: twsdk04.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇹🇼 台湾5-VIP88-谷歌学术', type: vless, server: team.bhcy.email, port: 11514, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.BbB0wM92m9XtBmqDw533fBReQOelPr-hbUSh7gpl3U4, flow: xtls-rprx-vision }
-  - { name: '🇹🇼 台湾5-VIP88a-谷歌学术', server: mime.bhcy.email, port: 11831, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇹🇼 台湾5h', type: hysteria2, server: twsdk05.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇹🇼 台湾6-VIP88-谷歌学术', type: vless, server: team.bhcy.email, port: 11515, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.MyXplZ1w7XcG3fMqPzHnwYlhILBFcQfb_NXjGHffNXY, flow: xtls-rprx-vision }
-  - { name: '🇹🇼 台湾6-VIP88a-谷歌学术', server: mime.bhcy.email, port: 11345, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇹🇼 台湾6h', type: hysteria2, server: twsdk06.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇹🇷 土耳其-VIP88', type: vless, server: team.bhcy.email, port: 11576, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.9lzO2lNw7wkZaQ61h7flLXvT7LakoNJKvJQx1ykV2D4, flow: xtls-rprx-vision }
-  - { name: '🇹🇷 土耳其-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11815, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇩🇪 德国-VIP88', type: vless, server: team.bhcy.email, port: 11571, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.HIfuh66_hxWAHZb0g6e8caCHacEPkUqh0SjOBfPXqCo, flow: xtls-rprx-vision }
-  - { name: '🇩🇪 德国-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11817, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇮🇹 意大利-VIP88', type: vless, server: team.bhcy.email, port: 11572, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.zXBvyonXJFBDlt9r4kpzGQ6CBphZrGfTxGhxTMIZUAU, flow: xtls-rprx-vision }
-  - { name: '🇮🇹 意大利-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11810, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇸🇬 新加坡1-VIP88', type: vless, server: team.bhcy.email, port: 11550, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Hj3OAK6n08dkwjMkVRWh9iH9wukbU36B1GZoai9bqmI, flow: xtls-rprx-vision }
-  - { name: '🇸🇬 新加坡1-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11840, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇸🇬 新加坡2-VIP88', type: vless, server: team.bhcy.email, port: 11551, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.FWncKwqEkZ88PBXuK99I6D7uhixPG1a6uECr9NJhPWw, flow: xtls-rprx-vision }
-  - { name: '🇸🇬 新加坡2-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11845, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇸🇬 新加坡3-VIP88', type: vless, server: team.bhcy.email, port: 11552, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Ikqccrh96FMGf3dPeyWvVD0akETMd4wj5TC5oi4KE2A, flow: xtls-rprx-vision }
-  - { name: '🇸🇬 新加坡3-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11850, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇸🇬 新加坡4-VIP88', type: vless, server: team.bhcy.email, port: 11553, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Sq6fFog1E46W-dARHCu8HTqBQRKFv0gvEJ1ezgI6AEM, flow: xtls-rprx-vision }
-  - { name: '🇸🇬 新加坡4-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11803, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇯🇵 日本-ipv6-t2-移动友好', type: anytls, server: anyjpay02.18838007.xyz, port: 443, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
-  - { name: '🇯🇵 日本-ipv6-t4-移动友好', type: anytls, server: anyjpay04.18838007.xyz, port: 443, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
-  - { name: '🇯🇵 日本-ipv6-t5-移动友好', type: anytls, server: anyjpay05.18838007.xyz, port: 443, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇿🇦 南非-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.2tVTSwqk_d8DAb9PVjjCg1OLGMsPJ7KVYsHmqhSIrQU, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-nf1 } }
+  - { name: '🇿🇦 南非-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.2tVTSwqk_d8DAb9PVjjCg1OLGMsPJ7KVYsHmqhSIrQU, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-nf1 } }
+  - { name: '🇹🇼 台湾1-VIP88', type: hysteria2, server: twbsdk01.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇹🇼 台湾1-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11348, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇹🇼 台湾1-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.2kg7LVwNsjXqyEpo5kIG8qzwyJbIVNh9Lgz_U4NoyRc, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-tw1 } }
+  - { name: '🇹🇼 台湾1-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.2kg7LVwNsjXqyEpo5kIG8qzwyJbIVNh9Lgz_U4NoyRc, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-tw1 } }
+  - { name: '🇹🇼 台湾2-VIP88', type: hysteria2, server: twbsdk02.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇹🇼 台湾2-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11812, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇹🇼 台湾2-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.VadAVpgbjQdrsEiD12GhgyO9Wyd9LjJLfwMQk623CgM, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-tw2 } }
+  - { name: '🇹🇼 台湾2-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.VadAVpgbjQdrsEiD12GhgyO9Wyd9LjJLfwMQk623CgM, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-tw2 } }
+  - { name: '🇹🇼 台湾3-VIP88', type: hysteria2, server: twbsdk03.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇹🇼 台湾3-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11349, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇹🇼 台湾3-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.1lfoSFQp7Mgbm2gtmGrz9v3eEE_f1EGn3eLoTZJnsSs, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-tw3 } }
+  - { name: '🇹🇼 台湾3-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.1lfoSFQp7Mgbm2gtmGrz9v3eEE_f1EGn3eLoTZJnsSs, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-tw3 } }
+  - { name: '🇹🇼 台湾4-VIP88', type: hysteria2, server: twsdk04.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇹🇼 台湾4-VIP88a', type: anytls, server: twsdk04.18838008.xyz, port: 443, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇹🇼 台湾5-VIP88c-谷歌学术', server: ttt5.16816802.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /tw5gamesdk, headers: { Host: ttt5.16816802.xyz } } }
+  - { name: '🇹🇼 台湾6-VIP88-谷歌学术', type: vless, server: ttt6.16816802.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.i-_1Lxml8S6spVW5dzugaFvl_IOR-z8f3IHteBgRUy8, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-tw6 } }
+  - { name: '🇹🇷 土耳其-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11815, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇩🇪 德国-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11817, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇩🇪 德国-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.IWjR8zyr72OjHt7RnmMH2WGKB51-Y6lpD-HX2GY1k3U, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-de1 } }
+  - { name: '🇩🇪 德国-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.IWjR8zyr72OjHt7RnmMH2WGKB51-Y6lpD-HX2GY1k3U, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-de1 } }
+  - { name: '🇮🇹 意大利-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11810, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇮🇹 意大利-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.RPRiNEZqvfXeq5qscxMV_8jsrXWY2ygPjwmMmY20IAk, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-it1 } }
+  - { name: '🇮🇹 意大利-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.RPRiNEZqvfXeq5qscxMV_8jsrXWY2ygPjwmMmY20IAk, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-it1 } }
+  - { name: '🇸🇬 新加坡1-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11840, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇸🇬 新加坡1-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.sqFlcLfAOEi7uFtnpaDWy_WYhYzaeQXBY73nJxSFr3E, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-sg1 } }
+  - { name: '🇸🇬 新加坡1-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.sqFlcLfAOEi7uFtnpaDWy_WYhYzaeQXBY73nJxSFr3E, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-sg1 } }
+  - { name: '🇸🇬 新加坡2-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11845, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇸🇬 新加坡2-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.B649UyDsgs3YueTpQ49kUDXV23aPdMkVGUlCthAOLk4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-sg2 } }
+  - { name: '🇸🇬 新加坡2-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.B649UyDsgs3YueTpQ49kUDXV23aPdMkVGUlCthAOLk4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-sg2 } }
+  - { name: '🇸🇬 新加坡3-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11850, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇸🇬 新加坡3-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Yo9wNpThD0uPOE6qJFu9Rqzy_X0t-6Bv2UYLZq19U2c, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-sg3 } }
+  - { name: '🇸🇬 新加坡3-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Yo9wNpThD0uPOE6qJFu9Rqzy_X0t-6Bv2UYLZq19U2c, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-sg3 } }
+  - { name: '🇸🇬 新加坡4-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11803, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇸🇬 新加坡4-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.FIDU7benohiJhiogOp353OtAWN545M79Mwd-MFaQ3FY, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-sg4 } }
+  - { name: '🇸🇬 新加坡4-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.FIDU7benohiJhiogOp353OtAWN545M79Mwd-MFaQ3FY, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-sg4 } }
   - { name: '🇯🇵 日本-t1-移动友好', type: anytls, server: anyjpay01.18838007.xyz, port: 443, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇯🇵 日本-t2-移动友好', type: anytls, server: anyjpay02.18838007.xyz, port: 443, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
   - { name: '🇯🇵 日本-t3-移动友好', type: anytls, server: anyjpay03.18838007.xyz, port: 443, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
-  - { name: '🇯🇵 日本1-VIP88', type: vless, server: team.bhcy.email, port: 11520, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.RAEAnGjO-NtxP2e6dKi1LirBx0JscaVtIe4KPPUYzgA, flow: xtls-rprx-vision }
-  - { name: '🇯🇵 日本1-VIP88a', server: mime.bhcy.email, port: 11708, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇯🇵 日本1h', type: hysteria2, server: jpsdk01.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇯🇵 日本2-VIP88', type: vless, server: team.bhcy.email, port: 11521, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ZjfkvJWTfp3J3yL81fv8bgUesqnmz89mhbaqTkY1ECU, flow: xtls-rprx-vision }
-  - { name: '🇯🇵 日本2-VIP88a', server: mime.bhcy.email, port: 11343, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇯🇵 日本2h', type: hysteria2, server: jpsdk02.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇯🇵 日本3-VIP88', type: vless, server: team.bhcy.email, port: 11522, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.RXaefCV9vxre4XckhgryDbwdQQwvL3Nrmjgj87lraDo, flow: xtls-rprx-vision }
-  - { name: '🇯🇵 日本3-VIP88a', server: mime.bhcy.email, port: 11821, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇯🇵 日本3h', type: hysteria2, server: jpsdk03.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇯🇵 日本4-VIP88', type: vless, server: team.bhcy.email, port: 11523, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.DIK2zNHuynYNXwHB97Mnnj2xLojprRbAQUyHPLUZ0AY, flow: xtls-rprx-vision }
-  - { name: '🇯🇵 日本4-VIP88a', server: mime.bhcy.email, port: 11701, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇯🇵 日本4h', type: hysteria2, server: jpsdk04.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇯🇵 日本5-VIP88', type: vless, server: team.bhcy.email, port: 11524, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.V29vo2MvhXHaHEomGsx9t1CBsaptgamhpDzVMUEPp2U, flow: xtls-rprx-vision }
-  - { name: '🇯🇵 日本5-VIP88a', server: mime.bhcy.email, port: 11702, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇯🇵 日本5h', type: hysteria2, server: jpsdk05.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇯🇵 日本6-VIP88', type: vless, server: team.bhcy.email, port: 11525, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.lyUh5f3sL7ouVGd-44oseYCMEF5pp5zyTxvcpl30Pyg, flow: xtls-rprx-vision }
-  - { name: '🇯🇵 日本6-VIP88a', server: mime.bhcy.email, port: 11703, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /jpsdk6, headers: { Host: mime.bhcy.email } } }
-  - { name: '🇯🇵 日本6h', type: hysteria2, server: jpsdk06.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇫🇷 法国-VIP88', type: vless, server: team.bhcy.email, port: 11573, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.lCPWSjJyvaeMn43Dr-CGnGAOilANXGW7WUN96kUAqyQ, flow: xtls-rprx-vision }
-  - { name: '🇫🇷 法国-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11848, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇺🇸 美国-t0', type: vless, server: wto.org, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.iM4fGhxluEnEMzI_C6oVv2I5_2KOxtFqeFwkS9XaLQc, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ust0-javasdk }, servername: payme-usdk.groupgo.top }
-  - { name: '🇺🇸 美国01-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11530, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ZnHkBp_HfrSviNc0rSjuUyOTq20lTvSm578vTCu-BXg, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国01-VIP22a', server: usdklax.16816801.xyz, port: 11849, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国01-VIP88', type: vless, server: team.bhcy.email, port: 11530, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ZnHkBp_HfrSviNc0rSjuUyOTq20lTvSm578vTCu-BXg, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国01-VIP88a', server: mime.bhcy.email, port: 11849, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国02-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11531, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.5H1M2oUmZMqQ9jtZrUUr9Wq7KZLxQ1AdsfvUMEE3xyU, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国02-VIP88', type: vless, server: team.bhcy.email, port: 11531, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.5H1M2oUmZMqQ9jtZrUUr9Wq7KZLxQ1AdsfvUMEE3xyU, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国02-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11340, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇺🇸 美国03-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11532, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.H4PFYDVxVxQ2TYfdy5KF3Ugo09xT1KRWXKyVnBFQ73E, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国03-VIP22a', server: usdklax.16816801.xyz, port: 11827, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国03-VIP88', type: vless, server: team.bhcy.email, port: 11532, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.H4PFYDVxVxQ2TYfdy5KF3Ugo09xT1KRWXKyVnBFQ73E, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国03-VIP88a', server: mime.bhcy.email, port: 11827, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国04-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11533, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.srAEqOk9rs7c0efy2rL5zvEU2wrzmqEGv_3Ff6WaG1k, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国04-VIP22a', server: usdklax.16816801.xyz, port: 11808, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国04-VIP88', type: vless, server: team.bhcy.email, port: 11533, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.srAEqOk9rs7c0efy2rL5zvEU2wrzmqEGv_3Ff6WaG1k, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国04-VIP88a', server: mime.bhcy.email, port: 11808, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国04-VIP88b', type: vless, server: wto.org, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.AJ0YeaOPukMxIP-Yp6eU1yY6FAAh8Iem5rKB1tUt-xU, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: fast-service }, servername: tradeusdk04.16816808.xyz }
-  - { name: '🇺🇸 美国05-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11534, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.AZjEVjA95cMaoioK8idi4xAuj5QLPwq6jrp6sM0gKyM, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国05-VIP22a', server: usdklax.16816801.xyz, port: 11802, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国05-VIP88', type: vless, server: team.bhcy.email, port: 11534, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.AZjEVjA95cMaoioK8idi4xAuj5QLPwq6jrp6sM0gKyM, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国05-VIP88a', server: mime.bhcy.email, port: 11802, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国06-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11535, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.8q17S-Mp9k2-imow8nt79I1f0ndes34xvq3J4p_oMUs, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国06-VIP22a', server: usdklax.16816801.xyz, port: 11807, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国06-VIP88', type: vless, server: team.bhcy.email, port: 11535, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.8q17S-Mp9k2-imow8nt79I1f0ndes34xvq3J4p_oMUs, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国06-VIP88a', server: mime.bhcy.email, port: 11807, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国07-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11536, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.c37kJJumM-ic-yp7qRLyGiqbXA_xdcDkY2cS3Ej1uXE, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国07-VIP22a', server: usdklax.16816801.xyz, port: 11704, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国07-VIP88', type: vless, server: team.bhcy.email, port: 11536, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.c37kJJumM-ic-yp7qRLyGiqbXA_xdcDkY2cS3Ej1uXE, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国07-VIP88a', server: mime.bhcy.email, port: 11704, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国08-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11537, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Dd5kzZTtZycNZOq-FS77kb5PotmEyeQXCA8tJRuQtWs, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国08-VIP22a', server: usdklax.16816801.xyz, port: 11841, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国08-VIP88', type: vless, server: team.bhcy.email, port: 11537, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Dd5kzZTtZycNZOq-FS77kb5PotmEyeQXCA8tJRuQtWs, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国08-VIP88a', server: mime.bhcy.email, port: 11841, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国09-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11538, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.8LGV3Xihy4OnJv3R6pr9lMMGYCoro7AMfBiI3MEWmUA, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国09-VIP22a', server: usdklax.16816801.xyz, port: 11842, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国09-VIP88', type: vless, server: team.bhcy.email, port: 11538, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.8LGV3Xihy4OnJv3R6pr9lMMGYCoro7AMfBiI3MEWmUA, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国09-VIP88a', server: mime.bhcy.email, port: 11842, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇺🇸 美国09-VIP88b', type: vless, server: wto.org, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Q25DDD0NoFFRrAAl7FoowKZfdxGGjEL3yoOmq7aM4jY, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: ws, ws-opts: { path: /uspaysdk09, headers: { Host: wto.org }, v2ray-http-upgrade: true }, servername: tradeusdk09.16816808.xyz }
-  - { name: '🇺🇸 美国10-VIP88', type: vless, server: team.bhcy.email, port: 11539, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.dL2bKpeesms6KqCbcbWx7xy3hJzkBYmbN1z7wr8VND8, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国10-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11843, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇺🇸 美国11-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11540, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.DFxZRWW06whz7YwDPmm8gaP7h3t1gO4J7XLncbm78n8, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国11-VIP22a', type: anytls, server: usdklax.16816801.xyz, port: 11858, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇺🇸 美国11-VIP88', type: vless, server: team.bhcy.email, port: 11540, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.DFxZRWW06whz7YwDPmm8gaP7h3t1gO4J7XLncbm78n8, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国11-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11858, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇺🇸 美国12-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11541, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.fvsHFF2m3O9JRwhNc7ejfCq9JAFe2Bbt9L8jo-6-A0k, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国12-VIP88', type: vless, server: team.bhcy.email, port: 11541, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.fvsHFF2m3O9JRwhNc7ejfCq9JAFe2Bbt9L8jo-6-A0k, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国12-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11816, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇺🇸 美国13-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11542, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.TWmFLmQR_b848kGzppJdKaKmA9plUI4fCHp6ZJHqsE0, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国13-VIP22a', type: anytls, server: usdklax.16816801.xyz, port: 11806, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇺🇸 美国13-VIP88', type: vless, server: team.bhcy.email, port: 11542, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.TWmFLmQR_b848kGzppJdKaKmA9plUI4fCHp6ZJHqsE0, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国13-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11806, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇺🇸 美国14-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11543, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.14py_gAeds91FeU4zWZVzdRABzWbbEEi2tYP1ih8KTc, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国14-VIP22a', type: anytls, server: usdklax.16816801.xyz, port: 11695, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇺🇸 美国14-VIP88', type: vless, server: team.bhcy.email, port: 11543, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.14py_gAeds91FeU4zWZVzdRABzWbbEEi2tYP1ih8KTc, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国14-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11695, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇺🇸 美国15-VIP22', type: vless, server: usdklax.16816801.xyz, port: 11544, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.TbzmEchmayxJVb8NpsemDXXf7CmZHAnvN1FgPYSp6FY, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国15-VIP22a', type: anytls, server: usdklax.16816801.xyz, port: 11804, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇺🇸 美国15-VIP88', type: vless, server: team.bhcy.email, port: 11544, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.TbzmEchmayxJVb8NpsemDXXf7CmZHAnvN1FgPYSp6FY, flow: xtls-rprx-vision }
-  - { name: '🇺🇸 美国15-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11804, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇬🇧 英国-VIP88', type: vless, server: team.bhcy.email, port: 11570, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.jol5zbBpzsw-LYI1BNhKx2Vs8KNMVyyWgupjkPQHKFs, flow: xtls-rprx-vision }
-  - { name: '🇬🇧 英国-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11344, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇦🇷 阿根廷-VIP88', type: vless, server: team.bhcy.email, port: 11546, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.YcIqJQbQ_Z46bDdEObTSQ4Yhx9KqtGNk3mSULXgBVjM, flow: xtls-rprx-vision }
-  - { name: '🇦🇷 阿根廷-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11826, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇦🇪 阿联酋-VIP88', type: vless, server: team.bhcy.email, port: 11567, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.KYHVDXAxsUtvAFO2zN_o7iRzgW2U6-7hWpZtayJN604, flow: xtls-rprx-vision }
+  - { name: '🇯🇵 日本-t4-移动友好', type: anytls, server: anyjpay04.18838007.xyz, port: 443, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇯🇵 日本-t5-移动友好', type: anytls, server: anyjpay05.18838007.xyz, port: 443, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇯🇵 日本1-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11708, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇯🇵 日本1-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.zre6e0ADS37snPq4mwJSxwduVPZ3kE484O7j6szlMC8, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-jp1 } }
+  - { name: '🇯🇵 日本1-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.zre6e0ADS37snPq4mwJSxwduVPZ3kE484O7j6szlMC8, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-jp1 } }
+  - { name: '🇯🇵 日本2-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11343, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇯🇵 日本2-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.UhikkoP-ffGArYwkkU9i-3SLlG7PFqyntJAkj0NjPk0, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-jp2 } }
+  - { name: '🇯🇵 日本2-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.UhikkoP-ffGArYwkkU9i-3SLlG7PFqyntJAkj0NjPk0, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-jp2 } }
+  - { name: '🇯🇵 日本3-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11821, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇯🇵 日本3-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.2sii5U0VlKnTuJ1qAbdxKQgtAekD8Sto2-_ywICUp1w, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-jp3 } }
+  - { name: '🇯🇵 日本3-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.2sii5U0VlKnTuJ1qAbdxKQgtAekD8Sto2-_ywICUp1w, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-jp3 } }
+  - { name: '🇯🇵 日本4-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11701, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇯🇵 日本4-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.gujAQSM-nqROMsTMZq_g1AhJXmspGBNAGJiTtDw81wE, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-jp4 } }
+  - { name: '🇯🇵 日本4-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.gujAQSM-nqROMsTMZq_g1AhJXmspGBNAGJiTtDw81wE, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-jp4 } }
+  - { name: '🇯🇵 日本5-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11702, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇯🇵 日本5-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.NRh6V7DdTcwlELapj45cZ6XeMP8xhTj8UiV3f47x-1g, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-jp5 } }
+  - { name: '🇯🇵 日本5-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.NRh6V7DdTcwlELapj45cZ6XeMP8xhTj8UiV3f47x-1g, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-jp5 } }
+  - { name: '🇯🇵 日本6-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11703, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇯🇵 日本6-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.rtDqfsWd8wtblj2BT0LTDwYuG0RkS6YOxczZ1UGnhjo, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-jp6 } }
+  - { name: '🇯🇵 日本6-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.rtDqfsWd8wtblj2BT0LTDwYuG0RkS6YOxczZ1UGnhjo, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-jp6 } }
+  - { name: '🇫🇷 法国-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11848, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇫🇷 法国-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ehusE_VriGHYWImfU7Eo0ogh56N7SnX47Wdv74EKRgU, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-fr1 } }
+  - { name: '🇫🇷 法国-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ehusE_VriGHYWImfU7Eo0ogh56N7SnX47Wdv74EKRgU, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-fr1 } }
+  - { name: '🇺🇸 美国01-VIP22c', type: anytls, server: usdklax.16816801.xyz, port: 11849, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国01-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11849, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国01-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.gPQDqJaXfeme89MB0qMKjIEGi8zTva1OK2K7aurIS08, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us01-8e5e3fd35d } }
+  - { name: '🇺🇸 美国01-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.gPQDqJaXfeme89MB0qMKjIEGi8zTva1OK2K7aurIS08, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us01-8e5e3fd35d } }
+  - { name: '🇺🇸 美国02-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11340, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国02-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.z_aLkF4GnlVdK074GrCSfcMH2nKdAuLlaEvpcPNFLWY, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us02-51f2b32d6f } }
+  - { name: '🇺🇸 美国02-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.z_aLkF4GnlVdK074GrCSfcMH2nKdAuLlaEvpcPNFLWY, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us02-51f2b32d6f } }
+  - { name: '🇺🇸 美国03-VIP22c', type: anytls, server: usdklax.16816801.xyz, port: 11827, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国03-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11827, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国03-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.w9pxnGiyMUcEWj0uy0UeRFBMzG667E8HjLgMB8DtjQU, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us03-494d924481 } }
+  - { name: '🇺🇸 美国03-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.w9pxnGiyMUcEWj0uy0UeRFBMzG667E8HjLgMB8DtjQU, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us03-494d924481 } }
+  - { name: '🇺🇸 美国04-VIP22c', type: anytls, server: usdklax.16816801.xyz, port: 11808, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国04-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11808, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国04-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.2ysYYFu5eJLK3v18XIwGlMIVciRxMXG5suXQwqMW6V4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us04-ba0512c3c5 } }
+  - { name: '🇺🇸 美国04-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.2ysYYFu5eJLK3v18XIwGlMIVciRxMXG5suXQwqMW6V4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us04-ba0512c3c5 } }
+  - { name: '🇺🇸 美国05-VIP22c', type: anytls, server: usdklax.16816801.xyz, port: 11802, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国05-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11802, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国05-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Bjt_EyWhJRn5CKMH5qpO5B9YcMYNmeRDaekM9cxUplE, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us05-d9a769c5af } }
+  - { name: '🇺🇸 美国05-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Bjt_EyWhJRn5CKMH5qpO5B9YcMYNmeRDaekM9cxUplE, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us05-d9a769c5af } }
+  - { name: '🇺🇸 美国06-VIP22c', type: anytls, server: usdklax.16816801.xyz, port: 11807, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国06-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11807, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国06-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.vuLCdoy2K9U80dycF8whEABX3pF1oE5crpC0z8pCG2k, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us06-2f8adaddb5 } }
+  - { name: '🇺🇸 美国06-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.vuLCdoy2K9U80dycF8whEABX3pF1oE5crpC0z8pCG2k, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us06-2f8adaddb5 } }
+  - { name: '🇺🇸 美国07-VIP22c', type: anytls, server: usdklax.16816801.xyz, port: 11704, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国07-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11704, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国07-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.2nP8_zmNRfQPu02PE4Yk3MSdUFl6YyGDSzuaveLoi0M, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us07-69963b3d3e } }
+  - { name: '🇺🇸 美国07-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.2nP8_zmNRfQPu02PE4Yk3MSdUFl6YyGDSzuaveLoi0M, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us07-69963b3d3e } }
+  - { name: '🇺🇸 美国08-VIP22c', type: anytls, server: usdklax.16816801.xyz, port: 11841, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国08-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11841, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国08-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Rx5929l6GRO0ziKry6hxQ9v0STLYafAkwFrEREyk734, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us08-420425863a } }
+  - { name: '🇺🇸 美国08-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Rx5929l6GRO0ziKry6hxQ9v0STLYafAkwFrEREyk734, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us08-420425863a } }
+  - { name: '🇺🇸 美国09-VIP22c', type: anytls, server: usdklax.16816801.xyz, port: 11842, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国09-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11842, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国09-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ygiRzR6Z7MMqD5f9eCOvJF2kdtNgboIkki7fZPiHrD0, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us09-8a02727e4a } }
+  - { name: '🇺🇸 美国09-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ygiRzR6Z7MMqD5f9eCOvJF2kdtNgboIkki7fZPiHrD0, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us09-8a02727e4a } }
+  - { name: '🇺🇸 美国10-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11843, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国10-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.yz1Wl5A5-o8bpa0lm-7DU6DqJxMV7wu_WVlY9vlEBHI, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us10-5b6c624e6a } }
+  - { name: '🇺🇸 美国10-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.yz1Wl5A5-o8bpa0lm-7DU6DqJxMV7wu_WVlY9vlEBHI, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us10-5b6c624e6a } }
+  - { name: '🇺🇸 美国11-VIP22c', type: anytls, server: usdklax.16816801.xyz, port: 11858, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国11-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11858, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国11-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.0EmSK4_Dow2uemqcU8veN_3xBLWVHmYop2RTlRleSws, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us11-d411c064c7 } }
+  - { name: '🇺🇸 美国11-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.0EmSK4_Dow2uemqcU8veN_3xBLWVHmYop2RTlRleSws, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us11-d411c064c7 } }
+  - { name: '🇺🇸 美国12-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11816, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国12-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.C3DrsPhErNejMxcKBaYQnFojYY4wJT7vH3Q6Ujfyl3g, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us12-e66209d8d4 } }
+  - { name: '🇺🇸 美国12-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.C3DrsPhErNejMxcKBaYQnFojYY4wJT7vH3Q6Ujfyl3g, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us12-e66209d8d4 } }
+  - { name: '🇺🇸 美国13-VIP22a', type: anytls, server: usdklax.16816801.xyz, port: 11806, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国13-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11806, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国13-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.mr2PNRWe5TByZXEaRISds77yO_-yz7d-o8QDUUI01Sg, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us13-ffae91b3fa } }
+  - { name: '🇺🇸 美国13-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.mr2PNRWe5TByZXEaRISds77yO_-yz7d-o8QDUUI01Sg, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us13-ffae91b3fa } }
+  - { name: '🇺🇸 美国14-VIP22a', type: anytls, server: usdklax.16816801.xyz, port: 11695, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国14-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11695, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国14-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.EPnFPXmEIS1gZvG8PBXHqf3p5YhmqZR-6e5PofkEoxk, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us14-754294d2f3 } }
+  - { name: '🇺🇸 美国14-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.EPnFPXmEIS1gZvG8PBXHqf3p5YhmqZR-6e5PofkEoxk, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us14-754294d2f3 } }
+  - { name: '🇺🇸 美国15-VIP22c', type: anytls, server: usdklax.16816801.xyz, port: 11804, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国15-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11804, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇺🇸 美国15-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.O5yomQYW0700_01e5MoMLewHf4wOxH1p9FWT-XVGihE, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us15-25e2c4362f } }
+  - { name: '🇺🇸 美国15-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.O5yomQYW0700_01e5MoMLewHf4wOxH1p9FWT-XVGihE, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /us15-25e2c4362f } }
+  - { name: '🇬🇧 英国-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11344, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇬🇧 英国-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.0ckNO1fau9pXbDEtRz5sLxRmPQT4F4WOzm3AJ8V5C0M, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-uk1 } }
+  - { name: '🇬🇧 英国-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.0ckNO1fau9pXbDEtRz5sLxRmPQT4F4WOzm3AJ8V5C0M, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-uk1 } }
+  - { name: '🇦🇷 阿根廷-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11826, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇦🇷 阿根廷-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.JEmRCM90hkTs3avxMAZ7WU8v6equims8Ll4u2BZLKl4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /ar-78bac22594 } }
+  - { name: '🇦🇷 阿根廷-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.JEmRCM90hkTs3avxMAZ7WU8v6equims8Ll4u2BZLKl4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /ar-78bac22594 } }
   - { name: '🇦🇪 阿联酋-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11813, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: www.bilibili.com, skip-cert-verify: true }
-  - { name: '🇰🇷 韩国-VIP88', type: vless, server: team.bhcy.email, port: 11526, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt._E4mvQb94VIKt3Lt5KW4OjYHYAFaPsqEBeeeLnaUbDQ, flow: xtls-rprx-vision }
-  - { name: '🇰🇷 韩国-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11700, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇭🇰 香港1-直连-移动友好', type: hysteria2, server: hksdk08.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇭🇰 香港1t-谷歌学术-VIP88', type: vless, server: team.bhcy.email, port: 11507, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.rrLB8fVbfPA7RwcV09GRx2kVdq2WfHpzW927gghmdTQ, flow: xtls-rprx-vision }
-  - { name: '🇭🇰 香港1t-谷歌学术-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11694, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇭🇰 香港2h', type: hysteria2, server: hksdk02.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇭🇰 香港2t-谷歌学术-VIP88', type: vless, server: team.bhcy.email, port: 11501, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Dstf5NgiQinB6kCKv3EffB9erBm2YiJVaM-4XatPNko, flow: xtls-rprx-vision }
-  - { name: '🇭🇰 香港2t-谷歌学术-VIP88a', server: mime.bhcy.email, port: 11705, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇭🇰 香港3h', type: hysteria2, server: hksdk03.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇭🇰 香港3t-谷歌学术-VIP88', type: vless, server: team.bhcy.email, port: 11502, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt._3APuMrB3t376z894R13mRo8-lXllzLpToR9fEZBNis, flow: xtls-rprx-vision }
-  - { name: '🇭🇰 香港3t-谷歌学术-VIP88a', server: mime.bhcy.email, port: 11707, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇭🇰 香港4h', type: hysteria2, server: hksdk04.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇭🇰 香港4t-谷歌学术-VIP88', type: vless, server: team.bhcy.email, port: 11503, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.8wIWD79jIBw805ESQjshiKvedwdWWJFXTFtqb4fZeiM, flow: xtls-rprx-vision }
-  - { name: '🇭🇰 香港4t-谷歌学术-VIP88a', server: mime.bhcy.email, port: 11698, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇭🇰 香港5h', type: hysteria2, server: hksdk05.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇭🇰 香港5t-谷歌学术-VIP88', type: vless, server: team.bhcy.email, port: 11504, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.XWcL7IVH66nbT9FTnD9jtvoUX1RsiwgyN_SHJ0RmSm0, flow: xtls-rprx-vision }
-  - { name: '🇭🇰 香港5t-谷歌学术-VIP88a', server: mime.bhcy.email, port: 11696, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false }
-  - { name: '🇭🇰 香港6h', type: hysteria2, server: hksdk06.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇭🇰 香港6t-谷歌学术-VIP88', type: vless, server: team.bhcy.email, port: 11505, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.4zOHVGLYcAmhiXvOiYrBHUO2uLmcCibWDi8lYQyQMnQ, flow: xtls-rprx-vision }
-  - { name: '🇭🇰 香港6t-谷歌学术-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11809, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇭🇰 香港7h', type: hysteria2, server: hksdk07.18838008.xyz, port: 25300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 25300-26300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
-  - { name: '🇭🇰 香港7t-谷歌学术-VIP88', type: vless, server: team.bhcy.email, port: 11506, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.sCkdlGvBgu0arVz9q8dQndk8tMmyGSrZc39sS5DZmyQ, flow: xtls-rprx-vision }
-  - { name: '🇭🇰 香港7t-谷歌学术-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11819, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇲🇾 马来西亚2-VIP88', type: vless, server: team.bhcy.email, port: 11563, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.T9ScWd3NFTGeSDK7rMCEgI4ycyhuUxL76xf7is6bn14, flow: xtls-rprx-vision }
-  - { name: '🇲🇾 马来西亚2-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11913, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇺🇦 1.1倍率-乌克兰-VIP88', type: vless, server: team.bhcy.email, port: 11575, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.cRPF51UwgGBJmLDlWCSDaRueeo28AnDO1Fp3F07YgDs, flow: xtls-rprx-vision }
+  - { name: '🇦🇪 阿联酋-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.KtGRpWXbYkHiFv_XYmX1oqNDHjYs93p953axQrZpLQQ, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-ae1 } }
+  - { name: '🇦🇪 阿联酋-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.KtGRpWXbYkHiFv_XYmX1oqNDHjYs93p953axQrZpLQQ, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-ae1 } }
+  - { name: '🇰🇷 韩国-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11700, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇰🇷 韩国-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.LrbIjMsMLn3FmV9StKYYpD_PiN59GQBXPBarICDqcwg, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-kr1 } }
+  - { name: '🇰🇷 韩国-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.LrbIjMsMLn3FmV9StKYYpD_PiN59GQBXPBarICDqcwg, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-kr1 } }
+  - { name: '🇭🇰 香港1t-谷歌学术-VIP88a', type: anytls, server: hksdk08.18838008.xyz, port: 10000, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇭🇰 香港2t-谷歌学术-VIP88c', server: hksdk02.16816802.xyz, port: 63139, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /hkgamesdk, headers: { Host: hksdk02.16816802.xyz } } }
+  - { name: '🇭🇰 香港3t-谷歌学术-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.kCAyjjSeudxqYEPCiYspt6C-sepHDmJYJE_8hSJ-sT8, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-hk3 } }
+  - { name: '🇭🇰 香港3t-谷歌学术-VIP88c', server: hksdk03.16816802.xyz, port: 59125, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /hkgamesdk, headers: { Host: hksdk03.16816802.xyz } } }
+  - { name: '🇭🇰 香港4t-谷歌学术-VIP88a', type: anytls, server: hksdk07.18838008.xyz, port: 10000, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇭🇰 香港5t-谷歌学术-VIP88c', server: hksdk05.16816802.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /hkgamesdk, headers: { Host: hksdk05.16816802.xyz } } }
+  - { name: '🇭🇰 香港6t-谷歌学术-VIP88a', type: anytls, server: hksdk06.18838008.xyz, port: 10000, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇲🇾 马来西亚2-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11913, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇲🇾 马来西亚2-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.hjvJWniiSK5g6W_z4eG7XjCybpsJjxD8-VpD4s-ELgU, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-ma2 } }
+  - { name: '🇲🇾 马来西亚2-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.hjvJWniiSK5g6W_z4eG7XjCybpsJjxD8-VpD4s-ELgU, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-ma2 } }
   - { name: '🇺🇦 1.1倍率-乌克兰-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11828, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: www.bilibili.com, skip-cert-verify: true }
-  - { name: '🇮🇩 1.1倍率-印尼-VIP88', type: vless, server: team.bhcy.email, port: 11568, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.mAFa00cp0DyBXPaFYsY9n6LhtmIBvRudrL0wGA3cwhA, flow: xtls-rprx-vision }
-  - { name: '🇮🇩 1.1倍率-印尼-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11350, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇮🇳 1.1倍率-印度-VIP88', type: vless, server: team.bhcy.email, port: 11564, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.UJkjlRylFHR3DQn0mdBNCPuDuBuTL_fsFuACprsd-Ts, flow: xtls-rprx-vision }
+  - { name: '🇺🇦 1.1倍率-乌克兰-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.PKJ3Artm0aDmgImHPAR2AtjxOj9Hxpstnm12jI9_VVI, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-ua1 } }
+  - { name: '🇺🇦 1.1倍率-乌克兰-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.PKJ3Artm0aDmgImHPAR2AtjxOj9Hxpstnm12jI9_VVI, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-ua1 } }
+  - { name: '🇮🇩 1.1倍率-印尼-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11350, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇮🇩 1.1倍率-印尼-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.c9cQMqsYo1E8jrbFlzUcNYFPk5JOhPRWZ21PgqtnQjk, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-id1 } }
+  - { name: '🇮🇩 1.1倍率-印尼-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.c9cQMqsYo1E8jrbFlzUcNYFPk5JOhPRWZ21PgqtnQjk, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-id1 } }
   - { name: '🇮🇳 1.1倍率-印度-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11855, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: www.bilibili.com, skip-cert-verify: true }
-  - { name: '🇹🇭 1.1倍率-泰国-VIP88', type: vless, server: team.bhcy.email, port: 11565, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.rWqoctx1kexryxE_On9mVPypO3AWcADYTPrGfGsvGyA, flow: xtls-rprx-vision }
-  - { name: '🇹🇭 1.1倍率-泰国-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11846, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇦🇺 1.1倍率-澳洲-VIP88', type: vless, server: team.bhcy.email, port: 11508, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.hb2SvoKGZc1-FKWW5RdqZMSWo-JNw-jFb6M7TNkkeS4, flow: xtls-rprx-vision }
+  - { name: '🇮🇳 1.1倍率-印度-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.OP5NV0G88gY8h3xN3n_XWVXA8k4uv9hWMK8380THSHo, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-in1 } }
+  - { name: '🇮🇳 1.1倍率-印度-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.OP5NV0G88gY8h3xN3n_XWVXA8k4uv9hWMK8380THSHo, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-in1 } }
+  - { name: '🇹🇭 1.1倍率-泰国-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11846, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
+  - { name: '🇹🇭 1.1倍率-泰国-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Ldou507snfSWFRqv0JIPHd-SYGeOQnAOLRKuLsN0l0M, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-th1 } }
+  - { name: '🇹🇭 1.1倍率-泰国-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Ldou507snfSWFRqv0JIPHd-SYGeOQnAOLRKuLsN0l0M, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-th1 } }
   - { name: '🇦🇺 1.1倍率-澳洲-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11811, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: www.bilibili.com, skip-cert-verify: true }
-  - { name: '🇵🇭 1.1倍率-菲律宾-VIP88', type: vless, server: team.bhcy.email, port: 11560, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.CBPM_Qc_K6V3_Emf3mLp0Xg5A_m_9gKBy6l4fmcAySI, flow: xtls-rprx-vision }
+  - { name: '🇦🇺 1.1倍率-澳洲-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.KMunUTnFlr8d6j0K1jGMY3EiJArsyL_SX-w46ZYxH3Q, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-au1 } }
+  - { name: '🇦🇺 1.1倍率-澳洲-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.KMunUTnFlr8d6j0K1jGMY3EiJArsyL_SX-w46ZYxH3Q, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-au1 } }
   - { name: '🇵🇭 1.1倍率-菲律宾-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11341, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: www.bilibili.com, skip-cert-verify: true }
-  - { name: '🇻🇳 1.1倍率-越南-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11820, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: upos-sz-mirrorcoso1.bilivideo.com, skip-cert-verify: true }
-  - { name: '🇻🇳 1.1倍率-越南h', type: hysteria2, server: hksdk08.18838008.xyz, port: 28300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 28300-29300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇵🇭 1.1倍率-菲律宾-VIP88b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.lOSsDTWhyDD76pCN_ZfL3haoOIx7yKUSJL5agIs3GUw, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-ph1 } }
+  - { name: '🇵🇭 1.1倍率-菲律宾-VIP88d', type: vless, server: team.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.lOSsDTWhyDD76pCN_ZfL3haoOIx7yKUSJL5agIs3GUw, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-ph1 } }
+  - { name: '🇻🇳 1.1倍率-越南-VIP88', type: hysteria2, server: hksdk08.18838008.xyz, port: 28300, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, ports: 28300-29300, hop-interval: 30, skip-cert-verify: true, sni: hok.intlgame.com, up: 0, down: 0 }
+  - { name: '🇻🇳 1.1倍率-越南-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11820, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
   - { name: '🇲🇾 1.1倍率-马来西亚1-VIP88a', type: anytls, server: inbox.bhcy.email, port: 11822, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: www.bilibili.com, skip-cert-verify: true }
-  - { name: '🇺🇦 2倍率-bt下载-乌克兰', type: vless, server: anydepayt0.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.8z2QTjPjFpSOT9_3tnTdER0--kzah1CO8TSTA8kaqwc, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: eusdk-bt } }
-  - { name: '🇩🇪 2倍率-德国', type: vless, server: anydepayt0.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.xMv48gH3dP6enWLoNZx5I68_Deod8a4D3Q2plKjnfQo, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: eusdk-de }, servername: anydepayt0.18838007.xyz }
-  - { name: '🇮🇹 2倍率-意大利', type: vless, server: anydepayt0.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ymWDl-zH81uXBPsQq1OVUdiBUA8omixdhUjPVeuta1s, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: eusdk-it } }
-  - { name: '🇸🇬 2倍率-新加坡1', server: anyjpayt0.18838007.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /sg235, headers: { Host: anyjpayt0.18838007.xyz } } }
-  - { name: '🇫🇷 2倍率-法国', type: vless, server: anydepayt0.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.lVYO3mZcfEt-fB3qNZPqOY15ID4IUHb8UNQxv9jsOnA, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: eusdk-fr }, servername: anydepayt0.18838007.xyz }
-  - { name: '🇺🇸 2倍率-美国01', type: vless, server: anypayust0.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.maoKUKAQJyyJQvkKuQnJx6ZS0v9DA30FXt9csojZbx0, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk01 } }
-  - { name: '🇺🇸 2倍率-美国02', type: vless, server: anypayust0.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.XeSruS7E65pyv7GGoZ-TcrOYYkPYMpujsqUdN49Ma2E, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk02 } }
-  - { name: '🇺🇸 2倍率-美国03', type: vless, server: anypayust1.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.kW72llg-bE23nV2cawyCZ_1Y966aM0LFR4jNZgERCFs, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk03 } }
-  - { name: '🇺🇸 2倍率-美国04', type: vless, server: anypayust1.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.cK0bSDGScy5n8sgt260fFw7eOZPv7jOmkzHOgVOI5Xg, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk04 } }
-  - { name: '🇺🇸 2倍率-美国05', type: vless, server: anypayust1.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.B4buAAH9XmgIjJ_ciFV70-CyKcum0Ei0Hsc_LK9DY3M, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk05 } }
-  - { name: '🇺🇸 2倍率-美国06', type: vless, server: anypayust1.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.u5p0heqTAfBAL-tmrBCKCLPOGv8pkatnKRfkURsawV4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk06 } }
-  - { name: '🇺🇸 2倍率-美国07', type: vless, server: anypayust1.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.kWy8_DNX98HKPmVesvwD2beePBSolBteynqDZhf07Rs, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk07 } }
-  - { name: '🇺🇸 2倍率-美国08', type: vless, server: anypayust1.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.X6CBm6jcn7A7-a_wL2MePXchl4fSUQJ9Qcib3oK9MSs, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk08 } }
-  - { name: '🇺🇸 2倍率-美国10', type: vless, server: anypayust1.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.-L7QEFxrhqi-165j0U_ne2jCw1mFAK_Oylg9LPgCTxQ, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk10 } }
-  - { name: '🇺🇸 2倍率-美国11', type: vless, server: anypayust1.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.D0aQh9TBgPCTjCphiXo2lYgDlDAvl8O0fN0RdFJiqns, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk11 } }
-  - { name: '🇺🇸 2倍率-美国12', server: anyjpayt0.18838007.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /appus12, headers: { Host: anyjpayt0.18838007.xyz } } }
-  - { name: '🇺🇸 2倍率-美国12a', server: 103.119.15.25, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /appus12, headers: { Host: 103.119.15.25 } } }
-  - { name: '🇺🇸 2倍率-美国12c', server: 103.119.15.14, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /appus12, headers: { Host: 103.119.15.14 } } }
-  - { name: '🇺🇸 2倍率-美国13', server: anyjpayt0.18838007.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /appus13, headers: { Host: anyjpayt0.18838007.xyz } } }
-  - { name: '🇺🇸 2倍率-美国14', server: anypayust1.18838007.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /appus14, headers: { Host: anypayust1.18838007.xyz } } }
-  - { name: '🇺🇸 2倍率-美国15', server: anypayust1.18838007.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /appus15, headers: { Host: anypayust1.18838007.xyz } } }
-  - { name: '🇬🇧 2倍率-英国', type: vless, server: anydepayt0.18838007.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.VKxs6-aAFr8khkrH3_5oR2JuzEhlVGHPB6u-YVxARUI, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: eusdk-uk }, servername: anydepayt0.18838007.xyz }
-  - { name: '🇺🇸 5倍率-美国-t1', type: anytls, server: anypayt01-512.18838007.xyz, port: 443, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
-  - { name: '🇺🇸 5倍率-美国-t3', type: anytls, server: anypayt03-512.18838007.xyz, port: 443, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
-  - { name: '🇹🇼 5倍率|游戏|台湾-VIP88a', server: mime.bhcy.email, port: '11856', type: ss, cipher: 2022-blake3-aes-256-gcm, password: '2PXRp9cqqjbHM3EN/F+thSPoykSOwMSnRfQZhPIddbs=:YTJhN2UzYmItY2UyNy0zNjU1LWIzYmEtMWVmZDM1MjE=', udp: true }
-  - { name: '🇯🇵 5倍率|游戏|日本-VIP88a', server: mime.bhcy.email, port: '11853', type: ss, cipher: 2022-blake3-aes-256-gcm, password: 'uLUTwN1kZPHqgfPRVOXWXykoMfQ9Djvm6Fka5MKIimQ=:YTJhN2UzYmItY2UyNy0zNjU1LWIzYmEtMWVmZDM1MjE=', udp: true }
-  - { name: '🇺🇸 5倍率|游戏|美国-VIP88a', server: mime.bhcy.email, port: '11852', type: ss, cipher: 2022-blake3-aes-256-gcm, password: 'd3hviTCQ6LAMGDuUq0T/dFP0bylBpdlUum+B4bc9iZY=:YTJhN2UzYmItY2UyNy0zNjU1LWIzYmEtMWVmZDM1MjE=', udp: true }
-  - { name: '🇰🇷 5倍率|游戏|韩国-VIP88a', server: mime.bhcy.email, port: '11347', type: ss, cipher: 2022-blake3-aes-256-gcm, password: 'T45paUhrc+oaFCXtxO6SYqUvb7acdDAsCFsDmt7toFw=:YTJhN2UzYmItY2UyNy0zNjU1LWIzYmEtMWVmZDM1MjE=', udp: true }
-  - { name: '🇭🇰 5倍率|游戏|香港-VIP88a', server: mime.bhcy.email, port: '11851', type: ss, cipher: 2022-blake3-aes-256-gcm, password: 'c5rWPoAIm/5wapJHMkpL0XJHHwTLoOWjc7Cod+YJ1AA=:YTJhN2UzYmItY2UyNy0zNjU1LWIzYmEtMWVmZDM1MjE=', udp: true }
-  - { name: '🇺🇸 10倍率-ai专用-美国01', server: tout.bhcy.email, port: 11342, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us702749, headers: { Host: tout.bhcy.email } } }
-  - { name: '🇺🇸 10倍率-ai专用-美国01-VIP11', server: anyjpayt0.18838007.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us702749, headers: { Host: anyjpayt0.18838007.xyz } } }
-  - { name: '🇺🇸 10倍率-ai专用-美国02', server: tout.bhcy.email, port: 11342, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us1094, headers: { Host: tout.bhcy.email } } }
-  - { name: '🇺🇸 10倍率-ai专用-美国02-VIP11', server: anyjpayt0.18838007.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us1094, headers: { Host: anyjpayt0.18838007.xyz } } }
-  - { name: '🇺🇸 10倍率-ai专用-美国03', server: tout.bhcy.email, port: 11342, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us780175, headers: { Host: tout.bhcy.email } } }
-  - { name: '🇺🇸 10倍率-ai专用-美国03-VIP11', server: anyjpayt0.18838007.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us780175, headers: { Host: anyjpayt0.18838007.xyz } } }
-  - { name: '🇺🇸 10倍率-ai专用-美国04', server: tout.bhcy.email, port: 11342, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us780957, headers: { Host: tout.bhcy.email } } }
-  - { name: '🇺🇸 10倍率-ai专用-美国04-VIP11', server: anyjpayt0.18838007.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us780957, headers: { Host: anyjpayt0.18838007.xyz } } }
-  - { name: '🇺🇸 10倍率-ai专用-美国05', server: tout.bhcy.email, port: 11342, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us767870, headers: { Host: tout.bhcy.email } } }
-  - { name: '🇺🇸 10倍率-ai专用-美国05-VIP11', server: anyjpayt0.18838007.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us767870, headers: { Host: anyjpayt0.18838007.xyz } } }
-  - { name: '🇺🇸 10倍率-ai专用-美国06', server: tout.bhcy.email, port: 11342, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us540010, headers: { Host: tout.bhcy.email } } }
-  - { name: '🇺🇸 10倍率-ai专用-美国06-VIP11', server: anyjpayt0.18838007.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us540010, headers: { Host: anyjpayt0.18838007.xyz } } }
-  - { name: '🇺🇸 10倍率-ai专用-美国07', server: tout.bhcy.email, port: 11342, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us60796, headers: { Host: tout.bhcy.email } } }
-  - { name: '🇺🇸 10倍率-ai专用-美国07-VIP11', server: anyjpayt0.18838007.xyz, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /us60796, headers: { Host: anyjpayt0.18838007.xyz } } }
+  - { name: '🇺🇦 2倍率-bt下载-乌克兰', type: vless, server: eucu.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.8z2QTjPjFpSOT9_3tnTdER0--kzah1CO8TSTA8kaqwc, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: eusdk-bt } }
+  - { name: '🇨🇦 2倍率-加拿大', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.gQm031UfE-EbPct2H9NC8V_dJkve8FklzN7yRnH0wiU, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /ca-61203e3e50 } }
+  - { name: '🇹🇷 2倍率-土耳其', type: vless, server: eucu.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.SnM-5Xsp-kezQSOb53PyVf2-qRNET6yzqOQ-n7HnoW4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /eusdk-tk } }
+  - { name: '🇩🇪 2倍率-德国', type: vless, server: eucu.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.xMv48gH3dP6enWLoNZx5I68_Deod8a4D3Q2plKjnfQo, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: eusdk-de }, servername: anydepayt0.18838007.xyz }
+  - { name: '🇮🇹 2倍率-意大利', type: vless, server: eucu.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ymWDl-zH81uXBPsQq1OVUdiBUA8omixdhUjPVeuta1s, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: eusdk-it } }
+  - { name: '🇫🇷 2倍率-法国', type: vless, server: eucu.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.lVYO3mZcfEt-fB3qNZPqOY15ID4IUHb8UNQxv9jsOnA, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: eusdk-fr }, servername: anydepayt0.18838007.xyz }
+  - { name: '🇺🇸 2倍率-美国01', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.maoKUKAQJyyJQvkKuQnJx6ZS0v9DA30FXt9csojZbx0, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk01 } }
+  - { name: '🇺🇸 2倍率-美国02', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.XeSruS7E65pyv7GGoZ-TcrOYYkPYMpujsqUdN49Ma2E, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk02 } }
+  - { name: '🇺🇸 2倍率-美国03', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.kW72llg-bE23nV2cawyCZ_1Y966aM0LFR4jNZgERCFs, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk03 } }
+  - { name: '🇺🇸 2倍率-美国04', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.cK0bSDGScy5n8sgt260fFw7eOZPv7jOmkzHOgVOI5Xg, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk04 } }
+  - { name: '🇺🇸 2倍率-美国05', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.B4buAAH9XmgIjJ_ciFV70-CyKcum0Ei0Hsc_LK9DY3M, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk05 } }
+  - { name: '🇺🇸 2倍率-美国06', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.u5p0heqTAfBAL-tmrBCKCLPOGv8pkatnKRfkURsawV4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk06 } }
+  - { name: '🇺🇸 2倍率-美国07', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.kWy8_DNX98HKPmVesvwD2beePBSolBteynqDZhf07Rs, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk07 } }
+  - { name: '🇺🇸 2倍率-美国08', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.X6CBm6jcn7A7-a_wL2MePXchl4fSUQJ9Qcib3oK9MSs, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk08 } }
+  - { name: '🇺🇸 2倍率-美国10', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.-L7QEFxrhqi-165j0U_ne2jCw1mFAK_Oylg9LPgCTxQ, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk10 } }
+  - { name: '🇺🇸 2倍率-美国11', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.D0aQh9TBgPCTjCphiXo2lYgDlDAvl8O0fN0RdFJiqns, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: ustsdk11 } }
+  - { name: '🇺🇸 2倍率-美国12', server: uscn.bhcy.email, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /appus12, headers: { Host: uscn.bhcy.email } } }
+  - { name: '🇺🇸 2倍率-美国12c', server: 103.141.1.87, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /appus12, headers: { Host: 103.141.1.87 } } }
+  - { name: '🇺🇸 2倍率-美国13', server: uscn.bhcy.email, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /appus13, headers: { Host: uscn.bhcy.email } } }
+  - { name: '🇺🇸 2倍率-美国14', server: uscn.bhcy.email, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /appus14, headers: { Host: uscn.bhcy.email } } }
+  - { name: '🇺🇸 2倍率-美国15', server: uscn.bhcy.email, port: 80, type: vmess, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, alterId: 0, cipher: auto, udp: true, tls: false, network: ws, ws-opts: { path: /appus15, headers: { Host: uscn.bhcy.email } } }
+  - { name: '🇬🇧 2倍率-英国', type: vless, server: eucu.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.VKxs6-aAFr8khkrH3_5oR2JuzEhlVGHPB6u-YVxARUI, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: grpc, grpc-opts: { grpc-service-name: eusdk-uk }, servername: anydepayt0.18838007.xyz }
+  - { name: '🇹🇼 5倍率-台湾4', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.QnUrhHjZyGUXJeOhwVvvbVOzIRPrB-o-EQ9_Q4lB3SY, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/tw000004 } }
+  - { name: '🇹🇼 5倍率-台湾5', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.vr0VLS7pwccHyh4F4_6QgUy4SqvkgshlkKJAq05bbGc, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/tw000005 } }
+  - { name: '🇹🇼 5倍率-台湾6', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.MbuF3Lod6ND0ZGNLJaCAXwpNqIXdUx2RWpmt0ZdKaCE, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/tw000006 } }
+  - { name: '🇹🇼 5倍率-台湾g', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.K7BmscyBbpSALQCWgHVp79lbpm-ahfgRgQnasaXJuRI, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/tw012001 } }
+  - { name: '🇹🇷 5倍率-土耳其', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Iy93q4hAsHRfULsA2kEOeDPN1CcBT4D0BQK9AbOc30c, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /http3sdk-tk1 } }
+  - { name: '🇸🇬 5倍率-新加坡', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.YPavoWLLhjpuyjDCRVPOy2l0ia3xLEXnF2Lc_h6Ugi4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/sg012001 } }
+  - { name: '🇯🇵 5倍率-日本1', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.AMWROAgxse-R3ZkjWpXQ1Y6PjE4kx9nyANLh6qvUtA8, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/jp012001 } }
+  - { name: '🇯🇵 5倍率-日本2', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.E3rQW8VlvyFOVL3NBefbhHli9moOQTzah-xT75gJ5Eg, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/jp000002 } }
+  - { name: '🇺🇸 5倍率-美国04', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.-cxYi_4NhuVJWePwDD57cq0-_jvijTWk0593x7eSKCI, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us000004 } }
+  - { name: '🇺🇸 5倍率-美国09', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.4kPdbmloYcpOjUgu5gAwb8TawWDsSNHN09TTw1N90A0, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us000009 } }
+  - { name: '🇺🇸 5倍率-美国g', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.dpoH37p9RJJ07YHOjHnuH37XiPtLL2k4Efcu6i0ngls, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us012001 } }
+  - { name: '🇻🇳 5倍率-越南', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.2vgA1z3v2HYloiAPSW7T40--ZJZ4FEKoe6eXcZSf530, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/dnyvn1 } }
+  - { name: '🇰🇷 5倍率-韩国', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.i5m4zRm79Xmbm94g8LjY6JGHd1af3ipjNEOd6mZP0Bw, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/kr804524 } }
+  - { name: '🇭🇰 5倍率-香港1', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.kWtq9gRbuoMVOpJ_s6kYV6o_4Yu9iHSE0jkFFwEEDwI, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/hk000001 } }
+  - { name: '🇭🇰 5倍率-香港2', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.nkmjY1YB08Vkvdg7PLs9SJXAL2TpTR2sVSl5E05bBG4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/hk000002 } }
+  - { name: '🇭🇰 5倍率-香港3', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.HbaTd44sG2rL_82PwhOTfPdCqjYOgZLramKZRjnSVB8, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/hk012001 } }
+  - { name: '🇭🇰 5倍率-香港4', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ibO0GV9NSRA1x_WWW5GU_Llpj7Vf04aePDHld_qs5hg, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/hk000004 } }
+  - { name: '🇭🇰 5倍率-香港5', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt._mnWUZ1EhOJfReNbDWR8F8eHUWHStRnatPBvrPYZhTU, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/hk000005 } }
+  - { name: '🇭🇰 5倍率-香港6', type: vless, server: hkgame.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.iNIg1vScDNbCDXjdtVA_v4wjp-fxPsaUyjQZm0DzyHo, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/hk000006 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国01a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.VT7diAA8IZOA6rN_nhWWxxScFXlDCY_ANU8jJoKc0zA, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us702749 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国01b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.VT7diAA8IZOA6rN_nhWWxxScFXlDCY_ANU8jJoKc0zA, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us702749 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国02a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.RDZs9Gn7gBnzxdXESrGYpH0u4ulQoTk-dJUBJbPFoEM, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us1094 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国02b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.RDZs9Gn7gBnzxdXESrGYpH0u4ulQoTk-dJUBJbPFoEM, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us1094 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国03a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.oKF3OFssgY7XA1eLtJ4ejPpmK01ZSDTPY9E7zfFDWVI, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us780175 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国03b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.oKF3OFssgY7XA1eLtJ4ejPpmK01ZSDTPY9E7zfFDWVI, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us780175 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国04a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.AJtvhMnVApxbDg5YpcphIXLYhE8neTuu-12LmZdMIx8, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us780957 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国04b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.AJtvhMnVApxbDg5YpcphIXLYhE8neTuu-12LmZdMIx8, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us780957 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国05a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.7dfE-sWVofutYvU_KuzAnhDFEo304rUdM1tsgU8OTRY, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us767870 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国05b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.7dfE-sWVofutYvU_KuzAnhDFEo304rUdM1tsgU8OTRY, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us767870 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国06a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.gvgy39k5gFJXLFKvXZeE9c9ujeduTjgX9wvS82kmBEg, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us540010 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国06b', type: vless, server: ai06.16816807.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.gvgy39k5gFJXLFKvXZeE9c9ujeduTjgX9wvS82kmBEg, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us540010 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国07a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.L3J1tZo2JtYCmErJY5jzzF6kbe9obMWl8WiDF4gKyS4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us60796 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国07b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.L3J1tZo2JtYCmErJY5jzzF6kbe9obMWl8WiDF4gKyS4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: //vip3/us60796 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国08a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.gi7Z-s068k2q_gCPnIKt5zkLLxi4VBeJ6UDWATm5GTk, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us788117 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国08b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.gi7Z-s068k2q_gCPnIKt5zkLLxi4VBeJ6UDWATm5GTk, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us788117 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国09a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.naGx_rEbbtduUguu7a07ZWIL9BwBU89Ds_O8RqC1ggA, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/ai09 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国09b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.naGx_rEbbtduUguu7a07ZWIL9BwBU89Ds_O8RqC1ggA, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/ai09 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国10a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ExZ52uFQapkFgV4PPQ8XBlzTKKgT6I1brrl8j5YFbTk, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us790631 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国10b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ExZ52uFQapkFgV4PPQ8XBlzTKKgT6I1brrl8j5YFbTk, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us790631 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国11a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ZEs86rVPj4FLt_d_zN8KhckdUc4t9ln9xzLRJwolXEo, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us835976 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国11b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.ZEs86rVPj4FLt_d_zN8KhckdUc4t9ln9xzLRJwolXEo, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us835976 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国12a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.gCHq0O7bRVu36uqbGIpF5IPhb5M-kzfH9uXuiLzwYXY, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us000012 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国12b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.gCHq0O7bRVu36uqbGIpF5IPhb5M-kzfH9uXuiLzwYXY, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us000012 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国13a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.sr2xD7tFsa0WLTwXjimdszaebnDC3vRVznOljCEriW4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us000013 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国13b', type: vless, server: ai13.16816807.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.sr2xD7tFsa0WLTwXjimdszaebnDC3vRVznOljCEriW4, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us000013 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国14a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.5c72GNC60keCN0Cv6ilv1A64T1TCFMec7HZxbrruOxo, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us000014 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国14b', type: vless, server: ai14.16816807.xyz, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.5c72GNC60keCN0Cv6ilv1A64T1TCFMec7HZxbrruOxo, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us000014 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国15a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Ujb7-jPHsDEQrwsfjmGWvCcBGBd3X_ol1wcz5hBfX14, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us827854 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国15b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.Ujb7-jPHsDEQrwsfjmGWvCcBGBd3X_ol1wcz5hBfX14, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us827854 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国16a', type: vless, server: uscn.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.NdYwDmH8lUCldIFAcqUefPHYxuKdbY9nezy09JCvfmE, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us826363 } }
+  - { name: '🇺🇸 10倍率-ai专用-美国16b', type: vless, server: paypal.bhcy.email, port: 443, uuid: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, encryption: mlkem768x25519plus.xorpub.0rtt.NdYwDmH8lUCldIFAcqUefPHYxuKdbY9nezy09JCvfmE, flow: xtls-rprx-vision, tls: true, skip-cert-verify: false, client-fingerprint: chrome, network: xhttp, xhttp-opts: { path: /vip3/us826363 } }
+  - { name: '🇺🇸 10倍率-美国-t1', type: anytls, server: anypayt03-616.18838007.xyz, port: 443, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
   - { name: '🇺🇸 10倍率-美国-t2', type: anytls, server: anypayt02-527.18838007.xyz, port: 443, password: a2a7e3bb-ce27-3655-b3ba-1efd35215d01, udp: true, client-fingerprint: chrome, sni: hok-dr.intlgame.com, skip-cert-verify: true }
 
 proxy-groups:
@@ -267,207 +314,224 @@ proxy-groups:
       - 🇯🇵 不限流量【不保证可用】日本
       - 🇯🇵 不限流量【不保证可用】日本2
       - 🇫🇷 不限流量【不保证可用】法国
-      - 🇺🇸 不限流量【不保证可用】美国2
-      - 🇺🇸 不限流量【不保证可用】美国3
-      - 🇺🇦 bt下载-乌克兰-直连-0.5倍率
-      - 🇷🇺 俄国-直连-0.5倍率
-      - 🇨🇦 加拿大-直连-0.5倍率
-      - 🇿🇦 南非-直连-0.5倍率
-      - 🇹🇼 台湾1-直连-0.5倍率
-      - 🇹🇼 台湾2-直连-0.5倍率
-      - 🇹🇼 台湾3-直连-0.5倍率
-      - 🇹🇷 土耳其-直连-0.5倍率
-      - 🇩🇪 德国-直连-0.5倍率
-      - 🇮🇹 意大利-直连-0.5倍率
-      - 🇸🇬 新加坡1-直连-0.5倍率
-      - 🇸🇬 新加坡2-直连-0.5倍率
-      - 🇸🇬 新加坡3-直连-0.5倍率
-      - 🇸🇬 新加坡4-直连-0.5倍率
-      - 🇫🇷 法国-直连-0.5倍率
-      - 🇺🇸 美国01-直连-0.5倍率
-      - 🇺🇸 美国02-直连-0.5倍率
-      - 🇺🇸 美国03-直连-0.5倍率
-      - 🇺🇸 美国05-直连-0.ipv6
-      - 🇺🇸 美国06-直连-0.5倍率
-      - 🇺🇸 美国07-直连-0.5倍率
-      - 🇺🇸 美国08-直连-0.5倍率
-      - 🇺🇸 美国10-直连-0.5倍率
-      - 🇺🇸 美国11-直连-0.5倍率
-      - 🇺🇸 美国15-直连-0.5倍率
-      - 🇬🇧 英国-直连-0.5倍率
-      - 🇦🇷 阿根廷-直连-0.5倍率
-      - 🇲🇾 马来西亚2-直连-0.5倍率
-      - 🇺🇦 bt下载-乌克兰-VIP88
+      - 🇺🇸 不限流量【不保证可用】美国
+      - 🇺🇦 bt下载-乌克兰-VIP88-0.5倍率
+      - 🇷🇺 俄国-VIP88-0.5倍率
+      - 🇨🇦 加拿大-VIP88-0.5倍率
+      - 🇹🇷 土耳其-VIP88-0.5倍率
+      - 🇩🇪 德国-VIP88-0.5倍率
+      - 🇮🇹 意大利-VIP88-0.5倍率
+      - 🇸🇬 新加坡1-VIP88-0.5倍率
+      - 🇸🇬 新加坡2-VIP88-0.5倍率
+      - 🇸🇬 新加坡3-VIP88-0.5倍率
+      - 🇸🇬 新加坡4-VIP88-0.5倍率
+      - 🇫🇷 法国-VIP88-0.5倍率
+      - 🇺🇸 美国-VIP88-0.5倍率
+      - 🇺🇸 美国01-VIP88-0.5倍率
+      - 🇺🇸 美国02-VIP88-0.5倍率
+      - 🇺🇸 美国03-VIP88-0.5倍率
+      - 🇺🇸 美国05-VIP88-0.5倍率
+      - 🇺🇸 美国06-VIP88-0.5倍率
+      - 🇺🇸 美国07-VIP88-0.5倍率
+      - 🇺🇸 美国08-VIP88-0.5倍率
+      - 🇺🇸 美国10-VIP88-0.5倍率
+      - 🇺🇸 美国11-VIP88-0.5倍率
+      - 🇺🇸 美国15-VIP88-0.5倍率
+      - 🇬🇧 英国-VIP88-0.5倍率
+      - 🇦🇷 阿根廷-VIP88-0.5倍率
+      - 🇲🇾 马来西亚2-VIP88-0.5倍率
+      - 🇹🇼 台湾5-VIP88-0.8倍率-谷歌学术
+      - 🇹🇼 台湾6-VIP88-0.8倍率-谷歌学术
+      - 🇯🇵 日本1-VIP88-0.8倍率
+      - 🇯🇵 日本2-VIP88-0.8倍率
+      - 🇯🇵 日本3-VIP88-0.8倍率
+      - 🇯🇵 日本4-VIP88-0.8倍率
+      - 🇯🇵 日本5-VIP88-0.8倍率
+      - 🇯🇵 日本6-VIP88-0.8倍率
+      - 🇭🇰 香港1-VIP88-0.8倍率-谷歌学术
+      - 🇭🇰 香港2-VIP88-0.8倍率-谷歌学术
+      - 🇭🇰 香港3-VIP88-0.8倍率
+      - 🇭🇰 香港4-VIP88-0.8倍率
+      - 🇭🇰 香港5-VIP88-0.8倍率
+      - 🇭🇰 香港6-VIP88-0.8倍率
       - 🇺🇦 bt下载-乌克兰-VIP88a
-      - 🇷🇺 俄国-VIP88
+      - 🇺🇦 bt下载-乌克兰-VIP88b
+      - 🇺🇦 bt下载-乌克兰-VIP88d
       - 🇷🇺 俄国-VIP88a
-      - 🇨🇦 加拿大-VIP88
+      - 🇷🇺 俄国-VIP88b
+      - 🇷🇺 俄国-VIP88d
       - 🇨🇦 加拿大-VIP88a
+      - 🇨🇦 加拿大-VIP88b
       - 🇿🇦 南非-VIP88
       - 🇿🇦 南非-VIP88a
+      - 🇿🇦 南非-VIP88b
+      - 🇿🇦 南非-VIP88d
       - 🇹🇼 台湾1-VIP88
       - 🇹🇼 台湾1-VIP88a
+      - 🇹🇼 台湾1-VIP88b
+      - 🇹🇼 台湾1-VIP88d
       - 🇹🇼 台湾2-VIP88
       - 🇹🇼 台湾2-VIP88a
+      - 🇹🇼 台湾2-VIP88b
+      - 🇹🇼 台湾2-VIP88d
       - 🇹🇼 台湾3-VIP88
       - 🇹🇼 台湾3-VIP88a
+      - 🇹🇼 台湾3-VIP88b
+      - 🇹🇼 台湾3-VIP88d
       - 🇹🇼 台湾4-VIP88
       - 🇹🇼 台湾4-VIP88a
-      - 🇹🇼 台湾4h
-      - 🇹🇼 台湾5-VIP88-谷歌学术
-      - 🇹🇼 台湾5-VIP88a-谷歌学术
-      - 🇹🇼 台湾5h
+      - 🇹🇼 台湾5-VIP88c-谷歌学术
       - 🇹🇼 台湾6-VIP88-谷歌学术
-      - 🇹🇼 台湾6-VIP88a-谷歌学术
-      - 🇹🇼 台湾6h
-      - 🇹🇷 土耳其-VIP88
       - 🇹🇷 土耳其-VIP88a
-      - 🇩🇪 德国-VIP88
       - 🇩🇪 德国-VIP88a
-      - 🇮🇹 意大利-VIP88
+      - 🇩🇪 德国-VIP88b
+      - 🇩🇪 德国-VIP88d
       - 🇮🇹 意大利-VIP88a
-      - 🇸🇬 新加坡1-VIP88
+      - 🇮🇹 意大利-VIP88b
+      - 🇮🇹 意大利-VIP88d
       - 🇸🇬 新加坡1-VIP88a
-      - 🇸🇬 新加坡2-VIP88
+      - 🇸🇬 新加坡1-VIP88b
+      - 🇸🇬 新加坡1-VIP88d
       - 🇸🇬 新加坡2-VIP88a
-      - 🇸🇬 新加坡3-VIP88
+      - 🇸🇬 新加坡2-VIP88b
+      - 🇸🇬 新加坡2-VIP88d
       - 🇸🇬 新加坡3-VIP88a
-      - 🇸🇬 新加坡4-VIP88
+      - 🇸🇬 新加坡3-VIP88b
+      - 🇸🇬 新加坡3-VIP88d
       - 🇸🇬 新加坡4-VIP88a
-      - 🇯🇵 日本-ipv6-t2-移动友好
-      - 🇯🇵 日本-ipv6-t4-移动友好
-      - 🇯🇵 日本-ipv6-t5-移动友好
+      - 🇸🇬 新加坡4-VIP88b
+      - 🇸🇬 新加坡4-VIP88d
       - 🇯🇵 日本-t1-移动友好
+      - 🇯🇵 日本-t2-移动友好
       - 🇯🇵 日本-t3-移动友好
-      - 🇯🇵 日本1-VIP88
+      - 🇯🇵 日本-t4-移动友好
+      - 🇯🇵 日本-t5-移动友好
       - 🇯🇵 日本1-VIP88a
-      - 🇯🇵 日本1h
-      - 🇯🇵 日本2-VIP88
+      - 🇯🇵 日本1-VIP88b
+      - 🇯🇵 日本1-VIP88d
       - 🇯🇵 日本2-VIP88a
-      - 🇯🇵 日本2h
-      - 🇯🇵 日本3-VIP88
+      - 🇯🇵 日本2-VIP88b
+      - 🇯🇵 日本2-VIP88d
       - 🇯🇵 日本3-VIP88a
-      - 🇯🇵 日本3h
-      - 🇯🇵 日本4-VIP88
+      - 🇯🇵 日本3-VIP88b
+      - 🇯🇵 日本3-VIP88d
       - 🇯🇵 日本4-VIP88a
-      - 🇯🇵 日本4h
-      - 🇯🇵 日本5-VIP88
+      - 🇯🇵 日本4-VIP88b
+      - 🇯🇵 日本4-VIP88d
       - 🇯🇵 日本5-VIP88a
-      - 🇯🇵 日本5h
-      - 🇯🇵 日本6-VIP88
+      - 🇯🇵 日本5-VIP88b
+      - 🇯🇵 日本5-VIP88d
       - 🇯🇵 日本6-VIP88a
-      - 🇯🇵 日本6h
-      - 🇫🇷 法国-VIP88
+      - 🇯🇵 日本6-VIP88b
+      - 🇯🇵 日本6-VIP88d
       - 🇫🇷 法国-VIP88a
-      - 🇺🇸 美国-t0
-      - 🇺🇸 美国01-VIP22
-      - 🇺🇸 美国01-VIP22a
-      - 🇺🇸 美国01-VIP88
+      - 🇫🇷 法国-VIP88b
+      - 🇫🇷 法国-VIP88d
+      - 🇺🇸 美国01-VIP22c
       - 🇺🇸 美国01-VIP88a
-      - 🇺🇸 美国02-VIP22
-      - 🇺🇸 美国02-VIP88
+      - 🇺🇸 美国01-VIP88b
+      - 🇺🇸 美国01-VIP88d
       - 🇺🇸 美国02-VIP88a
-      - 🇺🇸 美国03-VIP22
-      - 🇺🇸 美国03-VIP22a
-      - 🇺🇸 美国03-VIP88
+      - 🇺🇸 美国02-VIP88b
+      - 🇺🇸 美国02-VIP88d
+      - 🇺🇸 美国03-VIP22c
       - 🇺🇸 美国03-VIP88a
-      - 🇺🇸 美国04-VIP22
-      - 🇺🇸 美国04-VIP22a
-      - 🇺🇸 美国04-VIP88
+      - 🇺🇸 美国03-VIP88b
+      - 🇺🇸 美国03-VIP88d
+      - 🇺🇸 美国04-VIP22c
       - 🇺🇸 美国04-VIP88a
       - 🇺🇸 美国04-VIP88b
-      - 🇺🇸 美国05-VIP22
-      - 🇺🇸 美国05-VIP22a
-      - 🇺🇸 美国05-VIP88
+      - 🇺🇸 美国04-VIP88d
+      - 🇺🇸 美国05-VIP22c
       - 🇺🇸 美国05-VIP88a
-      - 🇺🇸 美国06-VIP22
-      - 🇺🇸 美国06-VIP22a
-      - 🇺🇸 美国06-VIP88
+      - 🇺🇸 美国05-VIP88b
+      - 🇺🇸 美国05-VIP88d
+      - 🇺🇸 美国06-VIP22c
       - 🇺🇸 美国06-VIP88a
-      - 🇺🇸 美国07-VIP22
-      - 🇺🇸 美国07-VIP22a
-      - 🇺🇸 美国07-VIP88
+      - 🇺🇸 美国06-VIP88b
+      - 🇺🇸 美国06-VIP88d
+      - 🇺🇸 美国07-VIP22c
       - 🇺🇸 美国07-VIP88a
-      - 🇺🇸 美国08-VIP22
-      - 🇺🇸 美国08-VIP22a
-      - 🇺🇸 美国08-VIP88
+      - 🇺🇸 美国07-VIP88b
+      - 🇺🇸 美国07-VIP88d
+      - 🇺🇸 美国08-VIP22c
       - 🇺🇸 美国08-VIP88a
-      - 🇺🇸 美国09-VIP22
-      - 🇺🇸 美国09-VIP22a
-      - 🇺🇸 美国09-VIP88
+      - 🇺🇸 美国08-VIP88b
+      - 🇺🇸 美国08-VIP88d
+      - 🇺🇸 美国09-VIP22c
       - 🇺🇸 美国09-VIP88a
       - 🇺🇸 美国09-VIP88b
-      - 🇺🇸 美国10-VIP88
+      - 🇺🇸 美国09-VIP88d
       - 🇺🇸 美国10-VIP88a
-      - 🇺🇸 美国11-VIP22
-      - 🇺🇸 美国11-VIP22a
-      - 🇺🇸 美国11-VIP88
+      - 🇺🇸 美国10-VIP88b
+      - 🇺🇸 美国10-VIP88d
+      - 🇺🇸 美国11-VIP22c
       - 🇺🇸 美国11-VIP88a
-      - 🇺🇸 美国12-VIP22
-      - 🇺🇸 美国12-VIP88
+      - 🇺🇸 美国11-VIP88b
+      - 🇺🇸 美国11-VIP88d
       - 🇺🇸 美国12-VIP88a
-      - 🇺🇸 美国13-VIP22
+      - 🇺🇸 美国12-VIP88b
+      - 🇺🇸 美国12-VIP88d
       - 🇺🇸 美国13-VIP22a
-      - 🇺🇸 美国13-VIP88
       - 🇺🇸 美国13-VIP88a
-      - 🇺🇸 美国14-VIP22
+      - 🇺🇸 美国13-VIP88b
+      - 🇺🇸 美国13-VIP88d
       - 🇺🇸 美国14-VIP22a
-      - 🇺🇸 美国14-VIP88
       - 🇺🇸 美国14-VIP88a
-      - 🇺🇸 美国15-VIP22
-      - 🇺🇸 美国15-VIP22a
-      - 🇺🇸 美国15-VIP88
+      - 🇺🇸 美国14-VIP88b
+      - 🇺🇸 美国14-VIP88d
+      - 🇺🇸 美国15-VIP22c
       - 🇺🇸 美国15-VIP88a
-      - 🇬🇧 英国-VIP88
+      - 🇺🇸 美国15-VIP88b
+      - 🇺🇸 美国15-VIP88d
       - 🇬🇧 英国-VIP88a
-      - 🇦🇷 阿根廷-VIP88
+      - 🇬🇧 英国-VIP88b
+      - 🇬🇧 英国-VIP88d
       - 🇦🇷 阿根廷-VIP88a
-      - 🇦🇪 阿联酋-VIP88
+      - 🇦🇷 阿根廷-VIP88b
+      - 🇦🇷 阿根廷-VIP88d
       - 🇦🇪 阿联酋-VIP88a
-      - 🇰🇷 韩国-VIP88
+      - 🇦🇪 阿联酋-VIP88b
+      - 🇦🇪 阿联酋-VIP88d
       - 🇰🇷 韩国-VIP88a
-      - 🇭🇰 香港1-直连-移动友好
-      - 🇭🇰 香港1t-谷歌学术-VIP88
+      - 🇰🇷 韩国-VIP88b
+      - 🇰🇷 韩国-VIP88d
       - 🇭🇰 香港1t-谷歌学术-VIP88a
-      - 🇭🇰 香港2h
-      - 🇭🇰 香港2t-谷歌学术-VIP88
-      - 🇭🇰 香港2t-谷歌学术-VIP88a
-      - 🇭🇰 香港3h
-      - 🇭🇰 香港3t-谷歌学术-VIP88
-      - 🇭🇰 香港3t-谷歌学术-VIP88a
-      - 🇭🇰 香港4h
-      - 🇭🇰 香港4t-谷歌学术-VIP88
+      - 🇭🇰 香港2t-谷歌学术-VIP88c
+      - 🇭🇰 香港3t-谷歌学术-VIP88b
+      - 🇭🇰 香港3t-谷歌学术-VIP88c
       - 🇭🇰 香港4t-谷歌学术-VIP88a
-      - 🇭🇰 香港5h
-      - 🇭🇰 香港5t-谷歌学术-VIP88
-      - 🇭🇰 香港5t-谷歌学术-VIP88a
-      - 🇭🇰 香港6h
-      - 🇭🇰 香港6t-谷歌学术-VIP88
+      - 🇭🇰 香港5t-谷歌学术-VIP88c
       - 🇭🇰 香港6t-谷歌学术-VIP88a
-      - 🇭🇰 香港7h
-      - 🇭🇰 香港7t-谷歌学术-VIP88
-      - 🇭🇰 香港7t-谷歌学术-VIP88a
-      - 🇲🇾 马来西亚2-VIP88
       - 🇲🇾 马来西亚2-VIP88a
-      - 🇺🇦 1.1倍率-乌克兰-VIP88
+      - 🇲🇾 马来西亚2-VIP88b
+      - 🇲🇾 马来西亚2-VIP88d
       - 🇺🇦 1.1倍率-乌克兰-VIP88a
-      - 🇮🇩 1.1倍率-印尼-VIP88
+      - 🇺🇦 1.1倍率-乌克兰-VIP88b
+      - 🇺🇦 1.1倍率-乌克兰-VIP88d
       - 🇮🇩 1.1倍率-印尼-VIP88a
-      - 🇮🇳 1.1倍率-印度-VIP88
+      - 🇮🇩 1.1倍率-印尼-VIP88b
+      - 🇮🇩 1.1倍率-印尼-VIP88d
       - 🇮🇳 1.1倍率-印度-VIP88a
-      - 🇹🇭 1.1倍率-泰国-VIP88
+      - 🇮🇳 1.1倍率-印度-VIP88b
+      - 🇮🇳 1.1倍率-印度-VIP88d
       - 🇹🇭 1.1倍率-泰国-VIP88a
-      - 🇦🇺 1.1倍率-澳洲-VIP88
+      - 🇹🇭 1.1倍率-泰国-VIP88b
+      - 🇹🇭 1.1倍率-泰国-VIP88d
       - 🇦🇺 1.1倍率-澳洲-VIP88a
-      - 🇵🇭 1.1倍率-菲律宾-VIP88
+      - 🇦🇺 1.1倍率-澳洲-VIP88b
+      - 🇦🇺 1.1倍率-澳洲-VIP88d
       - 🇵🇭 1.1倍率-菲律宾-VIP88a
+      - 🇵🇭 1.1倍率-菲律宾-VIP88b
+      - 🇵🇭 1.1倍率-菲律宾-VIP88d
+      - 🇻🇳 1.1倍率-越南-VIP88
       - 🇻🇳 1.1倍率-越南-VIP88a
-      - 🇻🇳 1.1倍率-越南h
       - 🇲🇾 1.1倍率-马来西亚1-VIP88a
       - 🇺🇦 2倍率-bt下载-乌克兰
+      - 🇨🇦 2倍率-加拿大
+      - 🇹🇷 2倍率-土耳其
       - 🇩🇪 2倍率-德国
       - 🇮🇹 2倍率-意大利
-      - 🇸🇬 2倍率-新加坡1
       - 🇫🇷 2倍率-法国
       - 🇺🇸 2倍率-美国01
       - 🇺🇸 2倍率-美国02
@@ -480,33 +544,63 @@ proxy-groups:
       - 🇺🇸 2倍率-美国10
       - 🇺🇸 2倍率-美国11
       - 🇺🇸 2倍率-美国12
-      - 🇺🇸 2倍率-美国12a
       - 🇺🇸 2倍率-美国12c
       - 🇺🇸 2倍率-美国13
       - 🇺🇸 2倍率-美国14
       - 🇺🇸 2倍率-美国15
       - 🇬🇧 2倍率-英国
-      - 🇺🇸 5倍率-美国-t1
-      - 🇺🇸 5倍率-美国-t3
-      - 🇹🇼 5倍率|游戏|台湾-VIP88a
-      - 🇯🇵 5倍率|游戏|日本-VIP88a
-      - 🇺🇸 5倍率|游戏|美国-VIP88a
-      - 🇰🇷 5倍率|游戏|韩国-VIP88a
-      - 🇭🇰 5倍率|游戏|香港-VIP88a
-      - 🇺🇸 10倍率-ai专用-美国01
-      - 🇺🇸 10倍率-ai专用-美国01-VIP11
-      - 🇺🇸 10倍率-ai专用-美国02
-      - 🇺🇸 10倍率-ai专用-美国02-VIP11
-      - 🇺🇸 10倍率-ai专用-美国03
-      - 🇺🇸 10倍率-ai专用-美国03-VIP11
-      - 🇺🇸 10倍率-ai专用-美国04
-      - 🇺🇸 10倍率-ai专用-美国04-VIP11
-      - 🇺🇸 10倍率-ai专用-美国05
-      - 🇺🇸 10倍率-ai专用-美国05-VIP11
-      - 🇺🇸 10倍率-ai专用-美国06
-      - 🇺🇸 10倍率-ai专用-美国06-VIP11
-      - 🇺🇸 10倍率-ai专用-美国07
-      - 🇺🇸 10倍率-ai专用-美国07-VIP11
+      - 🇹🇼 5倍率-台湾4
+      - 🇹🇼 5倍率-台湾5
+      - 🇹🇼 5倍率-台湾6
+      - 🇹🇼 5倍率-台湾g
+      - 🇹🇷 5倍率-土耳其
+      - 🇸🇬 5倍率-新加坡
+      - 🇯🇵 5倍率-日本1
+      - 🇯🇵 5倍率-日本2
+      - 🇺🇸 5倍率-美国04
+      - 🇺🇸 5倍率-美国09
+      - 🇺🇸 5倍率-美国g
+      - 🇻🇳 5倍率-越南
+      - 🇰🇷 5倍率-韩国
+      - 🇭🇰 5倍率-香港1
+      - 🇭🇰 5倍率-香港2
+      - 🇭🇰 5倍率-香港3
+      - 🇭🇰 5倍率-香港4
+      - 🇭🇰 5倍率-香港5
+      - 🇭🇰 5倍率-香港6
+      - 🇺🇸 10倍率-ai专用-美国01a
+      - 🇺🇸 10倍率-ai专用-美国01b
+      - 🇺🇸 10倍率-ai专用-美国02a
+      - 🇺🇸 10倍率-ai专用-美国02b
+      - 🇺🇸 10倍率-ai专用-美国03a
+      - 🇺🇸 10倍率-ai专用-美国03b
+      - 🇺🇸 10倍率-ai专用-美国04a
+      - 🇺🇸 10倍率-ai专用-美国04b
+      - 🇺🇸 10倍率-ai专用-美国05a
+      - 🇺🇸 10倍率-ai专用-美国05b
+      - 🇺🇸 10倍率-ai专用-美国06a
+      - 🇺🇸 10倍率-ai专用-美国06b
+      - 🇺🇸 10倍率-ai专用-美国07a
+      - 🇺🇸 10倍率-ai专用-美国07b
+      - 🇺🇸 10倍率-ai专用-美国08a
+      - 🇺🇸 10倍率-ai专用-美国08b
+      - 🇺🇸 10倍率-ai专用-美国09a
+      - 🇺🇸 10倍率-ai专用-美国09b
+      - 🇺🇸 10倍率-ai专用-美国10a
+      - 🇺🇸 10倍率-ai专用-美国10b
+      - 🇺🇸 10倍率-ai专用-美国11a
+      - 🇺🇸 10倍率-ai专用-美国11b
+      - 🇺🇸 10倍率-ai专用-美国12a
+      - 🇺🇸 10倍率-ai专用-美国12b
+      - 🇺🇸 10倍率-ai专用-美国13a
+      - 🇺🇸 10倍率-ai专用-美国13b
+      - 🇺🇸 10倍率-ai专用-美国14a
+      - 🇺🇸 10倍率-ai专用-美国14b
+      - 🇺🇸 10倍率-ai专用-美国15a
+      - 🇺🇸 10倍率-ai专用-美国15b
+      - 🇺🇸 10倍率-ai专用-美国16a
+      - 🇺🇸 10倍率-ai专用-美国16b
+      - 🇺🇸 10倍率-美国-t1
       - 🇺🇸 10倍率-美国-t2
 
   - name: ♻️自动选择
@@ -517,161 +611,159 @@ proxy-groups:
       - 🇯🇵 不限流量【不保证可用】日本
       - 🇯🇵 不限流量【不保证可用】日本2
       - 🇫🇷 不限流量【不保证可用】法国
-      - 🇺🇸 不限流量【不保证可用】美国2
-      - 🇺🇸 不限流量【不保证可用】美国3
-      - 🇺🇸 美国05-直连-0.ipv6
-      - 🇺🇦 bt下载-乌克兰-VIP88
+      - 🇺🇸 不限流量【不保证可用】美国
       - 🇺🇦 bt下载-乌克兰-VIP88a
-      - 🇷🇺 俄国-VIP88
+      - 🇺🇦 bt下载-乌克兰-VIP88b
+      - 🇺🇦 bt下载-乌克兰-VIP88d
       - 🇷🇺 俄国-VIP88a
-      - 🇨🇦 加拿大-VIP88
+      - 🇷🇺 俄国-VIP88b
+      - 🇷🇺 俄国-VIP88d
       - 🇨🇦 加拿大-VIP88a
+      - 🇨🇦 加拿大-VIP88b
       - 🇿🇦 南非-VIP88
       - 🇿🇦 南非-VIP88a
+      - 🇿🇦 南非-VIP88b
+      - 🇿🇦 南非-VIP88d
       - 🇹🇼 台湾1-VIP88
       - 🇹🇼 台湾1-VIP88a
+      - 🇹🇼 台湾1-VIP88b
+      - 🇹🇼 台湾1-VIP88d
       - 🇹🇼 台湾2-VIP88
       - 🇹🇼 台湾2-VIP88a
+      - 🇹🇼 台湾2-VIP88b
+      - 🇹🇼 台湾2-VIP88d
       - 🇹🇼 台湾3-VIP88
       - 🇹🇼 台湾3-VIP88a
+      - 🇹🇼 台湾3-VIP88b
+      - 🇹🇼 台湾3-VIP88d
       - 🇹🇼 台湾4-VIP88
       - 🇹🇼 台湾4-VIP88a
-      - 🇹🇼 台湾4h
-      - 🇹🇼 台湾5-VIP88-谷歌学术
-      - 🇹🇼 台湾5-VIP88a-谷歌学术
-      - 🇹🇼 台湾5h
+      - 🇹🇼 台湾5-VIP88c-谷歌学术
       - 🇹🇼 台湾6-VIP88-谷歌学术
-      - 🇹🇼 台湾6-VIP88a-谷歌学术
-      - 🇹🇼 台湾6h
-      - 🇹🇷 土耳其-VIP88
       - 🇹🇷 土耳其-VIP88a
-      - 🇩🇪 德国-VIP88
       - 🇩🇪 德国-VIP88a
-      - 🇮🇹 意大利-VIP88
+      - 🇩🇪 德国-VIP88b
+      - 🇩🇪 德国-VIP88d
       - 🇮🇹 意大利-VIP88a
-      - 🇸🇬 新加坡1-VIP88
+      - 🇮🇹 意大利-VIP88b
+      - 🇮🇹 意大利-VIP88d
       - 🇸🇬 新加坡1-VIP88a
-      - 🇸🇬 新加坡2-VIP88
+      - 🇸🇬 新加坡1-VIP88b
+      - 🇸🇬 新加坡1-VIP88d
       - 🇸🇬 新加坡2-VIP88a
-      - 🇸🇬 新加坡3-VIP88
+      - 🇸🇬 新加坡2-VIP88b
+      - 🇸🇬 新加坡2-VIP88d
       - 🇸🇬 新加坡3-VIP88a
-      - 🇸🇬 新加坡4-VIP88
+      - 🇸🇬 新加坡3-VIP88b
+      - 🇸🇬 新加坡3-VIP88d
       - 🇸🇬 新加坡4-VIP88a
-      - 🇯🇵 日本-ipv6-t2-移动友好
-      - 🇯🇵 日本-ipv6-t4-移动友好
-      - 🇯🇵 日本-ipv6-t5-移动友好
+      - 🇸🇬 新加坡4-VIP88b
+      - 🇸🇬 新加坡4-VIP88d
       - 🇯🇵 日本-t1-移动友好
+      - 🇯🇵 日本-t2-移动友好
       - 🇯🇵 日本-t3-移动友好
-      - 🇯🇵 日本1-VIP88
+      - 🇯🇵 日本-t4-移动友好
+      - 🇯🇵 日本-t5-移动友好
       - 🇯🇵 日本1-VIP88a
-      - 🇯🇵 日本1h
-      - 🇯🇵 日本2-VIP88
+      - 🇯🇵 日本1-VIP88b
+      - 🇯🇵 日本1-VIP88d
       - 🇯🇵 日本2-VIP88a
-      - 🇯🇵 日本2h
-      - 🇯🇵 日本3-VIP88
+      - 🇯🇵 日本2-VIP88b
+      - 🇯🇵 日本2-VIP88d
       - 🇯🇵 日本3-VIP88a
-      - 🇯🇵 日本3h
-      - 🇯🇵 日本4-VIP88
+      - 🇯🇵 日本3-VIP88b
+      - 🇯🇵 日本3-VIP88d
       - 🇯🇵 日本4-VIP88a
-      - 🇯🇵 日本4h
-      - 🇯🇵 日本5-VIP88
+      - 🇯🇵 日本4-VIP88b
+      - 🇯🇵 日本4-VIP88d
       - 🇯🇵 日本5-VIP88a
-      - 🇯🇵 日本5h
-      - 🇯🇵 日本6-VIP88
+      - 🇯🇵 日本5-VIP88b
+      - 🇯🇵 日本5-VIP88d
       - 🇯🇵 日本6-VIP88a
-      - 🇯🇵 日本6h
-      - 🇫🇷 法国-VIP88
+      - 🇯🇵 日本6-VIP88b
+      - 🇯🇵 日本6-VIP88d
       - 🇫🇷 法国-VIP88a
-      - 🇺🇸 美国-t0
-      - 🇺🇸 美国01-VIP22
-      - 🇺🇸 美国01-VIP22a
-      - 🇺🇸 美国01-VIP88
+      - 🇫🇷 法国-VIP88b
+      - 🇫🇷 法国-VIP88d
+      - 🇺🇸 美国01-VIP22c
       - 🇺🇸 美国01-VIP88a
-      - 🇺🇸 美国02-VIP22
-      - 🇺🇸 美国02-VIP88
+      - 🇺🇸 美国01-VIP88b
+      - 🇺🇸 美国01-VIP88d
       - 🇺🇸 美国02-VIP88a
-      - 🇺🇸 美国03-VIP22
-      - 🇺🇸 美国03-VIP22a
-      - 🇺🇸 美国03-VIP88
+      - 🇺🇸 美国02-VIP88b
+      - 🇺🇸 美国02-VIP88d
+      - 🇺🇸 美国03-VIP22c
       - 🇺🇸 美国03-VIP88a
-      - 🇺🇸 美国04-VIP22
-      - 🇺🇸 美国04-VIP22a
-      - 🇺🇸 美国04-VIP88
+      - 🇺🇸 美国03-VIP88b
+      - 🇺🇸 美国03-VIP88d
+      - 🇺🇸 美国04-VIP22c
       - 🇺🇸 美国04-VIP88a
       - 🇺🇸 美国04-VIP88b
-      - 🇺🇸 美国05-VIP22
-      - 🇺🇸 美国05-VIP22a
-      - 🇺🇸 美国05-VIP88
+      - 🇺🇸 美国04-VIP88d
+      - 🇺🇸 美国05-VIP22c
       - 🇺🇸 美国05-VIP88a
-      - 🇺🇸 美国06-VIP22
-      - 🇺🇸 美国06-VIP22a
-      - 🇺🇸 美国06-VIP88
+      - 🇺🇸 美国05-VIP88b
+      - 🇺🇸 美国05-VIP88d
+      - 🇺🇸 美国06-VIP22c
       - 🇺🇸 美国06-VIP88a
-      - 🇺🇸 美国07-VIP22
-      - 🇺🇸 美国07-VIP22a
-      - 🇺🇸 美国07-VIP88
+      - 🇺🇸 美国06-VIP88b
+      - 🇺🇸 美国06-VIP88d
+      - 🇺🇸 美国07-VIP22c
       - 🇺🇸 美国07-VIP88a
-      - 🇺🇸 美国08-VIP22
-      - 🇺🇸 美国08-VIP22a
-      - 🇺🇸 美国08-VIP88
+      - 🇺🇸 美国07-VIP88b
+      - 🇺🇸 美国07-VIP88d
+      - 🇺🇸 美国08-VIP22c
       - 🇺🇸 美国08-VIP88a
-      - 🇺🇸 美国09-VIP22
-      - 🇺🇸 美国09-VIP22a
-      - 🇺🇸 美国09-VIP88
+      - 🇺🇸 美国08-VIP88b
+      - 🇺🇸 美国08-VIP88d
+      - 🇺🇸 美国09-VIP22c
       - 🇺🇸 美国09-VIP88a
       - 🇺🇸 美国09-VIP88b
-      - 🇺🇸 美国10-VIP88
+      - 🇺🇸 美国09-VIP88d
       - 🇺🇸 美国10-VIP88a
-      - 🇺🇸 美国11-VIP22
-      - 🇺🇸 美国11-VIP22a
-      - 🇺🇸 美国11-VIP88
+      - 🇺🇸 美国10-VIP88b
+      - 🇺🇸 美国10-VIP88d
+      - 🇺🇸 美国11-VIP22c
       - 🇺🇸 美国11-VIP88a
-      - 🇺🇸 美国12-VIP22
-      - 🇺🇸 美国12-VIP88
+      - 🇺🇸 美国11-VIP88b
+      - 🇺🇸 美国11-VIP88d
       - 🇺🇸 美国12-VIP88a
-      - 🇺🇸 美国13-VIP22
+      - 🇺🇸 美国12-VIP88b
+      - 🇺🇸 美国12-VIP88d
       - 🇺🇸 美国13-VIP22a
-      - 🇺🇸 美国13-VIP88
       - 🇺🇸 美国13-VIP88a
-      - 🇺🇸 美国14-VIP22
+      - 🇺🇸 美国13-VIP88b
+      - 🇺🇸 美国13-VIP88d
       - 🇺🇸 美国14-VIP22a
-      - 🇺🇸 美国14-VIP88
       - 🇺🇸 美国14-VIP88a
-      - 🇺🇸 美国15-VIP22
-      - 🇺🇸 美国15-VIP22a
-      - 🇺🇸 美国15-VIP88
+      - 🇺🇸 美国14-VIP88b
+      - 🇺🇸 美国14-VIP88d
+      - 🇺🇸 美国15-VIP22c
       - 🇺🇸 美国15-VIP88a
-      - 🇬🇧 英国-VIP88
+      - 🇺🇸 美国15-VIP88b
+      - 🇺🇸 美国15-VIP88d
       - 🇬🇧 英国-VIP88a
-      - 🇦🇷 阿根廷-VIP88
+      - 🇬🇧 英国-VIP88b
+      - 🇬🇧 英国-VIP88d
       - 🇦🇷 阿根廷-VIP88a
-      - 🇦🇪 阿联酋-VIP88
+      - 🇦🇷 阿根廷-VIP88b
+      - 🇦🇷 阿根廷-VIP88d
       - 🇦🇪 阿联酋-VIP88a
-      - 🇰🇷 韩国-VIP88
+      - 🇦🇪 阿联酋-VIP88b
+      - 🇦🇪 阿联酋-VIP88d
       - 🇰🇷 韩国-VIP88a
-      - 🇭🇰 香港1-直连-移动友好
-      - 🇭🇰 香港1t-谷歌学术-VIP88
+      - 🇰🇷 韩国-VIP88b
+      - 🇰🇷 韩国-VIP88d
       - 🇭🇰 香港1t-谷歌学术-VIP88a
-      - 🇭🇰 香港2h
-      - 🇭🇰 香港2t-谷歌学术-VIP88
-      - 🇭🇰 香港2t-谷歌学术-VIP88a
-      - 🇭🇰 香港3h
-      - 🇭🇰 香港3t-谷歌学术-VIP88
-      - 🇭🇰 香港3t-谷歌学术-VIP88a
-      - 🇭🇰 香港4h
-      - 🇭🇰 香港4t-谷歌学术-VIP88
+      - 🇭🇰 香港2t-谷歌学术-VIP88c
+      - 🇭🇰 香港3t-谷歌学术-VIP88b
+      - 🇭🇰 香港3t-谷歌学术-VIP88c
       - 🇭🇰 香港4t-谷歌学术-VIP88a
-      - 🇭🇰 香港5h
-      - 🇭🇰 香港5t-谷歌学术-VIP88
-      - 🇭🇰 香港5t-谷歌学术-VIP88a
-      - 🇭🇰 香港6h
-      - 🇭🇰 香港6t-谷歌学术-VIP88
+      - 🇭🇰 香港5t-谷歌学术-VIP88c
       - 🇭🇰 香港6t-谷歌学术-VIP88a
-      - 🇭🇰 香港7h
-      - 🇭🇰 香港7t-谷歌学术-VIP88
-      - 🇭🇰 香港7t-谷歌学术-VIP88a
-      - 🇲🇾 马来西亚2-VIP88
       - 🇲🇾 马来西亚2-VIP88a
+      - 🇲🇾 马来西亚2-VIP88b
+      - 🇲🇾 马来西亚2-VIP88d
 
   - name: 🧱国内网络
     type: select
@@ -682,207 +774,224 @@ proxy-groups:
       - 🇯🇵 不限流量【不保证可用】日本
       - 🇯🇵 不限流量【不保证可用】日本2
       - 🇫🇷 不限流量【不保证可用】法国
-      - 🇺🇸 不限流量【不保证可用】美国2
-      - 🇺🇸 不限流量【不保证可用】美国3
-      - 🇺🇦 bt下载-乌克兰-直连-0.5倍率
-      - 🇷🇺 俄国-直连-0.5倍率
-      - 🇨🇦 加拿大-直连-0.5倍率
-      - 🇿🇦 南非-直连-0.5倍率
-      - 🇹🇼 台湾1-直连-0.5倍率
-      - 🇹🇼 台湾2-直连-0.5倍率
-      - 🇹🇼 台湾3-直连-0.5倍率
-      - 🇹🇷 土耳其-直连-0.5倍率
-      - 🇩🇪 德国-直连-0.5倍率
-      - 🇮🇹 意大利-直连-0.5倍率
-      - 🇸🇬 新加坡1-直连-0.5倍率
-      - 🇸🇬 新加坡2-直连-0.5倍率
-      - 🇸🇬 新加坡3-直连-0.5倍率
-      - 🇸🇬 新加坡4-直连-0.5倍率
-      - 🇫🇷 法国-直连-0.5倍率
-      - 🇺🇸 美国01-直连-0.5倍率
-      - 🇺🇸 美国02-直连-0.5倍率
-      - 🇺🇸 美国03-直连-0.5倍率
-      - 🇺🇸 美国05-直连-0.ipv6
-      - 🇺🇸 美国06-直连-0.5倍率
-      - 🇺🇸 美国07-直连-0.5倍率
-      - 🇺🇸 美国08-直连-0.5倍率
-      - 🇺🇸 美国10-直连-0.5倍率
-      - 🇺🇸 美国11-直连-0.5倍率
-      - 🇺🇸 美国15-直连-0.5倍率
-      - 🇬🇧 英国-直连-0.5倍率
-      - 🇦🇷 阿根廷-直连-0.5倍率
-      - 🇲🇾 马来西亚2-直连-0.5倍率
-      - 🇺🇦 bt下载-乌克兰-VIP88
+      - 🇺🇸 不限流量【不保证可用】美国
+      - 🇺🇦 bt下载-乌克兰-VIP88-0.5倍率
+      - 🇷🇺 俄国-VIP88-0.5倍率
+      - 🇨🇦 加拿大-VIP88-0.5倍率
+      - 🇹🇷 土耳其-VIP88-0.5倍率
+      - 🇩🇪 德国-VIP88-0.5倍率
+      - 🇮🇹 意大利-VIP88-0.5倍率
+      - 🇸🇬 新加坡1-VIP88-0.5倍率
+      - 🇸🇬 新加坡2-VIP88-0.5倍率
+      - 🇸🇬 新加坡3-VIP88-0.5倍率
+      - 🇸🇬 新加坡4-VIP88-0.5倍率
+      - 🇫🇷 法国-VIP88-0.5倍率
+      - 🇺🇸 美国-VIP88-0.5倍率
+      - 🇺🇸 美国01-VIP88-0.5倍率
+      - 🇺🇸 美国02-VIP88-0.5倍率
+      - 🇺🇸 美国03-VIP88-0.5倍率
+      - 🇺🇸 美国05-VIP88-0.5倍率
+      - 🇺🇸 美国06-VIP88-0.5倍率
+      - 🇺🇸 美国07-VIP88-0.5倍率
+      - 🇺🇸 美国08-VIP88-0.5倍率
+      - 🇺🇸 美国10-VIP88-0.5倍率
+      - 🇺🇸 美国11-VIP88-0.5倍率
+      - 🇺🇸 美国15-VIP88-0.5倍率
+      - 🇬🇧 英国-VIP88-0.5倍率
+      - 🇦🇷 阿根廷-VIP88-0.5倍率
+      - 🇲🇾 马来西亚2-VIP88-0.5倍率
+      - 🇹🇼 台湾5-VIP88-0.8倍率-谷歌学术
+      - 🇹🇼 台湾6-VIP88-0.8倍率-谷歌学术
+      - 🇯🇵 日本1-VIP88-0.8倍率
+      - 🇯🇵 日本2-VIP88-0.8倍率
+      - 🇯🇵 日本3-VIP88-0.8倍率
+      - 🇯🇵 日本4-VIP88-0.8倍率
+      - 🇯🇵 日本5-VIP88-0.8倍率
+      - 🇯🇵 日本6-VIP88-0.8倍率
+      - 🇭🇰 香港1-VIP88-0.8倍率-谷歌学术
+      - 🇭🇰 香港2-VIP88-0.8倍率-谷歌学术
+      - 🇭🇰 香港3-VIP88-0.8倍率
+      - 🇭🇰 香港4-VIP88-0.8倍率
+      - 🇭🇰 香港5-VIP88-0.8倍率
+      - 🇭🇰 香港6-VIP88-0.8倍率
       - 🇺🇦 bt下载-乌克兰-VIP88a
-      - 🇷🇺 俄国-VIP88
+      - 🇺🇦 bt下载-乌克兰-VIP88b
+      - 🇺🇦 bt下载-乌克兰-VIP88d
       - 🇷🇺 俄国-VIP88a
-      - 🇨🇦 加拿大-VIP88
+      - 🇷🇺 俄国-VIP88b
+      - 🇷🇺 俄国-VIP88d
       - 🇨🇦 加拿大-VIP88a
+      - 🇨🇦 加拿大-VIP88b
       - 🇿🇦 南非-VIP88
       - 🇿🇦 南非-VIP88a
+      - 🇿🇦 南非-VIP88b
+      - 🇿🇦 南非-VIP88d
       - 🇹🇼 台湾1-VIP88
       - 🇹🇼 台湾1-VIP88a
+      - 🇹🇼 台湾1-VIP88b
+      - 🇹🇼 台湾1-VIP88d
       - 🇹🇼 台湾2-VIP88
       - 🇹🇼 台湾2-VIP88a
+      - 🇹🇼 台湾2-VIP88b
+      - 🇹🇼 台湾2-VIP88d
       - 🇹🇼 台湾3-VIP88
       - 🇹🇼 台湾3-VIP88a
+      - 🇹🇼 台湾3-VIP88b
+      - 🇹🇼 台湾3-VIP88d
       - 🇹🇼 台湾4-VIP88
       - 🇹🇼 台湾4-VIP88a
-      - 🇹🇼 台湾4h
-      - 🇹🇼 台湾5-VIP88-谷歌学术
-      - 🇹🇼 台湾5-VIP88a-谷歌学术
-      - 🇹🇼 台湾5h
+      - 🇹🇼 台湾5-VIP88c-谷歌学术
       - 🇹🇼 台湾6-VIP88-谷歌学术
-      - 🇹🇼 台湾6-VIP88a-谷歌学术
-      - 🇹🇼 台湾6h
-      - 🇹🇷 土耳其-VIP88
       - 🇹🇷 土耳其-VIP88a
-      - 🇩🇪 德国-VIP88
       - 🇩🇪 德国-VIP88a
-      - 🇮🇹 意大利-VIP88
+      - 🇩🇪 德国-VIP88b
+      - 🇩🇪 德国-VIP88d
       - 🇮🇹 意大利-VIP88a
-      - 🇸🇬 新加坡1-VIP88
+      - 🇮🇹 意大利-VIP88b
+      - 🇮🇹 意大利-VIP88d
       - 🇸🇬 新加坡1-VIP88a
-      - 🇸🇬 新加坡2-VIP88
+      - 🇸🇬 新加坡1-VIP88b
+      - 🇸🇬 新加坡1-VIP88d
       - 🇸🇬 新加坡2-VIP88a
-      - 🇸🇬 新加坡3-VIP88
+      - 🇸🇬 新加坡2-VIP88b
+      - 🇸🇬 新加坡2-VIP88d
       - 🇸🇬 新加坡3-VIP88a
-      - 🇸🇬 新加坡4-VIP88
+      - 🇸🇬 新加坡3-VIP88b
+      - 🇸🇬 新加坡3-VIP88d
       - 🇸🇬 新加坡4-VIP88a
-      - 🇯🇵 日本-ipv6-t2-移动友好
-      - 🇯🇵 日本-ipv6-t4-移动友好
-      - 🇯🇵 日本-ipv6-t5-移动友好
+      - 🇸🇬 新加坡4-VIP88b
+      - 🇸🇬 新加坡4-VIP88d
       - 🇯🇵 日本-t1-移动友好
+      - 🇯🇵 日本-t2-移动友好
       - 🇯🇵 日本-t3-移动友好
-      - 🇯🇵 日本1-VIP88
+      - 🇯🇵 日本-t4-移动友好
+      - 🇯🇵 日本-t5-移动友好
       - 🇯🇵 日本1-VIP88a
-      - 🇯🇵 日本1h
-      - 🇯🇵 日本2-VIP88
+      - 🇯🇵 日本1-VIP88b
+      - 🇯🇵 日本1-VIP88d
       - 🇯🇵 日本2-VIP88a
-      - 🇯🇵 日本2h
-      - 🇯🇵 日本3-VIP88
+      - 🇯🇵 日本2-VIP88b
+      - 🇯🇵 日本2-VIP88d
       - 🇯🇵 日本3-VIP88a
-      - 🇯🇵 日本3h
-      - 🇯🇵 日本4-VIP88
+      - 🇯🇵 日本3-VIP88b
+      - 🇯🇵 日本3-VIP88d
       - 🇯🇵 日本4-VIP88a
-      - 🇯🇵 日本4h
-      - 🇯🇵 日本5-VIP88
+      - 🇯🇵 日本4-VIP88b
+      - 🇯🇵 日本4-VIP88d
       - 🇯🇵 日本5-VIP88a
-      - 🇯🇵 日本5h
-      - 🇯🇵 日本6-VIP88
+      - 🇯🇵 日本5-VIP88b
+      - 🇯🇵 日本5-VIP88d
       - 🇯🇵 日本6-VIP88a
-      - 🇯🇵 日本6h
-      - 🇫🇷 法国-VIP88
+      - 🇯🇵 日本6-VIP88b
+      - 🇯🇵 日本6-VIP88d
       - 🇫🇷 法国-VIP88a
-      - 🇺🇸 美国-t0
-      - 🇺🇸 美国01-VIP22
-      - 🇺🇸 美国01-VIP22a
-      - 🇺🇸 美国01-VIP88
+      - 🇫🇷 法国-VIP88b
+      - 🇫🇷 法国-VIP88d
+      - 🇺🇸 美国01-VIP22c
       - 🇺🇸 美国01-VIP88a
-      - 🇺🇸 美国02-VIP22
-      - 🇺🇸 美国02-VIP88
+      - 🇺🇸 美国01-VIP88b
+      - 🇺🇸 美国01-VIP88d
       - 🇺🇸 美国02-VIP88a
-      - 🇺🇸 美国03-VIP22
-      - 🇺🇸 美国03-VIP22a
-      - 🇺🇸 美国03-VIP88
+      - 🇺🇸 美国02-VIP88b
+      - 🇺🇸 美国02-VIP88d
+      - 🇺🇸 美国03-VIP22c
       - 🇺🇸 美国03-VIP88a
-      - 🇺🇸 美国04-VIP22
-      - 🇺🇸 美国04-VIP22a
-      - 🇺🇸 美国04-VIP88
+      - 🇺🇸 美国03-VIP88b
+      - 🇺🇸 美国03-VIP88d
+      - 🇺🇸 美国04-VIP22c
       - 🇺🇸 美国04-VIP88a
       - 🇺🇸 美国04-VIP88b
-      - 🇺🇸 美国05-VIP22
-      - 🇺🇸 美国05-VIP22a
-      - 🇺🇸 美国05-VIP88
+      - 🇺🇸 美国04-VIP88d
+      - 🇺🇸 美国05-VIP22c
       - 🇺🇸 美国05-VIP88a
-      - 🇺🇸 美国06-VIP22
-      - 🇺🇸 美国06-VIP22a
-      - 🇺🇸 美国06-VIP88
+      - 🇺🇸 美国05-VIP88b
+      - 🇺🇸 美国05-VIP88d
+      - 🇺🇸 美国06-VIP22c
       - 🇺🇸 美国06-VIP88a
-      - 🇺🇸 美国07-VIP22
-      - 🇺🇸 美国07-VIP22a
-      - 🇺🇸 美国07-VIP88
+      - 🇺🇸 美国06-VIP88b
+      - 🇺🇸 美国06-VIP88d
+      - 🇺🇸 美国07-VIP22c
       - 🇺🇸 美国07-VIP88a
-      - 🇺🇸 美国08-VIP22
-      - 🇺🇸 美国08-VIP22a
-      - 🇺🇸 美国08-VIP88
+      - 🇺🇸 美国07-VIP88b
+      - 🇺🇸 美国07-VIP88d
+      - 🇺🇸 美国08-VIP22c
       - 🇺🇸 美国08-VIP88a
-      - 🇺🇸 美国09-VIP22
-      - 🇺🇸 美国09-VIP22a
-      - 🇺🇸 美国09-VIP88
+      - 🇺🇸 美国08-VIP88b
+      - 🇺🇸 美国08-VIP88d
+      - 🇺🇸 美国09-VIP22c
       - 🇺🇸 美国09-VIP88a
       - 🇺🇸 美国09-VIP88b
-      - 🇺🇸 美国10-VIP88
+      - 🇺🇸 美国09-VIP88d
       - 🇺🇸 美国10-VIP88a
-      - 🇺🇸 美国11-VIP22
-      - 🇺🇸 美国11-VIP22a
-      - 🇺🇸 美国11-VIP88
+      - 🇺🇸 美国10-VIP88b
+      - 🇺🇸 美国10-VIP88d
+      - 🇺🇸 美国11-VIP22c
       - 🇺🇸 美国11-VIP88a
-      - 🇺🇸 美国12-VIP22
-      - 🇺🇸 美国12-VIP88
+      - 🇺🇸 美国11-VIP88b
+      - 🇺🇸 美国11-VIP88d
       - 🇺🇸 美国12-VIP88a
-      - 🇺🇸 美国13-VIP22
+      - 🇺🇸 美国12-VIP88b
+      - 🇺🇸 美国12-VIP88d
       - 🇺🇸 美国13-VIP22a
-      - 🇺🇸 美国13-VIP88
       - 🇺🇸 美国13-VIP88a
-      - 🇺🇸 美国14-VIP22
+      - 🇺🇸 美国13-VIP88b
+      - 🇺🇸 美国13-VIP88d
       - 🇺🇸 美国14-VIP22a
-      - 🇺🇸 美国14-VIP88
       - 🇺🇸 美国14-VIP88a
-      - 🇺🇸 美国15-VIP22
-      - 🇺🇸 美国15-VIP22a
-      - 🇺🇸 美国15-VIP88
+      - 🇺🇸 美国14-VIP88b
+      - 🇺🇸 美国14-VIP88d
+      - 🇺🇸 美国15-VIP22c
       - 🇺🇸 美国15-VIP88a
-      - 🇬🇧 英国-VIP88
+      - 🇺🇸 美国15-VIP88b
+      - 🇺🇸 美国15-VIP88d
       - 🇬🇧 英国-VIP88a
-      - 🇦🇷 阿根廷-VIP88
+      - 🇬🇧 英国-VIP88b
+      - 🇬🇧 英国-VIP88d
       - 🇦🇷 阿根廷-VIP88a
-      - 🇦🇪 阿联酋-VIP88
+      - 🇦🇷 阿根廷-VIP88b
+      - 🇦🇷 阿根廷-VIP88d
       - 🇦🇪 阿联酋-VIP88a
-      - 🇰🇷 韩国-VIP88
+      - 🇦🇪 阿联酋-VIP88b
+      - 🇦🇪 阿联酋-VIP88d
       - 🇰🇷 韩国-VIP88a
-      - 🇭🇰 香港1-直连-移动友好
-      - 🇭🇰 香港1t-谷歌学术-VIP88
+      - 🇰🇷 韩国-VIP88b
+      - 🇰🇷 韩国-VIP88d
       - 🇭🇰 香港1t-谷歌学术-VIP88a
-      - 🇭🇰 香港2h
-      - 🇭🇰 香港2t-谷歌学术-VIP88
-      - 🇭🇰 香港2t-谷歌学术-VIP88a
-      - 🇭🇰 香港3h
-      - 🇭🇰 香港3t-谷歌学术-VIP88
-      - 🇭🇰 香港3t-谷歌学术-VIP88a
-      - 🇭🇰 香港4h
-      - 🇭🇰 香港4t-谷歌学术-VIP88
+      - 🇭🇰 香港2t-谷歌学术-VIP88c
+      - 🇭🇰 香港3t-谷歌学术-VIP88b
+      - 🇭🇰 香港3t-谷歌学术-VIP88c
       - 🇭🇰 香港4t-谷歌学术-VIP88a
-      - 🇭🇰 香港5h
-      - 🇭🇰 香港5t-谷歌学术-VIP88
-      - 🇭🇰 香港5t-谷歌学术-VIP88a
-      - 🇭🇰 香港6h
-      - 🇭🇰 香港6t-谷歌学术-VIP88
+      - 🇭🇰 香港5t-谷歌学术-VIP88c
       - 🇭🇰 香港6t-谷歌学术-VIP88a
-      - 🇭🇰 香港7h
-      - 🇭🇰 香港7t-谷歌学术-VIP88
-      - 🇭🇰 香港7t-谷歌学术-VIP88a
-      - 🇲🇾 马来西亚2-VIP88
       - 🇲🇾 马来西亚2-VIP88a
-      - 🇺🇦 1.1倍率-乌克兰-VIP88
+      - 🇲🇾 马来西亚2-VIP88b
+      - 🇲🇾 马来西亚2-VIP88d
       - 🇺🇦 1.1倍率-乌克兰-VIP88a
-      - 🇮🇩 1.1倍率-印尼-VIP88
+      - 🇺🇦 1.1倍率-乌克兰-VIP88b
+      - 🇺🇦 1.1倍率-乌克兰-VIP88d
       - 🇮🇩 1.1倍率-印尼-VIP88a
-      - 🇮🇳 1.1倍率-印度-VIP88
+      - 🇮🇩 1.1倍率-印尼-VIP88b
+      - 🇮🇩 1.1倍率-印尼-VIP88d
       - 🇮🇳 1.1倍率-印度-VIP88a
-      - 🇹🇭 1.1倍率-泰国-VIP88
+      - 🇮🇳 1.1倍率-印度-VIP88b
+      - 🇮🇳 1.1倍率-印度-VIP88d
       - 🇹🇭 1.1倍率-泰国-VIP88a
-      - 🇦🇺 1.1倍率-澳洲-VIP88
+      - 🇹🇭 1.1倍率-泰国-VIP88b
+      - 🇹🇭 1.1倍率-泰国-VIP88d
       - 🇦🇺 1.1倍率-澳洲-VIP88a
-      - 🇵🇭 1.1倍率-菲律宾-VIP88
+      - 🇦🇺 1.1倍率-澳洲-VIP88b
+      - 🇦🇺 1.1倍率-澳洲-VIP88d
       - 🇵🇭 1.1倍率-菲律宾-VIP88a
+      - 🇵🇭 1.1倍率-菲律宾-VIP88b
+      - 🇵🇭 1.1倍率-菲律宾-VIP88d
+      - 🇻🇳 1.1倍率-越南-VIP88
       - 🇻🇳 1.1倍率-越南-VIP88a
-      - 🇻🇳 1.1倍率-越南h
       - 🇲🇾 1.1倍率-马来西亚1-VIP88a
       - 🇺🇦 2倍率-bt下载-乌克兰
+      - 🇨🇦 2倍率-加拿大
+      - 🇹🇷 2倍率-土耳其
       - 🇩🇪 2倍率-德国
       - 🇮🇹 2倍率-意大利
-      - 🇸🇬 2倍率-新加坡1
       - 🇫🇷 2倍率-法国
       - 🇺🇸 2倍率-美国01
       - 🇺🇸 2倍率-美国02
@@ -895,33 +1004,63 @@ proxy-groups:
       - 🇺🇸 2倍率-美国10
       - 🇺🇸 2倍率-美国11
       - 🇺🇸 2倍率-美国12
-      - 🇺🇸 2倍率-美国12a
       - 🇺🇸 2倍率-美国12c
       - 🇺🇸 2倍率-美国13
       - 🇺🇸 2倍率-美国14
       - 🇺🇸 2倍率-美国15
       - 🇬🇧 2倍率-英国
-      - 🇺🇸 5倍率-美国-t1
-      - 🇺🇸 5倍率-美国-t3
-      - 🇹🇼 5倍率|游戏|台湾-VIP88a
-      - 🇯🇵 5倍率|游戏|日本-VIP88a
-      - 🇺🇸 5倍率|游戏|美国-VIP88a
-      - 🇰🇷 5倍率|游戏|韩国-VIP88a
-      - 🇭🇰 5倍率|游戏|香港-VIP88a
-      - 🇺🇸 10倍率-ai专用-美国01
-      - 🇺🇸 10倍率-ai专用-美国01-VIP11
-      - 🇺🇸 10倍率-ai专用-美国02
-      - 🇺🇸 10倍率-ai专用-美国02-VIP11
-      - 🇺🇸 10倍率-ai专用-美国03
-      - 🇺🇸 10倍率-ai专用-美国03-VIP11
-      - 🇺🇸 10倍率-ai专用-美国04
-      - 🇺🇸 10倍率-ai专用-美国04-VIP11
-      - 🇺🇸 10倍率-ai专用-美国05
-      - 🇺🇸 10倍率-ai专用-美国05-VIP11
-      - 🇺🇸 10倍率-ai专用-美国06
-      - 🇺🇸 10倍率-ai专用-美国06-VIP11
-      - 🇺🇸 10倍率-ai专用-美国07
-      - 🇺🇸 10倍率-ai专用-美国07-VIP11
+      - 🇹🇼 5倍率-台湾4
+      - 🇹🇼 5倍率-台湾5
+      - 🇹🇼 5倍率-台湾6
+      - 🇹🇼 5倍率-台湾g
+      - 🇹🇷 5倍率-土耳其
+      - 🇸🇬 5倍率-新加坡
+      - 🇯🇵 5倍率-日本1
+      - 🇯🇵 5倍率-日本2
+      - 🇺🇸 5倍率-美国04
+      - 🇺🇸 5倍率-美国09
+      - 🇺🇸 5倍率-美国g
+      - 🇻🇳 5倍率-越南
+      - 🇰🇷 5倍率-韩国
+      - 🇭🇰 5倍率-香港1
+      - 🇭🇰 5倍率-香港2
+      - 🇭🇰 5倍率-香港3
+      - 🇭🇰 5倍率-香港4
+      - 🇭🇰 5倍率-香港5
+      - 🇭🇰 5倍率-香港6
+      - 🇺🇸 10倍率-ai专用-美国01a
+      - 🇺🇸 10倍率-ai专用-美国01b
+      - 🇺🇸 10倍率-ai专用-美国02a
+      - 🇺🇸 10倍率-ai专用-美国02b
+      - 🇺🇸 10倍率-ai专用-美国03a
+      - 🇺🇸 10倍率-ai专用-美国03b
+      - 🇺🇸 10倍率-ai专用-美国04a
+      - 🇺🇸 10倍率-ai专用-美国04b
+      - 🇺🇸 10倍率-ai专用-美国05a
+      - 🇺🇸 10倍率-ai专用-美国05b
+      - 🇺🇸 10倍率-ai专用-美国06a
+      - 🇺🇸 10倍率-ai专用-美国06b
+      - 🇺🇸 10倍率-ai专用-美国07a
+      - 🇺🇸 10倍率-ai专用-美国07b
+      - 🇺🇸 10倍率-ai专用-美国08a
+      - 🇺🇸 10倍率-ai专用-美国08b
+      - 🇺🇸 10倍率-ai专用-美国09a
+      - 🇺🇸 10倍率-ai专用-美国09b
+      - 🇺🇸 10倍率-ai专用-美国10a
+      - 🇺🇸 10倍率-ai专用-美国10b
+      - 🇺🇸 10倍率-ai专用-美国11a
+      - 🇺🇸 10倍率-ai专用-美国11b
+      - 🇺🇸 10倍率-ai专用-美国12a
+      - 🇺🇸 10倍率-ai专用-美国12b
+      - 🇺🇸 10倍率-ai专用-美国13a
+      - 🇺🇸 10倍率-ai专用-美国13b
+      - 🇺🇸 10倍率-ai专用-美国14a
+      - 🇺🇸 10倍率-ai专用-美国14b
+      - 🇺🇸 10倍率-ai专用-美国15a
+      - 🇺🇸 10倍率-ai专用-美国15b
+      - 🇺🇸 10倍率-ai专用-美国16a
+      - 🇺🇸 10倍率-ai专用-美国16b
+      - 🇺🇸 10倍率-美国-t1
       - 🇺🇸 10倍率-美国-t2
 
   - name: 🎯不用代理
@@ -935,6 +1074,34 @@ proxy-groups:
 rules:
  - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT-DROP
  - GEOSITE,google,🔰节点选择
+ - GEOSITE,ibkr,🔰节点选择
+ - DOMAIN-SUFFIX,sagepub.com,🔰节点选择
+ - DOMAIN-SUFFIX,futuesop.com,🔰节点选择
+ - DOMAIN-SUFFIX,futufin.com,🔰节点选择
+ - DOMAIN-SUFFIX,futuhk.com,🔰节点选择
+ - DOMAIN-SUFFIX,futuhkapp.com,🔰节点选择
+ - DOMAIN-SUFFIX,futuhn.com,🔰节点选择
+ - DOMAIN-SUFFIX,futuholdings.com,🔰节点选择
+ - DOMAIN-SUFFIX,futuniuniu.com,🔰节点选择
+ - DOMAIN-SUFFIX,futunn.com,🔰节点选择
+ - DOMAIN-SUFFIX,futustatic.com,🔰节点选择
+ - DOMAIN-SUFFIX,moomoo.com,🔰节点选择
+ - DOMAIN-SUFFIX,moomooequity.com,🔰节点选择
+ - DOMAIN-SUFFIX,moomootrustee.com,🔰节点选择
+ - DOMAIN-SUFFIX,itiger.com,🔰节点选择
+ - DOMAIN-SUFFIX,itigergrowth.com,🔰节点选择
+ - DOMAIN-SUFFIX,itigergrowtha.com,🔰节点选择
+ - DOMAIN-SUFFIX,itigerup.com,🔰节点选择
+ - DOMAIN-SUFFIX,longbridge.cloud,🔰节点选择
+ - DOMAIN-SUFFIX,longbridge.com,🔰节点选择
+ - DOMAIN-SUFFIX,longbridge.global,🔰节点选择
+ - DOMAIN-SUFFIX,longbridge.hk,🔰节点选择
+ - DOMAIN-SUFFIX,longbridge.sg,🔰节点选择
+ - DOMAIN-SUFFIX,longbridgeapp.com,🔰节点选择
+ - DOMAIN-SUFFIX,longportapp.com,🔰节点选择
+ - DOMAIN-SUFFIX,lbctrl.com,🔰节点选择
+ - DOMAIN-SUFFIX,lbkrs.com,🔰节点选择
+ - DOMAIN-SUFFIX,wbrks.com,🔰节点选择
  - GEOSITE,microsoft@cn,🧱国内网络
  - GEOSITE,apple-cn,🧱国内网络
  - GEOSITE,steam@cn,🧱国内网络
