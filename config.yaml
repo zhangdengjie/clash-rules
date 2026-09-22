@@ -219,52 +219,6 @@ proxy-providers:
       interval: 60
       timeout: 3000
       lazy: true
-    
-  # 飞鸟云国家
-  FeiniaoYun-SG:
-    type: http
-    url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/feiniaoyun.yaml
-    interval: 86400
-    path: ./providers/feiniaoyun_sg.yaml
-    filter: '(?i)(新加坡|SG|Singapore)'
-    # 加强过滤，排除可能有问题的节点
-    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(5|10)\.?0?\s*[x倍])'
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 60
-      timeout: 3000
-      lazy: true
-
-  FeiniaoYun-JP:
-    type: http
-    url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/feiniaoyun.yaml
-    interval: 86400
-    path: ./providers/feiniaoyun_jp.yaml
-    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka)'
-    # 加强过滤，排除可能有问题的节点
-    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(5|10)\.?0?\s*[x倍])'
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 60
-      timeout: 3000
-      lazy: true
-
-  FeiniaoYun-KR:
-    type: http
-    url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/feiniaoyun.yaml
-    interval: 86400
-    path: ./providers/feiniaoyun_kr.yaml
-    filter: '(?i)(韩国|KR|Korea|Seoul)'
-    # 加强过滤，排除可能有问题的节点
-    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(5|10)\.?0?\s*[x倍])'
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 60
-      timeout: 3000
-      lazy: true
 
   V2Free:
     type: http
@@ -278,52 +232,6 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 60
       timeout: 3000
-      lazy: true
-
-  # V2Free国家
-  V2Free-SG:
-    type: http
-    url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/v2free.yaml
-    interval: 86400
-    path: ./providers/v2free_sg.yaml
-    filter: '(?i)(新加坡|SG|Singapore)'
-    # 加强过滤，排除可能有问题的节点
-    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(5|10)\.?0?\s*[x倍])'
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 60
-      timeout: 3000
-      lazy: true
-
-  V2Free-JP:
-    type: http
-    url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/v2free.yaml
-    interval: 86400
-    path: ./providers/v2free_jp.yaml
-    filter: '(?i)(日本|JP|Japan|东京|Tokyo|大阪|Osaka)'
-    # 加强过滤，排除可能有问题的节点
-    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(5|10)\.?0?\s*[x倍])'
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 60 # 极其消耗 CPU 和网络资源（因为如果有 100 个节点，它就要发 100 个请求）
-      timeout: 3000
-      lazy: true
-
-  V2Free-KR:
-    type: http
-    url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/v2free.yaml
-    interval: 86400 # 单位 s
-    path: ./providers/v2free_kr.yaml
-    filter: '(?i)(韩国|KR|Korea|Seoul)'
-    # 加强过滤，排除可能有问题的节点
-    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(5|10)\.?0?\s*[x倍])'
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 60 # 单位 s
-      timeout: 3000 # 单位 ms
       lazy: true
 
 # 策略组配置
@@ -353,23 +261,22 @@ proxy-groups:
   - name: Fast-AI
     type: url-test
     # gpt https://chatgpt.com/cdn-cgi/trace
-    url: https://generativelanguage.googleapis.com/v1beta/models?key=AIzaSy
+    # url: https://generativelanguage.googleapis.com/v1beta/models?key=AIzaSy
+    url: https://www.gstatic.com/generate_204
     interval: 60
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
     lazy: false
     use:
-      - V2Free-SG
-      - FeiniaoYun-SG
-      - V2Free-JP
-      - FeiniaoYun-JP
-      - V2Free-KR
-      - FeiniaoYun-KR
+      - V2Free
+      - FeiniaoYun
+    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore)'
 
   - name: Auto-AI
     type: fallback
     # gpt https://chatgpt.com/cdn-cgi/trace
-    url: https://generativelanguage.googleapis.com/v1beta/models?key=AIzaSy
+    # url: https://generativelanguage.googleapis.com/v1beta/models?key=AIzaSy
+    url: https://www.gstatic.com/generate_204
     interval: 30
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
     timeout: 3000
@@ -378,26 +285,21 @@ proxy-groups:
     proxies:
       - CJP
     use:
-      - V2Free-SG
-      - FeiniaoYun-SG
-      - V2Free-JP
-      - FeiniaoYun-JP
-      - V2Free-KR
-      - FeiniaoYun-KR
+      - V2Free
+      - FeiniaoYun
+    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore)'
 
   - name: Select-AI
     type: select
     # gpt https://chatgpt.com/cdn-cgi/trace
-    url: https://generativelanguage.googleapis.com/v1beta/models?key=AIzaSy
+    # url: https://generativelanguage.googleapis.com/v1beta/models?key=AIzaSy
+    url: https://www.gstatic.com/generate_204
     proxies:
       - CJP
     use:
-      - V2Free-SG
-      - FeiniaoYun-SG
-      - V2Free-JP
-      - FeiniaoYun-JP
-      - V2Free-KR
-      - FeiniaoYun-KR
+      - V2Free
+      - FeiniaoYun
+    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore)'
 
   - name: Fast-Common
     type: url-test
