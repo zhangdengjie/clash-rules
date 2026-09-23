@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 ipv6: false
 # 开启 TCP 并发，显著降低握手延迟 (Meta内核特性)
-tcp-concurrent: true 
+tcp-concurrent: false 
 clash-for-android:
   append-system-dns: false
 unified-delay: true
@@ -215,9 +215,9 @@ proxy-providers:
     exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(5|10)\.?0?\s*[x倍])'
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
+      url: http://cp.cloudflare.com/generate_204
       interval: 300
-      timeout: 3000
+      timeout: 5000
       lazy: true
 
   V2Free:
@@ -229,61 +229,43 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
+      url: http://cp.cloudflare.com/generate_204
       interval: 300
-      timeout: 3000
+      timeout: 5000
       lazy: true
 
 # 策略组配置
 proxy-groups:
   - name: Fast-Feiniaoyun
     type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 60 # 基本不耗 CPU，只是一个逻辑判断
+    url: http://cp.cloudflare.com/generate_204
+    interval: 30 # 基本不耗 CPU，只是一个逻辑判断
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
-    timeout: 3000
+    timeout: 5000
     lazy: false
-    hidden: false
+    hidden: true
     use:
       - FeiniaoYun
 
   - name: Fast-V2Free
     type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 60
+    url: http://cp.cloudflare.com/generate_204
+    interval: 30
     tolerance: 50
-    timeout: 3000
+    timeout: 5000
     lazy: false
-    hidden: false
+    hidden: true
     use:
       - V2Free
 
   - name: Fast-AI
     type: url-test
-    # gpt https://chatgpt.com/cdn-cgi/trace
-    # url: https://generativelanguage.googleapis.com/v1beta/models?key=AIzaSy
-    url: https://www.gstatic.com/generate_204
-    interval: 60
-    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
-    timeout: 3000
-    lazy: false
-    use:
-      - V2Free
-      - FeiniaoYun
-    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore)'
-
-  - name: Auto-AI
-    type: fallback
-    # gpt https://chatgpt.com/cdn-cgi/trace
-    # url: https://generativelanguage.googleapis.com/v1beta/models?key=AIzaSy
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 30
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
-    timeout: 3000
-    lazy: true
-    hidden: false
-    proxies:
-      - CJP
+    timeout: 5000
+    lazy: false
+    hidden: true
     use:
       - V2Free
       - FeiniaoYun
@@ -291,9 +273,7 @@ proxy-groups:
 
   - name: Select-AI
     type: select
-    # gpt https://chatgpt.com/cdn-cgi/trace
-    # url: https://generativelanguage.googleapis.com/v1beta/models?key=AIzaSy
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     proxies:
       - CJP
     use:
@@ -303,10 +283,12 @@ proxy-groups:
 
   - name: Fast-Common
     type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 60
+    url: http://cp.cloudflare.com/generate_204
+    interval: 120
     tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
-    timeout: 3000
+    timeout: 5000
+    lazy: false
+    hidden: true
     use:
       - FeiniaoYun
       - V2Free
@@ -331,7 +313,6 @@ proxy-groups:
   - name: PROXY_AI
     type: select
     proxies:
-      - Auto-AI
       - Fast-AI
       - Select-AI
       - CJP
@@ -346,11 +327,11 @@ proxy-groups:
     
   - name: SERVER
     type: fallback
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 30
-    timeout: 3000
+    timeout: 5000
     tolerance: 100
-    lazy: true
+    lazy: false
     proxies:
       - CJP
       - Fast-V2Free
