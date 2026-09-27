@@ -92,8 +92,11 @@ dns:
   #################################################################
 
   fallback:
-    - https://1.1.1.1/dns-query
-    - https://8.8.8.8/dns-query
+    # - https://1.1.1.1/dns-query
+    # - https://8.8.8.8/dns-query
+    # 加快解析速度
+    - tcp://1.1.1.1:53
+    - tcp://8.8.8.8:53
 
   #################################################################
   # 国内 IP 使用国内 DNS
@@ -113,42 +116,11 @@ dns:
   #################################################################
 
   nameserver-policy:
-
-    geosite:google:
-      - https://1.1.1.1/dns-query
-
-    geosite:gfw:
-      - https://1.1.1.1/dns-query
-
-    geosite:openai:
-      - https://1.1.1.1/dns-query
-
-    geosite:anthropic:
-      - https://1.1.1.1/dns-query
-
-    +.github.com:
-      - https://1.1.1.1/dns-query
-
-    +.githubusercontent.com:
-      - https://1.1.1.1/dns-query
-
-    +.githubassets.com:
-      - https://1.1.1.1/dns-query
-
-    +.docker.io:
-      - https://1.1.1.1/dns-query
-
-    +.ghcr.io:
-      - https://1.1.1.1/dns-query
-
-    +.googleapis.com:
-      - https://1.1.1.1/dns-query
-
-    +.gstatic.com:
-      - https://1.1.1.1/dns-query
-
-    +.googleusercontent.com:
-      - https://1.1.1.1/dns-query
+    # 这一行直接包揽了 Google全家桶、被墙网站、OpenAI、Anthropic、GitHub全家桶、Docker全家桶
+    'geosite:google,gfw,openai,anthropic,github,docker': [tcp://1.1.1.1:53]
+    
+    # 如果未来你有少数几个不在 geosite 里的独立冷门域名，写在下面（写成单行数组格式更整洁）
+    # '+.example.com': [tcp://1.1.1.1:53]
 
     #################################################################
     # 新增：强制直连/国内域名使用阿里、腾讯 DNS 解析，避免 Fake-IP 错误
@@ -436,13 +408,13 @@ rule-providers:
     interval: 86400
 
 rules:
-
-  - IP-CIDR,43.161.254.214/32,DIRECT
-  - IP-CIDR,47.245.59.113/32,DIRECT
-  - IP-CIDR,47.84.58.248/32,DIRECT
   - DOMAIN,scamalytics.com,PROXY_AI
   - DOMAIN,ipinfo.io,PROXY_AI
   - DOMAIN-SUFFIX,test-ipv6.com,PROXY_AI
+  # 利用内置数据库，一行代码囊括该品牌旗下的几百个关联域名！
+  - GEOSITE,openai,PROXY_AI        # 包含 chatgpt.com, openai.com, oaistatic.com 等所有关联域名
+  - GEOSITE,anthropic,PROXY_AI     # 包含 claude.ai, claude.com, anthropic.com 等
+  - GEOSITE,google,PROXY_AI        # 包含 google, googleapis, gstatic, gemini, youtube 等全家桶
   # 强制蓝湖的所有子域名直接直连，且不进行 DNS 解析判断
   - DOMAIN-SUFFIX,lanhuapp.com,DIRECT
   - DOMAIN-SUFFIX,nolock.io,PROXY_COMMON 
@@ -492,16 +464,16 @@ rules:
   - DOMAIN,safebrowsing.googleapis.com,DIRECT
 
   # 3. AI 网站强制走 AI 策略组
-  - DOMAIN,ai.google.dev,PROXY_AI
-  - DOMAIN-SUFFIX,gstatic.com,PROXY_AI
-  - DOMAIN,lh3.googleusercontent.com,PROXY_AI
-  - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
-  - DOMAIN-SUFFIX,google.com,PROXY_AI
-  - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
-  - DOMAIN-SUFFIX,claude.ai,PROXY_AI
-  - DOMAIN-SUFFIX,claude.com,PROXY_AI
-  - DOMAIN-SUFFIX,openai.com,PROXY_AI
-  - DOMAIN-SUFFIX,chatgpt.com,PROXY_AI
+  # - DOMAIN,ai.google.dev,PROXY_AI
+  # - DOMAIN-SUFFIX,gstatic.com,PROXY_AI
+  # - DOMAIN,lh3.googleusercontent.com,PROXY_AI
+  # - DOMAIN-SUFFIX,googleapis.com,PROXY_AI
+  # - DOMAIN-SUFFIX,google.com,PROXY_AI
+  # - DOMAIN-SUFFIX,anthropic.com,PROXY_AI
+  # - DOMAIN-SUFFIX,claude.ai,PROXY_AI
+  # - DOMAIN-SUFFIX,claude.com,PROXY_AI
+  # - DOMAIN-SUFFIX,openai.com,PROXY_AI
+  # - DOMAIN-SUFFIX,chatgpt.com,PROXY_AI
   - DOMAIN-SUFFIX,sora.com,PROXY_AI
   - DOMAIN-SUFFIX,auth0.com,PROXY_AI
   - DOMAIN-SUFFIX,dola.com,PROXY_AI
