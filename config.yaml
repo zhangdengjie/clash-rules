@@ -158,9 +158,9 @@ dns:
     - https://doh.pub/dns-query
 
 proxies:
-  - name: "CJP"
+  - name: "CSG"
     type: vless
-    server: 8.209.235.108
+    server: 47.245.93.18
     port: 443
     uuid: f6372ca9-ebc9-4342-b92e-a3e6dce376be
     network: tcp
@@ -223,7 +223,7 @@ proxy-groups:
     type: select
     url: http://cp.cloudflare.com/generate_204
     proxies:
-      - CJP
+      - CSG
     use:
       - V2Free
       - FeiniaoYun
@@ -244,7 +244,7 @@ proxy-groups:
   - name: Select-Common
     type: select
     proxies:
-      - CJP
+      - CSG
     use:
       - V2Free
       - FeiniaoYun
@@ -256,21 +256,20 @@ proxy-groups:
     proxies:
       - Fast-Common
       - Select-Common
-      - CJP
 
   - name: PROXY_AI
     type: select
     proxies:
       - Fast-AI
       - Select-AI
-      - CJP
+      - CSG
       
   - name: GLOBAL_USE
     type: select
     proxies:
       - Select-Common
       - Select-AI
-      - CJP
+      - CSG
       - DIRECT
     
   - name: SERVER
@@ -281,7 +280,7 @@ proxy-groups:
     tolerance: 100
     lazy: false
     proxies:
-      - CJP
+      - CSG
     use:
       - V2Free
       - FeiniaoYun
