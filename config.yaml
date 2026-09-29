@@ -26,6 +26,7 @@ tun:
   bypass-domain:
     - '*.lanhuapp.com'
     - '*.douyin.com'
+    - "*.xixi2022.cc"
 
 dns:
   enable: true
@@ -407,6 +408,7 @@ rule-providers:
     interval: 86400
 
 rules:
+  - DOMAIN-SUFFIX,xixi2022.cc,DIRECT
   - DOMAIN,scamalytics.com,PROXY_AI
   - DOMAIN,ipinfo.io,PROXY_AI
   - DOMAIN-SUFFIX,test-ipv6.com,PROXY_AI
