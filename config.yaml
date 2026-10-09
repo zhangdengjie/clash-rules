@@ -222,8 +222,6 @@ proxy-groups:
   - name: Select-AI
     type: select
     url: http://cp.cloudflare.com/generate_204
-    proxies:
-      - CSG
     use:
       - V2Free
     filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore)'
@@ -257,12 +255,14 @@ proxy-groups:
     proxies:
       - Fast-Common
       - Select-Common
+      - CSG
 
   - name: PROXY_AI
     type: select
     proxies:
       - Fast-AI
       - Select-AI
+      - CSG
       
   - name: GLOBAL_USE
     type: select
