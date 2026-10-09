@@ -184,7 +184,7 @@ proxy-providers:
     interval: 86400
     path: ./providers/feiniaoyun.yaml
     # 加强过滤，排除可能有问题的节点
-    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(5|10)\.?0?\s*[x倍])'
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(?:0?\.\d+|0)\s*[x倍]|(?:5|10)\.?0?\s*[x倍])'
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
@@ -196,7 +196,8 @@ proxy-providers:
     type: http
     path: ./providers/v2free.yaml
     url: https://raw.githubusercontent.com/zhangdengjie/clash-rules/refs/heads/main/v2free.yaml
-    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(5|10)\.?0?\s*[x倍])'
+    # exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(5|10)\.?0?\s*[x倍])'
+    exclude-filter: '(?i)(学术|不保证可用|到期|剩余|流量|测试|官网|更新|(?:0?\.\d+|0)\s*[x倍]|(?:5|10)\.?0?\s*[x倍])'
     interval: 86400
     health-check:
       enable: true
