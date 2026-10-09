@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 ipv6: false
 # 开启 TCP 并发，显著降低握手延迟 (Meta内核特性)
-tcp-concurrent: false 
+tcp-concurrent: true 
 clash-for-android:
   append-system-dns: false
 unified-delay: true
@@ -241,7 +241,7 @@ proxy-groups:
     use:
       - V2Free
       - FeiniaoYun
-    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|香港|HK|台湾|TW|美国)'
+    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore)'
     
   - name: Select-Common
     type: select
