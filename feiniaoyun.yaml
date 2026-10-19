@@ -18,59 +18,49 @@ dns:
     fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
     fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 proxies:
-    - { name: '剩余流量：50 GB', server: sg01.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: '距离下次重置剩余：25 天', server: sg01.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: '剩余流量：46.7 GB', server: sg01.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: '距离下次重置剩余：12 天', server: sg01.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: 套餐到期：2027-08-06, server: sg01.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: 新加坡01aws, server: sg01.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: 新加坡02aws, server: sg02.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: vless新加坡01aws, type: vless, server: 1sg001.344211.cc, port: 8443, uuid: ddb2d7dd-c889-49a0-ae5b-beabaf020f75, udp: true, tls: true, skip-cert-verify: false, flow: xtls-rprx-vision, client-fingerprint: firefox, servername: www.python.org, reality-opts: { public-key: 2a0ONLRiBeHJdr9qCruq5tPVf8_3c4fmZsg7YQorFSE, short-id: 04d59340 } }
     - { name: 新加坡03aws, server: sg03.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 新加坡04aws, server: sg04.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: 新加坡04aws, server: sg0004.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: 新加坡05aws, server: sg05.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: 新加坡06aws, server: sg06.459292.xyz, port: 8080, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 新加坡07aws, server: sg07.459292.xyz, port: 8080, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 新加坡10aws, server: sg10.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 新加坡19aws, server: sg19.459921.xyz, port: 8080, udp: true, skip-cert-verify: true, sni: sg19.459921.xyz, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 美国01aws, server: dbb53608.459921.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: 新加坡11aws, server: sg11.344211.cc, port: 8080, udp: true, skip-cert-verify: true, sni: sg11.344211.cc, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: 美国01aws, server: dbb53608000.344211.cc, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: 美国02aws, server: us02.459292.xyz, port: 8080, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: 美国03aws, server: us03.459292.xyz, port: 20000, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 美国04aws, server: us04.459292.xyz, port: 20001, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: 美国04aws, server: us04.459292.xyz, port: 20001, udp: true, skip-cert-verify: true, sni: us04.459292.xyz, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: 美国05aws, server: cfus01.459292.xyz, port: 30001, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 日本03aws, server: jp06.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: 美国06aws, server: rdfhvcabfq.130239.xyz, port: 30001, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: 美国07aws, server: egasdgas.130239.xyz, port: 30001, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: 美国12aws, server: vxiwjvizkhv.130239.xyz, port: 30001, udp: true, skip-cert-verify: true, sni: vxiwjvizkhv.130239.xyz, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: 日本01aws, server: 1jp003.459292.xyz, port: 30001, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: 日本03aws, server: jp06.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: jp06.459292.xyz, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: 日本04aws, server: hyfnjp03.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 日本05aws, server: jp03.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 日本06aws, server: hyfnjp01.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 日本07aws, server: 27add0b5.459921.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 日本08aws, server: 5791271f.459921.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 日本09aws, server: 898ca7c3.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 日本10aws, server: 7a322d16.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 日本11aws, server: d3e887dc.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: 日本07aws, server: 27add0b5.344211.cc, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: 日本10aws, server: 7a322d16.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: 7a322d16.459292.xyz, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: 日本15aws, server: adsgasgav.344211.cc, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: hy2台湾01, server: tw1.459292.xyz, port: 8443, udp: true, skip-cert-verify: true, sni: tw1.459292.xyz, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: hy2台湾02, server: tw06.459292.xyz, port: 30001, udp: true, skip-cert-verify: true, sni: tw06.459292.xyz, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: hy2台湾03, server: tw5.459921.xyz, port: 30001, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: hy2台湾03, server: tw5.344211.cc, port: 30001, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: hy2台湾04, server: tw07.344211.cc, port: 8443, udp: true, skip-cert-verify: true, sni: tw07.344211.cc, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: hy2台湾05, server: tw4.459921.xyz, port: 30001, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: hy2台湾05, server: tw4.344211.cc, port: 30001, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: hy2台湾06, server: tw3.344211.cc, port: 30001, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: hy2台湾07, server: tw40.459921.xyz, port: 8080, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
+    - { name: hy2台湾07, server: tw40.344211.cc, port: 8080, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: hy2台湾08, server: tw11.344211.cc, port: 8080, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: hy2台湾09, server: 5gzdx.344211.cc, port: 30001, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: IPv6美国01, server: 143.110.236.23, port: 30001, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: IPv6美国07do, server: '2604:a880:4:1d0:0:3:3a5b:a000', port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: IPv6美国08do, server: '2604:a880:4:1d0:0:3:3bcf:1000', port: 8080, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: IPv6美国09do, server: '2604:a880:4:1d0:0:3:3c53:4000', port: 8443, udp: true, skip-cert-verify: true, sni: 146.190.145.177, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: IPv6美国10do, server: '2604:a880:4:1d0:0:3:3bcf:0', port: 8080, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 美国01a, server: 161.35.226.137, port: 8443, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 美国02a, server: '2604:a880:4:1d0:0:3:3a5b:5000', port: 8080, udp: true, skip-cert-verify: true, sni: localhost, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
-    - { name: 美国002, server: '2604:a880:4:1d0:0:3:3bce:f000', port: 8080, udp: true, skip-cert-verify: true, sni: hyfnus02.459921.xyz, type: hysteria2, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75 }
     - { name: 有超过20多个节点，不够请到官网使用文档，下载最新的客户端, type: trojan, server: 1.1.1.1, port: 8080, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75, udp: true, sni: 1.1.1.1 }
     - { name: 每次使用前更新订阅到最新，用不了，换个客户端，重新导入订阅，用手机流量试下。, type: trojan, server: 1.1.1.1, port: 8080, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75, udp: true, sni: 1.1.1.1 }
     - { name: '电报群https://t.me/feiniaoyunjichang', type: trojan, server: 1.1.1.1, port: 820, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75, udp: true, sni: 1.1.1.1 }
     - { name: '防失联页https://github.com/feiniaoyun', type: trojan, server: 2.2.2.2, port: 820, password: ddb2d7dd-c889-49a0-ae5b-beabaf020f75, udp: true, sni: 2.2.2.2 }
 proxy-groups:
-    - { name: 飞鸟云, type: select, proxies: [自动选择, 故障转移, '剩余流量：50 GB', '距离下次重置剩余：25 天', 套餐到期：2027-08-06, 新加坡01aws, 新加坡02aws, vless新加坡01aws, 新加坡03aws, 新加坡04aws, 新加坡05aws, 新加坡06aws, 新加坡07aws, 新加坡10aws, 新加坡19aws, 美国01aws, 美国03aws, 美国04aws, 美国05aws, 日本03aws, 日本04aws, 日本05aws, 日本06aws, 日本07aws, 日本08aws, 日本09aws, 日本10aws, 日本11aws, hy2台湾01, hy2台湾02, hy2台湾03, hy2台湾04, hy2台湾05, hy2台湾06, hy2台湾07, hy2台湾08, hy2台湾09, IPv6美国01, IPv6美国07do, IPv6美国08do, IPv6美国09do, IPv6美国10do, 美国01a, 美国02a, 美国002, 有超过20多个节点，不够请到官网使用文档，下载最新的客户端, 每次使用前更新订阅到最新，用不了，换个客户端，重新导入订阅，用手机流量试下。, '电报群https://t.me/feiniaoyunjichang', '防失联页https://github.com/feiniaoyun'] }
-    - { name: 自动选择, type: url-test, proxies: ['剩余流量：50 GB', '距离下次重置剩余：25 天', 套餐到期：2027-08-06, 新加坡01aws, 新加坡02aws, vless新加坡01aws, 新加坡03aws, 新加坡04aws, 新加坡05aws, 新加坡06aws, 新加坡07aws, 新加坡10aws, 新加坡19aws, 美国01aws, 美国03aws, 美国04aws, 美国05aws, 日本03aws, 日本04aws, 日本05aws, 日本06aws, 日本07aws, 日本08aws, 日本09aws, 日本10aws, 日本11aws, hy2台湾01, hy2台湾02, hy2台湾03, hy2台湾04, hy2台湾05, hy2台湾06, hy2台湾07, hy2台湾08, hy2台湾09, IPv6美国01, IPv6美国07do, IPv6美国08do, IPv6美国09do, IPv6美国10do, 美国01a, 美国02a, 美国002, 有超过20多个节点，不够请到官网使用文档，下载最新的客户端, 每次使用前更新订阅到最新，用不了，换个客户端，重新导入订阅，用手机流量试下。, '电报群https://t.me/feiniaoyunjichang', '防失联页https://github.com/feiniaoyun'], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
-    - { name: 故障转移, type: fallback, proxies: ['剩余流量：50 GB', '距离下次重置剩余：25 天', 套餐到期：2027-08-06, 新加坡01aws, 新加坡02aws, vless新加坡01aws, 新加坡03aws, 新加坡04aws, 新加坡05aws, 新加坡06aws, 新加坡07aws, 新加坡10aws, 新加坡19aws, 美国01aws, 美国03aws, 美国04aws, 美国05aws, 日本03aws, 日本04aws, 日本05aws, 日本06aws, 日本07aws, 日本08aws, 日本09aws, 日本10aws, 日本11aws, hy2台湾01, hy2台湾02, hy2台湾03, hy2台湾04, hy2台湾05, hy2台湾06, hy2台湾07, hy2台湾08, hy2台湾09, IPv6美国01, IPv6美国07do, IPv6美国08do, IPv6美国09do, IPv6美国10do, 美国01a, 美国02a, 美国002, 有超过20多个节点，不够请到官网使用文档，下载最新的客户端, 每次使用前更新订阅到最新，用不了，换个客户端，重新导入订阅，用手机流量试下。, '电报群https://t.me/feiniaoyunjichang', '防失联页https://github.com/feiniaoyun'], url: 'http://www.gstatic.com/generate_204', interval: 7200 }
+    - { name: 飞鸟云, type: select, proxies: [自动选择, 故障转移, '剩余流量：46.7 GB', '距离下次重置剩余：12 天', 套餐到期：2027-08-06, 新加坡01aws, 新加坡02aws, 新加坡03aws, 新加坡04aws, 新加坡05aws, 新加坡06aws, 新加坡11aws, 美国01aws, 美国02aws, 美国03aws, 美国04aws, 美国05aws, 美国06aws, 美国07aws, 美国12aws, 日本01aws, 日本03aws, 日本04aws, 日本07aws, 日本10aws, 日本15aws, hy2台湾01, hy2台湾02, hy2台湾03, hy2台湾04, hy2台湾05, hy2台湾06, hy2台湾07, hy2台湾08, hy2台湾09, 有超过20多个节点，不够请到官网使用文档，下载最新的客户端, 每次使用前更新订阅到最新，用不了，换个客户端，重新导入订阅，用手机流量试下。, '电报群https://t.me/feiniaoyunjichang', '防失联页https://github.com/feiniaoyun'] }
+    - { name: 自动选择, type: url-test, proxies: ['剩余流量：46.7 GB', '距离下次重置剩余：12 天', 套餐到期：2027-08-06, 新加坡01aws, 新加坡02aws, 新加坡03aws, 新加坡04aws, 新加坡05aws, 新加坡06aws, 新加坡11aws, 美国01aws, 美国02aws, 美国03aws, 美国04aws, 美国05aws, 美国06aws, 美国07aws, 美国12aws, 日本01aws, 日本03aws, 日本04aws, 日本07aws, 日本10aws, 日本15aws, hy2台湾01, hy2台湾02, hy2台湾03, hy2台湾04, hy2台湾05, hy2台湾06, hy2台湾07, hy2台湾08, hy2台湾09, 有超过20多个节点，不够请到官网使用文档，下载最新的客户端, 每次使用前更新订阅到最新，用不了，换个客户端，重新导入订阅，用手机流量试下。, '电报群https://t.me/feiniaoyunjichang', '防失联页https://github.com/feiniaoyun'], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
+    - { name: 故障转移, type: fallback, proxies: ['剩余流量：46.7 GB', '距离下次重置剩余：12 天', 套餐到期：2027-08-06, 新加坡01aws, 新加坡02aws, 新加坡03aws, 新加坡04aws, 新加坡05aws, 新加坡06aws, 新加坡11aws, 美国01aws, 美国02aws, 美国03aws, 美国04aws, 美国05aws, 美国06aws, 美国07aws, 美国12aws, 日本01aws, 日本03aws, 日本04aws, 日本07aws, 日本10aws, 日本15aws, hy2台湾01, hy2台湾02, hy2台湾03, hy2台湾04, hy2台湾05, hy2台湾06, hy2台湾07, hy2台湾08, hy2台湾09, 有超过20多个节点，不够请到官网使用文档，下载最新的客户端, 每次使用前更新订阅到最新，用不了，换个客户端，重新导入订阅，用手机流量试下。, '电报群https://t.me/feiniaoyunjichang', '防失联页https://github.com/feiniaoyun'], url: 'http://www.gstatic.com/generate_204', interval: 7200 }
 rules:
-    - 'DOMAIN,iuenc35ziec.684821.xyz,DIRECT'
+    - 'DOMAIN,dksjcnmx.908970.xyz,DIRECT'
     - 'DOMAIN,feiniaoyun.xyz,飞鸟云'
     - 'DOMAIN-SUFFIX,feiniaoyun.xyz,飞鸟云'
     - 'DOMAIN-SUFFIX,services.googleapis.cn,飞鸟云'
