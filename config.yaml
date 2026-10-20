@@ -219,7 +219,7 @@ proxy-groups:
     use:
       - V2Free
       - FeiniaoYun
-    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore)'
+    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|台湾|TW|美国)'
 
   - name: Select-AI
     type: select
@@ -227,7 +227,7 @@ proxy-groups:
     use:
       - V2Free
       - FeiniaoYun
-    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore)'
+    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|台湾|TW|美国)'
 
   - name: Fast-Common
     type: url-test
@@ -240,7 +240,7 @@ proxy-groups:
     use:
       - V2Free
       - FeiniaoYun
-    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore)'
+    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|香港|HK|台湾|TW|美国)'
     
   - name: Select-Common
     type: select
