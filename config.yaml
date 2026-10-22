@@ -273,6 +273,16 @@ proxy-groups:
       - Select-Common
       - Select-AI
       - DIRECT
+      
+  - name: CUSTOM
+    type: fallback
+    url: http://www.gstatic.com/generate_204
+    interval: 180
+    timeout: 5000
+    tolerance: 100
+    lazy: false
+    proxies:
+      - CSG
     
   - name: SERVER
     type: fallback
@@ -416,18 +426,20 @@ rules:
   - DOMAIN-SUFFIX,test-ipv6.com,PROXY_AI
   # ====================google 服务规则====================
   # Gemini 网页
-  - DOMAIN,gemini.google.com,PROXY_AI
+  - DOMAIN,www.google.com,CUSTOM
+  # Gemini 网页
+  - DOMAIN,gemini.google.com,CUSTOM
 
   # Google AI Studio
-  - DOMAIN,aistudio.google.com,PROXY_AI
-  - DOMAIN-SUFFIX,ai.google.dev,PROXY_AI
+  - DOMAIN,aistudio.google.com,CUSTOM
+  - DOMAIN-SUFFIX,ai.google.dev,CUSTOM
 
   # Gemini API
-  - DOMAIN,generativelanguage.googleapis.com,PROXY_AI
+  - DOMAIN,generativelanguage.googleapis.com,CUSTOM
 
   # Gemini 相关 Google API（按需启用）
-  - DOMAIN,alkalimakersuite-pa.clients6.google.com,PROXY_AI
-  - DOMAIN,proactivebackend-pa.googleapis.com,PROXY_AI
+  - DOMAIN,alkalimakersuite-pa.clients6.google.com,CUSTOM
+  - DOMAIN,proactivebackend-pa.googleapis.com,CUSTOM
   # ====================google 服务规则====================
   # 利用内置数据库，一行代码囊括该品牌旗下的几百个关联域名！
   - GEOSITE,openai,PROXY_COMMON        # 包含 chatgpt.com, openai.com, oaistatic.com 等所有关联域名
