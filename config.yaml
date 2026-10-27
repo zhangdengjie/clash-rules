@@ -201,7 +201,7 @@ proxy-groups:
     use:
       - V2Free
       - FeiniaoYun
-    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|台湾|TW|美国)'
+    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|美国)'
 
   - name: Select-AI
     type: select
@@ -209,7 +209,7 @@ proxy-groups:
     use:
       - V2Free
       - FeiniaoYun
-    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|台湾|TW|美国)'
+    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|美国)'
 
   - name: Fast-Common
     type: url-test
@@ -222,14 +222,14 @@ proxy-groups:
     use:
       - V2Free
       - FeiniaoYun
-    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|香港|HK|台湾|TW|美国)'
+    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|香港|HK|美国)'
     
   - name: Select-Common
     type: select
     use:
       - V2Free
       - FeiniaoYun
-    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|香港|HK|台湾|TW|美国)'
+    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|香港|HK|美国)'
 
   # 逻辑：优先尝试 V2Free 的自动选择，如果挂了/超时，自动降级到 Feiniaoyun
   # 这比 url-test 更稳定，不会因为两个都慢而选不出来
@@ -262,7 +262,7 @@ proxy-groups:
     use:
       - V2Free
       - FeiniaoYun
-    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|香港|HK|台湾|TW|美国)'
+    filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|香港|HK|美国)'
     
 # 规则集配置
 rule-providers:
