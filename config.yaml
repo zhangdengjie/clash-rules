@@ -232,8 +232,6 @@ proxy-groups:
       - FeiniaoYun
     filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|香港|HK|美国)'
 
-  # 逻辑：优先尝试 V2Free 的自动选择，如果挂了/超时，自动降级到 Feiniaoyun
-  # 这比 url-test 更稳定，不会因为两个都慢而选不出来
   - name: PROXY_COMMON
     type: select
     proxies:
@@ -388,12 +386,13 @@ rule-providers:
 
 rules:
   - DOMAIN-SUFFIX,xixi2022.cc,DIRECT
+  - DOMAIN-SUFFIX,opencode.ai,DIRECT
   - DOMAIN,scamalytics.com,PROXY_AI
   - DOMAIN,ipinfo.io,PROXY_AI
   - DOMAIN-SUFFIX,test-ipv6.com,PROXY_AI
   # ====================google 服务规则====================
-  # Gemini 网页
-  - DOMAIN,www.google.com,PROXY_AI
+  # Google 网页
+  - DOMAIN,www.google.com,PROXY_COMMON
   # Gemini 网页
   - DOMAIN,gemini.google.com,PROXY_AI
 
