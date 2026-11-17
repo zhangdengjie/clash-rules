@@ -386,7 +386,7 @@ rule-providers:
 
 rules:
   - DOMAIN-SUFFIX,xixi2022.cc,DIRECT
-  - DOMAIN-SUFFIX,opencode.ai,DIRECT
+  - DOMAIN-SUFFIX,opencode.ai,SERVER
   - DOMAIN,scamalytics.com,PROXY_AI
   - DOMAIN,ipinfo.io,PROXY_AI
   - DOMAIN-SUFFIX,test-ipv6.com,PROXY_AI
