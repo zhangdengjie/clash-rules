@@ -11,6 +11,10 @@ clash-for-android:
 unified-delay: true
 keep-alive-interval: 60
 
+profile:
+  store-selected: true
+  store-fake-ip: true
+
 hosts:
   mtalk.google.com: 108.177.125.188
 
@@ -189,6 +193,7 @@ proxy-providers:
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
+      expected-status: 204
       interval: 300
       timeout: 5000
       lazy: true
@@ -203,6 +208,7 @@ proxy-providers:
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
+      expected-status: 204
       interval: 300
       timeout: 5000
       lazy: true
@@ -211,12 +217,8 @@ proxy-providers:
 proxy-groups:
   - name: Fast-AI
     type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 90
-    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
-    timeout: 5000
-    lazy: false
-    hidden: false
+    tolerance: 150
+    max-failed-times: 10
     use:
       - V2Free
       - FeiniaoYun
@@ -224,9 +226,6 @@ proxy-groups:
 
   - name: Select-AI
     type: select
-    url: http://www.gstatic.com/generate_204
-    proxies:
-      - CJP
     use:
       - V2Free
       - FeiniaoYun
@@ -234,12 +233,8 @@ proxy-groups:
 
   - name: Fast-Common
     type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 90
-    tolerance: 50 # 降低容忍度，只要有更好的马上切（或者设大一点防抖动，建议50）
-    timeout: 5000
-    lazy: false
-    hidden: false
+    tolerance: 100
+    max-failed-times: 10
     use:
       - V2Free
       - FeiniaoYun
@@ -247,8 +242,6 @@ proxy-groups:
     
   - name: Select-Common
     type: select
-    proxies:
-      - CJP
     use:
       - V2Free
       - FeiniaoYun
@@ -275,11 +268,7 @@ proxy-groups:
     
   - name: SERVER
     type: fallback
-    url: http://www.gstatic.com/generate_204
-    interval: 60
-    timeout: 5000
-    tolerance: 100
-    lazy: false
+    max-failed-times: 10
     use:
       - V2Free
       - FeiniaoYun
