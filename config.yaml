@@ -184,7 +184,7 @@ proxies:
 proxy-providers:
   FeiniaoYun:
     type: http
-    url: https://sadvac.908970.xyz/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c
+    url: https://sadvac.908970.xyz/api/v1/client/subscribe?token=97d6d41bdc126c7d14c39558ee2a5b3c&flag=meta&name=%E9%A3%9E%E9%B8%9F%E4%BA%91
     interval: 86400
     path: ./providers/feiniaoyun.yaml
     filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|香港|HK|美国)'
@@ -220,15 +220,15 @@ proxy-groups:
     tolerance: 150
     max-failed-times: 10
     use:
-      # - V2Free
-      - FeiniaoYun
+      - V2Free
+      # - FeiniaoYun
     filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|美国)'
 
   - name: Select-AI
     type: select
     use:
-      # - V2Free
-      - FeiniaoYun
+      - V2Free
+      # - FeiniaoYun
     filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|美国)'
 
   - name: Fast-Common
@@ -236,15 +236,15 @@ proxy-groups:
     tolerance: 100
     max-failed-times: 10
     use:
-      # - V2Free
-      - FeiniaoYun
+      - V2Free
+      # - FeiniaoYun
     filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|香港|HK|美国)'
     
   - name: Select-Common
     type: select
     use:
-      # - V2Free
-      - FeiniaoYun
+      - V2Free
+      # - FeiniaoYun
     filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|香港|HK|美国)'
 
   - name: PROXY_COMMON
@@ -270,8 +270,8 @@ proxy-groups:
     type: fallback
     max-failed-times: 10
     use:
-      # - V2Free
-      - FeiniaoYun
+      - V2Free
+      # - FeiniaoYun
     filter: '(?i)(韩国|KR|Korea|Seoul|日本|JP|Japan|东京|Tokyo|大阪|Osaka|新加坡|SG|Singapore|香港|HK|美国)'
     
 # 规则集配置
