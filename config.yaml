@@ -215,15 +215,6 @@ proxy-providers:
 
 # 策略组配置
 proxy-groups:
-  - name: Fast-US
-    type: url-test
-    tolerance: 150
-    max-failed-times: 10
-    use:
-      - V2Free
-      # - FeiniaoYun
-    filter: '(?i)(美国)'
-
   - name: Fast-AI
     type: url-test
     tolerance: 150
@@ -410,9 +401,6 @@ rules:
   - DOMAIN,ipinfo.io,PROXY_AI
   - DOMAIN-SUFFIX,test-ipv6.com,PROXY_AI
   # ====================google 服务规则====================
-  - PROCESS-NAME,Antigravity,Fast-US
-  - PROCESS-NAME,Antigravity Helper,Fast-US
-  - PROCESS-NAME,Antigravity Helper (Renderer),Fast-US
   # Google 网页
   - DOMAIN,www.google.com,PROXY_COMMON
   # Gemini 网页
