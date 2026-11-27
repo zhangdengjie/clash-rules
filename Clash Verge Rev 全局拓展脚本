@@ -10,7 +10,6 @@ function main(config) {
   ];
 
   const excludedSet = new Set(excludedProviders);
-
   const providers = config["proxy-providers"] || {};
 
   excludedProviders.forEach(name => {
@@ -19,7 +18,7 @@ function main(config) {
 
   config["proxy-providers"] = providers;
 
-  // 同时清理代理组中对已删除 Provider 的引用
+  // 清理代理组中对已删除 Provider 的引用
   const groups = config["proxy-groups"] || [];
 
   groups.forEach(group => {
@@ -38,14 +37,19 @@ function main(config) {
   // 2. 进程分流名单
   // ==============================
 
+  // 新加坡：精确进程名称匹配
   const singaporeProcesses = [
-    // "Telegram"
+    // "Telegram",
   ];
 
-  const usProcesses = [
-    "Antigravity",
-    "Antigravity Helper",
-    "Antigravity Helper (Renderer)"
+  // 美国：正则进程名称匹配
+  const usProcessRegex = [
+    // Antigravity 主进程及所有 Helper 子进程
+    "(?i).*antigravity.*",
+    "(?i).*devin.*",
+    // 其他应用可以继续添加正则
+    // "^Google Chrome$",
+    // "^Code( Helper.*)?$",
   ];
 
   // ==============================
@@ -90,30 +94,45 @@ function main(config) {
 
   const processRules = [];
 
+  // 新加坡：PROCESS-NAME
   singaporeProcesses.forEach(process => {
     processRules.push(
       `PROCESS-NAME,${process},新加坡节点`
     );
   });
 
-  usProcesses.forEach(process => {
+  // 美国：PROCESS-NAME-REGEX
+  usProcessRegex.forEach(regex => {
     processRules.push(
-      `PROCESS-NAME,${process},美国节点`
+      `PROCESS-NAME-REGEX,${regex},美国节点`
     );
   });
 
-  // 清理本脚本管理的旧规则
-  const managedProcesses = [
-    ...singaporeProcesses,
-    ...usProcesses
-  ];
+  // ==============================
+  // 5. 清理本脚本管理的旧规则
+  // ==============================
 
-  const managedRules = new Set(
-    managedProcesses.flatMap(process => [
+  const managedRules = new Set([
+    ...singaporeProcesses.flatMap(process => [
       `PROCESS-NAME,${process},新加坡节点`,
       `PROCESS-NAME,${process},美国节点`
-    ])
-  );
+    ]),
+
+    ...usProcessRegex.map(regex =>
+      `PROCESS-NAME-REGEX,${regex},美国节点`
+    )
+  ]);
+
+  // 兼容清理之前版本生成的 Antigravity 精确匹配规则
+  [
+    "Antigravity",
+    "Antigravity Helper",
+    "Antigravity Helper (Renderer)"
+  ].forEach(process => {
+    managedRules.add(
+      `PROCESS-NAME,${process},美国节点`
+    );
+  });
 
   config.rules = [
     ...processRules,
