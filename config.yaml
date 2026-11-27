@@ -397,14 +397,13 @@ rule-providers:
 
 rules:
   - DOMAIN-SUFFIX,xixi2022.cc,DIRECT
+  - DOMAIN,dl.google.com,DIRECT
   - DOMAIN,scamalytics.com,PROXY_AI
   - DOMAIN,ipinfo.io,PROXY_AI
   - DOMAIN-SUFFIX,test-ipv6.com,PROXY_AI
   # ====================google 服务规则====================
   # Google 网页
   - DOMAIN,www.google.com,PROXY_COMMON
-  # Gemini 网页
-  - DOMAIN,gemini.google.com,PROXY_AI
 
   # Google AI Studio
   - DOMAIN,aistudio.google.com,PROXY_AI
@@ -463,7 +462,6 @@ rules:
   - DOMAIN,v1.tlsa.top,DIRECT
   - DOMAIN,bugly.qq.com,DIRECT
   - DOMAIN,cas.bugly.qq.com,DIRECT
-  - DOMAIN,dl.google.com,DIRECT
   - DOMAIN,x1.344211.cc,DIRECT
   - DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
   - DOMAIN,safebrowsing.googleapis.com,DIRECT
