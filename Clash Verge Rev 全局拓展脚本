@@ -1,0 +1,126 @@
+
+function main(config) {
+
+  // ==============================
+  // 1. 排除指定的 Proxy Providers
+  // ==============================
+
+  const excludedProviders = [
+    "FeiniaoYun"
+  ];
+
+  const excludedSet = new Set(excludedProviders);
+
+  const providers = config["proxy-providers"] || {};
+
+  excludedProviders.forEach(name => {
+    delete providers[name];
+  });
+
+  config["proxy-providers"] = providers;
+
+  // 同时清理代理组中对已删除 Provider 的引用
+  const groups = config["proxy-groups"] || [];
+
+  groups.forEach(group => {
+    if (Array.isArray(group.use)) {
+      group.use = group.use.filter(
+        name => !excludedSet.has(name)
+      );
+
+      if (group.use.length === 0) {
+        delete group.use;
+      }
+    }
+  });
+
+  // ==============================
+  // 2. 进程分流名单
+  // ==============================
+
+  const singaporeProcesses = [
+    // "Telegram"
+  ];
+
+  const usProcesses = [
+    "Antigravity",
+    "Antigravity Helper",
+    "Antigravity Helper (Renderer)"
+  ];
+
+  // ==============================
+  // 3. 自动创建地区策略组
+  // ==============================
+
+  const regionGroups = [
+    {
+      name: "新加坡节点",
+      filter: "(?i)(新加坡|狮城|Singapore|🇸🇬|\\bSG\\b)"
+    },
+    {
+      name: "美国节点",
+      filter: "(?i)(美国|United States|UnitedStates|USA|🇺🇸|\\bUS\\b)"
+    }
+  ];
+
+  regionGroups.forEach(region => {
+
+    const exists = groups.some(
+      group => group.name === region.name
+    );
+
+    if (!exists) {
+      groups.push({
+        name: region.name,
+        type: "url-test",
+        "include-all": true,
+        filter: region.filter,
+        url: "https://www.gstatic.com/generate_204",
+        interval: 300,
+        tolerance: 50
+      });
+    }
+  });
+
+  config["proxy-groups"] = groups;
+
+  // ==============================
+  // 4. 生成进程分流规则
+  // ==============================
+
+  const processRules = [];
+
+  singaporeProcesses.forEach(process => {
+    processRules.push(
+      `PROCESS-NAME,${process},新加坡节点`
+    );
+  });
+
+  usProcesses.forEach(process => {
+    processRules.push(
+      `PROCESS-NAME,${process},美国节点`
+    );
+  });
+
+  // 清理本脚本管理的旧规则
+  const managedProcesses = [
+    ...singaporeProcesses,
+    ...usProcesses
+  ];
+
+  const managedRules = new Set(
+    managedProcesses.flatMap(process => [
+      `PROCESS-NAME,${process},新加坡节点`,
+      `PROCESS-NAME,${process},美国节点`
+    ])
+  );
+
+  config.rules = [
+    ...processRules,
+    ...(config.rules || []).filter(
+      rule => !managedRules.has(rule)
+    )
+  ];
+
+  return config;
+}
